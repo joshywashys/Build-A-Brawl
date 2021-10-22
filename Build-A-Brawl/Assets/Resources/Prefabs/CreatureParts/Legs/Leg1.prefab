@@ -106,11 +106,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4195713844845672286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3509fd199762e1b40a0a93dcd7bf2723, type: 3}
+  m_Script: {fileID: 11500000, guid: 042104255f155b64484f3d93042f4e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hipJointL: {fileID: 0}
-  hipJointR: {fileID: 0}
+  hipJointL: {fileID: 3878413562779326926}
+  hipJointR: {fileID: 3878413562779326926}
 --- !u!1 &8608201822782665994
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Head : BodyPart
 {
+    public Transform neckJoint;
+
     // Start is called before the first frame update
     void Start()
     {
