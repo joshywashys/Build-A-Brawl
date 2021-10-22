@@ -3817,7 +3817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659209895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.000000015148, y: 34.43, z: -14.95}
+  m_LocalPosition: {x: -0.000000015148, y: 29.3, z: -14.95}
   m_LocalScale: {x: 1.2541, y: 1.2541, z: 1.2541}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5027,8 +5027,8 @@ GameObject:
   - component: {fileID: 1884406689}
   - component: {fileID: 1884406688}
   - component: {fileID: 1884406687}
-  - component: {fileID: 1884406691}
   - component: {fileID: 1884406692}
+  - component: {fileID: 1884406691}
   m_Layer: 0
   m_Name: Cylinder (3)
   m_TagString: Untagged
@@ -5122,13 +5122,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1884406686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0add01f0b5d10a941a7b0b0e254a20be, type: 3}
+  m_Script: {fileID: 11500000, guid: 562e1ca07e12923418dd7136d3b78565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explode: {fileID: 7284482264880014555, guid: d30f6a821537c34499ad0787e4541186, type: 3}
   bits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
   explosionStrength: 800
-  limit: 15
+  limit: 14
 --- !u!54 &1884406692
 Rigidbody:
   m_ObjectHideFlags: 0
