@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Legs : BodyPart
 {
+    public Transform hipJointL;
+    public Transform hipJointR;
+
     // Start is called before the first frame update
     void Start()
     {

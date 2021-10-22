@@ -9,6 +9,8 @@ A separate script will be made to export the creature to a playable character.
  */
 public class PartCombiner : MonoBehaviour
 {
+    public Transform generationLocation;
+
     private static GameObject[] headList;
     private GameObject[] torsoList;
     private GameObject[] armsList;
@@ -19,21 +21,38 @@ public class PartCombiner : MonoBehaviour
     private GameObject currArms;
     private GameObject currLegs;
 
+    private GameObject newHead;
+    private GameObject newTorso;
+    private GameObject newArms;
+    private GameObject newLegs;
+
     private float legsHeight;
 
     //we will recreate the creature every time a part is swapped out, despite it not being optimal, since it's not cpu-heavy at all anyways.
     //If it turns out to be cpu-heavy, we can optimize it to adjust the part locations.
     public void generateCreature()
     {
-        //CURRENT BUG!!!!!!!!: leg GetHeight returns as 0 every time, but why?
+        //should probably do a bunch of checks to make sure each object has it's joints set up properly
 
-        //calculations
-        legsHeight = currLegs.GetComponent<Legs>().GetHeight();
-        print(legsHeight);
+        //spawn parts
+        newTorso = Instantiate(currTorso, generationLocation.position, Quaternion.identity, generationLocation);
+        newHead = Instantiate(currHead, generationLocation.position, Quaternion.identity, generationLocation);
+        newLegs = Instantiate(currLegs, generationLocation.position, Quaternion.identity, generationLocation);
 
-        //instantiations
-        Instantiate(currLegs, gameObject.transform);
-        Instantiate(currTorso, new Vector3(0, legsHeight, 0), Quaternion.identity, gameObject.transform);
+        //calculate where to move parts to attach to body parts
+        float headToNeck = newHead.transform.position.y - newHead.transform.GetChild(0).transform.position.y;
+        float torsoToNeck = newTorso.transform.position.y - newTorso.transform.GetChild(0).transform.position.y;
+
+        float legsToHips = newLegs.transform.GetChild(0).transform.position.y - newLegs.transform.position.y;
+        float torsoToHips = newTorso.transform.position.y - newTorso.transform.GetChild(3).transform.position.y;
+
+        //move each part
+        newHead.transform.Translate(0, headToNeck - torsoToNeck, 0);
+        newLegs.transform.Translate(0, -(legsToHips + torsoToHips), 0);
+
+        //shift creature up so that the bottom of the feet are at the spawnLocation
+        //generationLocation.transform.Translate...
+
     }
 
     void Start()
@@ -44,7 +63,7 @@ public class PartCombiner : MonoBehaviour
         armsList = Resources.LoadAll<GameObject>("Prefabs/CreatureParts/Arms");
         legsList = Resources.LoadAll<GameObject>("Prefabs/CreatureParts/Legs");
 
-        //set starting part to a random one
+        //set starting part to be a random one
         currHead = headList[Random.Range(0,headList.Length)];
         currTorso = torsoList[Random.Range(0, torsoList.Length)];
         currArms = armsList[Random.Range(0, armsList.Length)];
