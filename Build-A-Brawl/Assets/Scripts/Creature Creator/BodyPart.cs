@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //todo:
 //use tranforms that respresent joint links
@@ -24,6 +23,11 @@ INDEXES (what order to put the joints in inside the unity editor):
 */
 public class BodyPart : MonoBehaviour
 {
+    public enum PartType { Head, Torso, Arm, Leg }
+    public PartType partType;
+
+    public BodyPartData partData;
+
     //NOTE: width should always represent the X axis (wingspan). Z is depth.
     private float height;
     private float width;
@@ -33,7 +37,6 @@ public class BodyPart : MonoBehaviour
     {
         height = GetComponent<Collider>().bounds.size.y;
         width = GetComponent<Collider>().bounds.size.x;
-
     }
 
     public float GetHeight()
@@ -50,4 +53,20 @@ public class BodyPart : MonoBehaviour
     {
         
     }
+}
+
+[CreateAssetMenu(fileName = "BodyPart", menuName = "Creature/BodyPart")]
+public class BodyPartData : ScriptableObject
+{
+    public string part_name;
+    public Image part_image;
+    
+    [System.Serializable]
+    public struct Stats
+    {
+        // Data relating to stats for each body part go here
+        public float durability;
+    }
+
+    public Stats stats;
 }
