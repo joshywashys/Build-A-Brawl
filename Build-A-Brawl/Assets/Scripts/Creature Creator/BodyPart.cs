@@ -27,6 +27,8 @@ public class BodyPart : MonoBehaviour
     public PartType partType;
 
     public BodyPartData partData;
+    public enum PartSide { None, Left, Right }
+    public PartSide partSide;
 
     //NOTE: width should always represent the X axis (wingspan). Z is depth.
     private float height;
@@ -47,11 +49,6 @@ public class BodyPart : MonoBehaviour
     public float GetWidth()
     {
         return width;
-    }
-
-    void Update()
-    {
-        
     }
 }
 
