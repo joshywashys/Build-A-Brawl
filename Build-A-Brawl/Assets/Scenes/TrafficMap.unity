@@ -9328,7 +9328,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23496
+  m_Name: pb_Mesh20326
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25210,6 +25210,7 @@ GameObject:
   - component: {fileID: 2093460127}
   - component: {fileID: 2093460126}
   - component: {fileID: 2093460125}
+  - component: {fileID: 2093460131}
   m_Layer: 0
   m_Name: testPerson
   m_TagString: Untagged
@@ -25229,6 +25230,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656a52185d39ac7468d94ac4226fdd8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveInputEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2093460131}
+        m_TargetAssemblyTypeName: playerController, Assembly-CSharp
+        m_MethodName: OnMoveInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!64 &2093460126
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25522,6 +25538,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2093460131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093460124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7eebc9ff216894fa31b642374c8a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveVelocity: 5
+  rotationSpeed: 280
 --- !u!43 &2112389527
 Mesh:
   m_ObjectHideFlags: 0
