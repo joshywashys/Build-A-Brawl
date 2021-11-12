@@ -69,7 +69,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a1953631-53c6-425d-ade5-5abe66ecc076"",
-                    ""path"": ""<XInputController>/rightStick"",
+                    ""path"": ""<XInputController>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

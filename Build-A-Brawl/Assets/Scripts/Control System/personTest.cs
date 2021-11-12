@@ -22,7 +22,7 @@ public class personTest : MonoBehaviour
 
     void Awake()
     {
-        //Set up specific class controls
+        //Set up class controls
         playerControls = new Controls();
     }
 
@@ -47,6 +47,7 @@ public class personTest : MonoBehaviour
        // Debug.Log($"Player Controller: Move Input:{moveInput}");
     }
 
+    // jump action function
     void OnJumpPerformed(InputAction.CallbackContext context)
     {
         Vector2 jumpInput = context.ReadValue<Vector2>();

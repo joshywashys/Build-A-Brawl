@@ -9,7 +9,7 @@ public class playerController : MonoBehaviour
     public float speed = 5.0f;
     public float rotationSpeed = 280.0f;
     public float jumpVelocity = 5.0f;
-
+    
     float horizontal;
     float vertical;
 
@@ -32,7 +32,12 @@ public class playerController : MonoBehaviour
             rotationToMoveDirection = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationToMoveDirection, rotationSpeed * Time.deltaTime);
         }
-        
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            moveDirection.y += Mathf.Sqrt(1.0f * -3.0f * -9.8f);
+        }
+
         transform.position += moveDirection * speed * Time.deltaTime;
         
     }
