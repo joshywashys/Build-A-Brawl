@@ -2,7 +2,7 @@
     "name": "Controls",
     "maps": [
         {
-            "name": "Gameplay",
+            "name": "Player",
             "id": "f65156a2-e3a7-4f5d-a58e-abfcc8695d8b",
             "actions": [
                 {
@@ -23,7 +23,7 @@
                 },
                 {
                     "name": "Move",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "4c9ca148-5b17-48aa-90e6-3ae8fad9eb6a",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -37,7 +37,18 @@
                     "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "XboxController1",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7b7ef0b1-2c41-4163-a26e-8bd32662c61e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard1",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -48,7 +59,7 @@
                     "path": "<XInputController>/leftStick/",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "XboxController1",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -59,13 +70,91 @@
                     "path": "<XInputController>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "XboxController1",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "WASD",
+                    "id": "98363747-210e-46b3-ac9f-bc240738938f",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "2a2ffd26-a6d1-4b99-a874-32ab51ed7fb9",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard1",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "b6a87b33-72e0-4717-a151-8ef54f961fca",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard1",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "70fc78be-2a70-48dd-82f4-fb81e3f1d169",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard1",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "ed6eeb8d-b498-40d4-8487-582d63ea9a51",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard1",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "XboxController1",
+            "bindingGroup": "XboxController1",
+            "devices": [
+                {
+                    "devicePath": "<XInputController>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Keyboard1",
+            "bindingGroup": "Keyboard1",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

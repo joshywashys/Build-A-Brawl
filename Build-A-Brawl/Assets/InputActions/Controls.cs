@@ -15,7 +15,7 @@ public class @Controls : IInputActionCollection, IDisposable
     ""name"": ""Controls"",
     ""maps"": [
         {
-            ""name"": ""Gameplay"",
+            ""name"": ""Player"",
             ""id"": ""f65156a2-e3a7-4f5d-a58e-abfcc8695d8b"",
             ""actions"": [
                 {
@@ -36,7 +36,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Move"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""4c9ca148-5b17-48aa-90e6-3ae8fad9eb6a"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -50,7 +50,18 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""XboxController1"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b7ef0b1-2c41-4163-a26e-8bd32662c61e"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard1"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -61,7 +72,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/leftStick/"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""XboxController1"",
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -72,21 +83,99 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""XboxController1"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""98363747-210e-46b3-ac9f-bc240738938f"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""2a2ffd26-a6d1-4b99-a874-32ab51ed7fb9"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard1"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""b6a87b33-72e0-4717-a151-8ef54f961fca"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard1"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""70fc78be-2a70-48dd-82f4-fb81e3f1d169"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard1"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""ed6eeb8d-b498-40d4-8487-582d63ea9a51"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard1"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""XboxController1"",
+            ""bindingGroup"": ""XboxController1"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<XInputController>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Keyboard1"",
+            ""bindingGroup"": ""Keyboard1"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
-        // Gameplay
-        m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
-        m_Gameplay_Rotate = m_Gameplay.FindAction("Rotate", throwIfNotFound: true);
-        m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
+        // Player
+        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
+        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
+        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -133,39 +222,39 @@ public class @Controls : IInputActionCollection, IDisposable
         asset.Disable();
     }
 
-    // Gameplay
-    private readonly InputActionMap m_Gameplay;
-    private IGameplayActions m_GameplayActionsCallbackInterface;
-    private readonly InputAction m_Gameplay_Jump;
-    private readonly InputAction m_Gameplay_Rotate;
-    private readonly InputAction m_Gameplay_Move;
-    public struct GameplayActions
+    // Player
+    private readonly InputActionMap m_Player;
+    private IPlayerActions m_PlayerActionsCallbackInterface;
+    private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Rotate;
+    private readonly InputAction m_Player_Move;
+    public struct PlayerActions
     {
         private @Controls m_Wrapper;
-        public GameplayActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
-        public InputAction @Rotate => m_Wrapper.m_Gameplay_Rotate;
-        public InputAction @Move => m_Wrapper.m_Gameplay_Move;
-        public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
+        public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
+        public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
-        public void SetCallbacks(IGameplayActions instance)
+        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerActions instance)
         {
-            if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
+            if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
-                @Rotate.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
-                @Rotate.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
-                @Rotate.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
-                @Move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
+                @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Rotate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
             }
-            m_Wrapper.m_GameplayActionsCallbackInterface = instance;
+            m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Jump.started += instance.OnJump;
@@ -180,8 +269,26 @@ public class @Controls : IInputActionCollection, IDisposable
             }
         }
     }
-    public GameplayActions @Gameplay => new GameplayActions(this);
-    public interface IGameplayActions
+    public PlayerActions @Player => new PlayerActions(this);
+    private int m_XboxController1SchemeIndex = -1;
+    public InputControlScheme XboxController1Scheme
+    {
+        get
+        {
+            if (m_XboxController1SchemeIndex == -1) m_XboxController1SchemeIndex = asset.FindControlSchemeIndex("XboxController1");
+            return asset.controlSchemes[m_XboxController1SchemeIndex];
+        }
+    }
+    private int m_Keyboard1SchemeIndex = -1;
+    public InputControlScheme Keyboard1Scheme
+    {
+        get
+        {
+            if (m_Keyboard1SchemeIndex == -1) m_Keyboard1SchemeIndex = asset.FindControlSchemeIndex("Keyboard1");
+            return asset.controlSchemes[m_Keyboard1SchemeIndex];
+        }
+    }
+    public interface IPlayerActions
     {
         void OnJump(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
