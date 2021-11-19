@@ -1,5 +1,6 @@
 {"AssetBundle Nicknames" : [
-{"assetBundleName":"creatureparts/arms","assetBundleNickname":"creaturepartsArms"},
+{"assetBundleName":"creatureparts/armsl","assetBundleNickname":"creaturepartsArmsL"},
+{"assetBundleName":"creatureparts/armsr","assetBundleNickname":"creaturepartsArmsR"},
 {"assetBundleName":"creatureparts/heads","assetBundleNickname":"creaturepartsHeads"},
 {"assetBundleName":"creatureparts/legs","assetBundleNickname":"creaturepartsLegs"},
 {"assetBundleName":"creatureparts/torsos","assetBundleNickname":"creaturepartsTorsos"}

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2318139283
+CRC: 888295857
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 69797625e2242b3aeb62e4aff2a12363
+    Hash: 6d7376c13f319d66cb495396a19b1679
   TypeTreeHash:
     serializedVersion: 2
-    Hash: ccdf19e42652927b3ca1379ec4c0235c
+    Hash: 3ed6f409d7795602edc8350fc6f503ab
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -25,7 +25,11 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 65
   Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/BundledAssets/CreatureParts/Arms/Arm1.prefab
+- Assets/BundledAssets/CreatureParts/ArmsR/ArmR1.prefab
 Dependencies: []

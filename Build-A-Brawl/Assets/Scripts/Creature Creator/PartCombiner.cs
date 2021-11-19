@@ -10,7 +10,7 @@ A separate script will be made to export the creature to a playable character.
  */
 public class PartCombiner : MonoBehaviour
 {
-	public Transform generationLocation;
+	public Transform creatureContainer;
 	public int maxSaveSlots = 8;
 
 	private static bool m_resourcesLoaded = false;
@@ -18,19 +18,19 @@ public class PartCombiner : MonoBehaviour
 	
 	private GameObject currHead;
 	private GameObject currTorso;
-	private GameObject currArms;
-	private GameObject currLegs;
+	private GameObject currArmL;
+    private GameObject currArmR;
+    private GameObject currLegs;
 
 	private GameObject newHead;
 	private GameObject newTorso;
-	private GameObject newArms;
-	private GameObject newLegs;
-
-	private float legsHeight;
+	private GameObject newArmL;
+    private GameObject newArmR;
+    private GameObject newLegs;
 
 	private int[] bodyParts;
-	private CreatureData creature;
 
+	private CreatureData creature;
 	public CreatureData[] savedCreatureData;
 
 	//we will recreate the creature every time a part is swapped out, despite it not being optimal, since it's not cpu-heavy at all anyways.
@@ -40,24 +40,50 @@ public class PartCombiner : MonoBehaviour
 		//should probably do a bunch of checks to make sure each object has it's joints set up properly
 
 		//spawn parts
-		newTorso = Instantiate(currTorso, generationLocation.position, Quaternion.identity, generationLocation);
-		newHead = Instantiate(currHead, generationLocation.position, Quaternion.identity, generationLocation);
-		newLegs = Instantiate(currLegs, generationLocation.position, Quaternion.identity, generationLocation);
+		newTorso = Instantiate(currTorso, creatureContainer.position, Quaternion.identity, creatureContainer);
+		newHead = Instantiate(currHead, creatureContainer.position, Quaternion.identity, creatureContainer);
+		newArmL = Instantiate(currArmL, creatureContainer.position, Quaternion.identity, creatureContainer);
+        newArmR = Instantiate(currArmR, creatureContainer.position, Quaternion.identity, creatureContainer);
+        newLegs = Instantiate(currLegs, creatureContainer.position, Quaternion.identity, creatureContainer);
 
-		//calculate where to move parts to attach to body parts
-		float headToNeck = newHead.transform.position.y - newHead.transform.GetChild(0).transform.position.y;
-		float torsoToNeck = newTorso.transform.position.y - newTorso.transform.GetChild(0).transform.position.y;
+        //calculate where to move parts to attach to body parts
+        Vector3 headToNeck = newHead.transform.position - newHead.transform.GetChild(0).transform.position;
+		Vector3 torsoToNeck = newTorso.transform.position - newTorso.transform.GetChild(0).transform.position;
 
-		float legsToHips = newLegs.transform.GetChild(0).transform.position.y - newLegs.transform.position.y;
-		float torsoToHips = newTorso.transform.position.y - newTorso.transform.GetChild(3).transform.position.y;
+		Vector3 legsToHips = newLegs.transform.GetChild(0).transform.position - newLegs.transform.position;
+		Vector3 torsoToHips = newTorso.transform.position - newTorso.transform.GetChild(3).transform.position;
 
-		//move each part
-		newHead.transform.Translate(0, headToNeck - torsoToNeck, 0);
-		newLegs.transform.Translate(0, -(legsToHips + torsoToHips), 0);
+        Vector3 torsoToShoulderL = newTorso.transform.position + newTorso.transform.GetChild(1).transform.position;
+        Vector3 armLToShoulder = newArmL.transform.GetChild(0).transform.position + newArmL.transform.position;
 
-		//shift creature up so that the bottom of the feet are at the spawnLocation
-		//generationLocation.transform.Translate...
-	}
+        Vector3 torsoToShoulderR = newTorso.transform.position + newTorso.transform.GetChild(2).transform.position;
+        Vector3 armRToShoulder = newArmR.transform.GetChild(0).transform.position + newArmR.transform.position;
+
+        //move each part
+        newHead.transform.Translate(headToNeck - torsoToNeck);
+		newLegs.transform.Translate(-(legsToHips + torsoToHips));
+        newArmL.transform.Translate(torsoToShoulderL - armLToShoulder);
+        newArmR.transform.Translate(torsoToShoulderR - armRToShoulder);
+
+        //shift creature upwards
+        float headHeight = newHead.GetComponent<Renderer>().bounds.size.y;
+        float torsoHeight = newTorso.GetComponent<Renderer>().bounds.size.y;
+        float legsHeight = newLegs.GetComponent<Renderer>().bounds.size.y;
+        creatureContainer.transform.position = new Vector3(0, (headHeight + torsoHeight + legsHeight)/2, 0);
+        //creatureContainer.transform.position = new Vector3(0, , 0);
+        print(headHeight + torsoHeight + legsHeight);
+
+    }
+
+    public void nextPart()
+    {
+        
+    }
+
+    public void prevPart()
+    {
+        
+    }
 
 	// Looking through Unity Documentation highly suggests that the Resources System should not be used out side of Prototyping
 	// I'll be keeping this function in the script for the mean time but I'd suggest using Unity's AssetBundle system in for futur development
@@ -77,7 +103,7 @@ public class PartCombiner : MonoBehaviour
 	}
 	*/
 
-	// This will be the function used to handle Loading the game's body part assets
+	// Load body part assets
 	private static IEnumerator LoadAssets()
     {
 		partsList = new Dictionary<string, GameObject[]>();
@@ -85,8 +111,9 @@ public class PartCombiner : MonoBehaviour
 		{
 			BundleNameCache.creaturepartsHeads,
 			BundleNameCache.creaturepartsTorsos,
-			BundleNameCache.creaturepartsArms,
-			BundleNameCache.creaturepartsLegs
+			BundleNameCache.creaturepartsArmsL,
+            BundleNameCache.creaturepartsArmsR,
+            BundleNameCache.creaturepartsLegs
 		};
 
 		for (int i = 0; i < bundleNames.Length; i++) 
@@ -110,18 +137,20 @@ public class PartCombiner : MonoBehaviour
 
 		int headIndex = 0;
 		int TorsoIndex = 0;
-		int ArmIndex = 0;
-		int LegIndex = 0;
+		int ArmLIndex = 0;
+        int ArmRIndex = 0;
+        int LegIndex = 0;
 
 		// This is for testing... set true to use save - set false to load saved data
 #if true
 		//set starting part to be a random one and save output
 		headIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsHeads].Length);
 		TorsoIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsTorsos].Length);
-		ArmIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsArms].Length);
-		LegIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsLegs].Length);
+		ArmLIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsArmsL].Length);
+        ArmRIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsArmsR].Length);
+        LegIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsLegs].Length);
 
-		creature = new CreatureData(headIndex, TorsoIndex, ArmIndex, ArmIndex, LegIndex, LegIndex);
+		creature = new CreatureData(headIndex, TorsoIndex, ArmLIndex, ArmRIndex, LegIndex, LegIndex);
 
 		SaveCreatureData(0);
 #else
@@ -136,10 +165,11 @@ public class PartCombiner : MonoBehaviour
 
 		currHead = partsList[BundleNameCache.creaturepartsHeads][headIndex];
 		currTorso = partsList[BundleNameCache.creaturepartsTorsos][TorsoIndex];
-		currArms = partsList[BundleNameCache.creaturepartsArms][ArmIndex];
-		currLegs = partsList[BundleNameCache.creaturepartsLegs][LegIndex];
+		currArmL = partsList[BundleNameCache.creaturepartsArmsL][ArmLIndex];
+        currArmR = partsList[BundleNameCache.creaturepartsArmsR][ArmRIndex];
+        currLegs = partsList[BundleNameCache.creaturepartsLegs][LegIndex];
 
-		generateCreature();
+		//generateCreature();
 	}
 
 	void Start()
