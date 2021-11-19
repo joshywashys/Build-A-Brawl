@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.IO;
-using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 /*
 HOW/WHEN TO USE:
@@ -91,20 +91,19 @@ public class PartCombiner : MonoBehaviour
 	// Using the AssetManager class to load Assetbundles, if you'd like more features get in touch with Tristan
 	//
 	// https://learn.unity.com/tutorial/assets-resources-and-assetbundles?uv=2017.3#5c7f8528edbc2a002053b5a6
-	/*
+	
 	private static void LoadResources()
 	{
-		headList = Resources.LoadAll<GameObject>("Prefabs/CreatureParts/Heads");
-		torsoList = Resources.LoadAll<GameObject>("Prefabs/CreatureParts/Torsos");
-		armsList = Resources.LoadAll<GameObject>("Prefabs/CreatureParts/Arms");
-		legsList = Resources.LoadAll<GameObject>("Prefabs/CreatureParts/Legs");
+		GameObject[] headList = Resources.LoadAll<GameObject>("Prefabs/CreatureParts/Heads");
+		GameObject[] torsoList = Resources.LoadAll<GameObject>("Prefabs/CreatureParts/Torsos");
+		GameObject[] armsList = Resources.LoadAll<GameObject>("Prefabs/CreatureParts/Arms");
+		GameObject[] legsList = Resources.LoadAll<GameObject>("Prefabs/CreatureParts/Legs");
 
 		m_resourcesLoaded = true;
 	}
-	*/
-
-	// Load body part assets
-	private static IEnumerator LoadAssets()
+	
+	// This will be the function used to handle Loading the game's body part assets
+	private static async void LoadAssets()
     {
 		partsList = new Dictionary<string, GameObject[]>();
 		string[] bundleNames = 
@@ -116,22 +115,19 @@ public class PartCombiner : MonoBehaviour
             BundleNameCache.creaturepartsLegs
 		};
 
-		for (int i = 0; i < bundleNames.Length; i++) 
-		{
-			yield return AssetManager.LoadAllAssetsAsync<GameObject>(bundleNames[i], (GameObject[] results) =>
-				partsList.Add(bundleNames[i], results));
-		}
+		for (int i = 0; i < bundleNames.Length; i++)
+			partsList.Add(bundleNames[i], await AssetManager.LoadAllAssetsAsync<GameObject>(bundleNames[i]));
 
 		m_resourcesLoaded = true;
 	}
 
-	IEnumerator InitializeCreatureGeneration()
+	void InitializeCreatureGeneration()
 	{
 		//generate part lists:
 
 		// Load Resources only if they aren't loaded in already.
 		if (!m_resourcesLoaded)
-			yield return StartCoroutine(LoadAssets());
+			LoadAssets();
 
 		savedCreatureData = new CreatureData[maxSaveSlots];
 
@@ -149,6 +145,7 @@ public class PartCombiner : MonoBehaviour
 		ArmLIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsArmsL].Length);
         ArmRIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsArmsR].Length);
         LegIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsLegs].Length);
+
 
 		creature = new CreatureData(headIndex, TorsoIndex, ArmLIndex, ArmRIndex, LegIndex, LegIndex);
 
@@ -174,8 +171,8 @@ public class PartCombiner : MonoBehaviour
 
 	void Start()
     {
-		StartCoroutine(InitializeCreatureGeneration());
-    }
+		InitializeCreatureGeneration();
+	}
 
 	[System.Serializable]
 	public struct CreatureData
