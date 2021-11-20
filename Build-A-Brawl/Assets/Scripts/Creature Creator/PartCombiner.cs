@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,13 +11,19 @@ A separate script will be made to export the creature to a playable character.
  */
 public class PartCombiner : MonoBehaviour
 {
-	public Transform creatureContainer;
+    public Transform creatureContainer;
 	public int maxSaveSlots = 8;
 
 	private static bool m_resourcesLoaded = false;
 	private static Dictionary<string, GameObject[]> partsList;
-	
-	private GameObject currHead;
+
+    private int headIndex;
+    private int TorsoIndex;
+    private int ArmLIndex;
+    private int ArmRIndex;
+    private int LegIndex;
+
+    private GameObject currHead;
 	private GameObject currTorso;
 	private GameObject currArmL;
     private GameObject currArmR;
@@ -34,13 +41,21 @@ public class PartCombiner : MonoBehaviour
 	public CreatureData[] savedCreatureData;
 
 	//we will recreate the creature every time a part is swapped out, despite it not being optimal, since it's not cpu-heavy at all anyways.
-	//If it turns out to be cpu-heavy, we can optimize it to adjust the part locations.
+	//If it turns out to be cpu-heavy, we can optimize it to adjust part locations rather than re-generate.
 	public void generateCreature()
 	{
-		//should probably do a bunch of checks to make sure each object has it's joints set up properly
+        //should probably do a bunch of checks to make sure each object has it's joints set up properly
+        print("button hit");
 
-		//spawn parts
-		newTorso = Instantiate(currTorso, creatureContainer.position, Quaternion.identity, creatureContainer);
+        //clear previous creature
+        Destroy(newHead);
+        Destroy(newTorso);
+        Destroy(newArmL);
+        Destroy(newArmR);
+        Destroy(newLegs);
+
+        //spawn parts
+        newTorso = Instantiate(currTorso, creatureContainer.position, Quaternion.identity, creatureContainer);
 		newHead = Instantiate(currHead, creatureContainer.position, Quaternion.identity, creatureContainer);
 		newArmL = Instantiate(currArmL, creatureContainer.position, Quaternion.identity, creatureContainer);
         newArmR = Instantiate(currArmR, creatureContainer.position, Quaternion.identity, creatureContainer);
@@ -66,23 +81,12 @@ public class PartCombiner : MonoBehaviour
         newArmR.transform.Translate(torsoToShoulderR - armRToShoulder);
 
         //shift creature upwards
-        float headHeight = newHead.GetComponent<Renderer>().bounds.size.y;
-        float torsoHeight = newTorso.GetComponent<Renderer>().bounds.size.y;
-        float legsHeight = newLegs.GetComponent<Renderer>().bounds.size.y;
+        float headHeight = newHead.GetComponent<Collider>().bounds.size.y;
+        float torsoHeight = newTorso.GetComponent<Collider>().bounds.size.y;
+        float legsHeight = newLegs.GetComponent<Collider>().bounds.size.y;
         creatureContainer.transform.position = new Vector3(0, (headHeight + torsoHeight + legsHeight)/2, 0);
         //creatureContainer.transform.position = new Vector3(0, , 0);
-        print(headHeight + torsoHeight + legsHeight);
 
-    }
-
-    public void nextPart()
-    {
-        
-    }
-
-    public void prevPart()
-    {
-        
     }
 
 	// Looking through Unity Documentation highly suggests that the Resources System should not be used out side of Prototyping
@@ -135,12 +139,6 @@ public class PartCombiner : MonoBehaviour
 
 		savedCreatureData = new CreatureData[maxSaveSlots];
 
-		int headIndex = 0;
-		int TorsoIndex = 0;
-		int ArmLIndex = 0;
-        int ArmRIndex = 0;
-        int LegIndex = 0;
-
 		// This is for testing... set true to use save - set false to load saved data
 #if true
 		//set starting part to be a random one and save output
@@ -169,12 +167,17 @@ public class PartCombiner : MonoBehaviour
         currArmR = partsList[BundleNameCache.creaturepartsArmsR][ArmRIndex];
         currLegs = partsList[BundleNameCache.creaturepartsLegs][LegIndex];
 
-		//generateCreature();
+		generateCreature();
 	}
 
 	void Start()
     {
-		StartCoroutine(InitializeCreatureGeneration());
+        headIndex = 0;
+        TorsoIndex = 0;
+        ArmLIndex = 0;
+        ArmRIndex = 0;
+        LegIndex = 0;
+        StartCoroutine(InitializeCreatureGeneration());
     }
 
 	[System.Serializable]
@@ -236,4 +239,69 @@ public class PartCombiner : MonoBehaviour
 			savedCreatureData[i - 1] = JsonUtility.FromJson<CreatureData>(data[i]);
         }
     }
+
+    #region partswapping functions
+    public void nextHead()
+    {
+        if (headIndex < partsList[BundleNameCache.creaturepartsHeads].Length - 1)
+        {
+            headIndex += 1;
+            currHead = partsList[BundleNameCache.creaturepartsHeads][headIndex];
+            generateCreature();
+        }
+        print("LENGTH: " + partsList[BundleNameCache.creaturepartsHeads].Length + " INDEX: " + headIndex);
+    }
+
+    public void prevHead()
+    {
+        if (headIndex > 0)
+        {
+            headIndex -= 1;
+            currHead = partsList[BundleNameCache.creaturepartsHeads][headIndex];
+            generateCreature();
+        }
+      
+    }
+
+    public void nextTorso()
+    {
+
+    }
+
+    public void prevTorso()
+    {
+
+    }
+
+    public void nextArmL()
+    {
+
+    }
+
+    public void prevArmL()
+    {
+
+    }
+
+    public void nextArmR()
+    {
+
+    }
+
+    public void prevArmR()
+    {
+
+    }
+
+    public void nextLegs()
+    {
+
+    }
+
+    public void prevLegs()
+    {
+
+    }
+    #endregion
+
 }
