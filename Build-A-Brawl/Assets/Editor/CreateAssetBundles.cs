@@ -1,15 +1,21 @@
 using UnityEditor;
+using UnityEditor.Build;
+using UnityEditor.Build.Reporting;
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+using UnityEditorInternal;
 
-public static class CreateAssetBundles
+public class CreateAssetBundles : IPreprocessBuildWithReport
 {
 	static Dictionary<string, string> assetBundleNicknames;
+	static List<string> assetBundleIgnoreListGUID;
 
 	[MenuItem("Assets/Build All AssetBundles")]
 	static void BuildAllAssetBundles()
 	{
+		LoadPrefs();
+
 		string assetBundleDirectory = "Assets/StreamingAssets";
 		AssetDatabase.DeleteAsset(assetBundleDirectory);
 
@@ -31,12 +37,15 @@ public static class CreateAssetBundles
 		AssetDatabase.Refresh();
 	}
 
-	static void LoadNicknames()
+	public int callbackOrder { get { return 0; } }
+	public void OnPreprocessBuild(BuildReport report)
     {
-		assetBundleNicknames = new Dictionary<string, string>();
-		foreach (string name in AssetDatabase.GetAllAssetBundleNames())
-			assetBundleNicknames.Add(name, name);
+		Debug.Log("Building AssetBundles");
+		BuildAllAssetBundles();
+    }
 
+	static void LoadPrefs()
+    {
 		string editorPath = Path.Combine(Application.dataPath, "Editor/BuildAssetBundlePrefs.json");
 		if (!File.Exists(editorPath))
 		{
@@ -44,24 +53,33 @@ public static class CreateAssetBundles
 			return;
 		}
 
-		int assetBundleCount = assetBundleNicknames.Count;
-		string[] data = File.ReadAllText(editorPath).Split('\n');
-		for (int i = 1; i <= assetBundleCount; i++)
-		{
-			if (i < assetBundleCount)
-				data[i] = data[i].Remove(data[i].Length - 1);
+		string data = File.ReadAllText(editorPath);
+		BuildAssetBundlesPreferencesWindow.AssetBundlePreferencesData prefs = JsonUtility.FromJson<BuildAssetBundlesPreferencesWindow.AssetBundlePreferencesData>(data);
 
-			BuildAssetBundlesPreferencesWindow.AssetBundleNickname nickname = JsonUtility.FromJson<BuildAssetBundlesPreferencesWindow.AssetBundleNickname>(data[i]);
+		assetBundleNicknames = new Dictionary<string, string>();
+		foreach (string name in AssetDatabase.GetAllAssetBundleNames())
+			assetBundleNicknames.Add(name, name);
+
+		foreach (BuildAssetBundlesPreferencesWindow.AssetBundleNickname nickname in prefs.assetBundleNicknames)
+		{
 			if (!assetBundleNicknames.ContainsKey(nickname.assetBundleName))
 				continue;
 
 			assetBundleNicknames[nickname.assetBundleName] = nickname.assetBundleNickname;
 		}
+
+		assetBundleIgnoreListGUID = new List<string>();
+		foreach (string assetPath in prefs.assetBundleIgnorePaths)
+        {
+			string assetGUID = AssetDatabase.AssetPathToGUID(assetPath);
+			if (!string.IsNullOrEmpty(assetGUID) && !assetBundleIgnoreListGUID.Contains(assetGUID))
+				assetBundleIgnoreListGUID.Add(assetGUID);
+		}
 	}
 
 	public static void CreateBundleNameCache()
     {
-		LoadNicknames();
+		LoadPrefs();
 
 		using (StreamWriter outfile =
 			new StreamWriter(Path.Combine(Application.dataPath, "BundleNameCache.cs")))
@@ -104,12 +122,22 @@ public static class CreateAssetBundles
 
 	static void RecursiveDirectoryAssetScan(string currentDirectory, ref List<AssetBundlePathLink> outAssetPaths, ref List<string> outBundleNames)
 	{
-		string searchPattern = "*.prefab";
-
-		string label = currentDirectory.Replace(Path.Combine(Application.dataPath, "BundledAssets\\"), "");
-		foreach(string assetPath in Directory.GetFiles(currentDirectory, searchPattern))
-			outAssetPaths.Add(new AssetBundlePathLink(assetPath.Replace(Application.dataPath, "Assets"), label));
+		string path = currentDirectory.Replace(Application.dataPath, "Assets");
+		if (assetBundleIgnoreListGUID.Contains(AssetDatabase.AssetPathToGUID(path)))
+			return;
 		
+		string searchPattern = "*.prefab";
+		string label = currentDirectory.Replace(Path.Combine(Application.dataPath, "BundledAssets\\"), "");
+		
+		foreach (string assetPath in Directory.GetFiles(currentDirectory, searchPattern))
+		{
+			path = assetPath.Replace(Application.dataPath, "Assets");
+			Debug.Log($"{path} ({AssetDatabase.AssetPathToGUID(path)})");
+			if (assetBundleIgnoreListGUID.Contains(AssetDatabase.AssetPathToGUID(path)))
+				continue;
+
+			outAssetPaths.Add(new AssetBundlePathLink(path, label));
+		}
 		outBundleNames.Add(label);
 
 		string[] directories = Directory.GetDirectories(currentDirectory);
@@ -120,16 +148,25 @@ public static class CreateAssetBundles
 
 public class BuildAssetBundlesPreferencesWindow : EditorWindow
 {
-	Dictionary<string, string> assetBundleNicknames;
+	Dictionary<string, string> assetBundleNicknames = new Dictionary<string, string>();
+	public List<Object> assetIgnoreList = new List<Object>();
 
+	static bool openedFromMenu = false;
+	static BuildAssetBundlesPreferencesWindow prefWindow;
 	GUIStyle headerStyle, subHeaderStyle;
+	Vector2 scrollPos;
 
-	[MenuItem("Assets/Build AssetBundles Preferences")]
+	SerializedObject prefWindowSO;
+	ReorderableList ignoreListRE;
+
+	[UnityEditor.Callbacks.DidReloadScripts]
 	static void Init()
 	{
-		BuildAssetBundlesPreferencesWindow prefWindow = (BuildAssetBundlesPreferencesWindow)GetWindow(typeof(BuildAssetBundlesPreferencesWindow));
-		prefWindow.titleContent = new GUIContent("Build AssetBundle Preferences");
+		if (!HasOpenInstances<BuildAssetBundlesPreferencesWindow>() && !openedFromMenu)
+			return;
 
+		prefWindow = GetWindow<BuildAssetBundlesPreferencesWindow>("Build AssetBundle Preferences");
+		
 		GUIStyle headerStyle = new GUIStyle();
 		headerStyle.fontSize = 20;
 		headerStyle.fontStyle = FontStyle.Bold;
@@ -142,13 +179,37 @@ public class BuildAssetBundlesPreferencesWindow : EditorWindow
 		subHeaderStyle.padding = new RectOffset(5, 5, 2, 2);
 		prefWindow.subHeaderStyle = subHeaderStyle;
 
+		prefWindow.assetBundleNicknames = new Dictionary<string, string>();
+		prefWindow.assetIgnoreList = new List<Object>();
+
+		Rect _listRect = new Rect(Vector2.zero, Vector2.one * 500f);
+		prefWindow.prefWindowSO = new SerializedObject(prefWindow);
+		prefWindow.ignoreListRE = new ReorderableList(prefWindow.prefWindowSO, prefWindow.prefWindowSO.FindProperty("assetIgnoreList"), true, true, true, true);
+
+		prefWindow.ignoreListRE.drawHeaderCallback = (Rect rect) => EditorGUI.LabelField(rect, "Ignored Assets");
+		prefWindow.ignoreListRE.drawElementCallback = (Rect rect, int index, bool isActive, bool isFocues) =>
+		{
+			rect.y += 2f;
+			rect.height = EditorGUIUtility.singleLineHeight;
+
+			Object asset = prefWindow.assetIgnoreList[index];
+			GUIContent objectLabel = new GUIContent((asset != null) ? asset.name : "Empty");
+			EditorGUI.PropertyField(rect, prefWindow.ignoreListRE.serializedProperty.GetArrayElementAtIndex(index), objectLabel);
+		};
+
 		prefWindow.Refresh();
+	}
+
+	[MenuItem("Assets/Build AssetBundles Preferences")]
+	static void OpenWidnow()
+    {
+		openedFromMenu = true;
+		Init();
 		prefWindow.Show();
 	}
 
 	void Refresh()
 	{
-		assetBundleNicknames = new Dictionary<string, string>();
 		foreach (string name in AssetDatabase.GetAllAssetBundleNames())
 		{
 			string[] splitName = name.Split(new char[] { '\\', '/' });
@@ -159,9 +220,39 @@ public class BuildAssetBundlesPreferencesWindow : EditorWindow
 					splitName[i] = char.ToUpper(splitName[i][0]) + splitName[i].Substring(1);
 				nickname += splitName[i];
 			}
-			assetBundleNicknames.Add(name, nickname);
+
+			if (!assetBundleNicknames.ContainsKey(name))
+				assetBundleNicknames.Add(name, nickname);
+		}
+		
+		LoadSettings();
+	}
+
+	void RefreshWithClear()
+    {
+		foreach (string name in AssetDatabase.GetAllAssetBundleNames())
+		{
+			string[] splitName = name.Split(new char[] { '\\', '/' });
+			string nickname = "";
+			for (int i = 0; i < splitName.Length; i++)
+			{
+				if (i > 0)
+					splitName[i] = char.ToUpper(splitName[i][0]) + splitName[i].Substring(1);
+				nickname += splitName[i];
+			}
+
+			if (!assetBundleNicknames.ContainsKey(name))
+				assetBundleNicknames.Add(name, nickname);
 		}
 
+		List<Object> temp = new List<Object>();
+		foreach (Object asset in assetIgnoreList)
+        {
+			if (asset != null)
+				temp.Add(asset);
+        }
+		assetIgnoreList = temp;
+		
 		LoadSettings();
 	}
 
@@ -178,22 +269,36 @@ public class BuildAssetBundlesPreferencesWindow : EditorWindow
 		public string assetBundleNickname;
     }
 
+	public struct AssetBundlePreferencesData
+    {
+		public AssetBundleNickname[] assetBundleNicknames;
+		public string[] assetBundleIgnorePaths;
+    }
+
 	void ApplySettings()
     {
-		string data = "{\"AssetBundle Nicknames\" : [\n";
-		
-		int currentIndex = 0;
-		foreach (KeyValuePair<string, string> nickname in assetBundleNicknames)
-			data += JsonUtility.ToJson(new AssetBundleNickname(nickname.Key, nickname.Value)) + ((currentIndex++ == assetBundleNicknames.Count - 1) ? "" : ",") + '\n';
-		
-		data += "]}";
+		AssetBundlePreferencesData prefs = new AssetBundlePreferencesData();
 
+		List<AssetBundleNickname> nicknames = new List<AssetBundleNickname>();
+		foreach (KeyValuePair<string, string> nickname in assetBundleNicknames)
+			nicknames.Add(new AssetBundleNickname(nickname.Key, nickname.Value));
+		prefs.assetBundleNicknames = nicknames.ToArray();
+
+		List<string> ignores = new List<string>();
+		foreach (Object ignore in assetIgnoreList)
+		{
+			if (ignore != null)
+				ignores.Add(AssetDatabase.GetAssetPath(ignore));
+		}
+		prefs.assetBundleIgnorePaths = ignores.ToArray();
+
+		string data = JsonUtility.ToJson(prefs, true);
 		string editorPath = Path.Combine(Application.dataPath, "Editor/BuildAssetBundlePrefs.json");
 		File.WriteAllText(editorPath, data);
 
 		CreateAssetBundles.CreateBundleNameCache();
-		
 		AssetDatabase.Refresh();
+		RefreshWithClear();
 	}
 
 	void LoadSettings()
@@ -205,19 +310,18 @@ public class BuildAssetBundlesPreferencesWindow : EditorWindow
 			return;
 		}
 
-		int assetBundleCount = assetBundleNicknames.Count;
-		string[] data = File.ReadAllText(editorPath).Split('\n');
-		for (int i = 1; i <= assetBundleCount; i++)
-		{
-			if (i < assetBundleCount)
-				data[i] = data[i].Remove(data[i].Length - 1);
-
-			AssetBundleNickname nickname = JsonUtility.FromJson<AssetBundleNickname>(data[i]);
-			if (!assetBundleNicknames.ContainsKey(nickname.assetBundleName))
-				continue;
-
+		string data = File.ReadAllText(editorPath);
+		AssetBundlePreferencesData prefs = JsonUtility.FromJson<AssetBundlePreferencesData>(data);
+		
+		foreach (AssetBundleNickname nickname in prefs.assetBundleNicknames)
 			assetBundleNicknames[nickname.assetBundleName] = nickname.assetBundleNickname;
-		}
+		
+		foreach (string ignorePath in prefs.assetBundleIgnorePaths)
+        {
+			Object asset = AssetDatabase.LoadMainAssetAtPath(ignorePath);
+			if (asset != null && !assetIgnoreList.Contains(asset))
+				assetIgnoreList.Add(asset);
+        }			
 	}
 
 	void Default()
@@ -242,47 +346,57 @@ public class BuildAssetBundlesPreferencesWindow : EditorWindow
 			assetBundleNicknames[tempNicknames[i].assetBundleName] = tempNicknames[i].assetBundleNickname;
 	}
 
-    private void OnValidate()
-    {
-		Refresh();
-    }
-
     void OnGUI()
 	{
 		// Header
 		GUILayout.Label("Build AssetBundle Preferences", headerStyle);
-		GUILayout.Space(25);
-
-		// Nicknames
-		GUILayout.Label("AssetBundle Nicknames", subHeaderStyle);
+		GUILayout.Space(15);
+		scrollPos = GUILayout.BeginScrollView(scrollPos);
 		{
-			AssetBundleNickname[] tempNicknames = new AssetBundleNickname[assetBundleNicknames.Count];
-			int currentIndex = 0;
-			foreach (KeyValuePair<string, string> nickname in assetBundleNicknames)
+
+			// Nicknames
+			GUILayout.Space(10);
+			GUILayout.Label("AssetBundle Nicknames", subHeaderStyle);
 			{
-				tempNicknames[currentIndex] = new AssetBundleNickname(nickname.Key, nickname.Value);
-
-				GUILayout.BeginHorizontal();
+				AssetBundleNickname[] tempNicknames = new AssetBundleNickname[assetBundleNicknames.Count];
+				int currentIndex = 0;
+				foreach (KeyValuePair<string, string> nickname in assetBundleNicknames)
 				{
-					GUILayout.Label(nickname.Key);
-					tempNicknames[currentIndex].assetBundleNickname = GUILayout.TextField(nickname.Value);
-				}
-				GUILayout.EndHorizontal();
+					tempNicknames[currentIndex] = new AssetBundleNickname(nickname.Key, nickname.Value);
 
-				currentIndex++;
+					GUILayout.BeginHorizontal();
+					{
+						GUILayout.Label(nickname.Key);
+						tempNicknames[currentIndex].assetBundleNickname = GUILayout.TextField(nickname.Value);
+					}
+					GUILayout.EndHorizontal();
+					currentIndex++;
+				}
+
+				for (int i = 0; i < tempNicknames.Length; i++)
+					assetBundleNicknames[tempNicknames[i].assetBundleName] = tempNicknames[i].assetBundleNickname;
 			}
 
-			for (int i = 0; i < tempNicknames.Length; i++)
-				assetBundleNicknames[tempNicknames[i].assetBundleName] = tempNicknames[i].assetBundleNickname;
+			// Ignore Assets
+			GUILayout.Space(25);
+			GUILayout.Label("AssetBundle Ignore List", subHeaderStyle);
+			{
+				prefWindowSO.Update();
+				ignoreListRE.DoLayoutList();
+				prefWindowSO.ApplyModifiedProperties();
+			}
 		}
+		GUILayout.EndScrollView();
 
 		// Footer Buttons
+		GUILayout.Space(20);
 		GUILayout.BeginHorizontal();
 		{
-			if (GUILayout.Button("Refresh")) Refresh();
+			if (GUILayout.Button("Refresh")) RefreshWithClear();
 			if (GUILayout.Button("Default")) Default();
 			if (GUILayout.Button("Apply")) ApplySettings();
 		}
 		GUILayout.EndHorizontal();
+		GUILayout.Space(20);
 	}
 }

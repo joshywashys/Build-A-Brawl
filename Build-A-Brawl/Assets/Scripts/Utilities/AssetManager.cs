@@ -1,12 +1,9 @@
-using System.Collections;
 using System.IO;
+using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Events;
 
 public static class AssetManager
 {
-	static AssetManagerMono instance = null;
-
 	/// <summary>
 	/// Loads a single asset from an AssetBundle.
 	/// </summary>
@@ -56,32 +53,23 @@ public static class AssetManager
 	/// <typeparam name="T"></typeparam>
 	/// <param name="assetName"></param>
 	/// <param name="assetBundleName"></param>
-	/// <param name="callback"></param>
-	/// <returns>A coroutine of the loading process. Loaded assets will be returned through a callback function as a type T parameter.</returns>
-	public static Coroutine LoadAssetAsync<T>(string assetName, string assetBundleName, UnityAction<T> callback) where T : Object
-	{
-		if (instance == null)
-			new GameObject("AssetManager").AddComponent<AssetManagerMono>();
-
-		return instance.StartCoroutine(_LoadAssetAsync(assetName, assetBundleName, callback));
-	}
-
-	static IEnumerator _LoadAssetAsync<T>(string assetName, string assetBundleName, UnityAction<T> callback) where T : Object
+	/// <returns>A Task of type T. The function can be awaited to get the loaded asset.</returns>
+	public static async Task<T> LoadAssetAsync<T>(string assetName, string assetBundleName) where T : Object
     {
 		AssetBundleCreateRequest bunderRequest = AssetBundle.LoadFromFileAsync(Path.Combine(Application.streamingAssetsPath, assetBundleName));
-		yield return bunderRequest;
+		await Task.FromResult(bunderRequest);
 
 		AssetBundle bundle = bunderRequest.assetBundle;
 		if (bundle == null)
 		{
 			Debug.LogError($"AssetBundle - {assetBundleName} - could not be loaded.");
-			yield break;
+			return null;
 		}
 
 		T asset = bundle.LoadAsset<T>(assetName);
 		bundle.Unload(false);
 
-		callback(asset);
+		return asset;
 	}
 
 	/// <summary>
@@ -89,41 +77,22 @@ public static class AssetManager
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	/// <param name="assetBundleName"></param>
-	/// <param name="callback"></param>
-	/// <returns>A coroutine of the loading process. Loaded assets will be returned through a callback function as a type T[] parameter.</returns>
-	public static Coroutine LoadAllAssetsAsync<T>(string assetBundleName, UnityAction<T[]> callback) where T : Object
-    {
-		if (instance == null)
-			instance = new GameObject("AssetManager").AddComponent<AssetManagerMono>();
-
-		return instance.StartCoroutine(_LoadAllAssetsAsync(assetBundleName, callback));
-	}
-
-	static IEnumerator _LoadAllAssetsAsync<T>(string assetBundleName, UnityAction<T[]> callback) where T : Object
+	/// <returns>A Task of type T. The function can be awaited to get the loaded assets.</returns>
+	public static async Task<T[]> LoadAllAssetsAsync<T>(string assetBundleName) where T :  Object
 	{
 		AssetBundleCreateRequest bunderRequest = AssetBundle.LoadFromFileAsync(Path.Combine(Application.streamingAssetsPath, assetBundleName));
-		yield return bunderRequest;
+		await Task.FromResult(bunderRequest);
 
 		AssetBundle bundle = bunderRequest.assetBundle;
 		if (bundle == null)
 		{
 			Debug.LogError($"AssetBundle - {assetBundleName} - could not be loaded.");
-			yield break;
+			return null;
 		}
 
 		T[] assets = bundle.LoadAllAssets<T>();
 		bundle.Unload(false);
 
-		callback(assets);
+		return assets;
 	}
-
-
-	// MONOBEHAVIOR FUNCTIONS FOR RUNTIME EXECUTION OF ASYNC FUNCTIONS
-	class AssetManagerMono : MonoBehaviour
-    {
-        private void Start()
-        {
-			DontDestroyOnLoad(this);
-        }
-    }
 }

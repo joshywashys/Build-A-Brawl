@@ -1,9 +1,17 @@
 ManifestFileVersion: 0
+<<<<<<< Updated upstream:Build-A-Brawl/Assets/StreamingAssets/creatureparts/armsr.manifest
 CRC: 888295857
 Hashes:
   AssetFileHash:
     serializedVersion: 2
     Hash: 6d7376c13f319d66cb495396a19b1679
+=======
+CRC: 363158599
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7069d67d3b3b242996e1a2ea563ffddf
+>>>>>>> Stashed changes:Build-A-Brawl/Assets/StreamingAssets/creatureparts/arms.manifest
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3ed6f409d7795602edc8350fc6f503ab
