@@ -1,17 +1,9 @@
 ManifestFileVersion: 0
-<<<<<<< Updated upstream:Build-A-Brawl/Assets/StreamingAssets/creatureparts/armsr.manifest
-CRC: 888295857
+CRC: 1487395958
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6d7376c13f319d66cb495396a19b1679
-=======
-CRC: 363158599
-Hashes:
-  AssetFileHash:
-    serializedVersion: 2
-    Hash: 7069d67d3b3b242996e1a2ea563ffddf
->>>>>>> Stashed changes:Build-A-Brawl/Assets/StreamingAssets/creatureparts/arms.manifest
+    Hash: 0fa0704a5de3ef1ac3ef911bd5b6c7a6
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3ed6f409d7795602edc8350fc6f503ab
@@ -39,5 +31,6 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/BundledAssets/CreatureParts/ArmsR/monkeyArm_Centered_Mesh_Final_SeparatedRig.prefab
 - Assets/BundledAssets/CreatureParts/ArmsR/ArmR1.prefab
 Dependencies: []

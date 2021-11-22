@@ -18,10 +18,10 @@ public class PartCombiner : MonoBehaviour
 	private static Dictionary<string, GameObject[]> partsList;
 
     private int headIndex;
-    private int TorsoIndex;
-    private int ArmLIndex;
-    private int ArmRIndex;
-    private int LegIndex;
+    private int torsoIndex;
+    private int armLIndex;
+    private int armRIndex;
+    private int legIndex;
 
     private GameObject currHead;
 	private GameObject currTorso;
@@ -139,13 +139,13 @@ public class PartCombiner : MonoBehaviour
 #if true
 		//set starting part to be a random one and save output
 		headIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsHeads].Length);
-		TorsoIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsTorsos].Length);
-		ArmLIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsArmsL].Length);
-        ArmRIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsArmsR].Length);
-        LegIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsLegs].Length);
+		torsoIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsTorsos].Length);
+		armLIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsArmsL].Length);
+        armRIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsArmsR].Length);
+        legIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsLegs].Length);
 
 
-		creature = new CreatureData(headIndex, TorsoIndex, ArmLIndex, ArmRIndex, LegIndex, LegIndex);
+		creature = new CreatureData(headIndex, torsoIndex, armLIndex, armRIndex, legIndex, legIndex);
 
 		SaveCreatureData(0);
 #else
@@ -153,16 +153,16 @@ public class PartCombiner : MonoBehaviour
 		LoadCreatureData();
 
 		headIndex = savedCreatureData[0].head;
-		TorsoIndex = savedCreatureData[0].torso;
+		torsoIndex = savedCreatureData[0].torso;
 		ArmIndex = savedCreatureData[0].armLeft;
-		LegIndex = savedCreatureData[0].legLeft;
+		legIndex = savedCreatureData[0].legLeft;
 #endif
 
 		currHead = partsList[BundleNameCache.creaturepartsHeads][headIndex];
-		currTorso = partsList[BundleNameCache.creaturepartsTorsos][TorsoIndex];
-		currArmL = partsList[BundleNameCache.creaturepartsArmsL][ArmLIndex];
-        currArmR = partsList[BundleNameCache.creaturepartsArmsR][ArmRIndex];
-        currLegs = partsList[BundleNameCache.creaturepartsLegs][LegIndex];
+		currTorso = partsList[BundleNameCache.creaturepartsTorsos][torsoIndex];
+		currArmL = partsList[BundleNameCache.creaturepartsArmsL][armLIndex];
+        currArmR = partsList[BundleNameCache.creaturepartsArmsR][armRIndex];
+        currLegs = partsList[BundleNameCache.creaturepartsLegs][legIndex];
 
 		generateCreature();
 	}
@@ -170,10 +170,10 @@ public class PartCombiner : MonoBehaviour
 	void Start()
     {
         headIndex = 0;
-        TorsoIndex = 0;
-        ArmLIndex = 0;
-        ArmRIndex = 0;
-        LegIndex = 0;
+        torsoIndex = 0;
+        armLIndex = 0;
+        armRIndex = 0;
+        legIndex = 0;
         InitializeCreatureGeneration();
     }
 
@@ -246,7 +246,6 @@ public class PartCombiner : MonoBehaviour
             currHead = partsList[BundleNameCache.creaturepartsHeads][headIndex];
             generateCreature();
         }
-        print("LENGTH: " + partsList[BundleNameCache.creaturepartsHeads].Length + " INDEX: " + headIndex);
     }
 
     public void prevHead()
@@ -262,11 +261,22 @@ public class PartCombiner : MonoBehaviour
 
     public void nextTorso()
     {
-
+        if (torsoIndex < partsList[BundleNameCache.creaturepartsTorsos].Length - 1)
+        {
+            torsoIndex += 1;
+            currTorso = partsList[BundleNameCache.creaturepartsTorsos][torsoIndex];
+            generateCreature();
+        }
     }
 
     public void prevTorso()
     {
+        if (torsoIndex > 0)
+        {
+            torsoIndex -= 1;
+            currTorso = partsList[BundleNameCache.creaturepartsTorsos][torsoIndex];
+            generateCreature();
+        }
 
     }
 
@@ -282,11 +292,26 @@ public class PartCombiner : MonoBehaviour
 
     public void nextArmR()
     {
-
+        print("start:" + armRIndex);
+        if (armRIndex < partsList[BundleNameCache.creaturepartsArmsR].Length - 1)
+        {
+            armRIndex += 1;
+            currArmR = partsList[BundleNameCache.creaturepartsArmsR][armRIndex];
+            generateCreature();
+            print("end:" + armRIndex);
+        }
     }
 
     public void prevArmR()
     {
+        print("start:" + armRIndex);
+        if (armRIndex > 0)
+        {
+            armRIndex -= 1;
+            currArmR = partsList[BundleNameCache.creaturepartsArmsR][armRIndex];
+            generateCreature();
+            print("end:" + armRIndex);
+        }
 
     }
 
