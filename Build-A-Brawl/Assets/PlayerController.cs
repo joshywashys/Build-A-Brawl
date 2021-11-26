@@ -24,9 +24,12 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput = Vector2.zero;
     private bool jumped = false;
 
-    
+    private bool chkPickedUp = false;
     private bool pickedUpLeft = false;
     private bool pickedUpRight = false;
+    public GameObject Cone;
+    private throwableObject bool_script;
+     
 
     private void Start()
     {
@@ -50,9 +53,12 @@ public class PlayerController : MonoBehaviour
     //triggered on usage of pickup control
     public void OnPickUp(InputAction.CallbackContext context)
     {
-        // if items are not in posession of left arm, pickup in left
+        // these special conditions will be created *after* the initial action works
+        //if items are not in posession of left arm, pickup in left
         // else if items are not in posession of right arm, pickup in right
         // else emit UI of arms full
+
+        chkPickedUp = context.action.triggered;
         
     }
 
@@ -85,5 +91,14 @@ public class PlayerController : MonoBehaviour
         //applying movement to the character
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        if (chkPickedUp && !throwableObject.pickedUp)
+        {
+            throwableObject.pickedUp = true;
+        
+        } else if (chkPickedUp && throwableObject.pickedUp)
+        {
+            throwableObject.pickedUp = false;
+        }
     }
 }
