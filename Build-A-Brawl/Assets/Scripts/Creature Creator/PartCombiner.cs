@@ -45,7 +45,6 @@ public class PartCombiner : MonoBehaviour
 	public void generateCreature()
 	{
         //should probably do a bunch of checks to make sure each object has it's joints set up properly
-        print("button hit");
 
         //clear previous creature
         Destroy(newHead);
@@ -238,7 +237,7 @@ public class PartCombiner : MonoBehaviour
     }
 
     #region partswapping functions
-    public void nextHead()
+    public void NextHead()
     {
         if (headIndex < partsList[BundleNameCache.creaturepartsHeads].Length - 1)
         {
@@ -248,7 +247,7 @@ public class PartCombiner : MonoBehaviour
         }
     }
 
-    public void prevHead()
+    public void PrevHead()
     {
         if (headIndex > 0)
         {
@@ -259,7 +258,7 @@ public class PartCombiner : MonoBehaviour
       
     }
 
-    public void nextTorso()
+    public void NextTorso()
     {
         if (torsoIndex < partsList[BundleNameCache.creaturepartsTorsos].Length - 1)
         {
@@ -269,7 +268,7 @@ public class PartCombiner : MonoBehaviour
         }
     }
 
-    public void prevTorso()
+    public void PrevTorso()
     {
         if (torsoIndex > 0)
         {
@@ -280,49 +279,64 @@ public class PartCombiner : MonoBehaviour
 
     }
 
-    public void nextArmL()
+    public void NextArmL()
     {
-
+        if (armLIndex < partsList[BundleNameCache.creaturepartsArmsL].Length - 1)
+        {
+            armLIndex += 1;
+            currArmL = partsList[BundleNameCache.creaturepartsArmsL][armLIndex];
+            generateCreature();
+        }
     }
 
-    public void prevArmL()
+    public void PrevArmL()
     {
-
+        if (armLIndex > 0)
+        {
+            armLIndex -= 1;
+            currArmL = partsList[BundleNameCache.creaturepartsArmsL][armLIndex];
+            generateCreature();
+        }
     }
 
-    public void nextArmR()
+    public void NextArmR()
     {
-        print("start:" + armRIndex);
         if (armRIndex < partsList[BundleNameCache.creaturepartsArmsR].Length - 1)
         {
             armRIndex += 1;
             currArmR = partsList[BundleNameCache.creaturepartsArmsR][armRIndex];
             generateCreature();
-            print("end:" + armRIndex);
         }
     }
 
-    public void prevArmR()
+    public void PrevArmR()
     {
-        print("start:" + armRIndex);
         if (armRIndex > 0)
         {
             armRIndex -= 1;
             currArmR = partsList[BundleNameCache.creaturepartsArmsR][armRIndex];
             generateCreature();
-            print("end:" + armRIndex);
         }
-
     }
 
-    public void nextLegs()
+    public void NextLegs()
     {
-
+        if (legIndex < partsList[BundleNameCache.creaturepartsLegs].Length - 1)
+        {
+            legIndex += 1;
+            currLegs = partsList[BundleNameCache.creaturepartsLegs][legIndex];
+            generateCreature();
+        }
     }
 
-    public void prevLegs()
+    public void PrevLegs()
     {
-
+        if (legIndex > 0)
+        {
+            legIndex -= 1;
+            currLegs = partsList[BundleNameCache.creaturepartsLegs][legIndex];
+            generateCreature();
+        }
     }
     #endregion
 
