@@ -1,8 +1,12 @@
 {
     "assetBundleNicknames": [
         {
-            "assetBundleName": "creatureparts/arms",
-            "assetBundleNickname": "creaturepartsArms"
+            "assetBundleName": "creatureparts/armsl",
+            "assetBundleNickname": "creaturepartsArmsL"
+        },
+        {
+            "assetBundleName": "creatureparts/armsr",
+            "assetBundleNickname": "creaturepartsArmsR"
         },
         {
             "assetBundleName": "creatureparts/heads",
@@ -15,6 +19,10 @@
         {
             "assetBundleName": "creatureparts/torsos",
             "assetBundleNickname": "creaturepartsTorsos"
+        },
+        {
+            "assetBundleName": "creatureparts/arms",
+            "assetBundleNickname": "creaturepartsArms"
         }
     ],
     "assetBundleIgnorePaths": [
