@@ -21,20 +21,15 @@ INDEXES (what order to put the joints in inside the unity editor):
 4 hipJointR
 */
 
-/*
-Creature asset maker:
-
-
-*/
-
-public class BodyPart : MonoBehaviour
+public abstract class BodyPart : MonoBehaviour
 {
     //NOTE: width should always represent the X axis (wingspan). Z is depth.
     private float height;
     private float width;
+    private float depth;
 
     private float durability;
-    private float strength;
+    private float mass;
 
     //STORAGE
     public enum PartType { Head, Torso, Arm, Leg }
@@ -44,10 +39,11 @@ public class BodyPart : MonoBehaviour
     public enum PartSide { None, Left, Right }
     public PartSide partSide;
 
-    void Awake()
+    void Start()
     {
         height = GetComponent<Collider>().bounds.size.y;
         width = GetComponent<Collider>().bounds.size.x;
+        depth = GetComponent<Collider>().bounds.size.x;
     }
 
     #region getters/setters
@@ -59,6 +55,11 @@ public class BodyPart : MonoBehaviour
     public float GetWidth()
     {
         return width;
+    }
+
+    public float GetDepth()
+    {
+        return depth;
     }
     #endregion
 

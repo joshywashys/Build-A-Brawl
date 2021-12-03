@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1656948318
+CRC: 1504372440
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7271daf0e3321772821505d65e19d71d
+    Hash: c6e4698c27d63d7d4553cfe28562e053
   TypeTreeHash:
     serializedVersion: 2
     Hash: ccdf19e42652927b3ca1379ec4c0235c
@@ -28,4 +28,5 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/BundledAssets/CreatureParts/Torsos/Torso 1.prefab
+- Assets/BundledAssets/CreatureParts/Torsos/Torso 2.prefab
 Dependencies: []

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1635243118
+CRC: 2608500398
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0d3573f5ccca9c643591a8579f0e6c69
+    Hash: 4b7781ed7da5185a78b2682185a31091
   TypeTreeHash:
     serializedVersion: 2
     Hash: ccdf19e42652927b3ca1379ec4c0235c
@@ -28,4 +28,5 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/BundledAssets/CreatureParts/Legs/Leg1.prefab
+- Assets/BundledAssets/CreatureParts/Legs/Leg2.prefab
 Dependencies: []

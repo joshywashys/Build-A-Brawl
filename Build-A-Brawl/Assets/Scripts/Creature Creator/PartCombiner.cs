@@ -84,7 +84,6 @@ public class PartCombiner : MonoBehaviour
         float torsoHeight = newTorso.GetComponent<Collider>().bounds.size.y;
         float legsHeight = newLegs.GetComponent<Collider>().bounds.size.y;
         creatureContainer.transform.position = new Vector3(0, (headHeight + torsoHeight + legsHeight)/2, 0);
-        //creatureContainer.transform.position = new Vector3(0, , 0);
 
     }
 
