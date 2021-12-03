@@ -19,10 +19,24 @@ INDEXES (what order to put the joints in inside the unity editor):
 2 shoulderJointR
 3 hipJointL
 4 hipJointR
+*/
+
+/*
+Creature asset maker:
+
 
 */
+
 public class BodyPart : MonoBehaviour
 {
+    //NOTE: width should always represent the X axis (wingspan). Z is depth.
+    private float height;
+    private float width;
+
+    private float durability;
+    private float strength;
+
+    //STORAGE
     public enum PartType { Head, Torso, Arm, Leg }
     public PartType partType;
 
@@ -30,17 +44,13 @@ public class BodyPart : MonoBehaviour
     public enum PartSide { None, Left, Right }
     public PartSide partSide;
 
-    //NOTE: width should always represent the X axis (wingspan). Z is depth.
-    private float height;
-    private float width;
-
-    //these are in Awake so that they are calculated without even being in the scene
     void Awake()
     {
         height = GetComponent<Collider>().bounds.size.y;
         width = GetComponent<Collider>().bounds.size.x;
     }
 
+    #region getters/setters
     public float GetHeight()
     {
         return height;
@@ -50,6 +60,8 @@ public class BodyPart : MonoBehaviour
     {
         return width;
     }
+    #endregion
+
 }
 
 [CreateAssetMenu(fileName = "BodyPart", menuName = "Creature/BodyPart")]

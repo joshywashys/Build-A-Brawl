@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System.IO;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -10,13 +11,19 @@ A separate script will be made to export the creature to a playable character.
  */
 public class PartCombiner : MonoBehaviour
 {
-	public Transform creatureContainer;
+    public Transform creatureContainer;
 	public int maxSaveSlots = 8;
 
 	private static bool m_resourcesLoaded = false;
 	private static Dictionary<string, GameObject[]> partsList;
-	
-	private GameObject currHead;
+
+    private int headIndex;
+    private int torsoIndex;
+    private int armLIndex;
+    private int armRIndex;
+    private int legIndex;
+
+    private GameObject currHead;
 	private GameObject currTorso;
 	private GameObject currArmL;
     private GameObject currArmR;
@@ -34,13 +41,20 @@ public class PartCombiner : MonoBehaviour
 	public CreatureData[] savedCreatureData;
 
 	//we will recreate the creature every time a part is swapped out, despite it not being optimal, since it's not cpu-heavy at all anyways.
-	//If it turns out to be cpu-heavy, we can optimize it to adjust the part locations.
+	//If it turns out to be cpu-heavy, we can optimize it to adjust part locations rather than re-generate.
 	public void generateCreature()
 	{
-		//should probably do a bunch of checks to make sure each object has it's joints set up properly
+        //should probably do a bunch of checks to make sure each object has it's joints set up properly
 
-		//spawn parts
-		newTorso = Instantiate(currTorso, creatureContainer.position, Quaternion.identity, creatureContainer);
+        //clear previous creature
+        Destroy(newHead);
+        Destroy(newTorso);
+        Destroy(newArmL);
+        Destroy(newArmR);
+        Destroy(newLegs);
+
+        //spawn parts
+        newTorso = Instantiate(currTorso, creatureContainer.position, Quaternion.identity, creatureContainer);
 		newHead = Instantiate(currHead, creatureContainer.position, Quaternion.identity, creatureContainer);
 		newArmL = Instantiate(currArmL, creatureContainer.position, Quaternion.identity, creatureContainer);
         newArmR = Instantiate(currArmR, creatureContainer.position, Quaternion.identity, creatureContainer);
@@ -66,23 +80,12 @@ public class PartCombiner : MonoBehaviour
         newArmR.transform.Translate(torsoToShoulderR - armRToShoulder);
 
         //shift creature upwards
-        float headHeight = newHead.GetComponent<Renderer>().bounds.size.y;
-        float torsoHeight = newTorso.GetComponent<Renderer>().bounds.size.y;
-        float legsHeight = newLegs.GetComponent<Renderer>().bounds.size.y;
+        float headHeight = newHead.GetComponent<Collider>().bounds.size.y;
+        float torsoHeight = newTorso.GetComponent<Collider>().bounds.size.y;
+        float legsHeight = newLegs.GetComponent<Collider>().bounds.size.y;
         creatureContainer.transform.position = new Vector3(0, (headHeight + torsoHeight + legsHeight)/2, 0);
         //creatureContainer.transform.position = new Vector3(0, , 0);
-        print(headHeight + torsoHeight + legsHeight);
 
-    }
-
-    public void nextPart()
-    {
-        
-    }
-
-    public void prevPart()
-    {
-        
     }
 
 	// Looking through Unity Documentation highly suggests that the Resources System should not be used out side of Prototyping
@@ -131,23 +134,17 @@ public class PartCombiner : MonoBehaviour
 
 		savedCreatureData = new CreatureData[maxSaveSlots];
 
-		int headIndex = 0;
-		int TorsoIndex = 0;
-		int ArmLIndex = 0;
-        int ArmRIndex = 0;
-        int LegIndex = 0;
-
 		// This is for testing... set true to use save - set false to load saved data
 #if true
 		//set starting part to be a random one and save output
 		headIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsHeads].Length);
-		TorsoIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsTorsos].Length);
-		ArmLIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsArmsL].Length);
-        ArmRIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsArmsR].Length);
-        LegIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsLegs].Length);
+		torsoIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsTorsos].Length);
+		armLIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsArmsL].Length);
+        armRIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsArmsR].Length);
+        legIndex = Random.Range(0, partsList[BundleNameCache.creaturepartsLegs].Length);
 
 
-		creature = new CreatureData(headIndex, TorsoIndex, ArmLIndex, ArmRIndex, LegIndex, LegIndex);
+		creature = new CreatureData(headIndex, torsoIndex, armLIndex, armRIndex, legIndex, legIndex);
 
 		SaveCreatureData(0);
 #else
@@ -155,24 +152,29 @@ public class PartCombiner : MonoBehaviour
 		LoadCreatureData();
 
 		headIndex = savedCreatureData[0].head;
-		TorsoIndex = savedCreatureData[0].torso;
+		torsoIndex = savedCreatureData[0].torso;
 		ArmIndex = savedCreatureData[0].armLeft;
-		LegIndex = savedCreatureData[0].legLeft;
+		legIndex = savedCreatureData[0].legLeft;
 #endif
 
 		currHead = partsList[BundleNameCache.creaturepartsHeads][headIndex];
-		currTorso = partsList[BundleNameCache.creaturepartsTorsos][TorsoIndex];
-		currArmL = partsList[BundleNameCache.creaturepartsArmsL][ArmLIndex];
-        currArmR = partsList[BundleNameCache.creaturepartsArmsR][ArmRIndex];
-        currLegs = partsList[BundleNameCache.creaturepartsLegs][LegIndex];
+		currTorso = partsList[BundleNameCache.creaturepartsTorsos][torsoIndex];
+		currArmL = partsList[BundleNameCache.creaturepartsArmsL][armLIndex];
+        currArmR = partsList[BundleNameCache.creaturepartsArmsR][armRIndex];
+        currLegs = partsList[BundleNameCache.creaturepartsLegs][legIndex];
 
-		//generateCreature();
+		generateCreature();
 	}
 
 	void Start()
     {
-		InitializeCreatureGeneration();
-	}
+        headIndex = 0;
+        torsoIndex = 0;
+        armLIndex = 0;
+        armRIndex = 0;
+        legIndex = 0;
+        InitializeCreatureGeneration();
+    }
 
 	[System.Serializable]
 	public struct CreatureData
@@ -233,4 +235,109 @@ public class PartCombiner : MonoBehaviour
 			savedCreatureData[i - 1] = JsonUtility.FromJson<CreatureData>(data[i]);
         }
     }
+
+    #region partswapping functions
+    public void NextHead()
+    {
+        if (headIndex < partsList[BundleNameCache.creaturepartsHeads].Length - 1)
+        {
+            headIndex += 1;
+            currHead = partsList[BundleNameCache.creaturepartsHeads][headIndex];
+            generateCreature();
+        }
+    }
+
+    public void PrevHead()
+    {
+        if (headIndex > 0)
+        {
+            headIndex -= 1;
+            currHead = partsList[BundleNameCache.creaturepartsHeads][headIndex];
+            generateCreature();
+        }
+      
+    }
+
+    public void NextTorso()
+    {
+        if (torsoIndex < partsList[BundleNameCache.creaturepartsTorsos].Length - 1)
+        {
+            torsoIndex += 1;
+            currTorso = partsList[BundleNameCache.creaturepartsTorsos][torsoIndex];
+            generateCreature();
+        }
+    }
+
+    public void PrevTorso()
+    {
+        if (torsoIndex > 0)
+        {
+            torsoIndex -= 1;
+            currTorso = partsList[BundleNameCache.creaturepartsTorsos][torsoIndex];
+            generateCreature();
+        }
+
+    }
+
+    public void NextArmL()
+    {
+        if (armLIndex < partsList[BundleNameCache.creaturepartsArmsL].Length - 1)
+        {
+            armLIndex += 1;
+            currArmL = partsList[BundleNameCache.creaturepartsArmsL][armLIndex];
+            generateCreature();
+        }
+    }
+
+    public void PrevArmL()
+    {
+        if (armLIndex > 0)
+        {
+            armLIndex -= 1;
+            currArmL = partsList[BundleNameCache.creaturepartsArmsL][armLIndex];
+            generateCreature();
+        }
+    }
+
+    public void NextArmR()
+    {
+        if (armRIndex < partsList[BundleNameCache.creaturepartsArmsR].Length - 1)
+        {
+            armRIndex += 1;
+            currArmR = partsList[BundleNameCache.creaturepartsArmsR][armRIndex];
+            generateCreature();
+        }
+    }
+
+    public void PrevArmR()
+    {
+        if (armRIndex > 0)
+        {
+            armRIndex -= 1;
+            currArmR = partsList[BundleNameCache.creaturepartsArmsR][armRIndex];
+            generateCreature();
+        }
+    }
+
+    public void NextLegs()
+    {
+        if (legIndex < partsList[BundleNameCache.creaturepartsLegs].Length - 1)
+        {
+            legIndex += 1;
+            currLegs = partsList[BundleNameCache.creaturepartsLegs][legIndex];
+            generateCreature();
+        }
+    }
+
+    public void PrevLegs()
+    {
+        if (legIndex > 0)
+        {
+            legIndex -= 1;
+            currLegs = partsList[BundleNameCache.creaturepartsLegs][legIndex];
+            generateCreature();
+        }
+    }
+    #endregion
+
 }

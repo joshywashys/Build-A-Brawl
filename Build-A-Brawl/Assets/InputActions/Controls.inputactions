@@ -14,18 +14,18 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Rotate",
-                    "type": "Value",
-                    "id": "3b718e9b-4464-4f63-aa7d-fb4cf189e48c",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Move",
                     "type": "PassThrough",
                     "id": "4c9ca148-5b17-48aa-90e6-3ae8fad9eb6a",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "PickUp",
+                    "type": "Button",
+                    "id": "1ba5db97-9a75-4b68-93c9-c339e6ee0639",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -50,17 +50,6 @@
                     "processors": "",
                     "groups": "Keyboard1",
                     "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "62415a82-3549-4a11-9804-45133006b51b",
-                    "path": "<XInputController>/leftStick/",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XboxController1",
-                    "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -129,6 +118,28 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "13ef3178-7247-47d8-924d-e26f3580919e",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard1",
+                    "action": "PickUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64c9b2cd-8fd5-4fc7-aa3c-8c0b4a1fb106",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XboxController1",
+                    "action": "PickUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
