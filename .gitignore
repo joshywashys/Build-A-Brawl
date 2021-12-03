@@ -10,6 +10,7 @@
 [Ll]ogs/
 [Mm]emoryCaptures/
 [Uu]serSettings/
+[Aa]ssets/StreamingAssets/
 
 # Had a merge conflit with ProjectVersion.txt - adding it to the ignore
 [Pp]rojectSettings/ProjectVersion.txt

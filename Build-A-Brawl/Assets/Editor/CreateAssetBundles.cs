@@ -132,7 +132,6 @@ public class CreateAssetBundles : IPreprocessBuildWithReport
 		foreach (string assetPath in Directory.GetFiles(currentDirectory, searchPattern))
 		{
 			path = assetPath.Replace(Application.dataPath, "Assets");
-			Debug.Log($"{path} ({AssetDatabase.AssetPathToGUID(path)})");
 			if (assetBundleIgnoreListGUID.Contains(AssetDatabase.AssetPathToGUID(path)))
 				continue;
 
