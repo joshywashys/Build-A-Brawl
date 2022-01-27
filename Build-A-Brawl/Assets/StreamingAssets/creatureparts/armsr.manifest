@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2098278832
+CRC: 1161508097
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2f3c8f792ceb413ebbb2f7b69a448081
+    Hash: aaf083cec03e9247492c682b2bf6df5d
   TypeTreeHash:
     serializedVersion: 2
-    Hash: ccdf19e42652927b3ca1379ec4c0235c
+    Hash: f64856a3d606b613608cbf22df470c60
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -23,10 +23,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
-- Class: 65
-  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/BundledAssets/CreatureParts/ArmsR/monkeyArm_Centered_Mesh_Final_SeparatedRig.prefab
-- Assets/BundledAssets/CreatureParts/ArmsR/ArmR1.prefab
+- Assets/BundledAssets/CreatureParts/ArmsR/Druid ArmR.prefab
+- Assets/BundledAssets/CreatureParts/ArmsR/ArmR.prefab
 Dependencies: []

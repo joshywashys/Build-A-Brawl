@@ -80,11 +80,10 @@ public class PartCombiner : MonoBehaviour
         newArmR.transform.Translate(torsoToShoulderR - armRToShoulder);
 
         //shift creature upwards
-        float headHeight = newHead.GetComponent<Collider>().bounds.size.y;
-        float torsoHeight = newTorso.GetComponent<Collider>().bounds.size.y;
-        float legsHeight = newLegs.GetComponent<Collider>().bounds.size.y;
-        creatureContainer.transform.position = new Vector3(0, (headHeight + torsoHeight + legsHeight)/2, 0);
-
+        float headHeight = GetPartHeight(newHead);
+        float torsoHeight = GetPartHeight(newTorso);
+        float legsHeight = GetPartHeight(newLegs);
+        creatureContainer.transform.position = new Vector3(0, (torsoHeight + headHeight + legsHeight)/2, 0);
     }
 
 	// Looking through Unity Documentation highly suggests that the Resources System should not be used out side of Prototyping
@@ -233,6 +232,26 @@ public class PartCombiner : MonoBehaviour
 
 			savedCreatureData[i - 1] = JsonUtility.FromJson<CreatureData>(data[i]);
         }
+    }
+
+    public float GetPartHeight(GameObject toCheck)
+    {
+        float height = -1.0f;
+        if (toCheck.GetComponent<MeshFilter>().mesh != null)
+        {
+            height = toCheck.GetComponent<MeshFilter>().mesh.bounds.size.y;
+        }
+        else if (toCheck.GetComponent<MeshFilter>().mesh != null)
+        {
+            print("- NO MESH FOUND -");
+            height = toCheck.GetComponent<Collider>().bounds.size.y;
+        }
+        else
+        {
+            print("- NO MESH OR COLLIDER FOUND -");
+        }
+        
+        return height;
     }
 
     #region partswapping functions
