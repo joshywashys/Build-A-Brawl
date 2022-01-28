@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1357386675
+CRC: 3094803083
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5da913e360f529d05c4edd4f1862ee90
+    Hash: c0efc129b0e0a84b54acd10818c3ff6d
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f64856a3d606b613608cbf22df470c60
+    Hash: 7e4e81b586c36fda88ba73180982b3db
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -17,14 +17,19 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 23
   Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
 - Class: 33
   Script: {instanceID: 0}
 - Class: 43
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/BundledAssets/CreatureParts/Torsos/Druid Body.prefab
 - Assets/BundledAssets/CreatureParts/Torsos/Robot Chest.prefab
+- Assets/BundledAssets/CreatureParts/Torsos/Zombie Torso.prefab
 Dependencies: []

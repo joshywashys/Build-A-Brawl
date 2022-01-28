@@ -12,6 +12,7 @@ A separate script will be made to export the creature to a playable character.
 public class PartCombiner : MonoBehaviour
 {
     public Transform creatureContainer;
+    public GameObject creaturePlayable;
 	public int maxSaveSlots = 8;
 
 	private static bool m_resourcesLoaded = false;
@@ -52,13 +53,14 @@ public class PartCombiner : MonoBehaviour
         Destroy(newArmL);
         Destroy(newArmR);
         Destroy(newLegs);
+        Destroy(creaturePlayable.GetComponent<CreatureStats>());
 
         //spawn parts
-        newTorso = Instantiate(currTorso, creatureContainer.position, Quaternion.identity, creatureContainer);
-		newHead = Instantiate(currHead, creatureContainer.position, Quaternion.identity, creatureContainer);
-		newArmL = Instantiate(currArmL, creatureContainer.position, Quaternion.identity, creatureContainer);
-        newArmR = Instantiate(currArmR, creatureContainer.position, Quaternion.identity, creatureContainer);
-        newLegs = Instantiate(currLegs, creatureContainer.position, Quaternion.identity, creatureContainer);
+        newHead = Instantiate(currHead, creatureContainer.position, Quaternion.identity, creaturePlayable.transform);
+        newTorso = Instantiate(currTorso, creatureContainer.position, Quaternion.identity, creaturePlayable.transform);
+		newArmL = Instantiate(currArmL, creatureContainer.position, Quaternion.identity, creaturePlayable.transform);
+        newArmR = Instantiate(currArmR, creatureContainer.position, Quaternion.identity, creaturePlayable.transform);
+        newLegs = Instantiate(currLegs, creatureContainer.position, Quaternion.identity, creaturePlayable.transform);
 
         //calculate where to move parts to attach to body parts
         Vector3 headToNeck = newHead.transform.position - newHead.transform.GetChild(0).transform.position;
@@ -75,15 +77,28 @@ public class PartCombiner : MonoBehaviour
 
         //move each part
         newHead.transform.Translate(headToNeck - torsoToNeck);
-		newLegs.transform.Translate(-(legsToHips + torsoToHips));
         newArmL.transform.Translate(torsoToShoulderL - armLToShoulder);
         newArmR.transform.Translate(torsoToShoulderR - armRToShoulder);
+        newLegs.transform.Translate(-(legsToHips + torsoToHips));
 
         //shift creature upwards
         float headHeight = GetPartHeight(newHead);
         float torsoHeight = GetPartHeight(newTorso);
         float legsHeight = GetPartHeight(newLegs);
-        creatureContainer.transform.position = new Vector3(0, (torsoHeight + headHeight + legsHeight)/2, 0);
+        creatureContainer.transform.position = new Vector3(0, (torsoHeight + headHeight + legsHeight)/2 + 1, 0);
+    }
+
+    //adds the playable creature script to make the creature playable
+    public void FinalizeCreature()
+    {
+        Destroy(creaturePlayable.GetComponent<CreatureStats>());
+        creaturePlayable.AddComponent<CreatureStats>();
+
+        newTorso.transform.parent = newHead.transform;
+        newArmL.transform.parent = newTorso.transform;
+        newArmR.transform.parent = newTorso.transform;
+        newLegs.transform.parent = newTorso.transform;
+        creaturePlayable.GetComponent<CreatureStats>().attachParts(newHead, newTorso, newArmL, newArmR, newLegs);
     }
 
 	// Looking through Unity Documentation highly suggests that the Resources System should not be used out side of Prototyping
@@ -237,14 +252,15 @@ public class PartCombiner : MonoBehaviour
     public float GetPartHeight(GameObject toCheck)
     {
         float height = -1.0f;
-        if (toCheck.GetComponent<MeshFilter>().mesh != null)
+        if (toCheck.GetComponent<Collider>() != null)
         {
-            height = toCheck.GetComponent<MeshFilter>().mesh.bounds.size.y;
+            print("- COLLIDER FOUND -");
+            height = toCheck.GetComponent<Collider>().bounds.size.y;
         }
         else if (toCheck.GetComponent<MeshFilter>().mesh != null)
         {
-            print("- NO MESH FOUND -");
-            height = toCheck.GetComponent<Collider>().bounds.size.y;
+            print("- NO COLLIDER - USING MESH DIMS -");
+            height = toCheck.GetComponent<MeshFilter>().mesh.bounds.size.y;
         }
         else
         {
