@@ -23,12 +23,7 @@ INDEXES (what order to put the joints in inside the unity editor):
 
 public abstract class BodyPart : MonoBehaviour
 {
-    //NOTE: width should always represent the X axis (wingspan). Z is depth.
-    private float height;
-    private float width;
-    private float depth;
-
-    private float durability;
+    private float health;
     private float mass;
 
     //STORAGE
@@ -39,30 +34,6 @@ public abstract class BodyPart : MonoBehaviour
     public enum PartSide { None, Left, Right }
     public PartSide partSide;
 
-    void Start()
-    {
-        height = GetComponent<Collider>().bounds.size.y;
-        width = GetComponent<Collider>().bounds.size.x;
-        depth = GetComponent<Collider>().bounds.size.x;
-    }
-
-    #region getters/setters
-    public float GetHeight()
-    {
-        return height;
-    }
-
-    public float GetWidth()
-    {
-        return width;
-    }
-
-    public float GetDepth()
-    {
-        return depth;
-    }
-    #endregion
-
 }
 
 [CreateAssetMenu(fileName = "BodyPart", menuName = "Creature/BodyPart")]
@@ -70,12 +41,14 @@ public class BodyPartData : ScriptableObject
 {
     public string part_name;
     public Image part_image;
-    
+
+    // Body Part stats. set values to -1 (or dont bother setting them) if it's not used by the part (ie head has no strength).
     [System.Serializable]
     public struct Stats
     {
-        // Data relating to stats for each body part go here
-        public float durability;
+        public float health; 
+        public float strength; //also affects how fast the player can turn, not just attack power
+        public float mass; 
     }
 
     public Stats stats;

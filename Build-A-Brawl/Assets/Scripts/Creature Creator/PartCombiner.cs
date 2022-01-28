@@ -89,7 +89,7 @@ public class PartCombiner : MonoBehaviour
         creatureContainer.transform.position = new Vector3(0, (torsoHeight + headHeight + legsHeight)/2 + 1, 0);
     }
 
-    //adds the playable creature script to make the creature playable
+    //adds necessary scripts to turn it into a playable character
     public void FinalizeCreature()
     {
         Destroy(creaturePlayable.GetComponent<CreatureStats>());

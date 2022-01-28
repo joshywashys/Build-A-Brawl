@@ -23,11 +23,17 @@ public class CreatureStats : MonoBehaviour
     float healthLegs;
 
     // creature stats
-    float strengthArmL; //negative means no hitting or grabbing
-    float strengthArmR;
-    float jumpHeight; //calculated from total mass + leg strength
-    float moveSpeed; //calculated from total mass + leg speed, recalculated whenever a part detaches
-    float rotateSpeed;
+    float mass;
+    float strengthArmL;
+    float strengthArmR; 
+    float jumpHeight; //total mass + leg strength
+    float moveSpeed; //total mass + leg speed
+    float rotateSpeed; //strength of all parts + mass
+
+    int attackTypeL; //0 uses the default system, others would be robot sticks out arms, druid flails/spins around
+    int attackTypeR;
+    bool canGrabL;
+    bool canGrabR;
 
     void Start()
     {
@@ -49,6 +55,13 @@ public class CreatureStats : MonoBehaviour
 
     }
 
+    //call when a creature's stats need to be updated (when a limb is knocked off)
+    private void calculateStats()
+    {
+
+    }
+
+    //initialize
     public void attachParts(GameObject newHead, GameObject newTorso, GameObject newArmL, GameObject newArmR, GameObject newLegs)
     {
         head = newHead;
@@ -58,9 +71,12 @@ public class CreatureStats : MonoBehaviour
         legs = newLegs;
     }
 
+    //recalculate
     private void detachPart(GameObject toDetach)
     {
         toDetach.transform.parent = null;
+        //toDetach = null;
+        calculateStats();
     }
 
     //TEMP
