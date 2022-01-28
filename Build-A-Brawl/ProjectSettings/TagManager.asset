@@ -7,6 +7,7 @@ TagManager:
   - ThrowTo
   - heavyAttack
   - goop
+  - ground
   layers:
   - Default
   - TransparentFX
