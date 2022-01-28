@@ -1,20 +1,25 @@
+using System.Linq;
 using System.Collections;
-using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameController : MonoBehaviour
 {
 	public static GameController Instance { get; private set; }
-	
+
+	public Dictionary<int, PlayerGameData> players;
+	public static PlayerGameData[] Players => Instance.players.Values.ToArray();
+
 	public TextMeshProUGUI timerText;
 	public float timerDuration;
-
 	private float m_countDownTimer;
-	private float m_currentSceneIndex;
+	
+	public ArenaData[] m_arenas;
 
-	private ArenaData[] m_arenas;
-
+	// Initialization
 	void Awake()
 	{
 		if (Instance != null)
@@ -26,9 +31,25 @@ public class GameController : MonoBehaviour
 		Instance = this;
 		DontDestroyOnLoad(gameObject);
 
+		players = new Dictionary<int, PlayerGameData>();
+
 		StartMatch();
 	}
 
+	// Player Join/Leave Logic
+	public void OnPlayerJoined(PlayerInput player)
+    {
+		players.Add(player.playerIndex, new PlayerGameData(player.transform));
+    }
+
+	public void OnPlayerLeaves(PlayerInput player)
+    {
+		players.Remove(player.playerIndex);
+    }
+
+	public static PlayerGameData GetPlayer(int playerIndex) => Instance.players[playerIndex];
+	
+	// Match Game Logic
 	public void StartMatch()
 	{
 		if (currentMatch != null)
@@ -51,23 +72,21 @@ public class GameController : MonoBehaviour
 			m_countDownTimer -= Time.deltaTime;
 		}
 
-		// TO-DO: Display round results and fade out;	
+		// TO-DO: Display round results;	
 		yield return LoadNextRandomArena();
 	}
 
 	public IEnumerator LoadNextRandomArena()
     {
 		// Random Arena BuildIndex
-		int nextSceneIndex = m_arenas[Random.Range(0, m_arenas.Length)].buildIndex;
-		int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+		int nextSceneIndex = m_arenas[Random.Range(0, m_arenas.Length)].scene.buildIndex;
 		
-		AsyncOperation nextArena = SceneManager.LoadSceneAsync(nextSceneIndex, LoadSceneMode.Additive);
+		// TO-DO: transition old scene out of view;
+		
+		AsyncOperation nextArena = SceneManager.LoadSceneAsync(nextSceneIndex);
 		yield return nextArena;
 
-		SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(nextSceneIndex));
-
-		AsyncOperation prevArena = SceneManager.UnloadSceneAsync(currentSceneIndex);
-		yield return prevArena;
+		// TO-DO: transition new scene into view;
 	}
 
 	private void UpdateTimer()
@@ -81,3 +100,16 @@ public class GameController : MonoBehaviour
 	}
 }
 
+// Game Data ---- Custom Datatype
+public class PlayerGameData
+{
+	public bool isAlive = true;
+	public int matchScore = 0;
+	public uint gameScore = 0;
+
+	public Transform transform { get; private set; }
+	public PlayerGameData(Transform transform)
+    {
+		this.transform = transform;
+    }
+}

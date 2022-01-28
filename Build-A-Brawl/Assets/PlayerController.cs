@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     // Serialize the numbers so they can be adjusted right from Unity.
+    // General player characteristics are serialized so they can be adjusted in Unity
 
     [SerializeField]
     private float playerSpeed = 2.0f;
@@ -16,6 +17,11 @@ public class PlayerController : MonoBehaviour
     private float jumpHeight = 1.0f;
     [SerializeField]
     private float gravityValue = -9.81f;
+//    [SerializeField] private BoolEvent onPickedUpLeft;
+  //  [SerializeField]
+  //  private float grabRange = 2.0f;
+
+    public Throwable throwingValues;
 
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -26,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     private bool chkPickedUp = false;
     private bool pickedUpLeft = false;
-    private bool pickedUpRight = false;
+   // private bool pickedUpRight = false;
     public GameObject Cone;
     private throwableObject bool_script;
      
@@ -92,13 +98,16 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        if (chkPickedUp && !throwableObject.pickedUp)
+   //     Vector3 objDistToPlayer = playerVelocity.position - transform.position;
+
+        if (chkPickedUp && !pickedUpLeft)
         {
-            throwableObject.pickedUp = true;
+            pickedUpLeft = true;
+           // throwingValues.PickedUp = true;
         
-        } else if (chkPickedUp && throwableObject.pickedUp)
+        } else if (chkPickedUp && pickedUpLeft)
         {
-            throwableObject.pickedUp = false;
+            pickedUpLeft = false;
         }
     }
 }
