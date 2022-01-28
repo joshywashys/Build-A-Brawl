@@ -15,6 +15,7 @@ public class throwableObject : MonoBehaviour
     }
 
     // Update is called once per frame
+    //TUrn this stuff into scriptable events
     void Update()
     {
         if (pickedUp == true)
