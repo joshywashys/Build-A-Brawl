@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 5039745400754052436}
   - component: {fileID: 1913965857551354133}
   - component: {fileID: 820001741974718977}
+  - component: {fileID: 6255061098053560945}
   m_Layer: 0
   m_Name: Druid Legs
   m_TagString: Untagged
@@ -114,3 +115,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6255061098053560945
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7327128038920636173}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.386198, y: 5.2943125, z: 1.6946462}
+  m_Center: {x: -0.043809414, y: -0.05516243, z: 0.0124982}

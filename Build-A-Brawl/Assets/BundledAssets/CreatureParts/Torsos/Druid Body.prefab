@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 8187048543957047076}
   - component: {fileID: 1781119685124764412}
   - component: {fileID: 7775429449701927480}
+  - component: {fileID: 769040684773700660}
   m_Layer: 0
   m_Name: Druid Body
   m_TagString: Untagged
@@ -117,6 +118,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &769040684773700660
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4655298960991500662}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.023220234, y: 0.0265549, z: 0.018699521}
+  m_Center: {x: 0, y: 0.00069142814, z: 0}
 --- !u!1 &5207722448829062791
 GameObject:
   m_ObjectHideFlags: 0
