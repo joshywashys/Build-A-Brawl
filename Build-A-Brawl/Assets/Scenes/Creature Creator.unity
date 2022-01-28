@@ -1748,7 +1748,7 @@ Transform:
   m_Children:
   - {fileID: 862625258}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &654939532
 GameObject:
@@ -1949,7 +1949,7 @@ RectTransform:
   - {fileID: 1795707885}
   - {fileID: 768068653}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2134,9 +2134,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1103852538}
-        m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
-        m_MethodName: FinalizeCreature
+      - m_Target: {fileID: 1103852540}
+        m_TargetAssemblyTypeName: DebugStartGame, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2687,7 +2687,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &881585896
 GameObject:
@@ -3082,6 +3082,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1103852539}
   - component: {fileID: 1103852538}
+  - component: {fileID: 1103852540}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3103,6 +3104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creatureContainer: {fileID: 862625258}
   creaturePlayable: {fileID: 27528974}
+  creatureManager: {fileID: 0}
   maxSaveSlots: 8
   savedCreatureData: []
 --- !u!4 &1103852539
@@ -3119,6 +3121,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1103852540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103852537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e027e6410300341858c55777ef9fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1271983942
 GameObject:
   m_ObjectHideFlags: 0
@@ -4454,6 +4468,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015871875}
   m_CullTransparentMesh: 1
+--- !u!1 &2111168267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2111168268}
+  - component: {fileID: 2111168269}
+  m_Layer: 0
+  m_Name: CreatureManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2111168268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111168267}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 53.455734, y: 18.80308, z: 55.630825}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2111168269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111168267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aad748482d2bd44681eae89c026ec3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creatures: []
 --- !u!1 &2114770438
 GameObject:
   m_ObjectHideFlags: 0

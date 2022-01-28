@@ -33,7 +33,7 @@ public class CreatureStats : MonoBehaviour
     {
         creature = gameObject;
         initializeCreature();
-        detachPart(torso);
+        //detachPart(torso);
     }
 
     void Update()
