@@ -16,14 +16,14 @@ public class CreatureStats : MonoBehaviour
     private GameObject legs;
 
     // <0 health means a part will be detached
-    float healthHead;
-    float healthTorso;
+    float healthHead; //creature dies at 0
+    float healthTorso; //creature dies at 0?
     float healthShoulderL;
     float healthShoulderR;
     float healthLegs;
 
     // creature stats
-    float strengthArmL;
+    float strengthArmL; //negative means no hitting or grabbing
     float strengthArmR;
     float jumpHeight; //calculated from total mass + leg strength
     float moveSpeed; //calculated from total mass + leg speed, recalculated whenever a part detaches

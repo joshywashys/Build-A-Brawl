@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//CARRIES PLAYER CREATURES BETWEEN SCENES
 public class CreatureManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> creatures;
@@ -15,9 +16,14 @@ public class CreatureManager : MonoBehaviour
     {
         if (creatures.Count < 4)
         {
-            creatures.Add(toAdd);
+            GameObject newCreature = Instantiate(toAdd);
+            creatures.Add(newCreature);
+            newCreature.SetActive(false);
+            DontDestroyOnLoad(newCreature);
         }
         else { print("- MAX CREATURES - CREATURE NOT ADDED -"); }
+        //instantiate
+        //disable
     }
 
     public void ClearCreatures()
@@ -28,6 +34,12 @@ public class CreatureManager : MonoBehaviour
     public void Start()
     {
         DontDestroyOnLoad(gameObject);
+    }
+
+    //DEBUG
+    public void debugSpawnCreature()
+    {
+        Instantiate(creatures[0]);
     }
 
 }
