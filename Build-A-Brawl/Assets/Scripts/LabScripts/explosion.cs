@@ -10,12 +10,15 @@ public class explosion : MonoBehaviour
     
 
     private void OnCollisionEnter(Collision collision){
-        GameObject _explosion = Instantiate(explode,transform.position, transform.rotation);
-        GameObject _bits = Instantiate(bits,transform.position, transform.rotation);
-        Destroy(_explosion, 3);
-        Destroy(_bits, 5);
-        knockBack();
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "heavyAttack" || collision.gameObject.tag == "ground"){
+
+            GameObject _explosion = Instantiate(explode,transform.position, transform.rotation);
+            GameObject _bits = Instantiate(bits,transform.position, transform.rotation);
+            Destroy(_explosion, 3);
+            Destroy(_bits, 5);
+            knockBack();
+            Destroy(gameObject);
+        }
     }
 
     void knockBack() {
