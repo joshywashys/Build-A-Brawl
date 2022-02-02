@@ -15,9 +15,15 @@ public class ArenaData : ScriptableObject
 	[System.Serializable]
 	public class TransitionData
     {
+		public Vector3 defaultPosition;
+
+		[Space]
+
 		public Vector3 inPosition;
 		[Tooltip("A curve to animated the camera moving towards it's default position in the scene. Value percentage offset form the default (0.0f is default position - 1.0f is fully offset).")]
 		public AnimationCurve animateIn = new AnimationCurve(new Keyframe(0, 1, 0, 0), new Keyframe(1, 0, -2, 2));
+
+		[Space]
 
 		public Vector3 outPosition;
 		[Tooltip("A curve to animated the camera moving away from it's default position in the scene. Value percentage offset form the default (0.0f is default position - 1.0f is fully offset).")]

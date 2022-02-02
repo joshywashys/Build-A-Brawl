@@ -1,35 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class throwableObject : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+public class ThrowableObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    
-    public static bool pickedUp = false;
-    public Transform destination;
+    [HideInInspector] 
+    public new Rigidbody rigidbody;
+    public new Collider collider;
 
-    void Start()
+    public void Start()
     {
-        pickedUp = false;
+        rigidbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    //TUrn this stuff into scriptable events
-    void Update()
+    public void IsGrabbed(bool pickedUp)
     {
-        if (pickedUp == true)
-        {
-            //collider on the object, when near can be picked up
-            GetComponent<BoxCollider>().enabled = false;
-            GetComponent<Rigidbody>().useGravity = false;
-            this.transform.position = destination.position;
-            this.transform.parent = GameObject.Find("Destination").transform;
-        } else if (pickedUp == false)
-        {
-            this.transform.parent = GameObject.FindGameObjectWithTag("ThrowTo").transform;
-            GetComponent<Rigidbody>().useGravity = true;
-            GetComponent<BoxCollider>().enabled = true;
-        }
+        collider.enabled = !pickedUp;
     }
 }

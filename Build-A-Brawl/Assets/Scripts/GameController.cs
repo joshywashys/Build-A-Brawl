@@ -12,12 +12,16 @@ public class GameController : MonoBehaviour
 
 	public Dictionary<int, PlayerGameData> players;
 	public static PlayerGameData[] Players => Instance.players.Values.ToArray();
+	public static PlayerGameData GetPlayer(int playerIndex) => Instance.players[playerIndex];
 
 	public TextMeshProUGUI timerText;
 	public float timerDuration;
 	private float m_countDownTimer;
 	
-	public ArenaData[] m_arenas;
+	public ArenaData[] arenas;
+	private ArenaData m_currentArena;
+
+	private PlayerInputManager pim;
 
 	// Initialization
 	void Awake()
@@ -33,24 +37,38 @@ public class GameController : MonoBehaviour
 
 		players = new Dictionary<int, PlayerGameData>();
 
-		StartMatch();
+		pim = GetComponent<PlayerInputManager>();
+		pim.onPlayerJoined += OnPlayerJoined;
+		pim.onPlayerLeft += OnPlayerLeft;
+
+		//StartMatch();
+
+		m_currentArena = arenas[0];
 	}
 
-	// Player Join/Leave Logic
-	public void OnPlayerJoined(PlayerInput player)
+	Coroutine loadNextSceneRoutine = null;
+    private void Start()
     {
+		//if (loadNextSceneRoutine == null)
+		//	loadNextSceneRoutine = StartCoroutine(LoadNextRandomArena());
+	}
+
+    #region Player Data Logic
+
+    public void OnPlayerJoined(PlayerInput player)
+	{
 		players.Add(player.playerIndex, new PlayerGameData(player.transform));
-    }
+	}
 
-	public void OnPlayerLeaves(PlayerInput player)
-    {
+	public void OnPlayerLeft(PlayerInput player)
+	{
 		players.Remove(player.playerIndex);
-    }
+	}
+    
+	#endregion
 
-	public static PlayerGameData GetPlayer(int playerIndex) => Instance.players[playerIndex];
-	
-	// Match Game Logic
-	public void StartMatch()
+    // Match Game Logic
+    public void StartMatch()
 	{
 		if (currentMatch != null)
 		{
@@ -61,7 +79,7 @@ public class GameController : MonoBehaviour
 		currentMatch = StartCoroutine(CountDown());
 	}
 
-	Coroutine currentMatch;
+	Coroutine currentMatch = null;
 	private IEnumerator CountDown()
 	{
 		m_countDownTimer = timerDuration;
@@ -76,18 +94,47 @@ public class GameController : MonoBehaviour
 		yield return LoadNextRandomArena();
 	}
 
+	Coroutine transition = null;
 	public IEnumerator LoadNextRandomArena()
-    {
-		// Random Arena BuildIndex
-		int nextSceneIndex = m_arenas[Random.Range(0, m_arenas.Length)].scene.buildIndex;
-		
-		// TO-DO: transition old scene out of view;
-		
-		AsyncOperation nextArena = SceneManager.LoadSceneAsync(nextSceneIndex);
-		yield return nextArena;
+	{
+		if (transition != null)
+			StopCoroutine(transition);
 
-		// TO-DO: transition new scene into view;
+		// transition old scene out of view
+		ArenaData.TransitionData currTransition = m_currentArena.transition;
+		
+		transition = StartCoroutine(TransitionCamera(Camera.main.transform.position, currTransition.outPosition, currTransition.animateOut));
+		yield return transition;
+		
+		// load new random scene
+		ArenaData nextArena = arenas[Random.Range(0, arenas.Length)];
+		AsyncOperation nextScene = nextArena.scene.useIndex ? 
+				SceneManager.LoadSceneAsync(nextArena.scene.buildIndex) :
+				SceneManager.LoadSceneAsync(nextArena.scene.sceneName);
+		yield return nextScene;
+
+		// transition new scene into view
+		StopCoroutine(transition);
+		
+		ArenaData.TransitionData nextTransition = nextArena.transition;
+		transition = StartCoroutine(TransitionCamera(nextTransition.defaultPosition, nextTransition.inPosition, nextTransition.animateIn));
+		yield return transition;
+
+		m_currentArena = nextArena;
+
+		print("Done");
 	}
+
+	public IEnumerator TransitionCamera(Vector3 start, Vector3 end, AnimationCurve transition)
+    {
+		float t = 0;
+		while (t < 1.0f)
+        {
+			Camera.main.transform.position = Vector3.Lerp(start, end, transition.Evaluate(t));
+			yield return null;
+			t += Time.deltaTime;
+		}
+    }
 
 	private void UpdateTimer()
 	{
@@ -109,7 +156,7 @@ public class PlayerGameData
 
 	public Transform transform { get; private set; }
 	public PlayerGameData(Transform transform)
-    {
+	{
 		this.transform = transform;
-    }
+	}
 }

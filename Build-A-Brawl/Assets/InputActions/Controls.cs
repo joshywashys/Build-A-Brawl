@@ -41,39 +41,44 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftPunch"",
+                    ""type"": ""Button"",
+                    ""id"": ""e9c45b1b-96c5-47e5-974d-325cbc2efeea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightPunch"",
+                    ""type"": ""Button"",
+                    ""id"": ""392a799a-f9d0-46fc-b6c3-7a8a6bda6a59"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""f8750d63-0a4c-43b1-96b4-38aebe01527e"",
-                    ""path"": ""<XInputController>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XboxController1"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""7b7ef0b1-2c41-4163-a26e-8bd32662c61e"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard1"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a1953631-53c6-425d-ade5-5abe66ecc076"",
-                    ""path"": ""<XInputController>/leftStick"",
+                    ""id"": ""dc2b0386-1ff1-4fe2-85ae-3c0b5f762a54"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""XboxController1"",
-                    ""action"": ""Move"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -94,7 +99,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard1"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -105,7 +110,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard1"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -116,7 +121,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard1"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -127,30 +132,85 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard1"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
-                    ""id"": ""13ef3178-7247-47d8-924d-e26f3580919e"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""id"": ""33b8d663-07df-46af-9346-b2e4968d1b2b"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard1"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13ef3178-7247-47d8-924d-e26f3580919e"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""PickUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""64c9b2cd-8fd5-4fc7-aa3c-8c0b4a1fb106"",
-                    ""path"": ""<XInputController>/buttonWest"",
+                    ""id"": ""62803726-5e19-41ee-b304-a8fb1b3794d6"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""XboxController1"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""PickUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""469253b5-6a3d-496d-a122-5d56159b8a9f"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""LeftPunch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7a1ccef3-a422-42d3-b49e-5a8144a0c2f8"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""LeftPunch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a876ac9b-c091-4ed6-bc62-372290ee80c9"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""RightPunch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c210ff60-246a-4c6e-b8e7-af22f2fa11c1"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""RightPunch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -159,22 +219,22 @@ public class @Controls : IInputActionCollection, IDisposable
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""XboxController1"",
-            ""bindingGroup"": ""XboxController1"",
+            ""name"": ""Keyboard"",
+            ""bindingGroup"": ""Keyboard"",
             ""devices"": [
                 {
-                    ""devicePath"": ""<XInputController>"",
+                    ""devicePath"": ""<Keyboard>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
             ]
         },
         {
-            ""name"": ""Keyboard1"",
-            ""bindingGroup"": ""Keyboard1"",
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
             ""devices"": [
                 {
-                    ""devicePath"": ""<Keyboard>"",
+                    ""devicePath"": ""<Gamepad>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -187,6 +247,8 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_PickUp = m_Player.FindAction("PickUp", throwIfNotFound: true);
+        m_Player_LeftPunch = m_Player.FindAction("LeftPunch", throwIfNotFound: true);
+        m_Player_RightPunch = m_Player.FindAction("RightPunch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -239,6 +301,8 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_PickUp;
+    private readonly InputAction m_Player_LeftPunch;
+    private readonly InputAction m_Player_RightPunch;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -246,6 +310,8 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @PickUp => m_Wrapper.m_Player_PickUp;
+        public InputAction @LeftPunch => m_Wrapper.m_Player_LeftPunch;
+        public InputAction @RightPunch => m_Wrapper.m_Player_RightPunch;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -264,6 +330,12 @@ public class @Controls : IInputActionCollection, IDisposable
                 @PickUp.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickUp;
                 @PickUp.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickUp;
                 @PickUp.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickUp;
+                @LeftPunch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftPunch;
+                @LeftPunch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftPunch;
+                @LeftPunch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftPunch;
+                @RightPunch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightPunch;
+                @RightPunch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightPunch;
+                @RightPunch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightPunch;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -277,26 +349,32 @@ public class @Controls : IInputActionCollection, IDisposable
                 @PickUp.started += instance.OnPickUp;
                 @PickUp.performed += instance.OnPickUp;
                 @PickUp.canceled += instance.OnPickUp;
+                @LeftPunch.started += instance.OnLeftPunch;
+                @LeftPunch.performed += instance.OnLeftPunch;
+                @LeftPunch.canceled += instance.OnLeftPunch;
+                @RightPunch.started += instance.OnRightPunch;
+                @RightPunch.performed += instance.OnRightPunch;
+                @RightPunch.canceled += instance.OnRightPunch;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
-    private int m_XboxController1SchemeIndex = -1;
-    public InputControlScheme XboxController1Scheme
+    private int m_KeyboardSchemeIndex = -1;
+    public InputControlScheme KeyboardScheme
     {
         get
         {
-            if (m_XboxController1SchemeIndex == -1) m_XboxController1SchemeIndex = asset.FindControlSchemeIndex("XboxController1");
-            return asset.controlSchemes[m_XboxController1SchemeIndex];
+            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
+            return asset.controlSchemes[m_KeyboardSchemeIndex];
         }
     }
-    private int m_Keyboard1SchemeIndex = -1;
-    public InputControlScheme Keyboard1Scheme
+    private int m_GamepadSchemeIndex = -1;
+    public InputControlScheme GamepadScheme
     {
         get
         {
-            if (m_Keyboard1SchemeIndex == -1) m_Keyboard1SchemeIndex = asset.FindControlSchemeIndex("Keyboard1");
-            return asset.controlSchemes[m_Keyboard1SchemeIndex];
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
         }
     }
     public interface IPlayerActions
@@ -304,5 +382,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnPickUp(InputAction.CallbackContext context);
+        void OnLeftPunch(InputAction.CallbackContext context);
+        void OnRightPunch(InputAction.CallbackContext context);
     }
 }

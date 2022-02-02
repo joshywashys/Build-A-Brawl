@@ -18,7 +18,7 @@ public class goopRise : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (goopRising==true){
+        if (goopRising) {
             Debug.Log("goig up");
             float step = speed * Time.deltaTime;
             goop.transform.position = Vector3.MoveTowards(goop.transform.position, target.position, step);
