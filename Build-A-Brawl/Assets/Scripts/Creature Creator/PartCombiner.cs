@@ -13,6 +13,7 @@ public class PartCombiner : MonoBehaviour
 {
     public Transform creatureContainer;
     public GameObject creaturePlayable;
+    public GameObject creatureManager;
 	public int maxSaveSlots = 8;
 
 	private static bool m_resourcesLoaded = false;
@@ -88,7 +89,7 @@ public class PartCombiner : MonoBehaviour
         creatureContainer.transform.position = new Vector3(0, (torsoHeight + headHeight + legsHeight)/2 + 1, 0);
     }
 
-    //adds the playable creature script to make the creature playable
+    //adds necessary scripts to turn it into a playable character
     public void FinalizeCreature()
     {
         Destroy(creaturePlayable.GetComponent<CreatureStats>());
@@ -99,6 +100,8 @@ public class PartCombiner : MonoBehaviour
         newArmR.transform.parent = newTorso.transform;
         newLegs.transform.parent = newTorso.transform;
         creaturePlayable.GetComponent<CreatureStats>().attachParts(newHead, newTorso, newArmL, newArmR, newLegs);
+
+        creatureManager.GetComponent<CreatureManager>().AddCreature(creaturePlayable);
     }
 
 	// Looking through Unity Documentation highly suggests that the Resources System should not be used out side of Prototyping
@@ -187,6 +190,8 @@ public class PartCombiner : MonoBehaviour
         armRIndex = 0;
         legIndex = 0;
         InitializeCreatureGeneration();
+
+        creatureManager = GameObject.Find("CreatureManager");
     }
 
 	[System.Serializable]
