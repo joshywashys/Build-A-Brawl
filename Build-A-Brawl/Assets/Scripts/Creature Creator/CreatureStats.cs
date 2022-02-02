@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //HOW TO USE/PURPOSE
-//During runtime, this is the mothership script. All of a creature's data will be imported here from it's parts so we don't have to access each individual part.
+//During runtime, this is the mothership data script. All of a creature's data will be imported here from it's parts so we don't have to access each individual part.
 public class CreatureStats : MonoBehaviour
 {
     // part references
@@ -22,10 +22,12 @@ public class CreatureStats : MonoBehaviour
     float healthShoulderR;
     float healthLegs;
 
-    // creature stats
+    // Creature Stats
     float mass;
     float strengthArmL;
-    float strengthArmR; 
+    float strengthArmR;
+    float springConstantArmL;
+    float springConstantArmR;
     float jumpHeight; //total mass + leg strength
     float moveSpeed; //total mass + leg speed
     float rotateSpeed; //strength of all parts + mass
@@ -35,11 +37,13 @@ public class CreatureStats : MonoBehaviour
     bool canGrabL;
     bool canGrabR;
 
+    #region MonoBehaviour Functions
+
     void Start()
     {
         creature = gameObject;
         initializeCreature();
-        //detachPart(torso);
+        detachTorso(); //debugging
     }
 
     void Update()
@@ -47,7 +51,9 @@ public class CreatureStats : MonoBehaviour
         
     }
 
-    //INTERNAL FUNCTIONS
+    #endregion
+
+    #region  Internal Functions
 
     //get parts stats and load them onto this script
     private void initializeCreature()
@@ -56,12 +62,12 @@ public class CreatureStats : MonoBehaviour
     }
 
     //call when a creature's stats need to be updated (when a limb is knocked off)
-    private void calculateStats()
+    private void recalculate()
     {
 
     }
 
-    //initialize
+    //initialize. called by the creature creator for initial setup.
     public void attachParts(GameObject newHead, GameObject newTorso, GameObject newArmL, GameObject newArmR, GameObject newLegs)
     {
         head = newHead;
@@ -71,24 +77,56 @@ public class CreatureStats : MonoBehaviour
         legs = newLegs;
     }
 
-    //recalculate
-    private void detachPart(GameObject toDetach)
+    #endregion
+
+    #region Part Detaching
+
+    private void detachHead()
     {
-        toDetach.transform.parent = null;
-        //toDetach = null;
-        calculateStats();
+        head.transform.parent = null;
+        head = null;
+        recalculate();
     }
 
-    //TEMP
-    private void debugDetachTorso()
+    private void detachTorso()
     {
+        detachArmL();
+        detachArmR();
+        detachLegs();
+
         torso.transform.parent = null;
+        torso = null;
+        recalculate();
     }
 
-    //GETTERS
+    private void detachArmL()
+    {
+        armL.transform.parent = null;
+        armL = null;
+        recalculate();
+    }
+
+    private void detachArmR()
+    {
+        armR.transform.parent = null;
+        armR = null;
+        recalculate();
+    }
+
+    private void detachLegs()
+    {
+        legs.transform.parent = null;
+        legs = null;
+        recalculate();
+    }
+
+    #endregion
+
+    #region Getters
     public List<GameObject> getPartList()
     {
         return parts;
     }
+    #endregion
 
 }

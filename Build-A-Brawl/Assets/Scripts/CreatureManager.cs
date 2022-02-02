@@ -12,6 +12,11 @@ public class CreatureManager : MonoBehaviour
         return creatures[index];
     }
 
+    public List<GameObject> GetCreatureList()
+    {
+        return creatures;
+    }
+
     public void AddCreature(GameObject toAdd)
     {
         if (creatures.Count < 4)

@@ -89,7 +89,7 @@ public class PartCombiner : MonoBehaviour
         creatureContainer.transform.position = new Vector3(0, (torsoHeight + headHeight + legsHeight)/2 + 1, 0);
     }
 
-    //adds necessary scripts to turn it into a playable character
+    //adds necessary scripts to turn it into a playable character and sends it to the manager
     public void FinalizeCreature()
     {
         Destroy(creaturePlayable.GetComponent<CreatureStats>());
@@ -102,6 +102,7 @@ public class PartCombiner : MonoBehaviour
         creaturePlayable.GetComponent<CreatureStats>().attachParts(newHead, newTorso, newArmL, newArmR, newLegs);
 
         creatureManager.GetComponent<CreatureManager>().AddCreature(creaturePlayable);
+        //creaturePlayable.transform.parent = creatureManager.transform;
     }
 
 	// Looking through Unity Documentation highly suggests that the Resources System should not be used out side of Prototyping

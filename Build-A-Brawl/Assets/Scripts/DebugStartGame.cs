@@ -7,6 +7,6 @@ public class DebugStartGame : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Lab", LoadSceneMode.Single);
+        SceneManager.LoadScene("CC Save Tester", LoadSceneMode.Single);
     }
 }

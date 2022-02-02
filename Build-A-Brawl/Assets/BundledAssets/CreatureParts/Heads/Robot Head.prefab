@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 2362254314156983156}
   - component: {fileID: 8536327309729054531}
   - component: {fileID: 6835126254696218144}
+  - component: {fileID: 977111548819480459}
   m_Layer: 0
   m_Name: Robot Head
   m_TagString: Untagged
@@ -128,3 +129,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9808683, y: 2.3852413, z: 2.0563154}
   m_Center: {x: -0.02491498, y: -0.3321098, z: -0.08278513}
+--- !u!114 &977111548819480459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503052466976011060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partData: {fileID: 0}
