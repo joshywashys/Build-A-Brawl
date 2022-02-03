@@ -5,8 +5,10 @@ using UnityEngine.Events;
 [RequireComponent(typeof(CapsuleCollider))]
 public class RigidbodyController : MonoBehaviour
 {
+	[SerializeField] private LayerMask ignoreLayer;
+
 	[Header("Floating Settings")]
-	[SerializeField] private float m_floatHeight;
+	public float floatHeight;
 	[SerializeField] private float m_floatSpringStrength;
 	[SerializeField] private float m_floatSpringDamper;
 	[SerializeField] private Vector3 m_rayOriginOffset;
@@ -57,7 +59,7 @@ public class RigidbodyController : MonoBehaviour
 
 	private void PhysicsCheck()
 	{
-		if (Physics.Raycast(m_ray, out RaycastHit hit, m_floatHeight + m_groundCheckBuffer + m_rayOriginOffset.y))
+		if (Physics.Raycast(m_ray, out RaycastHit hit, floatHeight + m_groundCheckBuffer + m_rayOriginOffset.y, ~ignoreLayer))
 		{
 			if (!isGrounded)
 				OnGrounded?.Invoke();
@@ -78,7 +80,7 @@ public class RigidbodyController : MonoBehaviour
 		if (!useFloat)
 			return;
 
-		if (Physics.Raycast(m_ray, out RaycastHit hit, m_floatHeight * 2.0f + m_rayOriginOffset.y))
+		if (Physics.Raycast(m_ray, out RaycastHit hit, floatHeight * 2.0f + m_rayOriginOffset.y, ~ignoreLayer))
 		{
 			Vector3 otherVel = Vector3.zero;
 			Rigidbody otherBody = hit.rigidbody;
@@ -90,7 +92,7 @@ public class RigidbodyController : MonoBehaviour
 
 			float relVel = rayDotVel - otherDotVel;
 
-			float x = hit.distance - m_floatHeight;
+			float x = hit.distance - floatHeight;
 			float springForce = (x * m_floatSpringStrength) - (relVel * m_floatSpringDamper);
 			m_rigidbody.AddForce(m_rayDir * springForce);
 
@@ -134,13 +136,13 @@ public class RigidbodyController : MonoBehaviour
 		Vector3 rayOrigin = transform.position + m_rayOriginOffset;
 
 		Gizmos.color = Color.black;
-		Gizmos.DrawLine(rayOrigin, rayOrigin + m_rayDir * (m_floatHeight * 2.0f + m_rayOriginOffset.y));
+		Gizmos.DrawLine(rayOrigin, rayOrigin + m_rayDir * (floatHeight * 2.0f + m_rayOriginOffset.y));
 
 		Gizmos.color = Color.yellow;
-		Gizmos.DrawLine(rayOrigin, rayOrigin + m_rayDir * (m_floatHeight + m_groundCheckBuffer + m_rayOriginOffset.y));
+		Gizmos.DrawLine(rayOrigin, rayOrigin + m_rayDir * (floatHeight + m_groundCheckBuffer + m_rayOriginOffset.y));
 
 		Gizmos.color = isGrounded ? Color.green : Color.red;
-		Gizmos.DrawLine(rayOrigin, rayOrigin + m_rayDir * (m_floatHeight + m_rayOriginOffset.y));
+		Gizmos.DrawLine(rayOrigin, rayOrigin + m_rayDir * (floatHeight + m_rayOriginOffset.y));
 	}
 #endif
 }

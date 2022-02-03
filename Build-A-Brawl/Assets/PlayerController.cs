@@ -1,5 +1,3 @@
-// Code referenced from https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
-
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -9,19 +7,23 @@ using System.Collections.Generic;
 [RequireComponent(typeof(RigidbodyController))]
 public class PlayerController : MonoBehaviour
 {
-	// Serialize the numbers so they can be adjusted right from Unity.
-	// General player characteristics are serialized so they can be adjusted in Unity
+	[Header("Animators")]
+	[SerializeField] private PhysicsIKRig[] m_rigs;
 
 	[Header("Player Display Settings")]
 	public Color playerColour;
 	[SerializeField] private MeshRenderer[] m_meshRenderers;
+	[SerializeField] private SkinnedMeshRenderer[] m_skinnedMeshRenderers;
 
 	public void SetPlayerColour(Color colour)
     {
 		playerColour = colour;
 		for (int i = 0; i < m_meshRenderers.Length; i++)
 			m_meshRenderers[i].material.SetColor("_PlayerColour", colour);
-    }
+		
+		for (int i = 0; i < m_skinnedMeshRenderers.Length; i++)
+			m_skinnedMeshRenderers[i].material.SetColor("_PlayerColour", colour);
+	}
 
 	[Header("Player Movement Settings")]
 	[SerializeField] private float playerSpeed = 5.0f;
@@ -58,7 +60,6 @@ public class PlayerController : MonoBehaviour
 	private RigidbodyController m_controller;
 	private Rigidbody m_rigidbody;
 	private Vector3 forwardDir;
-	private bool groundedPlayer;
 	
 
 	// Input Variable Cache
@@ -78,10 +79,7 @@ public class PlayerController : MonoBehaviour
 		SetPlayerColour(playerColour);
 
 		// Initialize state
-		m_stateDictionary = new Dictionary<State, UnityAction>()
-		{
-		};
-		
+		m_stateDictionary = new Dictionary<State, UnityAction>();
 		m_currentState = State.Idle;
 
 		// get the components that have been added in through the character controller at the top
@@ -96,8 +94,18 @@ public class PlayerController : MonoBehaviour
 	void Update()
 	{
 		// Checking what state the player is currently in
-		if (!m_currentState.HasFlag(State.Held | State.Stunned | State.Thrown | State.Dead))
+		if (m_currentState != State.Held && m_currentState != State.Stunned && m_currentState != State.Thrown && m_currentState != State.Dead)
 		{
+			if (!m_controller.enabled)
+				m_controller.enabled = false;
+
+			// If PhysicsIKRig is not in the animated state, do so
+			foreach (PhysicsIKRig rig in m_rigs)
+			{
+				if (rig.currentState != PhysicsIKRig.State.Animated)
+					rig.SetRagdoll(false);
+			}
+
 			Vector3 cameraRight = Camera.main.transform.right;
 			Vector3 cameraCrossForward = Vector3.Cross(cameraRight, Vector3.up);
 			Vector3 move = (cameraRight * moveInput.x + cameraCrossForward * moveInput.y).normalized;
@@ -108,6 +116,21 @@ public class PlayerController : MonoBehaviour
 				forwardDir = move;
 			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(forwardDir), 5 * Time.deltaTime);
 		}
+		else
+        {
+			if (m_controller.enabled)
+				m_controller.enabled = false;
+
+			// If PhysicsIKRig is in the animated state, activate ragdoll
+			foreach (PhysicsIKRig rig in m_rigs)
+			{
+				if (rig.currentState != PhysicsIKRig.State.Ragdoll)
+					rig.SetRagdoll(true);
+			}
+
+			if (m_currentState == State.Thrown && m_controller.isGrounded)
+        		SetState(State.Idle);
+        }
 
 		springConstant = attackSpringConstant;
 		if (m_heldObject != null)
@@ -126,7 +149,7 @@ public class PlayerController : MonoBehaviour
 			jumped = false;
 		}
 
-		HandleFistLocations();
+		HandleFistTransforms();
 	}
 
 	private void OnCollisionEnter(Collision collision)
@@ -141,15 +164,15 @@ public class PlayerController : MonoBehaviour
 
 	#endregion
 
+
+
 	#region Input Action Callback Functions
 
-	//triggered on usage of move control
 	public void OnMove(InputAction.CallbackContext context)
 	{
 		moveInput = context.ReadValue<Vector2>();
 	}
 
-	//triggered on usage of jump control
 	public void OnJump(InputAction.CallbackContext context)
 	{
 		//triggered returns boolean true if triggered on the frame
@@ -160,16 +183,8 @@ public class PlayerController : MonoBehaviour
 	public void OnLeftPunch(InputAction.CallbackContext context) => attackPressed[LEFT_LIMB] = context.action.triggered;
 	public void OnRightPunch(InputAction.CallbackContext context) => attackPressed[RIGHT_LIMB] = context.action.triggered;
 
-	//triggered on usage of pickup control
 	public void OnPickUp(InputAction.CallbackContext context)
 	{
-		// these special conditions will be created *after* the initial action works
-		//if items are not in posession of left arm, pickup in left
-		// else if items are not in posession of right arm, pickup in right
-		// else emit UI of arms full
-
-		// This doesn't need to be cached since this should be a state driven - Tristan
-	
 		if (context.action.triggered)
 		{
 			if (m_currentState == State.Holding)
@@ -183,6 +198,8 @@ public class PlayerController : MonoBehaviour
 	}
 
 	#endregion
+
+	
 
 	#region COMBAT SYSTEM
 
@@ -208,7 +225,7 @@ public class PlayerController : MonoBehaviour
 	private bool[] attackPressed = { false, false };
 	Coroutine[] isAttacking = { null, null };
 
-	private void HandleFistLocations()
+	private void HandleFistTransforms()
 	{
 		if (m_currentState != State.Stunned)
 		{
@@ -222,6 +239,9 @@ public class PlayerController : MonoBehaviour
 		// Hook's law for spring physics
 		HooksLaw(fistLeftRigidbody, anchorLeft);
 		HooksLaw(fistRightRigidbody, anchorRight);
+
+		UpdateRotation(fistLeftRigidbody);
+		UpdateRotation(fistRightRigidbody);
 	}
 
 	// A physics calculation to determine the force applied to a spring
@@ -231,6 +251,12 @@ public class PlayerController : MonoBehaviour
 		Vector3 springForce = -springConstant * x;						// Hook's Law formula
 		rigidbody.AddForce(springForce);
 	}
+
+	private void UpdateRotation(Rigidbody rigidbody)
+    {
+		Quaternion rot = Quaternion.LookRotation(transform.forward, Vector3.up);
+		rigidbody.rotation = rot;
+    }
 
 	private IEnumerator Punch(Rigidbody rigidbody, int limb, float activeTime)
 	{
@@ -295,6 +321,7 @@ public class PlayerController : MonoBehaviour
 		if (other != null)
 		{
 			other.SetState(State.Held);
+			print($"{other.name} : {other.GetState()}");
 		}
 
 		m_heldObject.IsGrabbed(true);
@@ -339,6 +366,8 @@ public class PlayerController : MonoBehaviour
 	}
 
 	#endregion
+
+
 
 #if UNITY_EDITOR
 	private void OnDrawGizmosSelected()
