@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3575153326
+CRC: 4014806729
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e455c4e9cc9542e3b896194246617818
+    Hash: 7a690612f734bc399f5087b7244dae19
   TypeTreeHash:
     serializedVersion: 2
-    Hash: ccdf19e42652927b3ca1379ec4c0235c
+    Hash: e422f241e24602f3ea3d6c9f0a437897
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -17,16 +17,27 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 23
   Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
 - Class: 33
   Script: {instanceID: 0}
 - Class: 43
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
 - Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 97703ef28157d9f44ac271d94b284f87, type: 3}
+- Class: 115
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/BundledAssets/CreatureParts/Legs/Druid Legs.prefab
 - Assets/BundledAssets/CreatureParts/Legs/Legs.prefab
+- Assets/BundledAssets/CreatureParts/Legs/zombieLegs.prefab
 Dependencies: []

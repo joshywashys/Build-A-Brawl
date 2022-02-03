@@ -55,6 +55,7 @@ public class PartCombiner : MonoBehaviour
         Destroy(newArmR);
         Destroy(newLegs);
         Destroy(creaturePlayable.GetComponent<CreatureStats>());
+        //creaturePlayable.transform.position = new Vector3(0, 0, 0);
 
         //spawn parts
         newHead = Instantiate(currHead, creatureContainer.position, Quaternion.identity, creaturePlayable.transform);
@@ -63,11 +64,18 @@ public class PartCombiner : MonoBehaviour
         newArmR = Instantiate(currArmR, creatureContainer.position, Quaternion.identity, creaturePlayable.transform);
         newLegs = Instantiate(currLegs, creatureContainer.position, Quaternion.identity, creaturePlayable.transform);
 
+        //make them stand still
+        //newHead.GetComponent<Rigidbody>().isKinematic = true;
+        //newTorso.GetComponent<Rigidbody>().isKinematic = true;
+        //newArmL.GetComponent<Rigidbody>().isKinematic = true;
+        //newArmR.GetComponent<Rigidbody>().isKinematic = true;
+        //newLegs.GetComponent<Rigidbody>().isKinematic = true;
+
         //calculate where to move parts to attach to body parts
         Vector3 headToNeck = newHead.transform.position - newHead.transform.GetChild(0).transform.position;
-		Vector3 torsoToNeck = newTorso.transform.position - newTorso.transform.GetChild(0).transform.position;
+        Vector3 torsoToNeck = newTorso.transform.position - newTorso.transform.GetChild(0).transform.position;
 
-		Vector3 legsToHips = newLegs.transform.GetChild(0).transform.position - newLegs.transform.position;
+        Vector3 legsToHips = newLegs.transform.GetChild(0).transform.position - newLegs.transform.position;
 		Vector3 torsoToHips = newTorso.transform.position - newTorso.transform.GetChild(3).transform.position;
 
         Vector3 torsoToShoulderL = newTorso.transform.position + newTorso.transform.GetChild(1).transform.position;
@@ -83,10 +91,13 @@ public class PartCombiner : MonoBehaviour
         newLegs.transform.Translate(-(legsToHips + torsoToHips));
 
         //shift creature upwards
-        float headHeight = GetPartHeight(newHead);
-        float torsoHeight = GetPartHeight(newTorso);
-        float legsHeight = GetPartHeight(newLegs);
-        creatureContainer.transform.position = new Vector3(0, (torsoHeight + headHeight + legsHeight)/2 + 1, 0);
+        //float headHeight = GetPartHeight(newHead);
+        //float torsoHeight = GetPartHeight(newTorso); 
+        //float legsHeight = GetPartHeight(newLegs);
+        //creatureContainer.transform.position = new Vector3(0, (torsoHeight + headHeight + legsHeight)/2 + 1, 0);
+        float heightShift = (legsToHips.y*2 + torsoToHips.y - torsoToNeck.y + headToNeck.y*2) / 2 + 1f; //+ creatureContainer.position.y
+        creatureContainer.transform.localPosition = new Vector3(0, heightShift, 0);
+        print("TOTAL HEIGHT: " + heightShift);
     }
 
     //adds necessary scripts to turn it into a playable character and sends it to the manager
