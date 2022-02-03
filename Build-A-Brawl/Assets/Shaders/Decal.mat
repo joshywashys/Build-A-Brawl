@@ -117,7 +117,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColourTint: {r: 0.28435388, g: 0.8490566, b: 0.8348061, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _PlayerColour: {r: 0, g: 0.8399844, b: 1, a: 0}
+    - _PlayerColour: {r: 1, g: 1, b: 1, a: 0}
     - _ShadowColour: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []

@@ -1,114 +1,115 @@
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(RigBuilder))]
 public class PhysicsIKRig : MonoBehaviour
 {
-	public bool usePhysics;
-	[Range (0, 1)]
-	public float blend;
+	private Animator m_animator;
+	private Transform m_tip;
+	private Transform m_target;
 
-	public Transform root;
-	public Transform target;
-	public Transform tip;
-	public Transform[] bones;
-
-	public Transform physicsAnchor;
-	public Transform physicsTip;
-	public Transform[] physicsBones;
-
-	private Transform offset;
-	private Vector3[] eulerAngleOffset;
-	
-	private TwoBoneIKConstraint ik;
-
-	public Rigidbody[] boneRigidbodies;
-
-	void Start()
-	{
-		offset = new GameObject($"offset_{bones[0].name}").transform;
-		offset.position = bones[0].position;
-		offset.parent = root;
-
-		ik = GetComponentInChildren<TwoBoneIKConstraint>();
-
-		int physicsBonesCount = physicsBones.Length;
-		
-		boneRigidbodies = new Rigidbody[physicsBonesCount + 1];
-		eulerAngleOffset = new Vector3[physicsBonesCount];
-
-		for (int i = 0; i < physicsBonesCount; i++)
-        {
-			boneRigidbodies[i] = physicsBones[i].GetComponent<Rigidbody>();
-			eulerAngleOffset[i] = physicsBones[i].rotation.eulerAngles;
-        }
-		boneRigidbodies[physicsBonesCount] = physicsTip.GetComponent<Rigidbody>();
-	}
-
-	void LateUpdate()
-	{
-		BlendBones();
-	}
-
-	void BlendBones()
-	{
-		physicsAnchor.position = offset.position;
-		physicsAnchor.rotation = offset.rotation;
-
-		ik.weight = usePhysics ? 0 : 1;
-
-		if (usePhysics)
-		{
-			for (int i = 0; i < boneRigidbodies.Length; i++)
-				boneRigidbodies[i].useGravity = true;
-
-			for (int i = 0; i < bones.Length; i++)
-				SetTransforms(bones[i], physicsBones[i]);
-
-			target.position = physicsBones[physicsBones.Length - 1].position;
-			target.rotation = physicsBones[physicsBones.Length - 1].rotation;
-
-			tip.position = physicsTip.position;
-		}
-		else
-		{
-			for (int i = 0; i < boneRigidbodies.Length; i++)
-			{
-				boneRigidbodies[i].useGravity = false;
-				boneRigidbodies[i].velocity = Vector3.zero;
-			}
-
-			for (int i = 0; i < bones.Length; i++)
-				SetTransforms(physicsBones[i], bones[i]);
-
-			physicsTip.position = tip.position;
-		}
-	}
-
-	(Vector3, Quaternion) LerpTransforms(Transform origin, Transform target, float blendFactor)
+	private void InitializeTip()
     {
-		Vector3 pos = Vector3.Lerp(origin.position, target.position, blendFactor);
-		Quaternion rot = Quaternion.Lerp(origin.rotation, target.rotation, blendFactor);
+		if (rig.transform.TryGetComponent(out ChainIKConstraint chainIK))
+		{
+			chainIK.data.target = m_target;
+			m_tip = chainIK.data.tip;
+			return;
+		}
 
-		return (pos, rot);
+		if (rig.transform.TryGetComponent(out TwoBoneIKConstraint twoBoneIK))
+		{
+			twoBoneIK.data.target = m_target;
+			m_tip = twoBoneIK.data.tip;
+			return;
+		}
+
+		Debug.LogError($"[InitializeTip] : {name} was unable to obtain IK Constraint Data - Please add either a ChainIKConstraint or TwoBoneIKConstraint component to the gameObject");
+	}
+	private void InitializeTarget()
+    {
+		GameObject[] objects = GameObject.FindGameObjectsWithTag(m_targetTag);
+		for (int i = 0; i < objects.Length; i++)
+        {
+			if (objects[i].transform.root == transform.root)
+			{
+				m_target = objects[i].transform;
+				return;
+			}
+		}
+
+		Debug.LogError($"[InitializeTarget] : {name} was unable to find a gameObject with tag matching {m_targetTag} - was the tag misspelt?");
+	}
+	
+	[Header("IK Rig Settings")]
+	public Rig rig;
+	[SerializeField] private string m_targetTag;
+
+	[Header("Physics Rig Settings")]
+	public Ragdoll ragdoll;
+	
+	public enum State { Animated, Ragdoll }
+	public State currentState;
+
+	private void Start()
+    {
+		m_animator = GetComponent<Animator>();
+
+		InitializeTarget();
+		InitializeTip();
+
+		// As the Animation Rig currently stand,
+		// the rigs won't work properly if data is modified in during runtime.
+		// To fix this you'll have to rebuild the rig builder manually.
+		GetComponent<RigBuilder>().Build();
+
+		SetRagdoll(currentState == State.Ragdoll);
+	}
+
+    public void SetRagdoll(bool active)
+    {
+		ragdoll.SetActive(active);
+
+		if (!active)
+			m_target.position = m_tip.position;
+
+		m_animator.enabled = !active;
+
+		currentState = active ? State.Ragdoll : State.Animated;
+	}
+}
+
+[System.Serializable]
+public class Ragdoll
+{
+	[SerializeField] private Bone[] bones;
+
+	public void SetActive(bool active)
+    {
+		if (!active)
+			ResetVelocity();
+
+		for (int i = 0; i < bones.Length; i++)
+		{
+			bones[i].rigidbody.constraints =  active ? RigidbodyConstraints.None : RigidbodyConstraints.FreezeAll;
+			bones[i].collider.enabled = active;
+		}
     }
 
-	void SetTransforms(Transform set, Transform get)
-	{
-		set.position = get.position;
-		set.rotation = get.rotation;
-	}
-
-#if UNITY_EDITOR
-	[Header("Debug")]
-	[SerializeField] private bool debugPreview = true;
-	
-	private void OnDrawGizmos()
+	public void ResetVelocity()
     {
-		if (!debugPreview)
-			return;
+		for (int i = 0; i < bones.Length; i++)
+        {
+			bones[i].rigidbody.velocity = Vector3.zero;
+			bones[i].rigidbody.angularVelocity = Vector3.zero;
+        }
+    }
+}
 
-		for (int i = 1; i < physicsBones.Length; i++)
-			Gizmos.DrawLine(physicsBones[i - 1].position, physicsBones[i].position);
-	}
-#endif
+[System.Serializable]
+public class Bone
+{
+	public Rigidbody rigidbody;
+	public Collider collider;
 }

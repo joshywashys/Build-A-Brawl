@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6645260241809768660}
   - component: {fileID: 5799770837210617125}
   - component: {fileID: 836865654984510182}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 539239326631041294}
   - component: {fileID: 539239326631041295}
   - component: {fileID: 770413831109931190}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539239326631041293}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -244,7 +244,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5894e020786257c46bd3c78f3956e4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_floatHeight: 3
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  floatHeight: 3
   m_floatSpringStrength: 30
   m_floatSpringDamper: 4
   m_rayOriginOffset: {x: 0, y: 0.1, z: 0}
@@ -304,7 +307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9deb124cdfc8046b431115bbf91915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColour: {r: 1, g: 1, b: 1, a: 0}
+  m_rigs: []
+  playerColour: {r: 1, g: 0.8441375, b: 0, a: 0}
   m_meshRenderers:
   - {fileID: 539239328115012910}
   - {fileID: 539239327698729621}
@@ -312,6 +316,7 @@ MonoBehaviour:
   - {fileID: 7784746446955021107}
   - {fileID: 836865654984510182}
   - {fileID: 3382123799592761223}
+  m_skinnedMeshRenderers: []
   playerSpeed: 12
   jumpHeight: 20
   m_heldObject: {fileID: 0}
@@ -379,7 +384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 539239327481637331}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -412,7 +417,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 539239327631430761}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Anchor_FistLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +451,7 @@ GameObject:
   - component: {fileID: 539239327698729621}
   - component: {fileID: 539239327698729610}
   - component: {fileID: 539239327698729611}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: FistRight
   m_TagString: heavyAttack
   m_Icon: {fileID: 0}
@@ -554,7 +559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 539239327937349928}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Anchor_FistRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +593,7 @@ GameObject:
   - component: {fileID: 539239328115012910}
   - component: {fileID: 539239328115012911}
   - component: {fileID: 539239328115012908}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: FistLeft
   m_TagString: heavyAttack
   m_Icon: {fileID: 0}
@@ -698,7 +703,7 @@ GameObject:
   - component: {fileID: 2223896542193578948}
   - component: {fileID: 8043658361240871191}
   - component: {fileID: 7784746446955021107}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,7 +784,7 @@ GameObject:
   - component: {fileID: 4046524599629977541}
   - component: {fileID: 5065822510494951577}
   - component: {fileID: 4057428036070188222}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -859,7 +864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6381268178807729154}
   - component: {fileID: 2611938205069207760}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -906,7 +911,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1572240645439648364}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -940,7 +945,7 @@ GameObject:
   - component: {fileID: 848382458596206544}
   - component: {fileID: 9073236479662677662}
   - component: {fileID: 3382123799592761223}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

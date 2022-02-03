@@ -20,9 +20,6 @@
         },
         {
             "m_Id": "ee67ac3fbe284e118a481b449f984fe3"
-        },
-        {
-            "m_Id": "f61240547df04252a7b2bc5ba766d745"
         }
     ],
     "m_Keywords": [],
@@ -9352,24 +9349,6 @@
         "z": 0.0,
         "w": 0.0
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.BooleanShaderProperty",
-    "m_ObjectId": "f61240547df04252a7b2bc5ba766d745",
-    "m_Guid": {
-        "m_GuidSerialized": "5a2b4efb-d23d-4e49-afa7-a13be21bbce6"
-    },
-    "m_Name": "Use Silhouette",
-    "m_DefaultReferenceName": "Boolean_f61240547df04252a7b2bc5ba766d745",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": false
 }
 
 {

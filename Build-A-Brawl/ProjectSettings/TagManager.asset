@@ -8,15 +8,17 @@ TagManager:
   - heavyAttack
   - goop
   - ground
+  - Left Hand
+  - Right Hand
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Shadow
   - 
   - 
   - 

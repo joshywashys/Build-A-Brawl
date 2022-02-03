@@ -54,7 +54,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Boolean_f61240547df04252a7b2bc5ba766d745: 0
-    - _BackLightStrength: 0
+    - _BackLightStrength: 0.25
     - _Smoothness: 0.164
     - _ToonBrightness: 0.45
     - _ToonOffset: 0.225
