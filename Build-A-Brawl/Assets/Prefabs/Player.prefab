@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cf2f6f7e646244840ac35a6f5d463f84, type: 2}
+  - {fileID: 2100000, guid: 4878e04f1b312b34eb8010373a52a1b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,7 +110,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539239326631041293}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -245,10 +245,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_floatHeight: 3
-  m_springStrength: 30
-  m_springDamper: 4
+  m_floatSpringStrength: 30
+  m_floatSpringDamper: 4
   m_rayOriginOffset: {x: 0, y: 0.1, z: 0}
   useFloat: 1
+  m_balanceSpringStrength: 50
+  m_balanceSpringDamper: 1.5
+  useBalance: 1
   m_groundCheckBuffer: 0.75
   isGrounded: 0
   m_acceleration: 200
@@ -301,18 +304,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9deb124cdfc8046b431115bbf91915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerColour: {r: 1, g: 1, b: 1, a: 0}
+  m_meshRenderers:
+  - {fileID: 539239328115012910}
+  - {fileID: 539239327698729621}
+  - {fileID: 4057428036070188222}
+  - {fileID: 7784746446955021107}
+  - {fileID: 836865654984510182}
+  - {fileID: 3382123799592761223}
   playerSpeed: 12
   jumpHeight: 20
   m_heldObject: {fileID: 0}
-  distance: 2
-  springConstant: 80
-  punchForce: 30
+  attackSpringConstant: 80
+  attackForce: 30
   fistLeftRigidbody: {fileID: 539239328115012908}
   fistRightRigidbody: {fileID: 539239327698729611}
   anchorLeft: {fileID: 539239327631430761}
   anchorRight: {fileID: 539239327937349928}
   grabBounds: {x: 3, y: 5.5, z: 3}
   grabOrigin: {x: 0, y: 0.25, z: 1}
+  grabSpringConstant: 160
+  throwForce: 15
   attackTag: heavyAttack
 --- !u!54 &539239326631041294
 Rigidbody:
@@ -328,7 +340,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!136 &539239326631041295
 CapsuleCollider:
@@ -356,7 +368,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 0}
 --- !u!1 &539239327481637328
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +494,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 4878e04f1b312b34eb8010373a52a1b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -623,7 +636,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 4878e04f1b312b34eb8010373a52a1b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -733,7 +746,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f76ea0d0c60657c4eac29fe2162d7390, type: 2}
+  - {fileID: 2100000, guid: 4878e04f1b312b34eb8010373a52a1b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -814,7 +827,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e2ed77a174fbb1f448ee42c602a92736, type: 2}
+  - {fileID: 2100000, guid: 4878e04f1b312b34eb8010373a52a1b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -880,9 +893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078ac23f98b12df4fab9398e9bda2d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shadowMaterial: {fileID: 0}
   shadowTransform: {fileID: 848382458596206544}
-  playerColour: {r: 0.37254903, g: 0.9960785, b: 0.9960785, a: 0}
   scale: 3
   maxDistance: 1000
   bufferDistance: 5
@@ -930,7 +941,7 @@ GameObject:
   - component: {fileID: 9073236479662677662}
   - component: {fileID: 3382123799592761223}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

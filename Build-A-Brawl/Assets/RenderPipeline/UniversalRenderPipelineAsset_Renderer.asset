@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: UniversalRenderPipelineAsset_Renderer
   m_EditorClassIdentifier: 
   m_RendererFeatures:
-  - {fileID: 2171889648592091601}
-  - {fileID: 6606047225162967720}
-  m_RendererFeatureMap: d1f9add3201a241ea82a4b71f364ad5b
+  - {fileID: 7609430641560197169}
+  - {fileID: 8830022366223140543}
+  m_RendererFeatureMap: 31182b1dda209a69bf067c018f8a8a7a
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
@@ -35,16 +35,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_DefaultStencilState:
-    overrideStencilState: 1
+    overrideStencilState: 0
     stencilReference: 0
     stencilCompareFunction: 8
     passOperation: 2
     failOperation: 0
     zFailOperation: 0
-  m_ShadowTransparentReceive: 1
+  m_ShadowTransparentReceive: 0
   m_RenderingMode: 0
   m_AccurateGbufferNormals: 0
---- !u!114 &2171889648592091601
+--- !u!114 &7609430641560197169
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,12 +54,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: Player Silhouette
+  m_Name: Render Silhouette
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    passTag: Player Silhouette
-    Event: 450
+    passTag: Render Silhouette
+    Event: 300
     filterSettings:
       RenderQueueType: 0
       LayerMask:
@@ -69,7 +69,7 @@ MonoBehaviour:
     overrideMaterial: {fileID: 0}
     overrideMaterialPassIndex: 0
     overrideDepthState: 1
-    depthCompareFunction: 7
+    depthCompareFunction: 5
     enableWrite: 0
     stencilSettings:
       overrideStencilState: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
---- !u!114 &6606047225162967720
+--- !u!114 &8830022366223140543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,11 +93,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: Player Rendering
+  m_Name: Render Player
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    passTag: Player Rendering
+    passTag: Render Player
     Event: 450
     filterSettings:
       RenderQueueType: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
       PassNames: []
     overrideMaterial: {fileID: 0}
     overrideMaterialPassIndex: 0
-    overrideDepthState: 0
+    overrideDepthState: 1
     depthCompareFunction: 4
     enableWrite: 1
     stencilSettings:

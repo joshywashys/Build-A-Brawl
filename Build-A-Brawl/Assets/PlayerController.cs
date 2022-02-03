@@ -12,14 +12,21 @@ public class PlayerController : MonoBehaviour
 	// Serialize the numbers so they can be adjusted right from Unity.
 	// General player characteristics are serialized so they can be adjusted in Unity
 
+	[Header("Player Display Settings")]
+	public Color playerColour;
+	[SerializeField] private MeshRenderer[] m_meshRenderers;
+
+	public void SetPlayerColour(Color colour)
+    {
+		playerColour = colour;
+		for (int i = 0; i < m_meshRenderers.Length; i++)
+			m_meshRenderers[i].material.SetColor("_PlayerColour", colour);
+    }
+
 	[Header("Player Movement Settings")]
 	[SerializeField] private float playerSpeed = 5.0f;
 	[SerializeField] private float jumpHeight = 1.0f;
 	
-	//  [SerializeField] private BoolEvent onPickedUpLeft;
-	//  [SerializeField]
-	//  private float grabRange = 2.0f;
-
 	// States
 	public enum State 
 	{ 
@@ -67,6 +74,9 @@ public class PlayerController : MonoBehaviour
 
 	private void Start()
 	{
+		// This is for quick testing please remove this function call later
+		SetPlayerColour(playerColour);
+
 		// Initialize state
 		m_stateDictionary = new Dictionary<State, UnityAction>()
 		{
