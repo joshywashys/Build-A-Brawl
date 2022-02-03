@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BodyPart : MonoBehaviour
 {
+    [SerializeField] private Transform skeletonBase;
     public BodyPartData partData;
     private float health;
     private float mass;
@@ -14,6 +15,11 @@ public class BodyPart : MonoBehaviour
     //public enum PartSide { None, Left, Right }
     //public PartSide partSide;
 
+    public void Awake()
+    {
+        ToggleKinematics(skeletonBase, true);
+    }
+
     public void Start()
     {
         health = partData.stats.health;
@@ -21,6 +27,48 @@ public class BodyPart : MonoBehaviour
         strength = partData.stats.strength;
         springConstant = partData.stats.springConstant;
     }
+
+    public void ToggleKinematics(Transform currChild, bool toggleType)
+    {
+        if (currChild == null)
+        {
+            //return;
+            currChild = gameObject.transform;
+        }
+        if (currChild.GetComponent<Rigidbody>() != null)
+        {
+            currChild.GetComponent<Rigidbody>().isKinematic = toggleType;
+        }
+        if (currChild.childCount > 0)
+        {
+            for (int i = 0; i < currChild.childCount; i++)
+            {
+                ToggleKinematics(currChild.GetChild(i), toggleType);
+            }
+        }
+    }
+
+    #region Getters
+    public float getHealth()
+    {
+        return health;
+    }
+
+    public float getMass()
+    {
+        return mass;
+    }
+
+    public float getStrength()
+    {
+        return mass;
+    }
+
+    public float getSpringConstant()
+    {
+        return springConstant;
+    }
+    #endregion
 
 }
 

@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3381925053
+CRC: 3168200532
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -13,7 +13,8 @@ AssetBundleManifest:
       Dependencies: {}
     Info_3:
       Name: creatureparts/armsl
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: creatureparts/armsr
     Info_4:
       Name: creatureparts/armsr
       Dependencies: {}

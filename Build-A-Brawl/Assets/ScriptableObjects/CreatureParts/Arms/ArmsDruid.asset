@@ -17,5 +17,5 @@ MonoBehaviour:
   stats:
     health: 0
     strength: 0
-    mass: 0
-    springConstant: 0
+    mass: 2
+    springConstant: 40

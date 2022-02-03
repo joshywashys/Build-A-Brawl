@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3415265025
+CRC: 687813582
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 70ddc91e55dd0edbec48fff25aee8e96
+    Hash: 4a60e5bac32409b6ec49fe7870d83bce
   TypeTreeHash:
     serializedVersion: 2
-    Hash: deb54e2b64790d41523e3d9dd9684ce4
+    Hash: d2b1de1000ec8da078c6d91a5a391460
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -25,13 +25,21 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
 - Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 97703ef28157d9f44ac271d94b284f87, type: 3}
+- Class: 115
   Script: {instanceID: 0}
 - Class: 136
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/BundledAssets/CreatureParts/Heads/Zombie Head.prefab
+- Assets/BundledAssets/CreatureParts/Heads/zombieHead.prefab
 - Assets/BundledAssets/CreatureParts/Heads/Druid Head.prefab
 - Assets/BundledAssets/CreatureParts/Heads/Robot Head.prefab
 Dependencies: []

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1161508097
+CRC: 3889833483
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: aaf083cec03e9247492c682b2bf6df5d
+    Hash: 620308d26cfc12110e683c69d6081552
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f64856a3d606b613608cbf22df470c60
+    Hash: 75a95911c7200049ed0bce1f7e7d8172
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -17,14 +17,33 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 23
   Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
 - Class: 33
   Script: {instanceID: 0}
 - Class: 43
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 97703ef28157d9f44ac271d94b284f87, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 153
+  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/BundledAssets/CreatureParts/ArmsR/zombieArmSkinned.prefab
 - Assets/BundledAssets/CreatureParts/ArmsR/Druid ArmR.prefab
 - Assets/BundledAssets/CreatureParts/ArmsR/ArmR.prefab
 Dependencies: []
