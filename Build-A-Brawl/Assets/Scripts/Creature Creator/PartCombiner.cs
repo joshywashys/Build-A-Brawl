@@ -37,8 +37,6 @@ public class PartCombiner : MonoBehaviour
     private GameObject newArmR;
     private GameObject newLegs;
 
-	private int[] bodyParts;
-
 	private CreatureData creature;
 	public CreatureData[] savedCreatureData;
 
@@ -106,7 +104,7 @@ public class PartCombiner : MonoBehaviour
         Destroy(creaturePlayable.GetComponent<CreatureStats>());
         creaturePlayable.AddComponent<CreatureStats>();
 
-        newTorso.transform.parent = newHead.transform;
+        newHead.transform.parent = newTorso.transform;
         newArmL.transform.parent = newTorso.transform;
         newArmR.transform.parent = newTorso.transform;
         newLegs.transform.parent = newTorso.transform;
@@ -116,25 +114,10 @@ public class PartCombiner : MonoBehaviour
         //creaturePlayable.transform.parent = creatureManager.transform;
     }
 
-	// Looking through Unity Documentation highly suggests that the Resources System should not be used out side of Prototyping
-	// I'll be keeping this function in the script for the mean time but I'd suggest using Unity's AssetBundle system in for futur development
-	// 
-	// Using the AssetManager class to load Assetbundles, if you'd like more features get in touch with Tristan
-	//
-	// https://learn.unity.com/tutorial/assets-resources-and-assetbundles?uv=2017.3#5c7f8528edbc2a002053b5a6
-	
-	private static void LoadResources()
-	{
-		GameObject[] headList = Resources.LoadAll<GameObject>("Prefabs/CreatureParts/Heads");
-		GameObject[] torsoList = Resources.LoadAll<GameObject>("Prefabs/CreatureParts/Torsos");
-		GameObject[] armsList = Resources.LoadAll<GameObject>("Prefabs/CreatureParts/Arms");
-		GameObject[] legsList = Resources.LoadAll<GameObject>("Prefabs/CreatureParts/Legs");
+    #region Saving/Loading
 
-		m_resourcesLoaded = true;
-	}
-	
-	// This will be the function used to handle Loading the game's body part assets
-	private static async void LoadAssets()
+    // This will be the function used to handle Loading the game's body part assets
+    private static async void LoadAssets()
     {
 		partsList = new Dictionary<string, GameObject[]>();
 		string[] bundleNames = 
@@ -265,29 +248,9 @@ public class PartCombiner : MonoBehaviour
 			savedCreatureData[i - 1] = JsonUtility.FromJson<CreatureData>(data[i]);
         }
     }
+    #endregion
 
-    public float GetPartHeight(GameObject toCheck)
-    {
-        float height = -1.0f;
-        if (toCheck.GetComponent<Collider>() != null)
-        {
-            print("- COLLIDER FOUND -");
-            height = toCheck.GetComponent<Collider>().bounds.size.y;
-        }
-        else if (toCheck.GetComponent<MeshFilter>().mesh != null)
-        {
-            print("- NO COLLIDER - USING MESH DIMS -");
-            height = toCheck.GetComponent<MeshFilter>().mesh.bounds.size.y;
-        }
-        else
-        {
-            print("- NO MESH OR COLLIDER FOUND -");
-        }
-        
-        return height;
-    }
-
-    #region partswapping functions
+    #region Partswapping
     public void NextHead()
     {
         if (headIndex < partsList[BundleNameCache.creaturepartsHeads].Length - 1)
@@ -388,6 +351,30 @@ public class PartCombiner : MonoBehaviour
             currLegs = partsList[BundleNameCache.creaturepartsLegs][legIndex];
             generateCreature();
         }
+    }
+    #endregion
+
+    #region Deprecated
+
+    public float GetPartHeight(GameObject toCheck)
+    {
+        float height = -1.0f;
+        if (toCheck.GetComponent<Collider>() != null)
+        {
+            print("- COLLIDER FOUND -");
+            height = toCheck.GetComponent<Collider>().bounds.size.y;
+        }
+        else if (toCheck.GetComponent<MeshFilter>().mesh != null)
+        {
+            print("- NO COLLIDER - USING MESH DIMS -");
+            height = toCheck.GetComponent<MeshFilter>().mesh.bounds.size.y;
+        }
+        else
+        {
+            print("- NO MESH OR COLLIDER FOUND -");
+        }
+
+        return height;
     }
     #endregion
 

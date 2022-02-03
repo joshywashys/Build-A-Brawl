@@ -102,6 +102,8 @@ public class CreatureStats : MonoBehaviour
 
     private void detachHead()
     {
+        detachTorso();
+
         head.transform.parent = null;
         head = null;
         recalculate();
@@ -112,6 +114,7 @@ public class CreatureStats : MonoBehaviour
         detachArmL();
         detachArmR();
         detachLegs();
+        detachHead();
 
         torso.transform.parent = null;
         torso = null;

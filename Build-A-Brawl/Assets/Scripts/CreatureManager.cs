@@ -7,16 +7,6 @@ public class CreatureManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> creatures;
 
-    public GameObject GetCreature(int index)
-    {
-        return creatures[index];
-    }
-
-    public List<GameObject> GetCreatureList()
-    {
-        return creatures;
-    }
-
     public void AddCreature(GameObject toAdd)
     {
         if (creatures.Count < 4)
@@ -35,6 +25,18 @@ public class CreatureManager : MonoBehaviour
     {
         creatures.Clear();
     }
+
+    #region Getters
+    public GameObject GetCreature(int index)
+    {
+        return creatures[index];
+    }
+
+    public List<GameObject> GetCreatureList()
+    {
+        return creatures;
+    }
+    #endregion
 
     public void Start()
     {
