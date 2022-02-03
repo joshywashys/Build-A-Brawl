@@ -17,8 +17,6 @@ public class CreatureManager : MonoBehaviour
             DontDestroyOnLoad(newCreature);
         }
         else { print("- MAX CREATURES - CREATURE NOT ADDED -"); }
-        //instantiate
-        //disable
     }
 
     public void ClearCreatures()

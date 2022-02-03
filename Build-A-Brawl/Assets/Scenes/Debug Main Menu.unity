@@ -3865,6 +3865,9 @@ MonoBehaviour:
   creatureManager: {fileID: 677812825}
   maxSaveSlots: 8
   savedCreatureData: []
+  floating: 1
+  floatHeight: 0.5
+  floatPeriod: 4
 --- !u!1 &1606646826
 GameObject:
   m_ObjectHideFlags: 0

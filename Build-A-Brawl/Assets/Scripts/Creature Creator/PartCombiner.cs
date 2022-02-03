@@ -40,9 +40,17 @@ public class PartCombiner : MonoBehaviour
 	private CreatureData creature;
 	public CreatureData[] savedCreatureData;
 
-	//we will recreate the creature every time a part is swapped out, despite it not being optimal, since it's not cpu-heavy at all anyways.
-	//If it turns out to be cpu-heavy, we can optimize it to adjust part locations rather than re-generate.
-	public void generateCreature()
+    // Creature Floating
+    [SerializeField] private bool floating;
+    [SerializeField] private float floatHeight;
+    [SerializeField] private float floatPeriod;
+    private Vector3 posOffset;
+
+    #region Creature Generation
+
+    //we will recreate the creature every time a part is swapped out, despite it not being optimal, since it's not cpu-heavy at all anyways.
+    //If it turns out to be cpu-heavy, we can optimize it to adjust part locations rather than re-generate.
+    public void generateCreature()
 	{
         //should probably do a bunch of checks to make sure each object has it's joints set up properly
 
@@ -56,11 +64,11 @@ public class PartCombiner : MonoBehaviour
         //creaturePlayable.transform.position = new Vector3(0, 0, 0);
 
         //spawn parts
-        newHead = Instantiate(currHead, creatureContainer.position, Quaternion.identity, creaturePlayable.transform);
-        newTorso = Instantiate(currTorso, creatureContainer.position, Quaternion.identity, creaturePlayable.transform);
-		newArmL = Instantiate(currArmL, creatureContainer.position, Quaternion.identity, creaturePlayable.transform);
-        newArmR = Instantiate(currArmR, creatureContainer.position, Quaternion.identity, creaturePlayable.transform);
-        newLegs = Instantiate(currLegs, creatureContainer.position, Quaternion.identity, creaturePlayable.transform);
+        newHead = Instantiate(currHead, creaturePlayable.transform.position, Quaternion.identity, creaturePlayable.transform);
+        newTorso = Instantiate(currTorso, creaturePlayable.transform.position, Quaternion.identity, creaturePlayable.transform);
+		newArmL = Instantiate(currArmL, creaturePlayable.transform.position, Quaternion.identity, creaturePlayable.transform);
+        newArmR = Instantiate(currArmR, creaturePlayable.transform.position, Quaternion.identity, creaturePlayable.transform);
+        newLegs = Instantiate(currLegs, creaturePlayable.transform.position, Quaternion.identity, creaturePlayable.transform);
 
         //make them stand still
         //newHead.GetComponent<Rigidbody>().isKinematic = true;
@@ -94,7 +102,7 @@ public class PartCombiner : MonoBehaviour
         //float legsHeight = GetPartHeight(newLegs);
         //creatureContainer.transform.position = new Vector3(0, (torsoHeight + headHeight + legsHeight)/2 + 1, 0);
         float heightShift = (legsToHips.y*2 + torsoToHips.y - torsoToNeck.y + headToNeck.y*2) / 2 + 1f; //+ creatureContainer.position.y
-        creatureContainer.transform.localPosition = new Vector3(0, heightShift, 0);
+        creaturePlayable.transform.localPosition = new Vector3(0, heightShift, 0);
         print("TOTAL HEIGHT: " + heightShift);
     }
 
@@ -113,6 +121,39 @@ public class PartCombiner : MonoBehaviour
         creatureManager.GetComponent<CreatureManager>().AddCreature(creaturePlayable);
         //creaturePlayable.transform.parent = creatureManager.transform;
     }
+
+    #endregion
+
+    public void Float()
+    {
+        Vector3 tempPos = posOffset;
+        tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI / floatPeriod) * floatHeight;
+
+        creatureContainer.position = tempPos + new Vector3(0, floatHeight, 0);
+    }
+
+    #region Monobehaviour Functions
+
+    public void FixedUpdate()
+    {
+        if (floating) { Float(); }
+    }
+
+    void Start()
+    {
+        creatureManager = GameObject.Find("CCManager");
+
+        headIndex = 0;
+        torsoIndex = 0;
+        armLIndex = 0;
+        armRIndex = 0;
+        legIndex = 0;
+        InitializeCreatureGeneration();
+
+        posOffset = transform.position;
+    }
+
+    #endregion
 
     #region Saving/Loading
 
@@ -176,18 +217,6 @@ public class PartCombiner : MonoBehaviour
 
 		generateCreature();
 	}
-
-	void Start()
-    {
-        headIndex = 0;
-        torsoIndex = 0;
-        armLIndex = 0;
-        armRIndex = 0;
-        legIndex = 0;
-        InitializeCreatureGeneration();
-
-        creatureManager = GameObject.Find("CreatureManager");
-    }
 
 	[System.Serializable]
 	public struct CreatureData

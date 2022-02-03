@@ -3104,9 +3104,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creatureContainer: {fileID: 862625258}
   creaturePlayable: {fileID: 27528974}
-  creatureManager: {fileID: 0}
+  creatureManager: {fileID: 2111168267}
   maxSaveSlots: 8
   savedCreatureData: []
+  floating: 1
+  floatHeight: 0.5
+  floatPeriod: 4
 --- !u!4 &1103852539
 Transform:
   m_ObjectHideFlags: 0
