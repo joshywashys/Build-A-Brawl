@@ -8,82 +8,106 @@ public class CreatureStats : MonoBehaviour
 {
     // part references
     private GameObject creature;
-    private List<GameObject> parts;
+
     private GameObject head;
     private GameObject torso;
     private GameObject armL;
     private GameObject armR;
     private GameObject legs;
 
-    // <0 health means a part will be detached
-    float healthHead; //creature dies at 0
-    float healthTorso; //creature dies at 0?
-    float healthArmL;
-    float healthArmR;
-    float healthLegs;
+    private BodyPart headPart;
+    private BodyPart torsoPart;
+    private BodyPart armLPart;
+    private BodyPart armRPart;
+    private BodyPart legsPart;
+
+    // <0 health means a part will be detached, for heads+torsos creatures die instead
+    [Header("Part Health Pools")]
+    [SerializeField] private float healthHeadMax = 10;
+    [SerializeField] private float healthTorsoMax = 10;
+    [SerializeField] private float healthArmLMax = 10;
+    [SerializeField] private float healthArmRMax = 10;
+    [SerializeField] private float healthLegsMax = 10;
+
+    [SerializeField] private float healthHead = 10;
+    [SerializeField] private float healthTorso = 10;
+    [SerializeField] private float healthArmL = 10;
+    [SerializeField] private float healthArmR = 10;
+    [SerializeField] private float healthLegs = 10;
 
     // Creature Stats
-    float mass = 10;
-    float strengthArmL = 10;
-    float strengthArmR = 10;
-    float strengthArms = 20;
-    float springConstantArmL = 80;
-    float springConstantArmR = 80;
-    float jumpHeight = 10; //total mass + leg strength
-    float moveSpeed = 10; //total mass + leg speed
-    float rotateSpeed = 10; //strength of all parts + mass
+    [Header("Creature Stats")]
+    [SerializeField] private float mass = 10;
+    [SerializeField] private float jumpHeight = 10; //total mass + leg strength
+    [SerializeField] private float moveSpeed = 10; //total mass + leg speed
+    [SerializeField] private float rotateSpeed = 10; //strength of all parts + mass
 
-    int attackTypeL; //0 uses the default system, others would be robot sticks out arms, druid flails/spins around
-    int attackTypeR;
-    bool canGrabL = true;
-    bool canGrabR = true;
-
-    #region MonoBehaviour Functions
-
-    void Start()
-    {
-        creature = gameObject;
-        initializeCreature();
-        //detachTorso(); //debugging
-    }
-
-    #endregion
+    // Arm Stats
+    [Header("Arm Stats")]
+    [SerializeField] private float strengthArmL = 10;
+    [SerializeField] private float strengthArmR = 10;
+    [SerializeField] private float strengthArms = 20;
+    [SerializeField] private float springConstantArmL = 80;
+    [SerializeField] private float springConstantArmR = 80;
+    [SerializeField] private int attackTypeL = 0; //0 uses the default system, others would be robot sticks out arms, druid flails/spins around
+    [SerializeField] private int attackTypeR = 0;
+    [SerializeField] private bool canGrabL = true;
+    [SerializeField] private bool canGrabR = true;
 
     #region  Internal Functions
-
-    //get parts stats and load them onto this script
-    private void initializeCreature()
-    {
-        recalculate();
-    }
 
     //call when a creature's stats need to be updated (when a limb is knocked off)
     private void recalculate()
     {
-        //get part refs
-        BodyPart headPart = head.GetComponent<BodyPart>();
-        BodyPart torsoPart = head.GetComponent<BodyPart>();
-        BodyPart armLPart = head.GetComponent<BodyPart>();
-        BodyPart armRPart = head.GetComponent<BodyPart>();
-        BodyPart legsPart = head.GetComponent<BodyPart>();
+        // Mass
+        float headMassNew, torsoMassNew, armLMassNew, armRMassNew, legsMassNew;
+        headMassNew = torsoMassNew = armLMassNew = armRMassNew = legsMassNew = 0;
 
-        healthHead = headPart.getHealth();
-        healthTorso = torsoPart.getHealth();
-        healthArmL = armLPart.getHealth();
-        healthArmR = armRPart.getHealth();
-        healthLegs = legsPart.getHealth();
+        if (head != null) { headMassNew = headPart.getMass(); }
+        if (torso != null) { torsoMassNew = torsoPart.getMass(); }
+        if (armL != null) { armLMassNew = armLPart.getMass(); }
+        if (armR != null) { armRMassNew = armRPart.getMass(); }
+        if (legs != null) { legsMassNew = legsPart.getMass(); }
 
+        mass = headMassNew + torsoMassNew + armLMassNew + armRMassNew + legsMassNew;
+
+        jumpHeight = legsPart.getStrength() / mass;
+        moveSpeed = legsPart.getStrength() / mass;
+        rotateSpeed = torsoPart.getMass() / mass;
+
+    }
+
+    //get parts stats and load them onto this script
+    private void initializeCreature()
+    {
+        // Set refs
+        creature = gameObject;
+        headPart = head.GetComponent<BodyPart>();
+        torsoPart = torso.GetComponent<BodyPart>();
+        armLPart = armL.GetComponent<BodyPart>();
+        armRPart = armR.GetComponent<BodyPart>();
+        legsPart = legs.GetComponent<BodyPart>();
+
+        // Health pools
+        healthHead = healthHeadMax = headPart.getHealth();
+        healthTorso = healthTorsoMax = torsoPart.getHealth();
+        healthArmL = healthArmLMax = armLPart.getHealth();
+        healthArmR = healthArmRMax = armRPart.getHealth();
+        healthLegs = healthLegsMax = legsPart.getHealth();
+
+        // Creature Stats
         mass = headPart.getMass() + torsoPart.getMass() + armLPart.getMass() + armRPart.getMass() + legsPart.getMass();
+        jumpHeight = legsPart.getStrength() / mass;
+        moveSpeed = legsPart.getStrength() / mass;
+        rotateSpeed = legsPart.getStrength() / mass;
+
+        // Arm Stats
         strengthArmL = armLPart.getStrength();
         strengthArmR = armRPart.getStrength();
         strengthArms = strengthArmL + strengthArmR;
         springConstantArmL = armLPart.getSpringConstant();
         springConstantArmR = armRPart.getSpringConstant();
 
-        jumpHeight = legsPart.getStrength() / mass;
-        moveSpeed = legsPart.getStrength() / mass;
-
-        //still have to do canGrab and attackTypes
     }
 
     //initialize. called by the creature creator for initial setup.
@@ -94,6 +118,16 @@ public class CreatureStats : MonoBehaviour
         armL = newArmL;
         armR = newArmR;
         legs = newLegs;
+    }
+
+    #endregion
+
+    #region MonoBehaviour Functions
+
+    void Start()
+    {
+        initializeCreature();
+        //detachTorso(); //debugging
     }
 
     #endregion
@@ -145,10 +179,67 @@ public class CreatureStats : MonoBehaviour
     #endregion
 
     #region Getters
-    public List<GameObject> getPartList()
+
+    public float GetMass()
     {
-        return parts;
+        return mass;
     }
+
+    public float GetJumpHeight()
+    {
+        return jumpHeight;
+    }
+
+    public float GetMoveSpeed()
+    {
+        return moveSpeed;
+    }
+
+    public float GetRotateSpeed()
+    {
+        return rotateSpeed;
+    }
+
+    public float GetStrengthArmL()
+    {
+        return strengthArmL;
+    }
+
+    public float GetStrengthArmR()
+    {
+        return strengthArmL;
+    }
+
+    public float GetSpringConstantArmL()
+    {
+        return springConstantArmL;
+    }
+
+    public float GetSpringConstantArmR()
+    {
+        return springConstantArmR;
+    }
+
+    public int GetAttackTypeL()
+    {
+        return attackTypeL;
+    }
+
+    public int GetAttackTypeR()
+    {
+        return attackTypeR;
+    }
+
+    public bool GetCanGrabL()
+    {
+        return canGrabL;
+    }
+
+    public bool GetCanGrabR()
+    {
+        return canGrabR;
+    }
+
     #endregion
 
 }
