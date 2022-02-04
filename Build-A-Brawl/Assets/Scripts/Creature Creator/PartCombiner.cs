@@ -14,10 +14,8 @@ public class PartCombiner : MonoBehaviour
     public Transform creatureContainer;
     public GameObject creaturePlayable;
     public GameObject creatureManager;
-	public int maxSaveSlots = 8;
 
-	private static bool m_resourcesLoaded = false;
-	private static Dictionary<string, GameObject[]> partsList;
+    public GameObject playerPrefab;
 
     private int headIndex;
     private int torsoIndex;
@@ -37,7 +35,20 @@ public class PartCombiner : MonoBehaviour
     private GameObject newArmR;
     private GameObject newLegs;
 
-	private CreatureData creature;
+    private Vector3 headToNeck;
+    private Vector3 torsoToNeck;
+    private Vector3 legsToHips;
+    private Vector3 torsoToHips;
+    private Vector3 torsoToShoulderL;
+    private Vector3 armLToShoulder;
+    private Vector3 torsoToShoulderR;
+    private Vector3 armRToShoulder;
+    float heightShift;
+
+    public int maxSaveSlots = 8;
+    private static bool m_resourcesLoaded = false;
+    private static Dictionary<string, GameObject[]> partsList;
+    private CreatureData creature;
 	public CreatureData[] savedCreatureData;
 
     // Creature Floating
@@ -70,25 +81,18 @@ public class PartCombiner : MonoBehaviour
         newArmR = Instantiate(currArmR, creaturePlayable.transform.position, Quaternion.identity, creaturePlayable.transform);
         newLegs = Instantiate(currLegs, creaturePlayable.transform.position, Quaternion.identity, creaturePlayable.transform);
 
-        //make them stand still
-        //newHead.GetComponent<Rigidbody>().isKinematic = true;
-        //newTorso.GetComponent<Rigidbody>().isKinematic = true;
-        //newArmL.GetComponent<Rigidbody>().isKinematic = true;
-        //newArmR.GetComponent<Rigidbody>().isKinematic = true;
-        //newLegs.GetComponent<Rigidbody>().isKinematic = true;
-
         //calculate where to move parts to attach to body parts
-        Vector3 headToNeck = newHead.transform.position - newHead.transform.GetChild(0).transform.position;
-        Vector3 torsoToNeck = newTorso.transform.position - newTorso.transform.GetChild(0).transform.position;
+        headToNeck = newHead.transform.position - newHead.transform.GetChild(0).transform.position;
+        torsoToNeck = newTorso.transform.position - newTorso.transform.GetChild(0).transform.position;
 
-        Vector3 legsToHips = newLegs.transform.GetChild(0).transform.position - newLegs.transform.position;
-		Vector3 torsoToHips = newTorso.transform.position - newTorso.transform.GetChild(3).transform.position;
+        legsToHips = newLegs.transform.GetChild(0).transform.position - newLegs.transform.position;
+		torsoToHips = newTorso.transform.position - newTorso.transform.GetChild(3).transform.position;
 
-        Vector3 torsoToShoulderL = newTorso.transform.position + newTorso.transform.GetChild(1).transform.position;
-        Vector3 armLToShoulder = newArmL.transform.GetChild(0).transform.position + newArmL.transform.position;
+        torsoToShoulderL = newTorso.transform.position + newTorso.transform.GetChild(1).transform.position;
+        armLToShoulder = newArmL.transform.GetChild(0).transform.position + newArmL.transform.position;
 
-        Vector3 torsoToShoulderR = newTorso.transform.position + newTorso.transform.GetChild(2).transform.position;
-        Vector3 armRToShoulder = newArmR.transform.GetChild(0).transform.position + newArmR.transform.position;
+        torsoToShoulderR = newTorso.transform.position + newTorso.transform.GetChild(2).transform.position;
+        armRToShoulder = newArmR.transform.GetChild(0).transform.position + newArmR.transform.position;
 
         //move each part
         newHead.transform.Translate(headToNeck - torsoToNeck);
@@ -101,28 +105,54 @@ public class PartCombiner : MonoBehaviour
         //float torsoHeight = GetPartHeight(newTorso); 
         //float legsHeight = GetPartHeight(newLegs);
         //creatureContainer.transform.position = new Vector3(0, (torsoHeight + headHeight + legsHeight)/2 + 1, 0);
-        float heightShift = (legsToHips.y*2 + torsoToHips.y - torsoToNeck.y + headToNeck.y*2) / 2 + 1f; //+ creatureContainer.position.y
+        heightShift = (legsToHips.y*2 + torsoToHips.y - torsoToNeck.y + headToNeck.y*2) / 2 + 1f; //+ creatureContainer.position.y
         creaturePlayable.transform.localPosition = new Vector3(0, heightShift, 0);
-        print("TOTAL HEIGHT: " + heightShift);
+        //print("TOTAL HEIGHT: " + heightShift);
     }
 
     //adds necessary scripts to turn it into a playable character and sends it to the manager
     public void FinalizeCreature()
     {
-        Destroy(creaturePlayable.GetComponent<CreatureStats>());
-        creaturePlayable.AddComponent<CreatureStats>();
+        #if false
+        GameObject savedCreature = Instantiate(creaturePlayable);
+        GameObject savedHead = savedCreature.transform.GetChild(0).gameObject;
+        GameObject savedTorso = savedCreature.transform.GetChild(1).gameObject;
+        GameObject savedArmL = savedCreature.transform.GetChild(2).gameObject;
+        GameObject savedArmR = savedCreature.transform.GetChild(3).gameObject;
+        GameObject savedLegs = savedCreature.transform.GetChild(4).gameObject;
 
-        newHead.transform.parent = newTorso.transform;
-        newArmL.transform.parent = newTorso.transform;
-        newArmR.transform.parent = newTorso.transform;
-        newLegs.transform.parent = newTorso.transform;
-        creaturePlayable.GetComponent<CreatureStats>().attachParts(newHead, newTorso, newArmL, newArmR, newLegs);
+        savedHead.transform.parent = savedTorso.transform;
+        savedArmL.transform.parent = savedTorso.transform;
+        savedArmR.transform.parent = savedTorso.transform;
+        savedLegs.transform.parent = savedTorso.transform;
+        
+        savedCreature.AddComponent<CreatureStats>();
+        savedTorso.AddComponent<RigidbodyController>();
+        savedTorso.AddComponent<PlayerController>();
 
-        creatureManager.GetComponent<CreatureManager>().AddCreature(creaturePlayable);
-        //creaturePlayable.transform.parent = creatureManager.transform;
+        savedCreature.GetComponent<CreatureStats>().attachParts(savedHead, savedTorso, savedArmL, savedArmR, savedLegs);
+        creatureManager.GetComponent<CreatureManager>().AddCreature(savedCreature);
+        Destroy(savedCreature);
+
+        #else
+
+        
+        //MAYBE TEMP FOR ALPHA? MIGHT END UP USING THIS
+        GameObject newPlayer = Instantiate(playerPrefab);
+        GameObject capsule = newPlayer.transform.GetChild(2).GetChild(2).gameObject;
+        GameObject face = newPlayer.transform.GetChild(2).GetChild(3).gameObject;
+
+        Vector3 capsulePos = capsule.transform.position;
+        Destroy(capsule);
+        Instantiate(newTorso, capsulePos, Quaternion.identity, newPlayer.transform.GetChild(2));
+        newPlayer.GetComponent<RigidbodyController>().floatHeight = legsToHips.y * 2 + torsoToHips.y;
+        DontDestroyOnLoad(newPlayer.transform.root.gameObject);
+        creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer);
+        
+        #endif
     }
 
-    #endregion
+#endregion
 
     public void Float()
     {
@@ -132,7 +162,7 @@ public class PartCombiner : MonoBehaviour
         creatureContainer.position = tempPos + new Vector3(0, floatHeight, 0);
     }
 
-    #region Monobehaviour Functions
+#region Monobehaviour Functions
 
     public void FixedUpdate()
     {
@@ -153,9 +183,9 @@ public class PartCombiner : MonoBehaviour
         posOffset = transform.position;
     }
 
-    #endregion
+#endregion
 
-    #region Saving/Loading
+#region Saving/Loading
 
     // This will be the function used to handle Loading the game's body part assets
     private static async void LoadAssets()
@@ -277,9 +307,9 @@ public class PartCombiner : MonoBehaviour
 			savedCreatureData[i - 1] = JsonUtility.FromJson<CreatureData>(data[i]);
         }
     }
-    #endregion
+#endregion
 
-    #region Partswapping
+#region Partswapping
     public void NextHead()
     {
         if (headIndex < partsList[BundleNameCache.creaturepartsHeads].Length - 1)
@@ -381,9 +411,9 @@ public class PartCombiner : MonoBehaviour
             generateCreature();
         }
     }
-    #endregion
+#endregion
 
-    #region Deprecated
+#region Deprecated
 
     public float GetPartHeight(GameObject toCheck)
     {
@@ -405,6 +435,6 @@ public class PartCombiner : MonoBehaviour
 
         return height;
     }
-    #endregion
+#endregion
 
 }

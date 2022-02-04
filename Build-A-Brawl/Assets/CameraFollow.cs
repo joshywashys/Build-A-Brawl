@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraFollow : MonoBehaviour
 {
+    public GameObject[] players;
+
 	public Vector3 offset;
 	public float smoothTime = 0.5f;
 	public float minZoom = 40f;
@@ -19,7 +21,7 @@ public class CameraFollow : MonoBehaviour
 
 	void LateUpdate() {
 
-		if (GameController.Players.Length == 0){
+		if (players.Length == 0){
 			return;
 		}
 
@@ -41,30 +43,31 @@ public class CameraFollow : MonoBehaviour
 
 	float getDistance()
 	{
-		var bounds = new Bounds(GameController.Players[0].transform.position, Vector3.zero);
-		for (int i = 0; i < GameController.Players.Length; i++)
+		var bounds = new Bounds(players[0].transform.position, Vector3.zero);
+		for (int i = 0; i < players.Length; i++)
 		{
-			if (GameController.Players[i].isAlive)
-				bounds.Encapsulate(GameController.Players[i].transform.position);
+			//if (players[i].isAlive)
+				bounds.Encapsulate(players[i].transform.position);
 		}
 
-		return bounds.size.x;
+		return bounds.size.z;
 	}
 
 	Vector3 getCenter() 
 	{
-		if (GameController.Players.Length == 1) 
+		if (players.Length == 1) 
 		{
-			return GameController.Players[0].transform.position;
+			return players[0].transform.position;
 		}
 
-		var bounds = new Bounds(GameController.Players[0].transform.position, Vector3.zero);
-		for (int i = 0; i < GameController.Players.Length; i++)
+		var bounds = new Bounds(players[0].transform.position, Vector3.zero);
+		for (int i = 0; i < players.Length; i++)
 		{
-			if (GameController.Players[i].isAlive)
-				bounds.Encapsulate(GameController.Players[i].transform.position);
+			//if (players[i].isAlive)
+				bounds.Encapsulate(players[i].transform.position);
 		}
-
-		return bounds.center;
+        Vector3 centerPoint = bounds.center;
+        centerPoint.x = 0;
+		return centerPoint;
 	}
 }

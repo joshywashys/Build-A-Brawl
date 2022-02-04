@@ -5,7 +5,9 @@ using UnityEngine.Events;
 [RequireComponent(typeof(CapsuleCollider))]
 public class RigidbodyController : MonoBehaviour
 {
-	[SerializeField] private LayerMask ignoreLayer;
+    private CreatureStats statsRef;
+
+    [SerializeField] private LayerMask ignoreLayer;
 
 	[Header("Floating Settings")]
 	public float floatHeight;
@@ -41,10 +43,31 @@ public class RigidbodyController : MonoBehaviour
 	private Vector3 m_desiredVel;
 	public void SetVelocity(Vector3 velocity) => m_desiredVel = velocity;
  
+    private void InitializeValues()
+    {
+        floatHeight = 3;
+        m_floatSpringStrength = 30;
+        m_floatSpringDamper = 4;
+        m_rayOriginOffset = new Vector3(0, 0.1f, 0);
+
+        m_balanceSpringStrength = 50;
+        m_balanceSpringDamper = 1.5f;
+
+        m_groundCheckBuffer = 0.75f;
+
+        m_acceleration = 200;
+        //m_accelerationFactor = 
+        m_maxAccelForce = 150;
+        m_forceScale = new Vector3(1, 0, 1);
+        m_gravityScale = 5f;
+    }
+
 	private void Awake()
 	{
 		m_rigidbody = GetComponent<Rigidbody>();
-	}
+        statsRef = transform.parent.GetComponent<CreatureStats>();
+        InitializeValues();
+    }
 
 	private void FixedUpdate()
 	{

@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 27528975}
   m_Layer: 0
   m_Name: Creature
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3105,6 +3105,7 @@ MonoBehaviour:
   creatureContainer: {fileID: 862625258}
   creaturePlayable: {fileID: 27528974}
   creatureManager: {fileID: 2111168267}
+  playerPrefab: {fileID: 539239327481637328, guid: f65584cd6e502904d9998df46227a86f, type: 3}
   maxSaveSlots: 8
   savedCreatureData: []
   floating: 1
@@ -4482,7 +4483,7 @@ GameObject:
   - component: {fileID: 2111168268}
   - component: {fileID: 2111168269}
   m_Layer: 0
-  m_Name: CreatureManager
+  m_Name: CCManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

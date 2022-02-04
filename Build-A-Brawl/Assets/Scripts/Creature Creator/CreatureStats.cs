@@ -108,6 +108,9 @@ public class CreatureStats : MonoBehaviour
         springConstantArmL = armLPart.getSpringConstant();
         springConstantArmR = armRPart.getSpringConstant();
 
+        // Toggle Kinematics
+        torsoPart.ToggleKinematics(torsoPart.gameObject.transform, false);
+
     }
 
     //initialize. called by the creature creator for initial setup.

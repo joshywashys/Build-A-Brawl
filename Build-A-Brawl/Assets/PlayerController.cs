@@ -7,7 +7,9 @@ using System.Collections.Generic;
 [RequireComponent(typeof(RigidbodyController))]
 public class PlayerController : MonoBehaviour
 {
-	[Header("Animators")]
+    private CreatureStats statsRef;
+
+    [Header("Animators")]
 	[SerializeField] private PhysicsIKRig[] m_rigs;
 
 	[Header("Player Display Settings")]
@@ -73,6 +75,8 @@ public class PlayerController : MonoBehaviour
 
 	#region MonoBehaviour Functions
 
+
+
 	private void Start()
 	{
 		// This is for quick testing please remove this function call later
@@ -86,7 +90,9 @@ public class PlayerController : MonoBehaviour
 		m_controller = gameObject.GetComponent<RigidbodyController>();
 		m_rigidbody = GetComponent<Rigidbody>();
 
-		forwardDir = transform.forward;
+        statsRef = transform.parent.GetComponent<CreatureStats>();
+
+        forwardDir = transform.forward;
 
 		m_controller.OnGrounded += () => m_controller.useFloat = true;
 	}
