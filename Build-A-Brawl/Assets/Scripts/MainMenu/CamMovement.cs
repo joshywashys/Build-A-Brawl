@@ -9,11 +9,14 @@ public class CamMovement : MonoBehaviour
     public float speed = 30.0f;
     public float Rotspeed = 3.0f;
     public int menuLayer = 1;
-    bool next, prev = false;
+    public bool next, prev = false;
+    public GameObject UIButtons1;
     // Start is called before the first frame update
     void Start()
     {
+        UIButtons1 = GameObject.FindWithTag("UI1");
         menuLayer = 1;
+        UIButtons1.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
