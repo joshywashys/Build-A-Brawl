@@ -2766,13 +2766,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881585896}
-  m_LocalRotation: {x: 0, y: 0.9981444, z: 0.060891796, w: 0}
-  m_LocalPosition: {x: 0, y: 3.37, z: 12.51}
+  m_LocalRotation: {x: -0, y: 0.99967295, z: -0.025572382, w: 0}
+  m_LocalPosition: {x: 0, y: 7.85, z: 15.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -6.982, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 2.931, y: 180, z: 0}
 --- !u!114 &881585900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3105,7 +3105,7 @@ MonoBehaviour:
   creatureContainer: {fileID: 862625258}
   creaturePlayable: {fileID: 27528974}
   creatureManager: {fileID: 2111168267}
-  playerPrefab: {fileID: 539239327481637328, guid: f65584cd6e502904d9998df46227a86f, type: 3}
+  playerPrefab: {fileID: 4443079348437890297, guid: c27cfc3cfa19186489d5675731bd4993, type: 3}
   maxSaveSlots: 8
   savedCreatureData: []
   floating: 1

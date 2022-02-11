@@ -105,7 +105,7 @@ public class PartCombiner : MonoBehaviour
         //float torsoHeight = GetPartHeight(newTorso); 
         //float legsHeight = GetPartHeight(newLegs);
         //creatureContainer.transform.position = new Vector3(0, (torsoHeight + headHeight + legsHeight)/2 + 1, 0);
-        heightShift = (legsToHips.y*2 + torsoToHips.y - torsoToNeck.y + headToNeck.y*2) / 2 + 1f; //+ creatureContainer.position.y
+        heightShift = (legsToHips.y*2 + torsoToHips.y - torsoToNeck.y + headToNeck.y*2) / 2 + 1.5f; //+ creatureContainer.position.y
         creaturePlayable.transform.localPosition = new Vector3(0, heightShift, 0);
         //print("TOTAL HEIGHT: " + heightShift);
     }
@@ -138,18 +138,21 @@ public class PartCombiner : MonoBehaviour
 
         
         //MAYBE TEMP FOR ALPHA? MIGHT END UP USING THIS
-        GameObject newPlayer = Instantiate(playerPrefab);
-        GameObject capsule = newPlayer.transform.GetChild(2).GetChild(2).gameObject;
-        GameObject face = newPlayer.transform.GetChild(2).GetChild(3).gameObject;
+        GameObject newPlayer = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
+        RigidbodyController rbc = newPlayer.transform.GetChild(2).gameObject.GetComponent<RigidbodyController>();
+        PlayerController pc = newPlayer.transform.GetChild(2).gameObject.GetComponent<PlayerController>();
+        Instantiate(creaturePlayable, newPlayer.transform.position + new Vector3(0, heightShift, 0), Quaternion.identity, newPlayer.transform.GetChild(2));
+        creaturePlayable.tag = "Player";
 
-        Vector3 capsulePos = capsule.transform.position;
-        Destroy(capsule);
-        Instantiate(newTorso, capsulePos, Quaternion.identity, newPlayer.transform.GetChild(2));
-        newPlayer.GetComponent<RigidbodyController>().floatHeight = legsToHips.y * 2 + torsoToHips.y;
-        DontDestroyOnLoad(newPlayer.transform.root.gameObject);
+
+        rbc.floatHeight = legsToHips.y * 2 + torsoToHips.y;
+        //newPlayer.GetComponent<RigidbodyController>().floatHeight = legsToHips.y * 2 + torsoToHips.y;
+        //DontDestroyOnLoad(newPlayer); //.transform.root.gameObject
+        //creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer);
+
         creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer);
-        
-        #endif
+        //Destroy(newPlayer);
+#endif
     }
 
 #endregion

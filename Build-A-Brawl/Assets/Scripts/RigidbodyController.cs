@@ -66,7 +66,7 @@ public class RigidbodyController : MonoBehaviour
 	{
 		m_rigidbody = GetComponent<Rigidbody>();
         statsRef = transform.parent.GetComponent<CreatureStats>();
-        InitializeValues();
+        //InitializeValues();
     }
 
 	private void FixedUpdate()

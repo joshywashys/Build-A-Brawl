@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1874440962
+CRC: 264512871
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a82a3af089931d242be3e604c38efd5a
+    Hash: 425d53775c677556024952d4f7add2e9
   TypeTreeHash:
     serializedVersion: 2
-    Hash: a1331eac16e3e11036d1e8ba9a1ba579
+    Hash: a9ab8e6d2fc2a35872e27f379b2af97f
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -35,8 +35,12 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
 - Class: 115
   Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/BundledAssets/CreatureParts/Legs/apeLegsBound.prefab
+- Assets/BundledAssets/CreatureParts/Legs/clownLegsBound.prefab
 - Assets/BundledAssets/CreatureParts/Legs/Druid Legs.prefab
 - Assets/BundledAssets/CreatureParts/Legs/Legs.prefab
 - Assets/BundledAssets/CreatureParts/Legs/zombieLegs.prefab

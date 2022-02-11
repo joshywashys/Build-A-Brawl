@@ -22,10 +22,13 @@ public class BodyPart : MonoBehaviour
 
     public void Start()
     {
-        health = partData.stats.health;
-        mass = partData.stats.mass;
-        strength = partData.stats.strength;
-        springConstant = partData.stats.springConstant;
+        if (partData != null)
+        {
+            health = partData.stats.health;
+            mass = partData.stats.mass;
+            strength = partData.stats.strength;
+            springConstant = partData.stats.springConstant;
+        }
     }
 
     public void ToggleKinematics(Transform currChild, bool toggleType)
@@ -38,7 +41,7 @@ public class BodyPart : MonoBehaviour
         if (currChild.GetComponent<Rigidbody>() != null)
         {
             currChild.GetComponent<Rigidbody>().isKinematic = toggleType;
-            print("gary");
+            //print("gary");
         }
         if (currChild.childCount > 0)
         {

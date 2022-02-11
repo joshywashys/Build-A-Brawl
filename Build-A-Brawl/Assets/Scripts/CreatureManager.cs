@@ -12,6 +12,7 @@ public class CreatureManager : MonoBehaviour
         if (creatures.Count < 4)
         {
             GameObject newCreature = Instantiate(toAdd);
+            newCreature.name = "Player " + (creatures.Count + 1);
             creatures.Add(newCreature);
             newCreature.SetActive(false);
             DontDestroyOnLoad(newCreature);
