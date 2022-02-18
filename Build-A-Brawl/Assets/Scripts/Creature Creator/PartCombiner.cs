@@ -23,18 +23,20 @@ public class PartCombiner : MonoBehaviour
     private int armRIndex;
     private int legIndex;
 
+    // Selected/Generated Parts
     private GameObject currHead;
 	private GameObject currTorso;
 	private GameObject currArmL;
     private GameObject currArmR;
     private GameObject currLegs;
-
+    
 	private GameObject newHead;
 	private GameObject newTorso;
 	private GameObject newArmL;
     private GameObject newArmR;
     private GameObject newLegs;
 
+    // Part Attaching Calculation Variables
     private Vector3 headToNeck;
     private Vector3 torsoToNeck;
     private Vector3 legsToHips;
@@ -45,6 +47,7 @@ public class PartCombiner : MonoBehaviour
     private Vector3 armRToShoulder;
     float heightShift;
 
+    // Saving/Loading
     public int maxSaveSlots = 8;
     private static bool m_resourcesLoaded = false;
     private static Dictionary<string, GameObject[]> partsList;
@@ -136,22 +139,42 @@ public class PartCombiner : MonoBehaviour
 
         #else
 
-        
-        //MAYBE TEMP FOR ALPHA? MIGHT END UP USING THIS
         GameObject newPlayer = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
-        RigidbodyController rbc = newPlayer.transform.GetChild(2).gameObject.GetComponent<RigidbodyController>();
-        PlayerController pc = newPlayer.transform.GetChild(2).gameObject.GetComponent<PlayerController>();
-        Instantiate(creaturePlayable, newPlayer.transform.position + new Vector3(0, heightShift, 0), Quaternion.identity, newPlayer.transform.GetChild(2));
-        creaturePlayable.tag = "Player";
+        GameObject body = newPlayer.transform.GetChild(2).gameObject;
+        RigidbodyController rbc = body.GetComponent<RigidbodyController>();
+        PlayerController pc = body.GetComponent<PlayerController>();
+
+        GameObject creature = Instantiate(creaturePlayable, newPlayer.transform.position + new Vector3(0, 3, 0), Quaternion.identity, newPlayer.transform.GetChild(2));
+        MakeChildrenPlayerLayer(creature);
+
+        //rearrange part hierarchy
+        GameObject savedHead = creature.transform.GetChild(0).gameObject;
+        GameObject savedTorso = creature.transform.GetChild(1).gameObject;
+        GameObject savedArmL = creature.transform.GetChild(2).gameObject;
+        GameObject savedArmR = creature.transform.GetChild(3).gameObject;
+        GameObject savedLegs = creature.transform.GetChild(4).gameObject;
 
 
-        rbc.floatHeight = legsToHips.y * 2 + torsoToHips.y;
+        savedHead.transform.parent = savedTorso.transform;
+        savedArmL.transform.parent = savedTorso.transform;
+        savedArmR.transform.parent = savedTorso.transform;
+        savedLegs.transform.parent = savedTorso.transform;
+
+        rbc.floatHeight = legsToHips.y * 2 + torsoToHips.y /*legsToHips.y * 2 + torsoToHips.y*/ ;
+
+        //torsoToShoulderL + armLToShoulder * 2
+        pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.position.y, -torsoToShoulderL.x + armLToShoulder.x * 2);
+        pc.anchorLeft.position = new Vector3(-torsoToShoulderR.x, savedArmR.transform.position.y, -torsoToShoulderR.x + -armRToShoulder.x * 2);
         //newPlayer.GetComponent<RigidbodyController>().floatHeight = legsToHips.y * 2 + torsoToHips.y;
         //DontDestroyOnLoad(newPlayer); //.transform.root.gameObject
         //creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer);
 
+        //creature.AddComponent<CreatureStats>();
+        //creature.GetComponent<CreatureStats>().attachParts(savedHead, savedTorso, savedArmL, savedArmR, savedLegs);
+
         creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer);
         //Destroy(newPlayer);
+
 #endif
     }
 
@@ -438,6 +461,17 @@ public class PartCombiner : MonoBehaviour
 
         return height;
     }
-#endregion
+    #endregion
 
+#region Misc
+
+    public void MakeChildrenPlayerLayer(GameObject child)
+    {
+        foreach (Transform trans in child.GetComponentsInChildren<Transform>(true))
+        {
+            trans.gameObject.layer = 6;
+        }
+    }
+
+#endregion
 }

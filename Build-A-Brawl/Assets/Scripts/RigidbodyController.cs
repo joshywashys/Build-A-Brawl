@@ -105,7 +105,11 @@ public class RigidbodyController : MonoBehaviour
 
 		if (Physics.Raycast(m_ray, out RaycastHit hit, floatHeight * 2.0f + m_rayOriginOffset.y, ~ignoreLayer))
 		{
-			Vector3 otherVel = Vector3.zero;
+            //print(hit.transform.tag);
+            //print(hit.distance);
+            //print(hit.transform.gameObject.layer);
+
+            Vector3 otherVel = Vector3.zero;
 			Rigidbody otherBody = hit.rigidbody;
 			if (otherBody != null)
 				otherVel = otherBody.velocity;
@@ -121,6 +125,7 @@ public class RigidbodyController : MonoBehaviour
 
 			if (otherBody != null)
 				otherBody.AddForceAtPosition(m_rayDir * -springForce, hit.point);
+
 		}
 	}
 

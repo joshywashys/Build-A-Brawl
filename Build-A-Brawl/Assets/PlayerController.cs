@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 	private void Start()
 	{
 		// This is for quick testing please remove this function call later
-		SetPlayerColour(playerColour);
+		//SetPlayerColour(playerColour);
 
 		// Initialize state
 		m_stateDictionary = new Dictionary<State, UnityAction>();

@@ -130,7 +130,6 @@ public class CreatureStats : MonoBehaviour
     void Start()
     {
         initializeCreature();
-        //detachTorso(); //debugging
     }
 
     #endregion
