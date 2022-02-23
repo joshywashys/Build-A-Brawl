@@ -163,8 +163,10 @@ public class PartCombiner : MonoBehaviour
         rbc.floatHeight = legsToHips.y * 2 + torsoToHips.y /*legsToHips.y * 2 + torsoToHips.y*/ ;
 
         //torsoToShoulderL + armLToShoulder * 2
-        pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.position.y, -torsoToShoulderL.x + armLToShoulder.x * 2);
-        pc.anchorLeft.position = new Vector3(-torsoToShoulderR.x, savedArmR.transform.position.y, -torsoToShoulderR.x + -armRToShoulder.x * 2);
+        //pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.position.y, -torsoToShoulderL.x + armLToShoulder.x * 2);
+        //pc.anchorRight.position = new Vector3(-torsoToShoulderR.x, savedArmR.transform.position.y, -torsoToShoulderR.x + -armRToShoulder.x * 2);
+        pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y, armLToShoulder.x * 2);
+        pc.anchorRight.position = new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y, -armRToShoulder.x * 2);
         //newPlayer.GetComponent<RigidbodyController>().floatHeight = legsToHips.y * 2 + torsoToHips.y;
         //DontDestroyOnLoad(newPlayer); //.transform.root.gameObject
         //creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer);
