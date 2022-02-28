@@ -12,23 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17284ebf5e80436eb6089f8c7459dab, type: 3}
   m_Name: WaterSurfaceData
   m_EditorClassIdentifier: 
-  _waterMaxVisibility: 300
+  _waterMaxVisibility: 161
   _absorptionRamp:
     serializedVersion: 2
-    key0: {r: 0, g: 1, b: 0.0381248, a: 1}
-    key1: {r: 0.18431371, g: 1, b: 0.27928352, a: 1}
-    key2: {r: 0.023529412, g: 0.50980395, b: 0.056810603, a: 0}
-    key3: {r: 0.06481683, g: 0.5849056, b: 0.0082769515, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0, g: 0, b: 0, a: 1}
+    key1: {r: 0.16472125, g: 1, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0.5, b: 0.0287776, a: 0}
+    key4: {r: 0.21747802, g: 0.6226415, b: 0.20265219, a: 0}
+    key5: {r: 0.6933962, g: 0.95551246, b: 1, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 8674
+    ctime1: 8481
     ctime2: 20817
     ctime3: 43581
     ctime4: 65535
-    ctime5: 0
+    ctime5: 65535
     ctime6: 0
     ctime7: 0
     atime0: 0
@@ -44,11 +44,11 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   _scatterRamp:
     serializedVersion: 2
-    key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0.08879023, g: 0.5283019, b: 0, a: 1}
-    key2: {r: 0, g: 0.3679245, b: 0.07075472, a: 0}
-    key3: {r: 0.3123108, g: 0.5411765, b: 0.2901961, a: 0}
-    key4: {r: 0.3123108, g: 0.5411765, b: 0.2901961, a: 0}
+    key0: {r: 0.09451604, g: 1, b: 0, a: 1}
+    key1: {r: 0, g: 0.3679245, b: 0.027447687, a: 1}
+    key2: {r: 0, g: 0.6132076, b: 0.013698509, a: 0}
+    key3: {r: 0, g: 1, b: 0.029511452, a: 0}
+    key4: {r: 0.5990566, g: 0.9489695, b: 1, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
@@ -56,7 +56,7 @@ MonoBehaviour:
     ctime1: 6168
     ctime2: 24672
     ctime3: 52043
-    ctime4: 52043
+    ctime4: 53006
     ctime5: 0
     ctime6: 0
     ctime7: 0
@@ -115,12 +115,12 @@ MonoBehaviour:
       y: 0
     onmiDir: 0
   _customWaves: 0
-  randomSeed: 63459
+  randomSeed: 9000
   _basicWaveSettings:
-    numWaves: 4
-    amplitude: 0.4
+    numWaves: 5
+    amplitude: 0.2
     direction: 0
-    wavelength: 9
+    wavelength: 10
   _foamSettings:
     foamType: 2
     basicFoam:
