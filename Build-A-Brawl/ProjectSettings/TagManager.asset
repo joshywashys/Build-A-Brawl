@@ -10,6 +10,10 @@ TagManager:
   - ground
   - Left Hand
   - Right Hand
+  - testL
+  - testR
+  - testT
+  - testH
   layers:
   - Default
   - TransparentFX
