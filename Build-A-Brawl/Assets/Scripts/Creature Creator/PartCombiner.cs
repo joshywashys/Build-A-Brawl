@@ -12,7 +12,7 @@ A separate script will be made to export the creature to a playable character.
 public class PartCombiner : MonoBehaviour
 {
     public int playerNum;
-    public bool spawnButtons = true;
+    //public bool spawnButtons = true;
 
     // Locations/Prefabs for generation
     public Transform creatureContainer;
@@ -69,8 +69,7 @@ public class PartCombiner : MonoBehaviour
     //If it turns out to be cpu-heavy, we can optimize it to adjust part locations rather than re-generate.
     public void generateCreature()
 	{
-        //should probably do a bunch of checks to make sure each object has it's joints set up properly
-
+        print("player: " + playerNum);
         //clear previous creature
         Destroy(newHead);
         Destroy(newTorso);
@@ -113,6 +112,16 @@ public class PartCombiner : MonoBehaviour
         heightShift = (legsToHips.y*2 + torsoToHips.y - torsoToNeck.y + headToNeck.y*2) / 2 + 1.5f; //+ creatureContainer.position.y
         creaturePlayable.transform.localPosition = new Vector3(0, heightShift, 0);
         //print("TOTAL HEIGHT: " + heightShift);
+    }
+
+    public void clearCreature()
+    {
+        Destroy(newHead);
+        Destroy(newTorso);
+        Destroy(newArmL);
+        Destroy(newArmR);
+        Destroy(newLegs);
+        Destroy(creaturePlayable.GetComponent<CreatureStats>());
     }
 
     //adds necessary scripts to turn creature into a playable character and then send it to the manager
@@ -175,6 +184,7 @@ public class PartCombiner : MonoBehaviour
     void Start()
     {
         creatureManager = GameObject.Find("CCManager");
+        creatureManager = GameObject.Find("GameManager");
 
         headIndex = 0;
         torsoIndex = 0;
@@ -188,11 +198,7 @@ public class PartCombiner : MonoBehaviour
 
     #endregion
 
-    #region UI Buttons
-
-    #endregion
-
-    #region Saving/Loading
+#region Saving/Loading
 
     // This will be the function used to handle Loading the game's body part assets
     private static async void LoadAssets()
