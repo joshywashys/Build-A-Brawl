@@ -20,9 +20,9 @@ public class PlayerSpawner : MonoBehaviour
         SpawnAllPlayers(creatureManager.GetCreatureList());
     }
 
-    public void SpawnAllPlayers(List<GameObject> toSpawn)
+    public void SpawnAllPlayers(GameObject[] toSpawn)
     {
-        for (int i = 0; i < toSpawn.Count; i++)
+        for (int i = 0; i < toSpawn.Length; i++)
         {
             SpawnPlayer(toSpawn[i], spawnpoints[i % spawnpoints.Count]);
         }

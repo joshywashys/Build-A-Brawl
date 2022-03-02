@@ -11,19 +11,22 @@ A separate script will be made to export the creature to a playable character.
  */
 public class PartCombiner : MonoBehaviour
 {
+    public int playerNum;
+    public bool spawnButtons = true;
+
+    // Locations/Prefabs for generation
     public Transform creatureContainer;
     public GameObject creaturePlayable;
     public GameObject creatureManager;
-
     public GameObject playerPrefab;
 
+    // Selected/Generated Parts
     private int headIndex;
     private int torsoIndex;
     private int armLIndex;
     private int armRIndex;
     private int legIndex;
-
-    // Selected/Generated Parts
+    
     private GameObject currHead;
 	private GameObject currTorso;
 	private GameObject currArmL;
@@ -75,7 +78,6 @@ public class PartCombiner : MonoBehaviour
         Destroy(newArmR);
         Destroy(newLegs);
         Destroy(creaturePlayable.GetComponent<CreatureStats>());
-        //creaturePlayable.transform.position = new Vector3(0, 0, 0);
 
         //spawn parts
         newHead = Instantiate(currHead, creaturePlayable.transform.position, Quaternion.identity, creaturePlayable.transform);
@@ -113,37 +115,14 @@ public class PartCombiner : MonoBehaviour
         //print("TOTAL HEIGHT: " + heightShift);
     }
 
-    //adds necessary scripts to turn it into a playable character and sends it to the manager
+    //adds necessary scripts to turn creature into a playable character and then send it to the manager
     public void FinalizeCreature()
     {
-        #if false
-        GameObject savedCreature = Instantiate(creaturePlayable);
-        GameObject savedHead = savedCreature.transform.GetChild(0).gameObject;
-        GameObject savedTorso = savedCreature.transform.GetChild(1).gameObject;
-        GameObject savedArmL = savedCreature.transform.GetChild(2).gameObject;
-        GameObject savedArmR = savedCreature.transform.GetChild(3).gameObject;
-        GameObject savedLegs = savedCreature.transform.GetChild(4).gameObject;
-
-        savedHead.transform.parent = savedTorso.transform;
-        savedArmL.transform.parent = savedTorso.transform;
-        savedArmR.transform.parent = savedTorso.transform;
-        savedLegs.transform.parent = savedTorso.transform;
-        
-        savedCreature.AddComponent<CreatureStats>();
-        savedTorso.AddComponent<RigidbodyController>();
-        savedTorso.AddComponent<PlayerController>();
-
-        savedCreature.GetComponent<CreatureStats>().attachParts(savedHead, savedTorso, savedArmL, savedArmR, savedLegs);
-        creatureManager.GetComponent<CreatureManager>().AddCreature(savedCreature);
-        Destroy(savedCreature);
-
-        #else
-
+        //create references
         GameObject newPlayer = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
         GameObject body = newPlayer.transform.GetChild(2).gameObject;
         RigidbodyController rbc = body.GetComponent<RigidbodyController>();
         PlayerController pc = body.GetComponent<PlayerController>();
-
         GameObject creature = Instantiate(creaturePlayable, newPlayer.transform.position + new Vector3(0, 3, 0), Quaternion.identity, newPlayer.transform.GetChild(2));
         MakeChildrenPlayerLayer(creature);
 
@@ -153,6 +132,12 @@ public class PartCombiner : MonoBehaviour
         GameObject savedArmL = creature.transform.GetChild(2).gameObject;
         GameObject savedArmR = creature.transform.GetChild(3).gameObject;
         GameObject savedLegs = creature.transform.GetChild(4).gameObject;
+        
+        //attach creature stats mothership script
+        creature.AddComponent<CreatureStats>();
+        CreatureStats stats = creature.GetComponent<CreatureStats>();
+        stats.attachParts(savedHead, savedTorso, savedArmL, savedArmR, savedLegs);
+        stats.initializeCreature();
 
 
         savedHead.transform.parent = savedTorso.transform;
@@ -160,35 +145,25 @@ public class PartCombiner : MonoBehaviour
         savedArmR.transform.parent = savedTorso.transform;
         savedLegs.transform.parent = savedTorso.transform;
 
-        rbc.floatHeight = legsToHips.y * 2 + torsoToHips.y /*legsToHips.y * 2 + torsoToHips.y*/ ;
-
-        //torsoToShoulderL + armLToShoulder * 2
-        //pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.position.y, -torsoToShoulderL.x + armLToShoulder.x * 2);
-        //pc.anchorRight.position = new Vector3(-torsoToShoulderR.x, savedArmR.transform.position.y, -torsoToShoulderR.x + -armRToShoulder.x * 2);
+        //configure creature stats
+        rbc.floatHeight = legsToHips.y * 2 + torsoToHips.y;
+        //rbc.m_floatSpringStrength = stats.GetSpringStrengthLegs(); //broken rn but low priority
         pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y, armLToShoulder.x * 2);
         pc.anchorRight.position = new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y, -armRToShoulder.x * 2);
-        //newPlayer.GetComponent<RigidbodyController>().floatHeight = legsToHips.y * 2 + torsoToHips.y;
+        pc.playerSpeed = stats.GetMoveSpeed();
+        pc.jumpHeight = stats.GetJumpHeight();
+        pc.rotateSpeed = stats.GetRotateSpeed();
+        //print("speed: " + pc.playerSpeed + ", jump: " + pc.jumpHeight + ", rotate: " + pc.rotateSpeed);
+
         //DontDestroyOnLoad(newPlayer); //.transform.root.gameObject
         //creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer);
-
-        //creature.AddComponent<CreatureStats>();
-        //creature.GetComponent<CreatureStats>().attachParts(savedHead, savedTorso, savedArmL, savedArmR, savedLegs);
-
-        creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer);
+        creatureManager.GetComponent<CreatureManager>().RemoveCreature(playerNum);
+        creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer, playerNum);
         //Destroy(newPlayer);
 
-#endif
     }
 
 #endregion
-
-    public void Float()
-    {
-        Vector3 tempPos = posOffset;
-        tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI / floatPeriod) * floatHeight;
-
-        creatureContainer.position = tempPos + new Vector3(0, floatHeight, 0);
-    }
 
 #region Monobehaviour Functions
 
@@ -211,9 +186,13 @@ public class PartCombiner : MonoBehaviour
         posOffset = transform.position;
     }
 
-#endregion
+    #endregion
 
-#region Saving/Loading
+    #region UI Buttons
+
+    #endregion
+
+    #region Saving/Loading
 
     // This will be the function used to handle Loading the game's body part assets
     private static async void LoadAssets()
@@ -314,7 +293,7 @@ public class PartCombiner : MonoBehaviour
 		data += "]}";
 
 		File.WriteAllText(path + "\\storage.json", data);
-		print("Creature data saved successfully");
+		//print("Creature data saved successfully");
 	}
 
 	public void LoadCreatureData()
@@ -466,6 +445,14 @@ public class PartCombiner : MonoBehaviour
     #endregion
 
 #region Misc
+
+    public void Float()
+    {
+        Vector3 tempPos = posOffset;
+        tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI / floatPeriod) * floatHeight;
+
+        creatureContainer.position = tempPos + new Vector3(0, floatHeight, 0);
+    }
 
     public void MakeChildrenPlayerLayer(GameObject child)
     {

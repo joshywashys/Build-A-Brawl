@@ -28,11 +28,12 @@ public class PlayerController : MonoBehaviour
 	}
 
 	[Header("Player Movement Settings")]
-	[SerializeField] private float playerSpeed = 5.0f;
-	[SerializeField] private float jumpHeight = 1.0f;
-	
-	// States
-	public enum State 
+	public float playerSpeed = 5.0f;
+	public float jumpHeight = 1.0f;
+    public float rotateSpeed = 1.0f;
+
+    // States
+    public enum State 
 	{ 
 		Idle,									// Player is not performing any actions (moving excluded)
 		Attacking,								// Player is performing an attack action
@@ -120,7 +121,7 @@ public class PlayerController : MonoBehaviour
 			//rotates player to move in the direction they are facing
 			if (move != Vector3.zero)
 				forwardDir = move;
-			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(forwardDir), 5 * Time.deltaTime);
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(forwardDir), 5 * rotateSpeed * Time.deltaTime);
 		}
 		else
         {

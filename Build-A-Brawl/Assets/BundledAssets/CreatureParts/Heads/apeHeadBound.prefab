@@ -135,6 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4600322593604644747}
   - component: {fileID: 7406194676537345993}
+  - component: {fileID: 1792220572776060357}
   m_Layer: 0
   m_Name: apeHeadBound
   m_TagString: Untagged
@@ -174,6 +175,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1792220572776060357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3791029965167949105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonBase: {fileID: 48512616904279326}
+  partData: {fileID: 11400000, guid: 512803eed94c963498b85632dba7d16d, type: 2}
 --- !u!1 &4260588744077873139
 GameObject:
   m_ObjectHideFlags: 0

@@ -3102,6 +3102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d5abf0b9492284f80c67d361a7782b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNum: 1
   creatureContainer: {fileID: 862625258}
   creaturePlayable: {fileID: 27528974}
   creatureManager: {fileID: 2111168267}

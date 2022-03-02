@@ -5,24 +5,28 @@ using UnityEngine;
 //CARRIES PLAYER CREATURES BETWEEN SCENES
 public class CreatureManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> creatures;
+    public const int MAX_PLAYERS = 4;
+    [SerializeField] private GameObject[] creatures;
+    //[SerializeField] private List<GameObject> creatures;
 
-    public void AddCreature(GameObject toAdd)
+    public void AddCreature(GameObject toAdd, int playerNum)
     {
-        if (creatures.Count < 4)
+        if (1 <= playerNum && playerNum <= MAX_PLAYERS)
         {
             GameObject newCreature = Instantiate(toAdd);
-            newCreature.name = "Player " + (creatures.Count + 1);
-            creatures.Add(newCreature);
-            newCreature.SetActive(false);
+            newCreature.name = "Player " + (playerNum);
+            creatures[playerNum - 1] = newCreature;
             DontDestroyOnLoad(newCreature);
+            newCreature.SetActive(false);
         }
-        else { print("- MAX CREATURES - CREATURE NOT ADDED -"); }
     }
 
-    public void ClearCreatures()
+    public void RemoveCreature(int playerNum)
     {
-        creatures.Clear();
+        if (1 <= playerNum && playerNum <= MAX_PLAYERS)
+        {
+            creatures[playerNum - 1] = null;
+        }
     }
 
     #region Getters
@@ -31,7 +35,7 @@ public class CreatureManager : MonoBehaviour
         return creatures[index];
     }
 
-    public List<GameObject> GetCreatureList()
+    public GameObject[] GetCreatureList()
     {
         return creatures;
     }
@@ -40,6 +44,7 @@ public class CreatureManager : MonoBehaviour
     public void Start()
     {
         DontDestroyOnLoad(gameObject);
+        creatures = new GameObject[4];
     }
 
     //DEBUG

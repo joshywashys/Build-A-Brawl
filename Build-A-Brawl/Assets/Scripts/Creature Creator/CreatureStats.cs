@@ -37,10 +37,11 @@ public class CreatureStats : MonoBehaviour
 
     // Creature Stats
     [Header("Creature Stats")]
-    [SerializeField] private float mass = 10;
-    [SerializeField] private float jumpHeight = 10; //total mass + leg strength
-    [SerializeField] private float moveSpeed = 10; //total mass + leg speed
-    [SerializeField] private float rotateSpeed = 10; //strength of all parts + mass
+    [SerializeField] private float mass = 1;
+    [SerializeField] private float jumpHeight = 1; //total mass + leg strength
+    [SerializeField] private float moveSpeed = 1; //total mass + leg speed
+    [SerializeField] private float rotateSpeed = 1; //strength of all parts + mass
+    [SerializeField] private float springStrengthLegs = 1;
 
     // Arm Stats
     [Header("Arm Stats")]
@@ -54,6 +55,15 @@ public class CreatureStats : MonoBehaviour
     [SerializeField] private bool canGrabL = true;
     [SerializeField] private bool canGrabR = true;
 
+    // Constants that we can edit to make our Scriptable Objects values nicer
+    public const float HEALTH_BASE = 10;
+    public const float ARM_STRENGTH_CONSTANT = 10;
+    public const float MOVE_SPEED_CONSTANT = 50;
+    public const float ROTATE_SPEED_CONSTANT = 10;
+    public const float JUMP_HEIGHT_CONSTANT = 100;
+    public const float SPRING_CONSTANT_CONSTANT = 80;
+    public const float LEG_STRENGTH_CONSTANT = 500;
+
     #region  Internal Functions
 
     //call when a creature's stats need to be updated (when a limb is knocked off)
@@ -61,7 +71,7 @@ public class CreatureStats : MonoBehaviour
     {
         // Mass
         float headMassNew, torsoMassNew, armLMassNew, armRMassNew, legsMassNew;
-        headMassNew = torsoMassNew = armLMassNew = armRMassNew = legsMassNew = 0;
+        headMassNew = torsoMassNew = armLMassNew = armRMassNew = legsMassNew = 1;
 
         if (head != null) { headMassNew = headPart.getMass(); }
         if (torso != null) { torsoMassNew = torsoPart.getMass(); }
@@ -71,14 +81,14 @@ public class CreatureStats : MonoBehaviour
 
         mass = headMassNew + torsoMassNew + armLMassNew + armRMassNew + legsMassNew;
 
-        jumpHeight = legsPart.getStrength() / mass;
-        moveSpeed = legsPart.getStrength() / mass;
-        rotateSpeed = torsoPart.getMass() / mass;
+        jumpHeight = legsPart.getStrengthMultiplier() * JUMP_HEIGHT_CONSTANT / mass;
+        moveSpeed = legsPart.getStrengthMultiplier() * MOVE_SPEED_CONSTANT / mass;
+        rotateSpeed = legsPart.getStrengthMultiplier() * ROTATE_SPEED_CONSTANT / mass;
 
     }
 
     //get parts stats and load them onto this script
-    private void initializeCreature()
+    public void initializeCreature()
     {
         // Set refs
         creature = gameObject;
@@ -89,27 +99,28 @@ public class CreatureStats : MonoBehaviour
         legsPart = legs.GetComponent<BodyPart>();
 
         // Health pools
-        healthHead = healthHeadMax = headPart.getHealth();
-        healthTorso = healthTorsoMax = torsoPart.getHealth();
-        healthArmL = healthArmLMax = armLPart.getHealth();
-        healthArmR = healthArmRMax = armRPart.getHealth();
-        healthLegs = healthLegsMax = legsPart.getHealth();
+        healthHead = healthHeadMax = headPart.getHealthMultiplier();
+        healthTorso = healthTorsoMax = torsoPart.getHealthMultiplier();
+        healthArmL = healthArmLMax = armLPart.getHealthMultiplier();
+        healthArmR = healthArmRMax = armRPart.getHealthMultiplier();
+        healthLegs = healthLegsMax = legsPart.getHealthMultiplier();
 
         // Creature Stats
         mass = headPart.getMass() + torsoPart.getMass() + armLPart.getMass() + armRPart.getMass() + legsPart.getMass();
-        jumpHeight = legsPart.getStrength() / mass;
-        moveSpeed = legsPart.getStrength() / mass;
-        rotateSpeed = legsPart.getStrength() / mass;
+        jumpHeight = legsPart.getStrengthMultiplier() * JUMP_HEIGHT_CONSTANT / mass;
+        moveSpeed = legsPart.getStrengthMultiplier() * MOVE_SPEED_CONSTANT / mass;
+        rotateSpeed = ROTATE_SPEED_CONSTANT / mass;
+        springStrengthLegs = LEG_STRENGTH_CONSTANT / jumpHeight;
 
         // Arm Stats
-        strengthArmL = armLPart.getStrength();
-        strengthArmR = armRPart.getStrength();
+        strengthArmL = armLPart.getStrengthMultiplier() * ARM_STRENGTH_CONSTANT;
+        strengthArmR = armRPart.getStrengthMultiplier() * ARM_STRENGTH_CONSTANT;
         strengthArms = strengthArmL + strengthArmR;
-        springConstantArmL = armLPart.getSpringConstant();
-        springConstantArmR = armRPart.getSpringConstant();
+        springConstantArmL = armLPart.getSpringConstantMultiplier() * SPRING_CONSTANT_CONSTANT;
+        springConstantArmR = armRPart.getSpringConstantMultiplier() * SPRING_CONSTANT_CONSTANT;
 
         // Toggle Kinematics
-        torsoPart.ToggleKinematics(torsoPart.gameObject.transform, false);
+        torsoPart.ToggleKinematics(torsoPart.gameObject.transform, true);
 
     }
 
@@ -129,7 +140,7 @@ public class CreatureStats : MonoBehaviour
 
     void Start()
     {
-        initializeCreature();
+        //initializeCreature();
     }
 
     #endregion
@@ -200,6 +211,11 @@ public class CreatureStats : MonoBehaviour
     public float GetRotateSpeed()
     {
         return rotateSpeed;
+    }
+
+    public float GetSpringStrengthLegs()
+    {
+        return springStrengthLegs;
     }
 
     public float GetStrengthArmL()

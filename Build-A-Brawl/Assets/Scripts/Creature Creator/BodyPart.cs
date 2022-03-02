@@ -4,10 +4,12 @@ public class BodyPart : MonoBehaviour
 {
     [SerializeField] private Transform skeletonBase;
     public BodyPartData partData;
-    private float health;
+
+    [Header("Part Stat Multipliers")]
     private float mass;
-    private float strength;
-    private float springConstant;
+    private float healthMultiplier;
+    private float strengthMultiplier;
+    private float springConstantMultiplier;
 
     //STORAGE
     //public enum PartType { Head, Torso, Arm, Leg }
@@ -18,17 +20,28 @@ public class BodyPart : MonoBehaviour
     public void Awake()
     {
         ToggleKinematics(skeletonBase, true);
+
+        if (partData != null)
+        {
+            healthMultiplier = partData.stats.healthMultiplier;
+            mass = partData.stats.massMultiplier;
+            strengthMultiplier = partData.stats.strengthMultiplier;
+            springConstantMultiplier = partData.stats.springConstantMultiplier;
+        }
     }
 
     public void Start()
     {
+        /*
         if (partData != null)
         {
-            health = partData.stats.health;
-            mass = partData.stats.mass;
-            strength = partData.stats.strength;
-            springConstant = partData.stats.springConstant;
+            healthMultiplier = partData.stats.healthMultiplier;
+            mass = partData.stats.massMultiplier;
+            strengthMultiplier = partData.stats.strengthMultiplier;
+            springConstantMultiplier = partData.stats.springConstantMultiplier;
+            print(mass);
         }
+        */
     }
 
     public void ToggleKinematics(Transform currChild, bool toggleType)
@@ -53,9 +66,9 @@ public class BodyPart : MonoBehaviour
     }
 
     #region Getters
-    public float getHealth()
+    public float getHealthMultiplier()
     {
-        return health;
+        return healthMultiplier;
     }
 
     public float getMass()
@@ -63,14 +76,14 @@ public class BodyPart : MonoBehaviour
         return mass;
     }
 
-    public float getStrength()
+    public float getStrengthMultiplier()
     {
-        return mass;
+        return strengthMultiplier;
     }
 
-    public float getSpringConstant()
+    public float getSpringConstantMultiplier()
     {
-        return springConstant;
+        return springConstantMultiplier;
     }
     #endregion
 

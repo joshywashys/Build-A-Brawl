@@ -15,10 +15,10 @@ public class BodyPartData : ScriptableObject
     [System.Serializable]
     public class Stats
     {
-        public float health;
-        public float strength; //arm grab strength, arm hit strength, leg jump height, turn speed? leg movespeed?
-        public float mass;
-        public float springConstant; //for arms only
+        public float healthMultiplier;
+        public float strengthMultiplier; //arm grab strength, arm hit strength, leg jump height, turn speed? leg movespeed?
+        public float massMultiplier;
+        public float springConstantMultiplier; //for arms only
     }
 
     public Stats stats;

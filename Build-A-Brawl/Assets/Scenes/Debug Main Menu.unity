@@ -2185,6 +2185,9 @@ MonoBehaviour:
   speed: 30
   Rotspeed: 3
   menuLayer: 1
+  next: 0
+  prev: 0
+  UIButtons1: {fileID: 0}
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3969,9 +3972,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d5abf0b9492284f80c67d361a7782b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNum: 1
   creatureContainer: {fileID: 1923306943}
   creaturePlayable: {fileID: 211988261}
   creatureManager: {fileID: 677812825}
+  playerPrefab: {fileID: 0}
   maxSaveSlots: 8
   savedCreatureData: []
   floating: 1
