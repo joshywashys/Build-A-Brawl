@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace BuildABrawl.Events
 {
-    [CreateAssetMenu(fileName = "New Void Event", menuName = "Game Events/Void Event")]
-    public class VoidEvent : BaseGameEvent<Void>
+    [CreateAssetMenu(fileName = "New Int Event", menuName = "Game Events/Int Event")]
+    public class IntEvent : BaseGameEvent<int>
     {
-        public void Raise() => Raise(new Void());
+        
     }
 }

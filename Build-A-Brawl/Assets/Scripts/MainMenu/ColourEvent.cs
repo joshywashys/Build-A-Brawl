@@ -40,7 +40,7 @@ public class ColourEvent : MonoBehaviour, ISelectHandler, IDeselectHandler
            cubeShape.GetComponent<Renderer>().material.color = Color.yellow;
         } else if (!colourState) {
             
-            cubeShape.GetComponent<Renderer>().material.color = new Color32(142, 108, 139, 1);
+           cubeShape.GetComponent<Renderer>().material.color = new Color32(142, 108, 139, 1);
         }
     }
 }
