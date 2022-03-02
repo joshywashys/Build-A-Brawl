@@ -11,6 +11,8 @@ public class CreatureManager : MonoBehaviour
 
     public void AddCreature(GameObject toAdd, int playerNum)
     {
+        RemoveCreature(playerNum);
+
         if (1 <= playerNum && playerNum <= MAX_PLAYERS)
         {
             GameObject newCreature = Instantiate(toAdd);
@@ -25,6 +27,7 @@ public class CreatureManager : MonoBehaviour
     {
         if (1 <= playerNum && playerNum <= MAX_PLAYERS)
         {
+            Destroy(creatures[playerNum - 1]);
             creatures[playerNum - 1] = null;
         }
     }

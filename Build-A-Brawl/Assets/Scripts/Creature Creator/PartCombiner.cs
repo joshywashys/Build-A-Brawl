@@ -12,6 +12,7 @@ A separate script will be made to export the creature to a playable character.
 public class PartCombiner : MonoBehaviour
 {
     public int playerNum;
+    public bool isReady;
     //public bool spawnButtons = true;
 
     // Locations/Prefabs for generation
@@ -32,8 +33,9 @@ public class PartCombiner : MonoBehaviour
 	private GameObject currArmL;
     private GameObject currArmR;
     private GameObject currLegs;
-    
-	private GameObject newHead;
+
+    public GameObject newPlayer;
+    private GameObject newHead;
 	private GameObject newTorso;
 	private GameObject newArmL;
     private GameObject newArmR;
@@ -69,7 +71,6 @@ public class PartCombiner : MonoBehaviour
     //If it turns out to be cpu-heavy, we can optimize it to adjust part locations rather than re-generate.
     public void generateCreature()
 	{
-        print("player: " + playerNum);
         //clear previous creature
         Destroy(newHead);
         Destroy(newTorso);
@@ -128,7 +129,7 @@ public class PartCombiner : MonoBehaviour
     public void FinalizeCreature()
     {
         //create references
-        GameObject newPlayer = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
+        newPlayer = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
         GameObject body = newPlayer.transform.GetChild(2).gameObject;
         RigidbodyController rbc = body.GetComponent<RigidbodyController>();
         PlayerController pc = body.GetComponent<PlayerController>();
@@ -165,11 +166,18 @@ public class PartCombiner : MonoBehaviour
         //print("speed: " + pc.playerSpeed + ", jump: " + pc.jumpHeight + ", rotate: " + pc.rotateSpeed);
 
         //DontDestroyOnLoad(newPlayer); //.transform.root.gameObject
-        //creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer);
-        creatureManager.GetComponent<CreatureManager>().RemoveCreature(playerNum);
+        //creatureManager.GetComponent<CreatureManager>().RemoveCreature(playerNum);
         creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer, playerNum);
-        //Destroy(newPlayer);
+        isReady = true;
+        clearCreature();
+    }
 
+    public void Unready()
+    {
+        isReady = false;
+        creatureManager.GetComponent<CreatureManager>().RemoveCreature(playerNum);
+        Destroy(newPlayer);
+        generateCreature();
     }
 
 #endregion
@@ -183,8 +191,8 @@ public class PartCombiner : MonoBehaviour
 
     void Start()
     {
-        creatureManager = GameObject.Find("CCManager");
-        creatureManager = GameObject.Find("GameManager");
+        //creatureManager = GameObject.Find("CCManager");
+        //creatureManager = GameObject.Find("GameManager");
 
         headIndex = 0;
         torsoIndex = 0;
@@ -325,7 +333,7 @@ public class PartCombiner : MonoBehaviour
 #region Partswapping
     public void NextHead()
     {
-        if (headIndex < partsList[BundleNameCache.creaturepartsHeads].Length - 1)
+        if (!isReady && headIndex < partsList[BundleNameCache.creaturepartsHeads].Length - 1)
         {
             headIndex += 1;
             currHead = partsList[BundleNameCache.creaturepartsHeads][headIndex];
@@ -335,7 +343,7 @@ public class PartCombiner : MonoBehaviour
 
     public void PrevHead()
     {
-        if (headIndex > 0)
+        if (!isReady && headIndex > 0)
         {
             headIndex -= 1;
             currHead = partsList[BundleNameCache.creaturepartsHeads][headIndex];
@@ -346,7 +354,7 @@ public class PartCombiner : MonoBehaviour
 
     public void NextTorso()
     {
-        if (torsoIndex < partsList[BundleNameCache.creaturepartsTorsos].Length - 1)
+        if (!isReady && torsoIndex < partsList[BundleNameCache.creaturepartsTorsos].Length - 1)
         {
             torsoIndex += 1;
             currTorso = partsList[BundleNameCache.creaturepartsTorsos][torsoIndex];
@@ -356,7 +364,7 @@ public class PartCombiner : MonoBehaviour
 
     public void PrevTorso()
     {
-        if (torsoIndex > 0)
+        if (!isReady && torsoIndex > 0)
         {
             torsoIndex -= 1;
             currTorso = partsList[BundleNameCache.creaturepartsTorsos][torsoIndex];
@@ -367,7 +375,7 @@ public class PartCombiner : MonoBehaviour
 
     public void NextArmL()
     {
-        if (armLIndex < partsList[BundleNameCache.creaturepartsArmsL].Length - 1)
+        if (!isReady && armLIndex < partsList[BundleNameCache.creaturepartsArmsL].Length - 1)
         {
             armLIndex += 1;
             currArmL = partsList[BundleNameCache.creaturepartsArmsL][armLIndex];
@@ -377,7 +385,7 @@ public class PartCombiner : MonoBehaviour
 
     public void PrevArmL()
     {
-        if (armLIndex > 0)
+        if (!isReady && armLIndex > 0)
         {
             armLIndex -= 1;
             currArmL = partsList[BundleNameCache.creaturepartsArmsL][armLIndex];
@@ -387,7 +395,7 @@ public class PartCombiner : MonoBehaviour
 
     public void NextArmR()
     {
-        if (armRIndex < partsList[BundleNameCache.creaturepartsArmsR].Length - 1)
+        if (!isReady && armRIndex < partsList[BundleNameCache.creaturepartsArmsR].Length - 1)
         {
             armRIndex += 1;
             currArmR = partsList[BundleNameCache.creaturepartsArmsR][armRIndex];
@@ -397,7 +405,7 @@ public class PartCombiner : MonoBehaviour
 
     public void PrevArmR()
     {
-        if (armRIndex > 0)
+        if (!isReady && armRIndex > 0)
         {
             armRIndex -= 1;
             currArmR = partsList[BundleNameCache.creaturepartsArmsR][armRIndex];
@@ -407,7 +415,7 @@ public class PartCombiner : MonoBehaviour
 
     public void NextLegs()
     {
-        if (legIndex < partsList[BundleNameCache.creaturepartsLegs].Length - 1)
+        if (!isReady && legIndex < partsList[BundleNameCache.creaturepartsLegs].Length - 1)
         {
             legIndex += 1;
             currLegs = partsList[BundleNameCache.creaturepartsLegs][legIndex];
@@ -417,7 +425,7 @@ public class PartCombiner : MonoBehaviour
 
     public void PrevLegs()
     {
-        if (legIndex > 0)
+        if (!isReady && legIndex > 0)
         {
             legIndex -= 1;
             currLegs = partsList[BundleNameCache.creaturepartsLegs][legIndex];
@@ -451,6 +459,8 @@ public class PartCombiner : MonoBehaviour
     #endregion
 
 #region Misc
+
+    
 
     public void Float()
     {

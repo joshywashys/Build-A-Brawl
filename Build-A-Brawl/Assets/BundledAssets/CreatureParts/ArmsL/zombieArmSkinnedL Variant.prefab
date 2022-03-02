@@ -37,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5868032806314143729, guid: 7221acb28e9ced24692625e11864f14c, type: 3}
       propertyPath: m_LocalScale.x
-      value: -65
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 5868032806314143729, guid: 7221acb28e9ced24692625e11864f14c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6495492569730987339, guid: 7221acb28e9ced24692625e11864f14c, type: 3}
       propertyPath: m_Name
-      value: zombieArmSkinnedL
+      value: zombieArmSkinnedL Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6613043922747568007, guid: 7221acb28e9ced24692625e11864f14c, type: 3}
       propertyPath: m_ConnectedAnchor.x
