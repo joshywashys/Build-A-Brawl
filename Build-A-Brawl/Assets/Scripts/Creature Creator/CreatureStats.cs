@@ -8,6 +8,7 @@ public class CreatureStats : MonoBehaviour
 {
     // part references
     private GameObject creature;
+    [SerializeField] private int playerNum;
 
     private GameObject head;
     private GameObject torso;
@@ -57,12 +58,12 @@ public class CreatureStats : MonoBehaviour
 
     // Constants that we can edit to make our Scriptable Objects values nicer
     public const float HEALTH_BASE = 10;
-    public const float ARM_STRENGTH_CONSTANT = 10;
-    public const float MOVE_SPEED_CONSTANT = 50;
-    public const float ROTATE_SPEED_CONSTANT = 10;
-    public const float JUMP_HEIGHT_CONSTANT = 100;
-    public const float SPRING_CONSTANT_CONSTANT = 80;
-    public const float LEG_STRENGTH_CONSTANT = 500;
+    public const float ARM_STRENGTH_BASE = 10;
+    public const float MOVE_SPEED_BASE = 50;
+    public const float ROTATE_SPEED_BASE = 10;
+    public const float JUMP_HEIGHT_BASE = 100;
+    public const float SPRING_CONSTANT_BASE = 80;
+    public const float LEG_STRENGTH_BASE = 500;
 
     #region  Internal Functions
 
@@ -81,9 +82,9 @@ public class CreatureStats : MonoBehaviour
 
         mass = headMassNew + torsoMassNew + armLMassNew + armRMassNew + legsMassNew;
 
-        jumpHeight = legsPart.getStrengthMultiplier() * JUMP_HEIGHT_CONSTANT / mass;
-        moveSpeed = legsPart.getStrengthMultiplier() * MOVE_SPEED_CONSTANT / mass;
-        rotateSpeed = legsPart.getStrengthMultiplier() * ROTATE_SPEED_CONSTANT / mass;
+        jumpHeight = legsPart.getStrengthMultiplier() * JUMP_HEIGHT_BASE / mass;
+        moveSpeed = legsPart.getStrengthMultiplier() * MOVE_SPEED_BASE / mass;
+        rotateSpeed = legsPart.getStrengthMultiplier() * ROTATE_SPEED_BASE / mass;
 
     }
 
@@ -107,17 +108,17 @@ public class CreatureStats : MonoBehaviour
 
         // Creature Stats
         mass = headPart.getMass() + torsoPart.getMass() + armLPart.getMass() + armRPart.getMass() + legsPart.getMass();
-        jumpHeight = legsPart.getStrengthMultiplier() * JUMP_HEIGHT_CONSTANT / mass;
-        moveSpeed = legsPart.getStrengthMultiplier() * MOVE_SPEED_CONSTANT / mass;
-        rotateSpeed = ROTATE_SPEED_CONSTANT / mass;
-        springStrengthLegs = LEG_STRENGTH_CONSTANT / jumpHeight;
+        jumpHeight = legsPart.getStrengthMultiplier() * JUMP_HEIGHT_BASE / mass;
+        moveSpeed = legsPart.getStrengthMultiplier() * MOVE_SPEED_BASE / mass;
+        rotateSpeed = ROTATE_SPEED_BASE / mass;
+        springStrengthLegs = LEG_STRENGTH_BASE / jumpHeight;
 
         // Arm Stats
-        strengthArmL = armLPart.getStrengthMultiplier() * ARM_STRENGTH_CONSTANT;
-        strengthArmR = armRPart.getStrengthMultiplier() * ARM_STRENGTH_CONSTANT;
+        strengthArmL = armLPart.getStrengthMultiplier() * ARM_STRENGTH_BASE;
+        strengthArmR = armRPart.getStrengthMultiplier() * ARM_STRENGTH_BASE;
         strengthArms = strengthArmL + strengthArmR;
-        springConstantArmL = armLPart.getSpringConstantMultiplier() * SPRING_CONSTANT_CONSTANT;
-        springConstantArmR = armRPart.getSpringConstantMultiplier() * SPRING_CONSTANT_CONSTANT;
+        springConstantArmL = armLPart.getSpringConstantMultiplier() * SPRING_CONSTANT_BASE;
+        springConstantArmR = armRPart.getSpringConstantMultiplier() * SPRING_CONSTANT_BASE;
 
         // Toggle Kinematics
         torsoPart.ToggleKinematics(torsoPart.gameObject.transform, true);
@@ -141,6 +142,11 @@ public class CreatureStats : MonoBehaviour
     void Start()
     {
         //initializeCreature();
+    }
+
+    void Awake()
+    {
+
     }
 
     #endregion
@@ -191,7 +197,67 @@ public class CreatureStats : MonoBehaviour
 
     #endregion
 
-    #region Getters
+    #region Getters/Setters
+
+    public void SetPlayerNum(int toSet)
+    {
+        playerNum = toSet;
+    }
+
+    public int GetPlayerNum()
+    {
+        return playerNum;
+    }
+
+    public float GetHealthHeadMax()
+    {
+        return healthHeadMax;
+    }
+
+    public float GetHealthTorsoMax()
+    {
+        return healthTorsoMax;
+    }
+
+    public float GetHealthArmLMax()
+    {
+        return healthArmLMax;
+    }
+
+    public float GetHealthArmRMax()
+    {
+        return healthArmRMax;
+    }
+
+    public float GetHealthLegsMax()
+    {
+        return healthLegsMax;
+    }
+
+    public float GetHealthHead()
+    {
+        return healthHead;
+    }
+
+    public float GetHealthTorso()
+    {
+        return healthTorso;
+    }
+
+    public float GetHealthArmL()
+    {
+        return healthArmL;
+    }
+
+    public float GetHealthArmR()
+    {
+        return healthArmR;
+    }
+
+    public float GetHealthLegs()
+    {
+        return healthLegs;
+    }
 
     public float GetMass()
     {

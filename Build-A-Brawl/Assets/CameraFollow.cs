@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraFollow : MonoBehaviour
 {
-    public GameObject[] players;
+    [SerializeField] private List<GameObject> players;
 
 	public Vector3 offset;
 	public float smoothTime = 0.5f;
@@ -15,20 +15,6 @@ public class CameraFollow : MonoBehaviour
 	private Vector3 velocity;
 	private Camera cam;
 
-	void Start() {
-		cam = GetComponent<Camera>();
-	}
-
-	void LateUpdate() {
-
-		if (players.Length == 0){
-			return;
-		}
-
-		Move();
-		Zoom();
-	}
-
 	void Zoom() {
 		float newZoom = Mathf.Lerp(maxZoom, minZoom, getDistance() / zoomLimit);
 		cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
@@ -37,6 +23,7 @@ public class CameraFollow : MonoBehaviour
 	void Move() 
 	{
 		Vector3 center = getCenter();
+        print(center);
 		Vector3 newPos = center + offset;
 		transform.position = Vector3.SmoothDamp(transform.position, newPos, ref velocity, smoothTime);
 	}
@@ -44,7 +31,7 @@ public class CameraFollow : MonoBehaviour
 	float getDistance()
 	{
 		var bounds = new Bounds(players[0].transform.position, Vector3.zero);
-		for (int i = 0; i < players.Length; i++)
+		for (int i = 0; i < players.Count; i++)
 		{
 			//if (players[i].isAlive)
 				bounds.Encapsulate(players[i].transform.position);
@@ -55,13 +42,13 @@ public class CameraFollow : MonoBehaviour
 
 	Vector3 getCenter() 
 	{
-		if (players.Length == 1) 
+		if (players.Count == 1) 
 		{
 			return players[0].transform.position;
 		}
 
 		var bounds = new Bounds(players[0].transform.position, Vector3.zero);
-		for (int i = 0; i < players.Length; i++)
+		for (int i = 0; i < players.Count; i++)
 		{
 			//if (players[i].isAlive)
 				bounds.Encapsulate(players[i].transform.position);
@@ -70,4 +57,39 @@ public class CameraFollow : MonoBehaviour
         centerPoint.x = 0;
 		return centerPoint;
 	}
+
+    #region Monobehaviour Functions
+
+    void LateUpdate()
+    {
+        if (players.Count == 0)
+        {
+            print("no players");
+            return;
+        }
+
+        Move();
+        Zoom();
+    }
+
+    void Start()
+    {
+        cam = GetComponent<Camera>();
+
+        // Get players
+        players = new List<GameObject>();
+        CreatureStats[] searchList = FindObjectsOfType<CreatureStats>();
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < searchList.Length; j++)
+            {
+                if (searchList[j].GetPlayerNum() == i + 1)
+                {
+                    players.Add(searchList[j].transform.parent.gameObject);
+                }
+            }
+        }
+    }
+
+    #endregion
 }
