@@ -12,9 +12,9 @@ public class UIManager : MonoBehaviour
     [Header("Health Overlay")]
     [SerializeField] private GameObject overlayPrefab;
     private List<GameObject> overlays;
-    private List<Image[]> limbImgs;
+    [SerializeField] private List<Image[]> limbImgs;
     public List<Color> hitColors;
-    public List<Color> playerColours;
+    public List<Color> playerColors;
     
     public void CalculateHitColour(int playerNum, int limbNum, int health, int healthMax)
     {
@@ -37,12 +37,7 @@ public class UIManager : MonoBehaviour
         // Initialize
         statsList = new List<CreatureStats>();
         overlays = new List<GameObject>();
-
-        // Get limb imgs
-        for (int i = 0; i < 5; i++)
-        {
-            //limbImgs[i] = overlayPrefab.transform.GetChild(i).GetComponent<Image>();
-        }
+        limbImgs = new List<Image[]>();
 
         // Get players stats
         CreatureStats[] searchList = FindObjectsOfType<CreatureStats>();
@@ -66,6 +61,29 @@ public class UIManager : MonoBehaviour
             overlays.Add(currOverlay);
         }
 
+        // Initialize Arrays in img list
+        for (int i = 0; i < overlays.Count; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                limbImgs.Add(new Image[5]);
+            }
+        }
+
+        // Set Player Colours
+        for (int i = 0; i < overlays.Count; i++)
+        {
+            overlays[i].transform.Find("bg").GetComponent<Image>().color = playerColors[Random.Range(0,5)]; //BG TURNS INVISIBLE CURRENTLY
+        }
+
+        // Get limb imgs
+            for (int i = 0; i < overlays.Count; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                limbImgs[i][j] = overlays[i].transform.Find("limbs").GetChild(j).GetComponent<Image>();
+            }
+        }
 
     }
 

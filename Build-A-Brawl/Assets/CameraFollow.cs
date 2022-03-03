@@ -23,7 +23,6 @@ public class CameraFollow : MonoBehaviour
 	void Move() 
 	{
 		Vector3 center = getCenter();
-        print(center);
 		Vector3 newPos = center + offset;
 		transform.position = Vector3.SmoothDamp(transform.position, newPos, ref velocity, smoothTime);
 	}
