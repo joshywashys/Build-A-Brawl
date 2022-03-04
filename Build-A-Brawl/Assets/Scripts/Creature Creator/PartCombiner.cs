@@ -161,8 +161,8 @@ public class PartCombiner : MonoBehaviour
             rbc.floatHeight = legsToHips.y * 2 + torsoToHips.y;
             rbc.m_balanceSpringStrength = stats.GetSpringStrengthLegs();
             rbc.m_balanceSpringDamper = stats.GetSpringDamperLegs();
-            pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y - 0.3f, armLToShoulder.x * 0.5f);
-            pc.anchorRight.position = new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y - 0.3f, -armRToShoulder.x * 0.5f);
+            pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y - 0.3f, armLToShoulder.x * 0.5f); //needs fix
+            pc.anchorRight.position = new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y - 0.3f, -armRToShoulder.x * 0.5f); //needs fix
             pc.attackForce = stats.GetStrengthArmL(); //change this later to work for both arms in playercontroller
             pc.playerSpeed = stats.GetMoveSpeed();
             pc.jumpHeight = stats.GetJumpHeight();

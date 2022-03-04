@@ -28,14 +28,14 @@ namespace BuildABrawl.Events
         public void OnSubmit(BaseEventData eventData)
         {
             buttonChk = true;
-            Debug.Log("OK IT IS TRUE" + locationNumber);
+            //Debug.Log("OK IT IS TRUE" + locationNumber);
             locationNum.Raise(locationNumber);
 
         }
 
         public void OnCancel(BaseEventData eventData)
         {
-            Debug.Log("It is FALsE");
+            //Debug.Log("It is FALsE");
         }
 
 
