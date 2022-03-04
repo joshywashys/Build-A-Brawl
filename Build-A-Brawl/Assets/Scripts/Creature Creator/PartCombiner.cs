@@ -162,11 +162,10 @@ public class PartCombiner : MonoBehaviour
             rbc.floatHeight = legsToHips.y * 2 + torsoToHips.y;
             rbc.m_balanceSpringStrength = stats.GetSpringStrengthLegs(); //broken rn but low priority //9
             rbc.m_balanceSpringDamper = stats.GetSpringDamperLegs();
-            pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y, armLToShoulder.x * 2);
-            pc.anchorRight.position = new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y, -armRToShoulder.x * 2);
+            pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y, armLToShoulder.x * 0.5f);
+            pc.anchorRight.position = new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y, -armRToShoulder.x * 0.5f);
             pc.playerSpeed = stats.GetMoveSpeed();
             pc.jumpHeight = stats.GetJumpHeight();
-            print(pc.jumpHeight);
             pc.rotateSpeed = stats.GetRotateSpeed();
             //print("speed: " + pc.playerSpeed + ", jump: " + pc.jumpHeight + ", rotate: " + pc.rotateSpeed);
 

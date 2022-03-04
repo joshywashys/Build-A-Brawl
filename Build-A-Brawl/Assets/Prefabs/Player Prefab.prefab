@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5923797027740460139}
   m_Layer: 6
   m_Name: FistLeft
-  m_TagString: heavyAttack
+  m_TagString: Left Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 5998393355826789112}
   m_Layer: 6
   m_Name: FistRight
-  m_TagString: heavyAttack
+  m_TagString: Right Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

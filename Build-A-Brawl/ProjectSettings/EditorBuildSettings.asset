@@ -14,5 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Debugging/CC Save Tester.unity
     guid: 2517b25949ab6524094b4f134ac5a9fb
+  - enabled: 1
+    path: Assets/Scenes/ConstructionMap.unity
+    guid: f8e75991c3fca8c4381aafa9bac8e855
+  - enabled: 1
+    path: Assets/Scenes/VolcanoMap.unity
+    guid: 103f3ff564047ed44abcd2c5f94a636a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 63c0c96d032469c4cb9d14d029d3f8a8, type: 2}

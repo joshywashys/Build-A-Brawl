@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2470234697
+CRC: 3024867978
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4e9ba7d89382e8be64908b4f444bb06c
+    Hash: 62372e93ac55ec145b96e2e058f2007b
   TypeTreeHash:
     serializedVersion: 2
     Hash: ed964eebcc869ae0187e479146fec856
@@ -59,6 +59,5 @@ Assets:
 - Assets/BundledAssets/CreatureParts/ArmsL/clownArmLBound.prefab
 - Assets/BundledAssets/CreatureParts/ArmsL/zombieArmSkinnedL Variant.prefab
 - Assets/BundledAssets/CreatureParts/ArmsL/apeArmLBound.prefab
-- Assets/BundledAssets/CreatureParts/ArmsL/zombieArmLBound.prefab
 Dependencies:
 - C:/Users/Joshua/Documents/GitHub/Build-A-Brawl/Build-A-Brawl/Assets/StreamingAssets/creatureparts/armsr

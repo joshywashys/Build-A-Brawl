@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1771352950, guid: 7221acb28e9ced24692625e11864f14c, type: 3}
+      propertyPath: m_targetTag
+      value: Left Hand
+      objectReference: {fileID: 0}
     - target: {fileID: 4588797695574783352, guid: 7221acb28e9ced24692625e11864f14c, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 5.6236277

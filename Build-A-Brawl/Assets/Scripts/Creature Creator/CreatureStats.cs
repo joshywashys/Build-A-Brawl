@@ -61,7 +61,7 @@ public class CreatureStats : MonoBehaviour
     public const float HEALTH_BASE = 10;
     public const float ARM_STRENGTH_BASE = 10;
     public const float MOVE_SPEED_BASE = 50;
-    public const float ROTATE_SPEED_BASE = 30;
+    public const float ROTATE_SPEED_BASE = 10;
     public const float JUMP_HEIGHT_BASE = 150;
     public const float SPRING_CONSTANT_BASE = 80;
     public const float LEG_STRENGTH_BASE = 300;
@@ -116,7 +116,7 @@ public class CreatureStats : MonoBehaviour
 
         // Creature Stats
         mass = headPart.getMass() * MASS_HEAD_BASE + torsoPart.getMass() * MASS_TORSO_BASE + armLPart.getMass() * MASS_ARML_BASE + armRPart.getMass() * MASS_ARMR_BASE + legsPart.getMass() * MASS_LEGS_BASE;
-        jumpHeight = (legsPart.getStrengthMultiplier() * JUMP_HEIGHT_BASE) / mass;
+        jumpHeight = Mathf.Sqrt(legsPart.getStrengthMultiplier() * JUMP_HEIGHT_BASE / mass) * 2;
         moveSpeed = MOVE_SPEED_BASE / mass;
         rotateSpeed = ROTATE_SPEED_BASE / mass;
         springStrengthLegs = LEG_STRENGTH_BASE * legsPart.getStrengthMultiplier() / mass;
