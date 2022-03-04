@@ -28,10 +28,7 @@ public class DebugStartGame : MonoBehaviour
                 betaDemoSceneNum++;
                 break;
             case 2:
-                cm.RemoveCreature(2);
-                cm.RemoveCreature(3);
-                cm.RemoveCreature(4);
-                SceneManager.LoadScene("ConstructionMap", LoadSceneMode.Single);
+                SceneManager.LoadScene("TrafficMap", LoadSceneMode.Single);
                 betaDemoSceneNum++;
                 break;
             case 3:
@@ -39,12 +36,14 @@ public class DebugStartGame : MonoBehaviour
                 betaDemoSceneNum++;
                 break;
             case 4:
-                SceneManager.LoadScene("TrafficMap", LoadSceneMode.Single);
+                cm.RemoveCreature(2);
+                cm.RemoveCreature(3);
+                cm.RemoveCreature(4);
+                SceneManager.LoadScene("ConstructionMap", LoadSceneMode.Single);
                 betaDemoSceneNum++;
                 break;
             case 5:
                 SceneManager.LoadScene("Lab", LoadSceneMode.Single);
-                betaDemoSceneNum++;
                 break;
         }
     }

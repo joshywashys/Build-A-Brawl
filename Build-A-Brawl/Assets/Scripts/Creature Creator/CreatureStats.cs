@@ -59,8 +59,8 @@ public class CreatureStats : MonoBehaviour
 
     // Constants that we can edit to make our Scriptable Objects values nicer
     public const float HEALTH_BASE = 10;
-    public const float ARM_STRENGTH_BASE = 50;
-    public const float MOVE_SPEED_BASE = 50;
+    public const float ARM_STRENGTH_BASE = 120;
+    public const float MOVE_SPEED_BASE = 80;
     public const float ROTATE_SPEED_BASE = 10;
     public const float JUMP_HEIGHT_BASE = 150;
     public const float SPRING_CONSTANT_BASE = 80;

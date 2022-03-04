@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Left Hand
+  - Right Hand
+  - ground
+  - goop
+  - UI1
+  - heavyAttack
   layers:
   - Default
   - TransparentFX

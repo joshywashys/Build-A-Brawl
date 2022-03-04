@@ -56,8 +56,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < statsList.Count; i++)
         {
             GameObject currOverlay = Instantiate(overlayPrefab, canvas.transform);
-            //overlays[i].transform.position = new Vector3(0, (Screen.width / statsList.Count) * i, 0);
-            currOverlay.GetComponent<RectTransform>().localPosition = new Vector3(0, (Screen.height/2) * 0.8f, 0);
+            currOverlay.GetComponent<RectTransform>().localPosition = new Vector3((Screen.width / (statsList.Count + 1)) * (i + 1) - Screen.width / 2, (Screen.height/2) * 0.8f, 0);
             overlays.Add(currOverlay);
         }
 
@@ -73,7 +72,7 @@ public class UIManager : MonoBehaviour
         // Set Player Colours
         for (int i = 0; i < overlays.Count; i++)
         {
-            overlays[i].transform.Find("bg").GetComponent<Image>().color = playerColors[Random.Range(0,5)];
+            overlays[i].transform.Find("bg").GetComponent<Image>().color = playerColors[i];
         }
 
         // Get limb imgs

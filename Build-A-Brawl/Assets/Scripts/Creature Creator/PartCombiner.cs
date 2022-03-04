@@ -160,9 +160,9 @@ public class PartCombiner : MonoBehaviour
             // Set new creature stats
             rbc.floatHeight = legsToHips.y * 2 + torsoToHips.y;
             rbc.m_balanceSpringStrength = stats.GetSpringStrengthLegs();
-            rbc.m_balanceSpringDamper = stats.GetSpringDamperLegs();
-            pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y - 0.3f, armLToShoulder.x * 0.5f); //needs fix
-            pc.anchorRight.position = new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y - 0.3f, -armRToShoulder.x * 0.5f); //needs fix
+            rbc.m_balanceSpringDamper = stats.GetSpringDamperLegs(); //newPlayer.transform.position + 
+            pc.anchorLeft.localPosition = new Vector3(-0.7f, 0.2f, 1f); //new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y - 0.3f, armLToShoulder.x * 0.5f); //needs fix
+            pc.anchorRight.localPosition = new Vector3(0.7f, 0.2f, 1f); //new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y - 0.3f, -armRToShoulder.x * 0.5f); //needs fix
             pc.attackForce = stats.GetStrengthArmL(); //change this later to work for both arms in playercontroller
             pc.playerSpeed = stats.GetMoveSpeed();
             pc.jumpHeight = stats.GetJumpHeight();
