@@ -7,6 +7,13 @@ public class DebugStartGame : MonoBehaviour
 {
     public static int betaDemoSceneNum = 1;
 
+    [SerializeField] private CreatureManager cm;
+
+    void Start()
+    {
+        cm = FindObjectOfType<CreatureManager>();
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene("ConstructionMap", LoadSceneMode.Single);
@@ -21,6 +28,9 @@ public class DebugStartGame : MonoBehaviour
                 betaDemoSceneNum++;
                 break;
             case 2:
+                cm.RemoveCreature(2);
+                cm.RemoveCreature(3);
+                cm.RemoveCreature(4);
                 SceneManager.LoadScene("ConstructionMap", LoadSceneMode.Single);
                 betaDemoSceneNum++;
                 break;
