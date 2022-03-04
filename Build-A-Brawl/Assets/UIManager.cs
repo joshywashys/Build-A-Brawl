@@ -73,11 +73,11 @@ public class UIManager : MonoBehaviour
         // Set Player Colours
         for (int i = 0; i < overlays.Count; i++)
         {
-            overlays[i].transform.Find("bg").GetComponent<Image>().color = playerColors[Random.Range(0,5)]; //BG TURNS INVISIBLE CURRENTLY
+            overlays[i].transform.Find("bg").GetComponent<Image>().color = playerColors[Random.Range(0,5)];
         }
 
         // Get limb imgs
-            for (int i = 0; i < overlays.Count; i++)
+        for (int i = 0; i < overlays.Count; i++)
         {
             for (int j = 0; j < 5; j++)
             {

@@ -17,8 +17,8 @@ public class RigidbodyController : MonoBehaviour
 	public bool useFloat = true;
 
 	[Header("Balancing")]
-	[SerializeField] private float m_balanceSpringStrength;
-	[SerializeField] private float m_balanceSpringDamper;
+	public float m_balanceSpringStrength;
+	public float m_balanceSpringDamper;
 	public bool useBalance = true;
 
 	[Header("Ground Check Settings")]

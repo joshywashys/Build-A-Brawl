@@ -51,6 +51,7 @@ public class overlayInteraction : MonoBehaviour
             Debug.Log("DETACH LIMB");
         }
     }
+
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("collision detected");
