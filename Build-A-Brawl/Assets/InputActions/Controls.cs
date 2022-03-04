@@ -57,6 +57,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Join"",
+                    ""type"": ""Button"",
+                    ""id"": ""89b1168d-6034-45dc-b649-2b8cab2baa35"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -213,6 +221,28 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""RightPunch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a293f83-1288-4a7b-b0de-3cb923fde8ed"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""477433e5-a4a5-4996-92da-b58b376b61c9"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -249,6 +279,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_PickUp = m_Player.FindAction("PickUp", throwIfNotFound: true);
         m_Player_LeftPunch = m_Player.FindAction("LeftPunch", throwIfNotFound: true);
         m_Player_RightPunch = m_Player.FindAction("RightPunch", throwIfNotFound: true);
+        m_Player_Join = m_Player.FindAction("Join", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -303,6 +334,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_PickUp;
     private readonly InputAction m_Player_LeftPunch;
     private readonly InputAction m_Player_RightPunch;
+    private readonly InputAction m_Player_Join;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -312,6 +344,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @PickUp => m_Wrapper.m_Player_PickUp;
         public InputAction @LeftPunch => m_Wrapper.m_Player_LeftPunch;
         public InputAction @RightPunch => m_Wrapper.m_Player_RightPunch;
+        public InputAction @Join => m_Wrapper.m_Player_Join;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -336,6 +369,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @RightPunch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightPunch;
                 @RightPunch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightPunch;
                 @RightPunch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightPunch;
+                @Join.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJoin;
+                @Join.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJoin;
+                @Join.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJoin;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -355,6 +391,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @RightPunch.started += instance.OnRightPunch;
                 @RightPunch.performed += instance.OnRightPunch;
                 @RightPunch.canceled += instance.OnRightPunch;
+                @Join.started += instance.OnJoin;
+                @Join.performed += instance.OnJoin;
+                @Join.canceled += instance.OnJoin;
             }
         }
     }
@@ -384,5 +423,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnPickUp(InputAction.CallbackContext context);
         void OnLeftPunch(InputAction.CallbackContext context);
         void OnRightPunch(InputAction.CallbackContext context);
+        void OnJoin(InputAction.CallbackContext context);
     }
 }

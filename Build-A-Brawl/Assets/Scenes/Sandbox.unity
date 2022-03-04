@@ -2323,11 +2323,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6555087569346416028, guid: 4d8c2775b904b084cbbad5af3739ba58, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6555087569346416028, guid: 4d8c2775b904b084cbbad5af3739ba58, type: 3}
       propertyPath: m_JoinBehavior
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6555087569346416028, guid: 4d8c2775b904b084cbbad5af3739ba58, type: 3}
       propertyPath: m_PlayerPrefab
@@ -18206,8 +18206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 0}
-  collider: {fileID: 1122901480}
 --- !u!54 &1122901487
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -33012,8 +33010,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 0}
-  collider: {fileID: 1461100810}
 --- !u!1 &1017191113977072500
 GameObject:
   m_ObjectHideFlags: 0
