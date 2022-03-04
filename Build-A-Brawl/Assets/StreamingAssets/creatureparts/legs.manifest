@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3145294827
+CRC: 3128854226
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 76be0381cced97ad9c1accb15398b352
+    Hash: f8a1772fbd8a85f427009fe17f9ce2fc
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 4a5a84852f0359994998a3063a716c8d
+    Hash: 68243821d410a51731d2809fcc92803b
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -34,8 +34,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 6fa49c12ed2cf8549bc9070c9637d992, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: aeda7bfbf984f2a4da5ab4b8967b115d, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 97703ef28157d9f44ac271d94b284f87, type: 3}
@@ -43,6 +41,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6fa49c12ed2cf8549bc9070c9637d992, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 137
@@ -52,6 +52,7 @@ Assets:
 - Assets/BundledAssets/CreatureParts/Legs/apeLegsBound.prefab
 - Assets/BundledAssets/CreatureParts/Legs/clownLegsBound.prefab
 - Assets/BundledAssets/CreatureParts/Legs/Druid Legs.prefab
+- Assets/BundledAssets/CreatureParts/Legs/Knight_Legs_04.prefab
 - Assets/BundledAssets/CreatureParts/Legs/Legs.prefab
-- Assets/BundledAssets/CreatureParts/Legs/zombieLegs.prefab
+- Assets/BundledAssets/CreatureParts/Legs/zombieLegsBound 1.prefab
 Dependencies: []

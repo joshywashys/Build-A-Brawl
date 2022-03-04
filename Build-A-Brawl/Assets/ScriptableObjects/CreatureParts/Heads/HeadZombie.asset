@@ -15,7 +15,7 @@ MonoBehaviour:
   part_name: 
   part_image: {fileID: 0}
   stats:
-    healthMultiplier: 0.75
+    healthMultiplier: 0.5
     strengthMultiplier: 0
-    massMultiplier: 0.75
+    massMultiplier: 1
     springConstantMultiplier: 0

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3918284633
+CRC: 921938460
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3ae78698e2ac9c5047e4204f93c2d774
+    Hash: cc8da4219b327d676f0576414ae79e2a
   TypeTreeHash:
     serializedVersion: 2
     Hash: 1ddec5a779a030ef8402eb6eb29ab5f9
@@ -46,6 +46,7 @@ Assets:
 - Assets/BundledAssets/CreatureParts/Heads/zombieHead.prefab
 - Assets/BundledAssets/CreatureParts/Heads/Druid Head.prefab
 - Assets/BundledAssets/CreatureParts/Heads/Robot Head.prefab
+- Assets/BundledAssets/CreatureParts/Heads/Knight_Head_02.prefab
 - Assets/BundledAssets/CreatureParts/Heads/clownHeadBound.prefab
 - Assets/BundledAssets/CreatureParts/Heads/apeHeadBound.prefab
 Dependencies: []

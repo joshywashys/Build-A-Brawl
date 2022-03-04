@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonBase: {fileID: 0}
-  partData: {fileID: 0}
+  skeletonBase: {fileID: 2571419109536051210}
+  partData: {fileID: 11400000, guid: aa1f9aa5c722662439c720d93afc7b20, type: 2}
 --- !u!65 &7436693992961449905
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

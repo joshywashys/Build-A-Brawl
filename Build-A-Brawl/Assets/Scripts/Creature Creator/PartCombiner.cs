@@ -166,6 +166,7 @@ public class PartCombiner : MonoBehaviour
             pc.anchorRight.position = new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y, -armRToShoulder.x * 2);
             pc.playerSpeed = stats.GetMoveSpeed();
             pc.jumpHeight = stats.GetJumpHeight();
+            print(pc.jumpHeight);
             pc.rotateSpeed = stats.GetRotateSpeed();
             //print("speed: " + pc.playerSpeed + ", jump: " + pc.jumpHeight + ", rotate: " + pc.rotateSpeed);
 
