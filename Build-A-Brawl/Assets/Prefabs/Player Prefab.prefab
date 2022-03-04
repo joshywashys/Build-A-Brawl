@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: 3622046291138277065}
   - component: {fileID: 8228551700721319051}
   - component: {fileID: 4866000927752231823}
-  - component: {fileID: 8695320169519585893}
   m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
@@ -471,6 +470,7 @@ MonoBehaviour:
   m_skinnedMeshRenderers: []
   playerSpeed: 12
   jumpHeight: 20
+  rotateSpeed: 1
   m_heldObject: {fileID: 0}
   attackSpringConstant: 80
   attackForce: 30
@@ -513,20 +513,6 @@ CapsuleCollider:
   m_Height: 2.5
   m_Direction: 1
   m_Center: {x: 0, y: 1.25, z: 0}
---- !u!114 &8695320169519585893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5479808838921011391}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody: {fileID: 0}
-  collider: {fileID: 0}
 --- !u!1 &6365239696861500406
 GameObject:
   m_ObjectHideFlags: 0
