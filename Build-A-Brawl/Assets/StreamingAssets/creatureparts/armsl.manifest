@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 256663647
+CRC: 2470234697
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9de6e3fbfba4287f881a4d0e1478437b
+    Hash: 4e9ba7d89382e8be64908b4f444bb06c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f51e21377fa75494c1da3423d47cf06a
+    Hash: ed964eebcc869ae0187e479146fec856
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -29,10 +29,20 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 65
   Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: aeda7bfbf984f2a4da5ab4b8967b115d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f41dcacd9e3807241a695fb5e0ffe407, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 97703ef28157d9f44ac271d94b284f87, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 136
@@ -49,5 +59,6 @@ Assets:
 - Assets/BundledAssets/CreatureParts/ArmsL/clownArmLBound.prefab
 - Assets/BundledAssets/CreatureParts/ArmsL/zombieArmSkinnedL Variant.prefab
 - Assets/BundledAssets/CreatureParts/ArmsL/apeArmLBound.prefab
+- Assets/BundledAssets/CreatureParts/ArmsL/zombieArmLBound.prefab
 Dependencies:
 - C:/Users/Joshua/Documents/GitHub/Build-A-Brawl/Build-A-Brawl/Assets/StreamingAssets/creatureparts/armsr
