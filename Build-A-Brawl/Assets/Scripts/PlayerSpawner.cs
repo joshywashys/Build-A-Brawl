@@ -7,16 +7,9 @@ public class PlayerSpawner : MonoBehaviour
     [SerializeField] private CreatureManager creatureManager;
     [SerializeField] private List<Transform> spawnpoints;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         creatureManager = FindObjectOfType<CreatureManager>();
-        if (creatureManager != null)
-        {
-            print("success!!");
-        }
-
-        //DEBUGGING
         SpawnAllPlayers(creatureManager.GetCreatureList());
     }
 
@@ -24,7 +17,10 @@ public class PlayerSpawner : MonoBehaviour
     {
         for (int i = 0; i < toSpawn.Length; i++)
         {
-            SpawnPlayer(toSpawn[i], spawnpoints[i % spawnpoints.Count]);
+            if (toSpawn[i] != null)
+            {
+                SpawnPlayer(toSpawn[i], spawnpoints[i % spawnpoints.Count]);
+            }
         }
     }
 

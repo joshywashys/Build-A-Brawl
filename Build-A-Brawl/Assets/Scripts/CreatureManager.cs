@@ -6,7 +6,7 @@ using UnityEngine;
 public class CreatureManager : MonoBehaviour
 {
     public const int MAX_PLAYERS = 4;
-    [SerializeField] private GameObject[] creatures;
+    private GameObject[] creatures;
     //[SerializeField] private List<GameObject> creatures;
 
     public void AddCreature(GameObject toAdd, int playerNum)
