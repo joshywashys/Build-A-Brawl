@@ -330,8 +330,8 @@ public class PlayerController : MonoBehaviour
 			other.SetState(State.Held);
 			print($"{other.name} : {other.GetState()}");
 		}
-
-		m_heldObject.IsGrabbed(true);
+        m_heldObject.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        m_heldObject.IsGrabbed(true);
 		SetState(State.Holding);
 	}
 

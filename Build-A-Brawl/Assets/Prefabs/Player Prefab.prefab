@@ -478,8 +478,8 @@ MonoBehaviour:
   fistRightRigidbody: {fileID: 5998393355826789112}
   anchorLeft: {fileID: 2531796930596494295}
   anchorRight: {fileID: 4383451360912097255}
-  grabBounds: {x: 3, y: 5.5, z: 3}
-  grabOrigin: {x: 0, y: 0.25, z: 1}
+  grabBounds: {x: 6, y: 6.5, z: 6}
+  grabOrigin: {x: 0, y: -2, z: 1}
   grabSpringConstant: 160
   throwForce: 15
   attackTag: heavyAttack

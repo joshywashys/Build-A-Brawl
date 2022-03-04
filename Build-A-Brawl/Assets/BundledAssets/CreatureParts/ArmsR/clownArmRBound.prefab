@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 942681480857977333}
   - component: {fileID: 459019043757710156}
+  - component: {fileID: 4551783153537861840}
   m_Layer: 0
   m_Name: clownArmRBound
   m_TagString: Untagged
@@ -49,6 +50,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4551783153537861840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459019043757710159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonBase: {fileID: 1389811812711080753}
+  partData: {fileID: 11400000, guid: c4162cfbf34e04f4788e632d672c7868, type: 2}
 --- !u!1 &550514813205099474
 GameObject:
   m_ObjectHideFlags: 0

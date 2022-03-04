@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 46568617032079782}
   - component: {fileID: 8329184683536251074}
   - component: {fileID: 1646293455465481319}
+  - component: {fileID: 6230063981741408466}
   m_Layer: 0
   m_Name: Druid ArmL
   m_TagString: Untagged
@@ -147,3 +148,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6230063981741408466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5968542837211271999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonBase: {fileID: 3591014264230740029}
+  partData: {fileID: 11400000, guid: 7642a7f4ac463a3439acef64ee97c686, type: 2}

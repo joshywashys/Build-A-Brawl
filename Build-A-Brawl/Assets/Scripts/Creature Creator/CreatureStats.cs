@@ -59,7 +59,7 @@ public class CreatureStats : MonoBehaviour
 
     // Constants that we can edit to make our Scriptable Objects values nicer
     public const float HEALTH_BASE = 10;
-    public const float ARM_STRENGTH_BASE = 10;
+    public const float ARM_STRENGTH_BASE = 50;
     public const float MOVE_SPEED_BASE = 50;
     public const float ROTATE_SPEED_BASE = 10;
     public const float JUMP_HEIGHT_BASE = 150;
@@ -69,8 +69,7 @@ public class CreatureStats : MonoBehaviour
 
     public const float MASS_HEAD_BASE = 1;
     public const float MASS_TORSO_BASE = 3;
-    public const float MASS_ARML_BASE = 1;
-    public const float MASS_ARMR_BASE = 1;
+    public const float MASS_ARMS_BASE = 1;
     public const float MASS_LEGS_BASE = 1;
 
     #region  Internal Functions
@@ -115,7 +114,7 @@ public class CreatureStats : MonoBehaviour
         healthLegs = healthLegsMax = legsPart.getHealthMultiplier();
 
         // Creature Stats
-        mass = headPart.getMass() * MASS_HEAD_BASE + torsoPart.getMass() * MASS_TORSO_BASE + armLPart.getMass() * MASS_ARML_BASE + armRPart.getMass() * MASS_ARMR_BASE + legsPart.getMass() * MASS_LEGS_BASE;
+        mass = headPart.getMass() * MASS_HEAD_BASE + torsoPart.getMass() * MASS_TORSO_BASE + armLPart.getMass() * MASS_ARMS_BASE + armRPart.getMass() * MASS_ARMS_BASE + legsPart.getMass() * MASS_LEGS_BASE;
         jumpHeight = Mathf.Sqrt(legsPart.getStrengthMultiplier() * JUMP_HEIGHT_BASE / mass) * 2;
         moveSpeed = MOVE_SPEED_BASE / mass;
         rotateSpeed = ROTATE_SPEED_BASE / mass;

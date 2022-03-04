@@ -130,8 +130,8 @@ public class PartCombiner : MonoBehaviour
     {
         if (!isReady)
         {
-            //create references
-            newPlayer = Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            // Create references
+            newPlayer = Instantiate(playerPrefab, creatureContainer.transform.position, Quaternion.identity);
             GameObject body = newPlayer.transform.GetChild(2).gameObject;
             RigidbodyController rbc = body.GetComponent<RigidbodyController>();
             PlayerController pc = body.GetComponent<PlayerController>();
@@ -145,29 +145,28 @@ public class PartCombiner : MonoBehaviour
             GameObject savedArmR = creature.transform.GetChild(3).gameObject;
             GameObject savedLegs = creature.transform.GetChild(4).gameObject;
 
-            //attach creature stats mothership script
+            // Attach creature stats mothership script
             creature.AddComponent<CreatureStats>();
             CreatureStats stats = creature.GetComponent<CreatureStats>();
             stats.attachParts(savedHead, savedTorso, savedArmL, savedArmR, savedLegs);
             stats.initializeCreature();
             stats.SetPlayerNum(playerNum);
-
-
+            
             savedHead.transform.parent = savedTorso.transform;
             savedArmL.transform.parent = savedTorso.transform;
             savedArmR.transform.parent = savedTorso.transform;
             savedLegs.transform.parent = savedTorso.transform;
 
-            //configure creature stats
+            // Set new creature stats
             rbc.floatHeight = legsToHips.y * 2 + torsoToHips.y;
-            rbc.m_balanceSpringStrength = stats.GetSpringStrengthLegs(); //broken rn but low priority //9
+            rbc.m_balanceSpringStrength = stats.GetSpringStrengthLegs();
             rbc.m_balanceSpringDamper = stats.GetSpringDamperLegs();
-            pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y, armLToShoulder.x * 0.5f);
-            pc.anchorRight.position = new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y, -armRToShoulder.x * 0.5f);
+            pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y - 0.3f, armLToShoulder.x * 0.5f);
+            pc.anchorRight.position = new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y - 0.3f, -armRToShoulder.x * 0.5f);
+            pc.attackForce = stats.GetStrengthArmL(); //change this later to work for both arms in playercontroller
             pc.playerSpeed = stats.GetMoveSpeed();
             pc.jumpHeight = stats.GetJumpHeight();
             pc.rotateSpeed = stats.GetRotateSpeed();
-            //print("speed: " + pc.playerSpeed + ", jump: " + pc.jumpHeight + ", rotate: " + pc.rotateSpeed);
 
             //DontDestroyOnLoad(newPlayer); //.transform.root.gameObject
             //creatureManager.GetComponent<CreatureManager>().RemoveCreature(playerNum);

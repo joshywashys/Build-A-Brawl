@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonBase: {fileID: 2759251081783187664}
-  partData: {fileID: 0}
+  skeletonBase: {fileID: 282085021934368864}
+  partData: {fileID: 11400000, guid: c4162cfbf34e04f4788e632d672c7868, type: 2}
 --- !u!1 &3933531063259131106
 GameObject:
   m_ObjectHideFlags: 0

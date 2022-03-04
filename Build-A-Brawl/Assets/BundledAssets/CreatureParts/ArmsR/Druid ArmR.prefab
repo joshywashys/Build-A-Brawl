@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3826088359450277997}
   - component: {fileID: 8327682603888161804}
   - component: {fileID: 4893741181386563084}
+  - component: {fileID: 5222082094874262516}
   m_Layer: 0
   m_Name: Druid ArmR
   m_TagString: Untagged
@@ -147,3 +148,17 @@ CapsuleCollider:
   m_Height: 7.1810374
   m_Direction: 0
   m_Center: {x: -0, y: 0.0944289, z: 0.00042837858}
+--- !u!114 &5222082094874262516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3826088359450278002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonBase: {fileID: 3826088357707296799}
+  partData: {fileID: 11400000, guid: 7642a7f4ac463a3439acef64ee97c686, type: 2}

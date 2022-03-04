@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4398627, g: 0.4883141, b: 0.5685219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -938,13 +938,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72428261}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.74883544, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1769108765}
   - {fileID: 1982228498}
   m_Father: {fileID: 1754538513}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &81407451
 GameObject:
@@ -958,6 +958,7 @@ GameObject:
   - component: {fileID: 81407455}
   - component: {fileID: 81407454}
   - component: {fileID: 81407453}
+  - component: {fileID: 81407456}
   m_Layer: 5
   m_Name: BrawlButton
   m_TagString: Untagged
@@ -1028,7 +1029,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 81407454}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 81407456}
+        m_TargetAssemblyTypeName: DebugStartGame, Assembly-CSharp
+        m_MethodName: BetaDemoLoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &81407454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1067,6 +1080,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81407451}
   m_CullTransparentMesh: 1
+--- !u!114 &81407456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81407451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e027e6410300341858c55777ef9fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &109576271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,7 +1181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109576271}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: -14.928099, y: 12.075312, z: -50.62092}
+  m_LocalPosition: {x: -14.928099, y: 12.075312, z: -54.309895}
   m_LocalScale: {x: 28.682508, y: 25.722908, z: 3.9372}
   m_Children: []
   m_Father: {fileID: 1365246549}
@@ -1358,7 +1383,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181592513}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.638104, y: 0.54113066, z: -45.371025}
+  m_LocalPosition: {x: -12.81, y: 0.54113066, z: -47.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1752266775}
@@ -1959,7 +1984,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 305653707}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181592515}
+        m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
+        m_MethodName: PrevLegs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &305653707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2249,7 +2286,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 320997202}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181592515}
+        m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
+        m_MethodName: NextArmL
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &320997202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2621,7 +2670,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 383799610}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181592515}
+        m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
+        m_MethodName: PrevArmR
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &383799610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2704,13 +2765,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417068833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.74883544, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1075964086}
   - {fileID: 181592514}
   m_Father: {fileID: 1754538513}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &427878584
 GameObject:
@@ -3458,7 +3519,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 553662090}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181592515}
+        m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
+        m_MethodName: NextTorso
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &553662090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3569,7 +3642,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 34cf4a8305064d646835f521c7ded9d8, type: 2}
+  - {fileID: 2100000, guid: 5751afc7a883f2548a497489d7e88aad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4021,7 +4094,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 640093302}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181592515}
+        m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
+        m_MethodName: PrevHead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &640093302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4135,7 +4220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687205163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.638103, y: 0.54113066, z: -45.371025}
+  m_LocalPosition: {x: -30.810001, y: 0.54113066, z: -47.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2034365951}
@@ -4252,13 +4337,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.7879242, y: -0.1994192, z: 0.06145402, w: 0.5793366}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 69.629, y: -157.321, z: -135.716}
 --- !u!1 &721478758
 GameObject:
   m_ObjectHideFlags: 0
@@ -4585,7 +4670,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -4676,7 +4761,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 812228327}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181592515}
+        m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
+        m_MethodName: NextHead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &812228327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5669,7 +5766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960095887}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.638103, y: 0.54113066, z: -45.371025}
+  m_LocalPosition: {x: -18.810001, y: 0.54113066, z: -48.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1475612524}
@@ -5867,6 +5964,101 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &1002381435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1002381436}
+  - component: {fileID: 1002381439}
+  - component: {fileID: 1002381438}
+  - component: {fileID: 1002381437}
+  m_Layer: 0
+  m_Name: platform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1002381436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002381435}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -21.84, y: 0.15, z: -47.89}
+  m_LocalScale: {x: 24.733545, y: 1.4769075, z: 8.140445}
+  m_Children: []
+  m_Father: {fileID: 1754538513}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1002381437
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002381435}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1002381438
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002381435}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1002381439
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002381435}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1031816239
 GameObject:
   m_ObjectHideFlags: 0
@@ -6244,7 +6436,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075964085}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.638104, y: 0.34531146, z: -45.371025}
+  m_LocalPosition: {x: -12.81, y: 0.34531146, z: -47.05}
   m_LocalScale: {x: 4.7153683, y: 0.19581921, z: 4.7153683}
   m_Children: []
   m_Father: {fileID: 417068834}
@@ -6283,7 +6475,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5751afc7a883f2548a497489d7e88aad, type: 2}
+  - {fileID: 2100000, guid: 4845c65cd9dc649408b6022e2f6807ed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6558,7 +6750,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122194672}
   m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 10.601895, y: 12.075312, z: -46.211025}
+  m_LocalPosition: {x: 10.601895, y: 12.075312, z: -49.9}
   m_LocalScale: {x: 9.760775, y: 25.722908, z: 13.586041}
   m_Children: []
   m_Father: {fileID: 1365246549}
@@ -7185,13 +7377,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225351898}
-  m_LocalRotation: {x: -0, y: 0.9803395, z: -0.19731788, w: 0}
+  m_LocalRotation: {x: 0, y: 0.9961947, z: -0.08715578, w: 0}
   m_LocalPosition: {x: -11.45, y: 7.79, z: -9.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1031816240}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 22.76, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 10, y: 180, z: 0}
 --- !u!1 &1235622271
 GameObject:
   m_ObjectHideFlags: 0
@@ -7741,7 +7933,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292815972}
   m_LocalRotation: {x: -0, y: 0.7071058, z: -0, w: 0.7071078}
-  m_LocalPosition: {x: -36.42814, y: 12.075312, z: -41.721016}
+  m_LocalPosition: {x: -36.42814, y: 12.075312, z: -45.409992}
   m_LocalScale: {x: 28.682508, y: 25.722908, z: 3.9372}
   m_Children: []
   m_Father: {fileID: 1365246549}
@@ -7935,7 +8127,55 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1306585326}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181592515}
+        m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
+        m_MethodName: FinalizeCreature
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 960095889}
+        m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
+        m_MethodName: FinalizeCreature
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1982228499}
+        m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
+        m_MethodName: FinalizeCreature
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 687205165}
+        m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
+        m_MethodName: FinalizeCreature
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1306585326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8018,13 +8258,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311965993}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.74883544, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1797242502}
   - {fileID: 687205164}
   m_Father: {fileID: 1754538513}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1350579726
 GameObject:
@@ -8115,7 +8355,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350579726}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: -37.128105, y: 12.075312, z: -51.371025}
+  m_LocalPosition: {x: -37.128105, y: 12.075312, z: -55.06}
   m_LocalScale: {x: 28.682508, y: 25.722908, z: 3.9372}
   m_Children: []
   m_Father: {fileID: 1365246549}
@@ -9452,7 +9692,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606646826}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: 6.371907, y: 12.075312, z: -51.790825}
+  m_LocalPosition: {x: 6.371907, y: 12.075312, z: -55.4798}
   m_LocalScale: {x: 28.682508, y: 25.722908, z: 3.9372}
   m_Children: []
   m_Father: {fileID: 1365246549}
@@ -10333,6 +10573,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1002381436}
   - {fileID: 417068834}
   - {fileID: 1932896039}
   - {fileID: 72428262}
@@ -10402,7 +10643,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1755140904}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181592515}
+        m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
+        m_MethodName: NextLegs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1755140904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10618,7 +10871,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1759357156}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181592515}
+        m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
+        m_MethodName: NextArmR
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1759357156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10734,7 +10999,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769108764}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.6381, y: 0.34531146, z: -45.371025}
+  m_LocalPosition: {x: -24.810001, y: 0.34531146, z: -48.63}
   m_LocalScale: {x: 4.7153683, y: 0.19581921, z: 4.7153683}
   m_Children: []
   m_Father: {fileID: 72428262}
@@ -10773,7 +11038,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5751afc7a883f2548a497489d7e88aad, type: 2}
+  - {fileID: 2100000, guid: 9a9954d62bec2594688ff6cd49d61faa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10911,7 +11176,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797242501}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.638103, y: 0.34531146, z: -45.371025}
+  m_LocalPosition: {x: -30.810001, y: 0.34531146, z: -47.05}
   m_LocalScale: {x: 4.7153683, y: 0.19581921, z: 4.7153683}
   m_Children: []
   m_Father: {fileID: 1311965994}
@@ -10950,7 +11215,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5751afc7a883f2548a497489d7e88aad, type: 2}
+  - {fileID: 2100000, guid: 8254ea4f48e5d4c4ca649c7dd6c2cddd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11256,7 +11521,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1848375201}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181592515}
+        m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
+        m_MethodName: PrevArmL
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1848375201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11737,13 +12014,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932896038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.74883544, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1998414293}
   - {fileID: 960095888}
   m_Father: {fileID: 1754538513}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1973558663
 GameObject:
@@ -11915,7 +12192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982228497}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.6381, y: 0.54113066, z: -45.371025}
+  m_LocalPosition: {x: -24.810001, y: 0.54113066, z: -48.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2001775053}
@@ -12055,7 +12332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998414292}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.638103, y: 0.34531146, z: -45.371025}
+  m_LocalPosition: {x: -18.810001, y: 0.34531146, z: -48.63}
   m_LocalScale: {x: 4.7153683, y: 0.19581921, z: 4.7153683}
   m_Children: []
   m_Father: {fileID: 1932896039}
@@ -12094,7 +12371,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5751afc7a883f2548a497489d7e88aad, type: 2}
+  - {fileID: 2100000, guid: 50842b5a6dffb1e48b111d30035506dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12579,7 +12856,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2071453363}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181592515}
+        m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
+        m_MethodName: PrevTorso
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2071453363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12827,7 +13116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aad748482d2bd44681eae89c026ec3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creatures: []
 --- !u!4 &2095921167
 Transform:
   m_ObjectHideFlags: 0
