@@ -40,12 +40,12 @@ public class carTravel : MonoBehaviour
         float equation = speed * Time.deltaTime;
         float limit = 73.2f;
 
-        if (!destReached && this.transform.position.x != midDest.transform.position.x) {
+        if (!destReached && this.transform.position.z != midDest.transform.position.z) {
             this.transform.position = Vector3.MoveTowards(this.transform.position, midDest.transform.position, equation);
-        } else if (this.transform.position.x == midDest.transform.position.x)
+        } else if (this.transform.position.z == midDest.transform.position.z)
         {
             destReached = true;
-        } else if (this.transform.position.x < limit)
+        } else if (this.transform.position.z < limit)
         {
             pastLine = true;
         }
