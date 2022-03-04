@@ -32,7 +32,7 @@ namespace WaterSystem
         public static void Init()
         {
             if(Debug.isDebugBuild)
-                Debug.Log("Initializing Gerstner Waves Jobs");
+                //Debug.Log("Initializing Gerstner Waves Jobs");
             //Wave data
             _waveCount = Water.Instance._waves.Length;
             _waveData = new NativeArray<Wave>(_waveCount, Allocator.Persistent);

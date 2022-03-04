@@ -125,59 +125,64 @@ public class PartCombiner : MonoBehaviour
         Destroy(creaturePlayable.GetComponent<CreatureStats>());
     }
 
-    //adds necessary scripts to turn creature into a playable character and then send it to the manager
+    // Add necessary scripts to turn creature into a playable character, send it to the manager, and start moving around as it
     public void FinalizeCreature()
     {
-        //create references
-        newPlayer = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
-        GameObject body = newPlayer.transform.GetChild(2).gameObject;
-        RigidbodyController rbc = body.GetComponent<RigidbodyController>();
-        PlayerController pc = body.GetComponent<PlayerController>();
-        GameObject creature = Instantiate(creaturePlayable, newPlayer.transform.position + new Vector3(0, 3, 0), Quaternion.identity, newPlayer.transform.GetChild(2));
-        MakeChildrenPlayerLayer(creature);
+        if (!isReady)
+        {
+            //create references
+            newPlayer = Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            GameObject body = newPlayer.transform.GetChild(2).gameObject;
+            RigidbodyController rbc = body.GetComponent<RigidbodyController>();
+            PlayerController pc = body.GetComponent<PlayerController>();
+            GameObject creature = Instantiate(creaturePlayable, newPlayer.transform.position + new Vector3(0, 3, 0), Quaternion.identity, newPlayer.transform.GetChild(2));
+            MakeChildrenPlayerLayer(creature);
 
-        //rearrange part hierarchy
-        GameObject savedHead = creature.transform.GetChild(0).gameObject;
-        GameObject savedTorso = creature.transform.GetChild(1).gameObject;
-        GameObject savedArmL = creature.transform.GetChild(2).gameObject;
-        GameObject savedArmR = creature.transform.GetChild(3).gameObject;
-        GameObject savedLegs = creature.transform.GetChild(4).gameObject;
+            //rearrange part hierarchy
+            GameObject savedHead = creature.transform.GetChild(0).gameObject;
+            GameObject savedTorso = creature.transform.GetChild(1).gameObject;
+            GameObject savedArmL = creature.transform.GetChild(2).gameObject;
+            GameObject savedArmR = creature.transform.GetChild(3).gameObject;
+            GameObject savedLegs = creature.transform.GetChild(4).gameObject;
+
+            //attach creature stats mothership script
+            creature.AddComponent<CreatureStats>();
+            CreatureStats stats = creature.GetComponent<CreatureStats>();
+            stats.attachParts(savedHead, savedTorso, savedArmL, savedArmR, savedLegs);
+            stats.initializeCreature();
+            stats.SetPlayerNum(playerNum);
+
+
+            savedHead.transform.parent = savedTorso.transform;
+            savedArmL.transform.parent = savedTorso.transform;
+            savedArmR.transform.parent = savedTorso.transform;
+            savedLegs.transform.parent = savedTorso.transform;
+
+            //configure creature stats
+            rbc.floatHeight = legsToHips.y * 2 + torsoToHips.y;
+            rbc.m_balanceSpringStrength = stats.GetSpringStrengthLegs(); //broken rn but low priority //9
+            rbc.m_balanceSpringDamper = stats.GetSpringDamperLegs();
+            pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y, armLToShoulder.x * 2);
+            pc.anchorRight.position = new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y, -armRToShoulder.x * 2);
+            pc.playerSpeed = stats.GetMoveSpeed();
+            pc.jumpHeight = stats.GetJumpHeight();
+            pc.rotateSpeed = stats.GetRotateSpeed();
+            //print("speed: " + pc.playerSpeed + ", jump: " + pc.jumpHeight + ", rotate: " + pc.rotateSpeed);
+
+            //DontDestroyOnLoad(newPlayer); //.transform.root.gameObject
+            //creatureManager.GetComponent<CreatureManager>().RemoveCreature(playerNum);
+            creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer, playerNum);
+            isReady = true;
+            clearCreature();
+        }
+        else
+        {
+            isReady = false;
+            creatureManager.GetComponent<CreatureManager>().RemoveCreature(playerNum);
+            Destroy(newPlayer);
+            generateCreature();
+        }
         
-        //attach creature stats mothership script
-        creature.AddComponent<CreatureStats>();
-        CreatureStats stats = creature.GetComponent<CreatureStats>();
-        stats.attachParts(savedHead, savedTorso, savedArmL, savedArmR, savedLegs);
-        stats.initializeCreature();
-
-
-        savedHead.transform.parent = savedTorso.transform;
-        savedArmL.transform.parent = savedTorso.transform;
-        savedArmR.transform.parent = savedTorso.transform;
-        savedLegs.transform.parent = savedTorso.transform;
-
-        //configure creature stats
-        rbc.floatHeight = legsToHips.y * 2 + torsoToHips.y;
-        //rbc.m_floatSpringStrength = stats.GetSpringStrengthLegs(); //broken rn but low priority
-        pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y, armLToShoulder.x * 2);
-        pc.anchorRight.position = new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y, -armRToShoulder.x * 2);
-        pc.playerSpeed = stats.GetMoveSpeed();
-        pc.jumpHeight = stats.GetJumpHeight();
-        pc.rotateSpeed = stats.GetRotateSpeed();
-        //print("speed: " + pc.playerSpeed + ", jump: " + pc.jumpHeight + ", rotate: " + pc.rotateSpeed);
-
-        //DontDestroyOnLoad(newPlayer); //.transform.root.gameObject
-        //creatureManager.GetComponent<CreatureManager>().RemoveCreature(playerNum);
-        creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer, playerNum);
-        isReady = true;
-        clearCreature();
-    }
-
-    public void Unready()
-    {
-        isReady = false;
-        creatureManager.GetComponent<CreatureManager>().RemoveCreature(playerNum);
-        Destroy(newPlayer);
-        generateCreature();
     }
 
 #endregion
