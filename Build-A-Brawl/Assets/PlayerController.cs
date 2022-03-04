@@ -372,9 +372,14 @@ public class PlayerController : MonoBehaviour
 		//SetState(State.Stunned);
 	}
 
-	#endregion
+    #endregion
 
-
+    public void Stun(float duration)
+    {
+        //set state to stunned
+        //waitforsecs
+        //set state to idle
+    }
 
 #if UNITY_EDITOR
 	private void OnDrawGizmosSelected()

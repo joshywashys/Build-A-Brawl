@@ -160,7 +160,8 @@ public class PartCombiner : MonoBehaviour
 
             //configure creature stats
             rbc.floatHeight = legsToHips.y * 2 + torsoToHips.y;
-            //rbc.m_floatSpringStrength = stats.GetSpringStrengthLegs(); //broken rn but low priority
+            rbc.m_balanceSpringStrength = stats.GetSpringStrengthLegs(); //broken rn but low priority //9
+            rbc.m_balanceSpringDamper = stats.GetSpringDamperLegs();
             pc.anchorLeft.position = new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y, armLToShoulder.x * 2);
             pc.anchorRight.position = new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y, -armRToShoulder.x * 2);
             pc.playerSpeed = stats.GetMoveSpeed();
