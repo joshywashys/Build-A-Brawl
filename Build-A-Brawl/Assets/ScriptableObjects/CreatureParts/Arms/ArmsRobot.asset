@@ -19,3 +19,4 @@ MonoBehaviour:
     strengthMultiplier: 0.25
     massMultiplier: 1
     springConstantMultiplier: 1
+    animType: 2

@@ -10,6 +10,8 @@ public class BodyPart : MonoBehaviour
     private float healthMultiplier;
     private float strengthMultiplier;
     private float springConstantMultiplier;
+    private BodyPartData.animType attackTypeL;
+    private BodyPartData.animType attackTypeR;
 
     //STORAGE
     //public enum PartType { Head, Torso, Arm, Leg }
@@ -84,6 +86,16 @@ public class BodyPart : MonoBehaviour
     public float getSpringConstantMultiplier()
     {
         return springConstantMultiplier;
+    }
+
+    public BodyPartData.animType getAttackTypeL()
+    {
+        return attackTypeL;
+    }
+
+    public BodyPartData.animType getAttackTypeR()
+    {
+        return attackTypeR;
     }
     #endregion
 

@@ -52,8 +52,8 @@ public class CreatureStats : MonoBehaviour
     [SerializeField] private float strengthArms = 20;
     [SerializeField] private float springConstantArmL = 80;
     [SerializeField] private float springConstantArmR = 80;
-    [SerializeField] private int attackTypeL = 0; //0 uses the default system, others would be robot sticks out arms, druid flails/spins around
-    [SerializeField] private int attackTypeR = 0;
+    [SerializeField] private BodyPartData.animType attackTypeL = 0; //0 uses the default system, others would be robot sticks out arms, druid flails/spins around
+    [SerializeField] private BodyPartData.animType attackTypeR = 0;
     [SerializeField] private bool canGrabL = true;
     [SerializeField] private bool canGrabR = true;
 
@@ -127,6 +127,8 @@ public class CreatureStats : MonoBehaviour
         strengthArms = strengthArmL + strengthArmR;
         springConstantArmL = armLPart.getSpringConstantMultiplier() * SPRING_CONSTANT_BASE;
         springConstantArmR = armRPart.getSpringConstantMultiplier() * SPRING_CONSTANT_BASE;
+        attackTypeL = armLPart.getAttackTypeL();
+        attackTypeR = armRPart.getAttackTypeR();
 
         // Toggle Kinematics
         torsoPart.ToggleKinematics(torsoPart.gameObject.transform, true);
@@ -317,12 +319,12 @@ public class CreatureStats : MonoBehaviour
         return springConstantArmR;
     }
 
-    public int GetAttackTypeL()
+    public BodyPartData.animType GetAttackTypeL()
     {
         return attackTypeL;
     }
 
-    public int GetAttackTypeR()
+    public BodyPartData.animType GetAttackTypeR()
     {
         return attackTypeR;
     }
