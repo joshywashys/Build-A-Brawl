@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1832081882
+CRC: 219456628
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d988b1750cf6ac9937f0171c5b336ccd
+    Hash: b8ff13a8556fddbe6c1ff7f741891c9f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 788ca04b2433a05de55b406a63ccaeb3
+    Hash: 2c7ad3748915bd7580cd453a31d64101
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -35,14 +35,18 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
 - Class: 115
   Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
 - Class: 137
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/BundledAssets/CreatureParts/Torsos/Druid Body.prefab
-- Assets/BundledAssets/CreatureParts/Torsos/Knight_Torso_02.prefab
-- Assets/BundledAssets/CreatureParts/Torsos/zombieBody.prefab
-- Assets/BundledAssets/CreatureParts/Torsos/clownBodyBound.prefab
-- Assets/BundledAssets/CreatureParts/Torsos/Robot Chest.prefab
-- Assets/BundledAssets/CreatureParts/Torsos/apeBodyBound.prefab
+- Assets/BundledAssets/CreatureParts/Heads/zombieHead.prefab
+- Assets/BundledAssets/CreatureParts/Heads/Druid Head.prefab
+- Assets/BundledAssets/CreatureParts/Heads/Robot Head.prefab
+- Assets/BundledAssets/CreatureParts/Heads/Knight_Head_02.prefab
+- Assets/BundledAssets/CreatureParts/Heads/clownHeadBound.prefab
+- Assets/BundledAssets/CreatureParts/Heads/apeHeadBound.prefab
 Dependencies: []
