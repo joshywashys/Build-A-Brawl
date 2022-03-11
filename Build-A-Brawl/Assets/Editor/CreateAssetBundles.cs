@@ -17,8 +17,8 @@ public class CreateAssetBundles : IPreprocessBuildWithReport
 		LoadPrefs();
 
 		string assetBundleDirectory = "Assets/StreamingAssets";
-		AssetDatabase.DeleteAsset(assetBundleDirectory);
-
+		Debug.Log(AssetDatabase.DeleteAsset(assetBundleDirectory));
+		
 		if (!Directory.Exists(Application.streamingAssetsPath))
 			Directory.CreateDirectory(assetBundleDirectory);
 
@@ -30,7 +30,7 @@ public class CreateAssetBundles : IPreprocessBuildWithReport
 		SetAssetBundleNames(outLinks);
 
 		AssetDatabase.RemoveUnusedAssetBundleNames();
-		BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None, EditorUserBuildSettings.activeBuildTarget);
+		//BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None, EditorUserBuildSettings.activeBuildTarget);
 
 		CreateBundleNameCache();
 

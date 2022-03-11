@@ -237,10 +237,38 @@ public class PlayerController : MonoBehaviour
 		if (m_currentState != State.Stunned)
 		{
 			if (attackPressed[LEFT_LIMB] && isAttacking[LEFT_LIMB] == null)
-				isAttacking[LEFT_LIMB] = StartCoroutine(Punch(fistLeftRigidbody, LEFT_LIMB, 0.7f));
+			{
+				switch (statsRef.GetAttackTypeL())
+				{
+					case BodyPartData.animType.Default:
+						isAttacking[LEFT_LIMB] = StartCoroutine(Punch(fistLeftRigidbody, LEFT_LIMB, 0.7f));
+						break;
+					case BodyPartData.animType.Robot:
+						Rigidbody arm = statsRef.GetArmL().GetComponent<Rigidbody>();
+						isAttacking[LEFT_LIMB] = StartCoroutine(Slash(arm, LEFT_LIMB, 1.0f));
+						break;
+					case BodyPartData.animType.Vines:
+						isAttacking[LEFT_LIMB] = StartCoroutine(Whip(fistLeftRigidbody, LEFT_LIMB, 1.3f));
+						break;
+				}
+			}
 
 			if (attackPressed[RIGHT_LIMB] && isAttacking[RIGHT_LIMB] == null)
-				isAttacking[RIGHT_LIMB] = StartCoroutine(Punch(fistRightRigidbody, RIGHT_LIMB, 0.7f));
+			{
+				switch (statsRef.GetAttackTypeR())
+				{
+					case BodyPartData.animType.Default:
+						isAttacking[RIGHT_LIMB] = StartCoroutine(Punch(fistRightRigidbody, RIGHT_LIMB, 0.7f));
+						break;
+					case BodyPartData.animType.Robot:
+						Rigidbody arm = statsRef.GetArmR().GetComponent<Rigidbody>();
+						isAttacking[RIGHT_LIMB] = StartCoroutine(Slash(arm, RIGHT_LIMB, 1.0f));
+						break;
+					case BodyPartData.animType.Vines:
+						isAttacking[RIGHT_LIMB] = StartCoroutine(Whip(fistRightRigidbody, RIGHT_LIMB, 1.3f));
+						break;
+				}
+			}
 		}
 
 		// Hook's law for spring physics
@@ -270,17 +298,33 @@ public class PlayerController : MonoBehaviour
 		SphereCollider collider = rigidbody.gameObject.GetComponent<SphereCollider>();
 		collider.enabled = true;
 
-		rigidbody.AddForce(transform.forward * attackForce, ForceMode.Impulse);
+		rigidbody.AddTorque(transform.forward * attackForce, ForceMode.Impulse);
 		yield return new WaitForSeconds(activeTime);
 
 		AttackComplete(limb);
-		
 		collider.enabled = false;
 	}
 	private void AttackComplete(int limb)
 	{
 		isAttacking[limb] = null;
 	}
+
+	private IEnumerator Slash(Rigidbody rigidbody, int limb, float activeTime)
+    {
+		SphereCollider collider = rigidbody.gameObject.GetComponent<SphereCollider>();
+		collider.enabled = true;
+
+
+		yield return new WaitForSeconds(activeTime);
+
+		AttackComplete(limb);
+		collider.enabled = false;
+	}
+
+	private IEnumerator Whip(Rigidbody rigidbody, int limb, float activeTime)
+    {
+		yield return new WaitForSeconds(activeTime);
+    }
 
 	#endregion
 

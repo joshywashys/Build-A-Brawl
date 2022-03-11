@@ -329,6 +329,16 @@ public class CreatureStats : MonoBehaviour
         return attackTypeR;
     }
 
+    public GameObject GetArmL()
+    {
+        return armL;
+    }
+
+    public GameObject GetArmR()
+    {
+        return armR;
+    }
+
     public bool GetCanGrabL()
     {
         return canGrabL;
