@@ -17,5 +17,5 @@ MonoBehaviour:
   stats:
     healthMultiplier: 5
     strengthMultiplier: 1
-    massMultiplier: 6
+    massMultiplier: 2
     springConstantMultiplier: 1

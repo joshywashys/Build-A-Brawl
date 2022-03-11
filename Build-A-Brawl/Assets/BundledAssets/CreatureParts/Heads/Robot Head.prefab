@@ -142,8 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonBase: {fileID: 0}
-  partData: {fileID: 0}
+  skeletonBase: {fileID: 6735098549382767216}
+  partData: {fileID: 11400000, guid: 60073a4f98943074ab8d9980837968f2, type: 2}
 --- !u!54 &627282623536291563
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private List<GameObject> players;
 
 	public Vector3 offset;
-	public float smoothTime = 0.5f;
+	public float smoothTime = 1f;
 	public float minZoom = 40f;
 	public float maxZoom = 10f;
 	public float zoomLimit = 0f;
@@ -23,7 +23,7 @@ public class CameraFollow : MonoBehaviour
 	void Move() 
 	{
 		Vector3 center = getCenter();
-		Vector3 newPos = center + offset;
+		Vector3 newPos = center + offset + new Vector3(1, 1, 0);
 		transform.position = Vector3.SmoothDamp(transform.position, newPos, ref velocity, smoothTime);
 	}
 
@@ -63,7 +63,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (players.Count == 0)
         {
-            print("no players");
+            //print("no players");
             return;
         }
 

@@ -4,16 +4,23 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ThrowTo
-  - heavyAttack
-  - goop
-  - ground
   - Left Hand
   - Right Hand
+<<<<<<< HEAD
   - testL
   - testR
   - testT
   - testH
+  - UI1
+  - concretePad
+  - jackHammer
+  - bigBall
+=======
+  - ground
+  - goop
+  - UI1
+  - heavyAttack
+>>>>>>> 2b34e95065f16cdc22e70581e0e9601d41844e25
   layers:
   - Default
   - TransparentFX
@@ -21,8 +28,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
-  - Shadow
+  - 
+  - 
   - 
   - 
   - 

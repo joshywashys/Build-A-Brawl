@@ -345,6 +345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5206510206185833545}
   - component: {fileID: 3377443000650985768}
+  - component: {fileID: 6922348913997038548}
   m_Layer: 0
   m_Name: clownLegsBound
   m_TagString: Untagged
@@ -384,6 +385,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6922348913997038548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830935091898703603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonBase: {fileID: 8970327856598894165}
+  partData: {fileID: 11400000, guid: eff8f940feb3ead4eb2eba5056ddf7d6, type: 2}
 --- !u!1 &5365174937493249056
 GameObject:
   m_ObjectHideFlags: 0
