@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 3447186275
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: creatureparts/heads
+      Dependencies: {}
+    Info_1:
+      Name: creatureparts/torsos
+      Dependencies: {}
+    Info_2:
+      Name: creatureparts/legs
+      Dependencies: {}
+    Info_3:
+      Name: creatureparts/armsl
+      Dependencies:
+        Dependency_0: creatureparts/armsr
+    Info_4:
+      Name: creatureparts/armsr
+      Dependencies: {}

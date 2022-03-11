@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3999735502
+CRC: 1297464380
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0aa6f7bf0dfb062d4da586331506b5e3
+    Hash: 9a95b1afc07f4bef7a12fc7fb92f057d
   TypeTreeHash:
     serializedVersion: 2
     Hash: 59935cc07c11994ad798e921ae87d370
@@ -53,10 +53,11 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/BundledAssets/CreatureParts/ArmsR/zombieArmSkinned.prefab
-- Assets/BundledAssets/CreatureParts/ArmsR/clownArmRBound.prefab
-- Assets/BundledAssets/CreatureParts/ArmsR/Druid ArmR.prefab
-- Assets/BundledAssets/CreatureParts/ArmsR/Knight_Arm_05.prefab
-- Assets/BundledAssets/CreatureParts/ArmsR/Robot_Arm_v7_RiggedRight.prefab
-- Assets/BundledAssets/CreatureParts/ArmsR/apeArmRBound.prefab
-Dependencies: []
+- Assets/BundledAssets/CreatureParts/ArmsL/Knight_ArmL_01.prefab
+- Assets/BundledAssets/CreatureParts/ArmsL/Druid ArmL.prefab
+- Assets/BundledAssets/CreatureParts/ArmsL/clownArmLBound.prefab
+- Assets/BundledAssets/CreatureParts/ArmsL/zombieArmSkinnedL Variant.prefab
+- Assets/BundledAssets/CreatureParts/ArmsL/apeArmLBound.prefab
+- Assets/BundledAssets/CreatureParts/ArmsL/Robot_Arm_v6_Rigged.prefab
+Dependencies:
+- C:/Users/Joshua/Documents/GitHub/Build-A-Brawl/Build-A-Brawl/Assets/StreamingAssets/creatureparts/armsr

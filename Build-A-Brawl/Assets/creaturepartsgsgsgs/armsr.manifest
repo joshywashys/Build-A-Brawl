@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3999735502
+CRC: 3362710298
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0aa6f7bf0dfb062d4da586331506b5e3
+    Hash: 80b2fd338909bd259baa05c011eb1874
   TypeTreeHash:
     serializedVersion: 2
     Hash: 59935cc07c11994ad798e921ae87d370
@@ -56,7 +56,7 @@ Assets:
 - Assets/BundledAssets/CreatureParts/ArmsR/zombieArmSkinned.prefab
 - Assets/BundledAssets/CreatureParts/ArmsR/clownArmRBound.prefab
 - Assets/BundledAssets/CreatureParts/ArmsR/Druid ArmR.prefab
+- Assets/BundledAssets/CreatureParts/ArmsR/ArmR.prefab
 - Assets/BundledAssets/CreatureParts/ArmsR/Knight_Arm_05.prefab
-- Assets/BundledAssets/CreatureParts/ArmsR/Robot_Arm_v7_RiggedRight.prefab
 - Assets/BundledAssets/CreatureParts/ArmsR/apeArmRBound.prefab
 Dependencies: []
