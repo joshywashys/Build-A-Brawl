@@ -152,6 +152,8 @@ public class CreatureStats : MonoBehaviour
     void Start()
     {
         //initializeCreature();
+
+        //Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
     }
 
     void Awake()
