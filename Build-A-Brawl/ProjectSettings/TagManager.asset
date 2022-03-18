@@ -8,6 +8,11 @@ TagManager:
   - Left Hand
   - Right Hand
   - heavyAttack
+  - ground
+  - hazard
+  - bridge
+  - bridge1
+  - meteor
   layers:
   - Default
   - TransparentFX
