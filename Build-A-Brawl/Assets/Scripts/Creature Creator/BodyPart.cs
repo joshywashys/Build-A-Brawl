@@ -34,16 +34,7 @@ public class BodyPart : MonoBehaviour
 
     public void Start()
     {
-        /*
-        if (partData != null)
-        {
-            healthMultiplier = partData.stats.healthMultiplier;
-            mass = partData.stats.massMultiplier;
-            strengthMultiplier = partData.stats.strengthMultiplier;
-            springConstantMultiplier = partData.stats.springConstantMultiplier;
-            print(mass);
-        }
-        */
+
     }
 
     public void ToggleKinematics(Transform currChild, bool toggleType)

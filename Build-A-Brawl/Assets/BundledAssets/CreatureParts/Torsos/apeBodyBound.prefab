@@ -165,6 +165,8 @@ GameObject:
   - component: {fileID: 3201511907116390687}
   - component: {fileID: 7586540850446777394}
   - component: {fileID: 1884241234498690678}
+  - component: {fileID: 6668672120561202225}
+  - component: {fileID: 6451659048663736322}
   m_Layer: 0
   m_Name: apeBodyBound
   m_TagString: Untagged
@@ -181,7 +183,7 @@ Transform:
   m_GameObject: {fileID: 2820905595109589925}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8.366456, y: 0.00000047683716, z: -0.674036}
-  m_LocalScale: {x: 30, y: 30, z: 30}
+  m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children:
   - {fileID: 7677152452391644330}
   - {fileID: 7677152451958404889}
@@ -221,6 +223,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 1375276756087174026}
   partData: {fileID: 11400000, guid: 22b946ad90143ea45ae9ce923a643852, type: 2}
+--- !u!135 &6668672120561202225
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2820905595109589925}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.046551343
+  m_Center: {x: 0, y: -0.0039016923, z: 0.0009232442}
+--- !u!65 &6451659048663736322
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2820905595109589925}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.09177515, y: 0.061713252, z: 0.036846317}
+  m_Center: {x: -0.00075175567, y: 0.026670076, z: -0.020082373}
 --- !u!1 &2925380394298849639
 GameObject:
   m_ObjectHideFlags: 0

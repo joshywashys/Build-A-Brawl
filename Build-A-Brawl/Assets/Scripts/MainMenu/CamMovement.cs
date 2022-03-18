@@ -33,7 +33,7 @@ using UnityEngine.Events;
 
         public void cameraMovement(GameObject location)
         {
-            Debug.Log("Boom");
+            //Debug.Log("Boom");
             targetLocation = location;
             nextLocation = true;
         }
