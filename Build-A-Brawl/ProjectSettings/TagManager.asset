@@ -4,12 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - UI1
   - Left Hand
   - Right Hand
-  - ground
-  - goop
-  - UI1
   - heavyAttack
+  - ground
+  - hazard
+  - bridge
+  - bridge1
+  - meteor
   layers:
   - Default
   - TransparentFX

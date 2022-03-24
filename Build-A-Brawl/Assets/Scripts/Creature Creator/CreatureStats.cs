@@ -106,6 +106,12 @@ public class CreatureStats : MonoBehaviour
         armRPart = armR.GetComponent<BodyPart>();
         legsPart = legs.GetComponent<BodyPart>();
 
+        head.GetComponent<BodyPart>().creature = gameObject.GetComponent<CreatureStats>();
+        torso.GetComponent<BodyPart>().creature = gameObject.GetComponent<CreatureStats>();
+        armL.GetComponent<BodyPart>().creature = gameObject.GetComponent<CreatureStats>();
+        armR.GetComponent<BodyPart>().creature = gameObject.GetComponent<CreatureStats>();
+        legs.GetComponent<BodyPart>().creature = gameObject.GetComponent<CreatureStats>();
+
         // Health pools
         healthHead = healthHeadMax = headPart.getHealthMultiplier();
         healthTorso = healthTorsoMax = torsoPart.getHealthMultiplier();
@@ -145,6 +151,54 @@ public class CreatureStats : MonoBehaviour
         legs = newLegs;
     }
 
+    public void Damage(BodyPartData bodyPart, float incForce)
+    {
+        float dmg = incForce;
+
+        //debugging
+        if (bodyPart == headPart.partData)
+        {
+            healthHead -= dmg;
+            print("head: " + healthHead);
+            if (healthHead <= 0)
+            {
+                detachHead();
+            }
+        }
+        if (bodyPart == torsoPart.partData)
+        {
+            healthTorso -= dmg;
+            print("torso: " + healthTorso);
+            if (healthTorso <= 0)
+            {
+                detachTorso();
+            }
+        }
+        if (bodyPart == armLPart.partData)
+        {
+            healthArmL -= dmg;
+            print("armL: " + healthArmL);
+            if (healthArmL <= 0)
+            {
+                detachArmL();
+            }
+        }
+        if (bodyPart == armRPart.partData)
+        {
+            healthArmR -= dmg;
+            print("armR: " + healthArmR);
+            if (healthArmR <= 0)
+            {
+                detachArmR();
+            }
+        }
+        if (bodyPart == legsPart.partData)
+        {
+            print("legs damage");
+        }
+        recalculate();
+    }
+
     #endregion
 
     #region MonoBehaviour Functions
@@ -152,6 +206,8 @@ public class CreatureStats : MonoBehaviour
     void Start()
     {
         //initializeCreature();
+
+        //Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
     }
 
     void Awake()
@@ -186,6 +242,7 @@ public class CreatureStats : MonoBehaviour
 
     private void detachArmL()
     {
+        //armL.AddComponent<Rigidbody>();
         armL.transform.parent = null;
         armL = null;
         recalculate();
@@ -194,6 +251,7 @@ public class CreatureStats : MonoBehaviour
     private void detachArmR()
     {
         armR.transform.parent = null;
+        //armR.AddComponent<Rigidbody>();
         armR = null;
         recalculate();
     }

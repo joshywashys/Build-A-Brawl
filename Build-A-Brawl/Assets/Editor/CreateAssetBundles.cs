@@ -30,7 +30,7 @@ public class CreateAssetBundles : IPreprocessBuildWithReport
 		SetAssetBundleNames(outLinks);
 
 		AssetDatabase.RemoveUnusedAssetBundleNames();
-		//BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None, EditorUserBuildSettings.activeBuildTarget);
+		BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None, EditorUserBuildSettings.activeBuildTarget);
 
 		CreateBundleNameCache();
 
