@@ -8,6 +8,7 @@ public class CreatureStats : MonoBehaviour
 {
     // part references
     private GameObject creature;
+    public GameObject ctrlsPart;
     [SerializeField] private int playerNum;
 
     private GameObject head;
@@ -142,13 +143,14 @@ public class CreatureStats : MonoBehaviour
     }
 
     //initialize. called by the creature creator for initial setup.
-    public void attachParts(GameObject newHead, GameObject newTorso, GameObject newArmL, GameObject newArmR, GameObject newLegs)
+    public void attachParts(GameObject newHead, GameObject newTorso, GameObject newArmL, GameObject newArmR, GameObject newLegs, GameObject ctrlsObj)
     {
         head = newHead;
         torso = newTorso;
         armL = newArmL;
         armR = newArmR;
         legs = newLegs;
+        ctrlsPart = ctrlsObj;
     }
 
     public void Damage(BodyPartData bodyPart, float incForce)
@@ -199,6 +201,12 @@ public class CreatureStats : MonoBehaviour
         recalculate();
     }
 
+    private void Kill()
+    {
+        Destroy(creature.transform.root.gameObject);
+        //send out player killed event with playernum
+    }
+
     #endregion
 
     #region MonoBehaviour Functions
@@ -219,47 +227,70 @@ public class CreatureStats : MonoBehaviour
 
     #region Part Detaching
 
-    private void detachHead()
+    private void detachHead() //add throwable obj scripts?
     {
-        detachTorso();
-
+        headPart.ToggleKinematics(headPart.gameObject.transform, false);
         head.transform.parent = null;
         head = null;
+        headPart.creature = null;
+        if (torso != null) { detachTorso(); } //AFTER head becomes null. prevents infinite loops of head->torso->head->torso...
+
         recalculate();
+        Kill();
     }
 
     private void detachTorso()
     {
-        detachArmL();
-        detachArmR();
-        detachLegs();
-        detachHead();
+        if (armL != null) { detachArmL(); }
+        if (armR != null) { detachArmR(); }
+        if (legs != null) { detachLegs(); }
+        if (head != null) { detachHead(); }
 
+        torsoPart.ToggleKinematics(torsoPart.gameObject.transform, false);
         torso.transform.parent = null;
         torso = null;
+        torsoPart.creature = null;
+
         recalculate();
+        Kill();
     }
 
     private void detachArmL()
     {
-        //armL.AddComponent<Rigidbody>();
+        armLPart.ToggleKinematics(armLPart.gameObject.transform, false);
+        //enable colliders
+        armLPart.GetComponent<PhysicsIKRig>().enabled = false;
+        armLPart.GetComponent<Animator>().enabled = false;
         armL.transform.parent = null;
         armL = null;
+        armLPart.creature = null;
+
         recalculate();
     }
 
     private void detachArmR()
     {
+        armRPart.ToggleKinematics(armRPart.gameObject.transform, false);
+        //enable colliders
+        armRPart.GetComponent<PhysicsIKRig>().enabled = false;
+        armRPart.GetComponent<Animator>().enabled = false;
         armR.transform.parent = null;
-        //armR.AddComponent<Rigidbody>();
         armR = null;
+        armRPart.creature = null;
+
         recalculate();
     }
 
     private void detachLegs()
     {
+        ctrlsPart.GetComponent<RigidbodyController>().useFloat = false;
+        //enable collider?
+        legsPart.ToggleKinematics(legsPart.gameObject.transform, false);
+        legsPart.GetComponent<LegIKRig>().enabled = false;
         legs.transform.parent = null;
         legs = null;
+        legsPart.creature = null;
+
         recalculate();
     }
 

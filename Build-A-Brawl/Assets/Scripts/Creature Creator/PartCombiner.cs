@@ -148,7 +148,7 @@ public class PartCombiner : MonoBehaviour
             // Attach creature stats mothership script
             creature.AddComponent<CreatureStats>();
             CreatureStats stats = creature.GetComponent<CreatureStats>();
-            stats.attachParts(savedHead, savedTorso, savedArmL, savedArmR, savedLegs);
+            stats.attachParts(savedHead, savedTorso, savedArmL, savedArmR, savedLegs, body);
             stats.initializeCreature();
             stats.SetPlayerNum(playerNum);
             
