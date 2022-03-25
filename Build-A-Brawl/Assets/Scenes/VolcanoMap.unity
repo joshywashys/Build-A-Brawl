@@ -11376,7 +11376,7 @@ MonoBehaviour:
   spawnLocation: {fileID: 0}
   eruption: {fileID: 4425787322363236976, guid: 3c15ca94b8fd076498622838cab5f786, type: 3}
   eruptionLocation: {fileID: 468165484}
-  repeat: 5
+  repeat: 30
   delay: 15
   prevLoc: 
 --- !u!1 &1302049164
