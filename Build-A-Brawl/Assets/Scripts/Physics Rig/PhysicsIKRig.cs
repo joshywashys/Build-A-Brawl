@@ -93,7 +93,7 @@ public class Ragdoll
 		for (int i = 0; i < bones.Length; i++)
 		{
 			bones[i].rigidbody.constraints =  active ? RigidbodyConstraints.None : RigidbodyConstraints.FreezeAll;
-			bones[i].collider.enabled = active;
+			//bones[i].collider.enabled = active;
 		}
     }
 

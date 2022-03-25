@@ -12,7 +12,7 @@ A separate script will be made to export the creature to a playable character.
 public class PartCombiner : MonoBehaviour
 {
     public int playerNum;
-    public bool isReady;
+    private bool isReady;
     //public bool spawnButtons = true;
 
     // Locations/Prefabs for generation
@@ -34,7 +34,7 @@ public class PartCombiner : MonoBehaviour
     private GameObject currArmR;
     private GameObject currLegs;
 
-    public GameObject newPlayer;
+    private GameObject newPlayer;
     private GameObject newHead;
 	private GameObject newTorso;
 	private GameObject newArmL;
