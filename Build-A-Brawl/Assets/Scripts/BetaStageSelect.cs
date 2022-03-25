@@ -8,8 +8,6 @@ public class BetaStageSelect : MonoBehaviour
     public bool stage2Sel = false;
     public bool stage3Sel = false;
     public bool stage4Sel = false;
-    public bool stage5Sel = false;
-    public bool stage6Sel = false;
 
     public GameObject select;
 
@@ -84,38 +82,6 @@ public class BetaStageSelect : MonoBehaviour
         } else if (this.name == "stage4" && stage4Sel == true){
             stage4Sel = false;
             levels.Remove("VolcanoMap");
-            select.SetActive(false);
-            foreach( var x in levels) {
-                Debug.Log( x.ToString());
-            }
-        }
-
-        if (this.name == "stage5" && stage5Sel == false){
-            stage5Sel = true;
-            levels.Add("MallMap");
-            select.SetActive(true);
-            foreach( var x in levels) {
-                Debug.Log( x.ToString());
-            }
-        } else if (this.name == "stage5" && stage5Sel == true){
-            stage5Sel = false;
-            levels.Remove("MallMap");
-            select.SetActive(false);
-            foreach( var x in levels) {
-                Debug.Log( x.ToString());
-            }
-        }
-
-        if (this.name == "stage6" && stage6Sel == false){
-            stage6Sel = true;
-            levels.Add("BalloonMap");
-            select.SetActive(true);
-            foreach( var x in levels) {
-                Debug.Log( x.ToString());
-            }
-        } else if (this.name == "stage6" && stage6Sel == true){
-            stage6Sel = false;
-            levels.Remove("BalloonMap");
             select.SetActive(false);
             foreach( var x in levels) {
                 Debug.Log( x.ToString());
