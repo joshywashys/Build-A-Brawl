@@ -19,7 +19,7 @@ public class punchGlass : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {        //Check for a match with the specific tag on any GameObject that collides with your GameObject
-        if (collision.gameObject.tag == "heavyAttack")
+        if (collision.gameObject.tag == "heavyAttack" || collision.gameObject.tag == "ground")
         {
             GameObject _bits = Instantiate(glassBits,transform.position, transform.rotation);
             Destroy(_bits, 5);
