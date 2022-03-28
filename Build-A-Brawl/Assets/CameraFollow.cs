@@ -5,8 +5,9 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private List<GameObject> players;
+    private List<CreatureStats> statsList;
 
-	public Vector3 offset;
+    public Vector3 offset;
 	public float smoothTime = 1f;
 	public float minZoom = 40f;
 	public float maxZoom = 10f;
@@ -57,6 +58,18 @@ public class CameraFollow : MonoBehaviour
 		return centerPoint;
 	}
 
+    public void RemovePlayer(int playerNum)
+    {
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (playerNum == i + 1)
+            {
+                players.RemoveAt(i);
+            }
+            print("removed index " + i);
+        }
+    }
+
     #region Monobehaviour Functions
 
     void LateUpdate()
@@ -73,10 +86,12 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
+        // Initialize
         cam = GetComponent<Camera>();
+        players = new List<GameObject>();
+        statsList = new List<CreatureStats>();
 
         // Get players
-        players = new List<GameObject>();
         CreatureStats[] searchList = FindObjectsOfType<CreatureStats>();
         for (int i = 0; i < 4; i++)
         {
@@ -85,8 +100,19 @@ public class CameraFollow : MonoBehaviour
                 if (searchList[j].GetPlayerNum() == i + 1)
                 {
                     players.Add(searchList[j].transform.parent.gameObject);
+                    statsList.Add(searchList[j].GetComponent<CreatureStats>());
                 }
             }
+        }
+
+        // Subscribe to all CreatureStats events
+        for (int i = 0; i < players.Count; i++)
+        {
+            //print(players[i]);
+            //print(statsList[i]);
+            statsList[i].onDeath.AddListener(RemovePlayer);
+            //print("addlistener to index: ");
+            //                          statsList[i].onDamage.AddListener(UpdateUI);
         }
     }
 

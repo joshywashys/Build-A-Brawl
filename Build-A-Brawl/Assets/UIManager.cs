@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 //deal with UI ingame
 public class UIManager : MonoBehaviour
@@ -15,25 +16,41 @@ public class UIManager : MonoBehaviour
     [SerializeField] private List<Image[]> limbImgs;
     public List<Color> hitColors;
     public List<Color> playerColors;
+
+
     
-    public void CalculateHitColour(int playerNum, int limbNum, int health, int healthMax)
+    public Color CalculateHitColour(float health, float healthMax)
     {
+        Color toReturn = Color.green; //default for debugging
         for (int i = 0; i < hitColors.Count; i++)
         {
-            if (health < (healthMax / hitColors.Count) * i)
+            if (health >= (healthMax / hitColors.Count) * i)
             {
-                //limbImgs[playerNum].color = hitColors[i];
+                toReturn = hitColors[hitColors.Count - 1 - i];
+            }
+            else if (health < 0)
+            {
+                print("dead colours");
+                toReturn = hitColors[hitColors.Count - 1];
+                return toReturn;
             }
         }
+
+        return toReturn;
     }
 
-    public void UpdateUI()
+    public void UpdateUI(int playerNum)
     {
-
+        limbImgs[playerNum - 1][0].color = CalculateHitColour(statsList[playerNum - 1].GetHealthHead(), statsList[playerNum - 1].GetHealthHeadMax());
+        limbImgs[playerNum - 1][1].color = CalculateHitColour(statsList[playerNum - 1].GetHealthTorso(), statsList[playerNum - 1].GetHealthTorsoMax());
+        limbImgs[playerNum - 1][2].color = CalculateHitColour(statsList[playerNum - 1].GetHealthArmL(), statsList[playerNum - 1].GetHealthArmLMax());
+        limbImgs[playerNum - 1][3].color = CalculateHitColour(statsList[playerNum - 1].GetHealthArmR(), statsList[playerNum - 1].GetHealthArmRMax());
+        limbImgs[playerNum - 1][4].color = CalculateHitColour(statsList[playerNum - 1].GetHealthLegs(), statsList[playerNum - 1].GetHealthLegsMax());
     }
 
     void Start()
     {
+
         // Initialize
         statsList = new List<CreatureStats>();
         overlays = new List<GameObject>();
@@ -82,6 +99,12 @@ public class UIManager : MonoBehaviour
             {
                 limbImgs[i][j] = overlays[i].transform.Find("limbs").GetChild(j).GetComponent<Image>();
             }
+        }
+
+        // Subscribe to all CreatureStats events
+        for (int i = 0; i < statsList.Count; i++)
+        {
+            statsList[i].onDamage.AddListener(UpdateUI);
         }
 
     }
