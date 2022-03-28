@@ -209,7 +209,7 @@ public class CreatureStats : MonoBehaviour
         onDamage?.Invoke(playerNum); //it said to use this might look into later
     }
 
-    private void Kill()
+    public void Kill()
     {
         healthHead = 0;
         healthTorso = 0;
