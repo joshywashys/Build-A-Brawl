@@ -13,7 +13,8 @@ public class JointCollision : MonoBehaviour
 
         if (col.gameObject.tag == "heavyAttack")
         {
-            print("heavyAttack collision: " + gameObject.name + " --- impulse: " + col.impulse);
+            //print("heavyAttack collision: " + gameObject.name + " --- impulse: " + col.impulse);
+            //print(bodyPart.partData);
             if (bodyPart.creature != null) { bodyPart.creature.Damage(bodyPart.partData, force); }
         }
     }

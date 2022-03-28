@@ -71014,5 +71014,33 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 981812185}
+    - target: {fileID: 8267335021486977396, guid: 52b1b91ed40019d4ba275f172aeaf227, type: 3}
+      propertyPath: hitColors.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267335021486977396, guid: 52b1b91ed40019d4ba275f172aeaf227, type: 3}
+      propertyPath: hitColors.Array.data[1].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267335021486977396, guid: 52b1b91ed40019d4ba275f172aeaf227, type: 3}
+      propertyPath: hitColors.Array.data[2].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267335021486977396, guid: 52b1b91ed40019d4ba275f172aeaf227, type: 3}
+      propertyPath: hitColors.Array.data[3].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267335021486977396, guid: 52b1b91ed40019d4ba275f172aeaf227, type: 3}
+      propertyPath: hitColors.Array.data[4].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267335021486977396, guid: 52b1b91ed40019d4ba275f172aeaf227, type: 3}
+      propertyPath: hitColors.Array.data[5].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267335021486977396, guid: 52b1b91ed40019d4ba275f172aeaf227, type: 3}
+      propertyPath: hitColors.Array.data[6].a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52b1b91ed40019d4ba275f172aeaf227, type: 3}

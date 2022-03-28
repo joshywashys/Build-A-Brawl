@@ -19,10 +19,10 @@ public class goopRise : MonoBehaviour
     void Update()
     {
         if (goopRising) {
-            Debug.Log("goig up");
+            //Debug.Log("goig up");
             float step = speed * Time.deltaTime;
             goop.transform.position = Vector3.MoveTowards(goop.transform.position, target.position, step);
-            Debug.Log("i am up");
+            //Debug.Log("i am up");
         }
     }
 
