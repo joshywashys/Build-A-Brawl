@@ -17,7 +17,12 @@ public class JointCollision : MonoBehaviour
             //print(bodyPart.partData);
             if (bodyPart.creature != null) { bodyPart.creature.Damage(bodyPart.partData, force); }
         }
-        if (col.gameObject.tag == "hazard")
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "hazard" || other.gameObject.tag == "goop")
         {
             //print("heavyAttack collision: " + gameObject.name + " --- impulse: " + col.impulse);
             //print(bodyPart.partData);
