@@ -4,37 +4,19 @@ using UnityEngine;
 
 public class lowering : MonoBehaviour
 {
-    public float enemySpeed;
+    public float mass;
 
-    GameObject nextPos;
-
-    public int nextPosIndex;
+    public Rigidbody ball;
     
     void Start()
     {
-        nextPosIndex = 1;
-        nextPos = GameObject.Find("Vpoint"  + nextPosIndex);
+        mass = 1;
+        InvokeRepeating("massChange", 1.0f, 40f);
     }
 
-    // Update is called once per frame
-    void Update()
+    void massChange()
     {
-        moveEnemy();
-    }
-
-    void moveEnemy() 
-    {
-        if (transform.position == nextPos.transform.position){
-            if (nextPosIndex == 2){
-                nextPosIndex--;
-            }
-            else if (nextPosIndex == 1){
-                nextPosIndex++;
-            }
-            nextPos = GameObject.Find("Vpoint" + nextPosIndex);
-        }
-        else {
-            transform.position = Vector3.MoveTowards(transform.position, nextPos.transform.position, enemySpeed*Time.deltaTime);
-        }
+        ball.mass = mass;
+        mass = mass + 10;
     }
 }
