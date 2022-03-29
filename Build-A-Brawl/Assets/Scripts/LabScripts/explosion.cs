@@ -6,8 +6,12 @@ public class explosion : MonoBehaviour
 {
     public GameObject explode, bits;
     public float explosionStrength, limit;
-    // Start is called before the first frame update
-    
+
+
+    [Header("Mechanical Variables")]
+    public bool useMechanics = false;
+    public float dmg; //set to 0 for a no damage explosion
+    public float kb; //set to 0 for a no knockback explosion
 
     private void OnCollisionEnter(Collision collision){
         if (collision.gameObject.tag == "heavyAttack" || collision.gameObject.tag == "ground"){
@@ -18,6 +22,11 @@ public class explosion : MonoBehaviour
             Destroy(_bits, 5);
             knockBack();
             Destroy(gameObject);
+        }
+
+        if (useMechanics)
+        {
+            //inverse square law, apply collision to players in radius. force = knockback
         }
     }
 
@@ -30,5 +39,11 @@ public class explosion : MonoBehaviour
                 rigg.AddExplosionForce(explosionStrength, transform.position, limit);
             }
         }
+    }
+
+    //for knockback
+    void spawnExplosionTriggerSphere()
+    {
+
     }
 }
