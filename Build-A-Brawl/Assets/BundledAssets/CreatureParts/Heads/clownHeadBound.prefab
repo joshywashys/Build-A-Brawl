@@ -182,7 +182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 1897290674884763993}
-  partData: {fileID: 11400000, guid: f5c095ee47202424896e2b6c42bcece5, type: 2}
+  partData: {fileID: 11400000, guid: 221c182903cc8cb428a2c0127c8bd7b8, type: 2}
+  creature: {fileID: 0}
 --- !u!1 &2520349743802368503
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class BodyPartData : ScriptableObject
 {
     public string part_name;
     public Image part_image;
-    public List<Image> symbols;
+    public List<Sprite> symbols;
 
     public enum animType
     {
