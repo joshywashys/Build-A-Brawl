@@ -448,16 +448,16 @@ public class PartCombiner : MonoBehaviour
 
     public float GetPartHeight(GameObject toCheck)
     {
-        float height = -1.0f;
+        float height = 0f;
         if (toCheck.GetComponent<Collider>() != null)
         {
             print("- COLLIDER FOUND -");
             height = toCheck.GetComponent<Collider>().bounds.size.y;
         }
-        else if (toCheck.GetComponent<MeshFilter>().mesh != null)
+        else if (toCheck.GetComponent<MeshRenderer>() != null)
         {
             print("- NO COLLIDER - USING MESH DIMS -");
-            height = toCheck.GetComponent<MeshFilter>().mesh.bounds.size.y;
+            height = toCheck.GetComponentInChildren<MeshRenderer>().bounds.size.y;
         }
         else
         {
