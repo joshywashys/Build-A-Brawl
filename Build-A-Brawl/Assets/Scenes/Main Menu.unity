@@ -779,17 +779,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56108723}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3793103, y: 1.3793104, z: 1.3793103}
+  m_LocalPosition: {x: 0, y: 0, z: -25.371025}
+  m_LocalScale: {x: 0.8153735, y: 0.81537354, z: 0.8153735}
   m_Children:
   - {fileID: 328315386}
-  m_Father: {fileID: 742678225}
+  m_Father: {fileID: 2091036607}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 78.03372, y: 316.57532}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &56108725
 MonoBehaviour:
@@ -1181,17 +1181,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81407451}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 61.616077}
-  m_LocalScale: {x: 0.6341656, y: 0.6341657, z: 0.6341656}
+  m_LocalPosition: {x: 0, y: 0, z: 11.053062}
+  m_LocalScale: {x: 0.37488434, y: 0.3748844, z: 0.37488434}
   m_Children:
   - {fileID: 1711114561}
-  m_Father: {fileID: 742678225}
+  m_Father: {fileID: 2091036607}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 18.919128, y: 316.57532}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &81407453
 MonoBehaviour:
@@ -1757,11 +1757,25 @@ MonoBehaviour:
   creaturePlayable: {fileID: 1111344110}
   creatureManager: {fileID: 2095921165}
   playerPrefab: {fileID: 4443079348437890297, guid: c27cfc3cfa19186489d5675731bd4993, type: 3}
+  currHead: {fileID: 0}
+  currTorso: {fileID: 0}
+  currArmL: {fileID: 0}
+  currArmR: {fileID: 0}
+  currLegs: {fileID: 0}
+  newPlayer: {fileID: 0}
+  newHead: {fileID: 0}
+  newTorso: {fileID: 0}
+  newArmL: {fileID: 0}
+  newArmR: {fileID: 0}
+  newLegs: {fileID: 0}
   maxSaveSlots: 8
   savedCreatureData: []
   floating: 1
   floatHeight: 0.5
   floatPeriod: 4
+  onPartSwap:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &199176487
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,7 +2153,7 @@ RectTransform:
   m_Children:
   - {fileID: 427878585}
   m_Father: {fileID: 742678225}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2360,79 +2374,6 @@ RectTransform:
   m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &239925113
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2554951761172829079, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_Name
-      value: SetupPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 3221856071430269145, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_text
-      value: "Player \n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672299568806039498, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_RootOrder
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672299568806039498, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672299568806039498, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672299568806039498, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672299568806039498, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672299568806039498, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672299568806039498, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672299568806039498, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672299568806039498, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672299568806039498, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672299568806039498, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672299568806039498, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672299568806039498, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672299568806039498, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 24922fa22fe16de43b0765bfbd3035b2, type: 3}
 --- !u!1 &254653000
 GameObject:
   m_ObjectHideFlags: 0
@@ -5094,7 +5035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1223172839167569807, guid: c27cfc3cfa19186489d5675731bd4993, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1223172839167569807, guid: c27cfc3cfa19186489d5675731bd4993, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6720,11 +6661,25 @@ MonoBehaviour:
   creaturePlayable: {fileID: 1975898665}
   creatureManager: {fileID: 2095921165}
   playerPrefab: {fileID: 4443079348437890297, guid: ce565364d110fc949b27937a80e15fae, type: 3}
+  currHead: {fileID: 0}
+  currTorso: {fileID: 0}
+  currArmL: {fileID: 0}
+  currArmR: {fileID: 0}
+  currLegs: {fileID: 0}
+  newPlayer: {fileID: 0}
+  newHead: {fileID: 0}
+  newTorso: {fileID: 0}
+  newArmL: {fileID: 0}
+  newArmR: {fileID: 0}
+  newLegs: {fileID: 0}
   maxSaveSlots: 8
   savedCreatureData: []
   floating: 1
   floatHeight: 0.5
   floatPeriod: 4
+  onPartSwap:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -7125,6 +7080,7 @@ GameObject:
   - component: {fileID: 742678224}
   - component: {fileID: 742678223}
   - component: {fileID: 742678222}
+  - component: {fileID: 742678226}
   m_Layer: 0
   m_Name: CharCreaMenu
   m_TagString: Untagged
@@ -7204,20 +7160,42 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 81407452}
-  - {fileID: 56108724}
   - {fileID: 870841427}
   - {fileID: 2132234897}
   - {fileID: 226237569}
   - {fileID: 2015419384}
   m_Father: {fileID: 2091036607}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &742678226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742678221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 3
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 100, y: 100}
+  m_Spacing: {x: 300, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &743317897
 GameObject:
   m_ObjectHideFlags: 0
@@ -8332,7 +8310,7 @@ RectTransform:
   m_Children:
   - {fileID: 1976869156}
   m_Father: {fileID: 742678225}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9366,11 +9344,25 @@ MonoBehaviour:
   creaturePlayable: {fileID: 1764208445}
   creatureManager: {fileID: 2095921165}
   playerPrefab: {fileID: 9026564780555503763, guid: 8004321b4414d1f498225faf3e1a90c3, type: 3}
+  currHead: {fileID: 0}
+  currTorso: {fileID: 0}
+  currArmL: {fileID: 0}
+  currArmR: {fileID: 0}
+  currLegs: {fileID: 0}
+  newPlayer: {fileID: 0}
+  newHead: {fileID: 0}
+  newTorso: {fileID: 0}
+  newArmL: {fileID: 0}
+  newArmR: {fileID: 0}
+  newLegs: {fileID: 0}
   maxSaveSlots: 8
   savedCreatureData: []
   floating: 1
   floatHeight: 0.5
   floatPeriod: 4
+  onPartSwap:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -9828,7 +9820,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2091036607}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1010717364
 MonoBehaviour:
@@ -12679,7 +12671,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2091036607}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1294492519
 MonoBehaviour:
@@ -16979,11 +16971,25 @@ MonoBehaviour:
   creaturePlayable: {fileID: 1318950327}
   creatureManager: {fileID: 2095921165}
   playerPrefab: {fileID: 4443079348437890297, guid: ce565364d110fc949b27937a80e15fae, type: 3}
+  currHead: {fileID: 0}
+  currTorso: {fileID: 0}
+  currArmL: {fileID: 0}
+  currArmR: {fileID: 0}
+  currLegs: {fileID: 0}
+  newPlayer: {fileID: 0}
+  newHead: {fileID: 0}
+  newTorso: {fileID: 0}
+  newArmL: {fileID: 0}
+  newArmR: {fileID: 0}
+  newLegs: {fileID: 0}
   maxSaveSlots: 8
   savedCreatureData: []
   floating: 1
   floatHeight: 0.5
   floatPeriod: 4
+  onPartSwap:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1735094887
 Transform:
   m_ObjectHideFlags: 0
@@ -19553,11 +19559,25 @@ MonoBehaviour:
   creaturePlayable: {fileID: 948162965}
   creatureManager: {fileID: 2095921165}
   playerPrefab: {fileID: 4443079348437890297, guid: ce565364d110fc949b27937a80e15fae, type: 3}
+  currHead: {fileID: 0}
+  currTorso: {fileID: 0}
+  currArmL: {fileID: 0}
+  currArmR: {fileID: 0}
+  currLegs: {fileID: 0}
+  newPlayer: {fileID: 0}
+  newHead: {fileID: 0}
+  newTorso: {fileID: 0}
+  newArmL: {fileID: 0}
+  newArmR: {fileID: 0}
+  newLegs: {fileID: 0}
   maxSaveSlots: 8
   savedCreatureData: []
   floating: 1
   floatHeight: 0.5
   floatPeriod: 4
+  onPartSwap:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1987050287
 GameObject:
   m_ObjectHideFlags: 0
@@ -20716,7 +20736,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2091036607}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2085670839
 MonoBehaviour:
@@ -20775,6 +20795,8 @@ Transform:
   m_LocalPosition: {x: 10.638104, y: -0.07531144, z: 25.371025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 81407452}
+  - {fileID: 56108724}
   - {fileID: 742678225}
   - {fileID: 2085670838}
   - {fileID: 1010717363}
@@ -21704,7 +21726,7 @@ RectTransform:
   m_Children:
   - {fileID: 378008488}
   m_Father: {fileID: 742678225}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -21910,7 +21932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7210979066539170268, guid: 1eaebe3d0a66fd741a2963ed64d21520, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7210979066539170268, guid: 1eaebe3d0a66fd741a2963ed64d21520, type: 3}
       propertyPath: m_AnchorMax.x
