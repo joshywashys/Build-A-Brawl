@@ -7,6 +7,17 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private List<GameObject> players;
     private List<CreatureStats> statsList;
 
+    public enum CameraMode
+    {
+        FollowPlayers,
+        Stationary,
+        EnterGame
+    }
+    public CameraMode mode = CameraMode.FollowPlayers;
+
+    [Space]
+
+    [Header("Camera Stats")]
     public Vector3 offset;
 	public float smoothTime = 1f;
 	public float minZoom = 40f;
@@ -80,8 +91,15 @@ public class CameraFollow : MonoBehaviour
             return;
         }
 
-        Move();
-        Zoom();
+        if (mode == CameraMode.FollowPlayers)
+        {
+            Move();
+            Zoom();
+        }
+        if (mode == CameraMode.EnterGame)
+        {
+            //move to position?
+        }
     }
 
     void Start()

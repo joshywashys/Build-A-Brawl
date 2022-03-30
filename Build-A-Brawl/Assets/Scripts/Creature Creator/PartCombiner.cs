@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using System.IO;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using UnityEngine.Events;
 
 /*
 HOW/WHEN TO USE:
@@ -28,11 +29,11 @@ public class PartCombiner : MonoBehaviour
     private int armRIndex;
     private int legIndex;
     
-    private GameObject currHead;
-	private GameObject currTorso;
-	private GameObject currArmL;
-    private GameObject currArmR;
-    private GameObject currLegs;
+    public GameObject currHead;
+	public GameObject currTorso;
+	public GameObject currArmL;
+    public GameObject currArmR;
+    public GameObject currLegs;
 
     private GameObject newPlayer;
     private GameObject newHead;
@@ -64,6 +65,9 @@ public class PartCombiner : MonoBehaviour
     [SerializeField] private float floatHeight;
     [SerializeField] private float floatPeriod;
     private Vector3 posOffset;
+
+    // Events
+    public UnityEvent onPartSwap;
 
     #region Creature Generation
 
@@ -113,6 +117,8 @@ public class PartCombiner : MonoBehaviour
         heightShift = (legsToHips.y*2 + torsoToHips.y - torsoToNeck.y + headToNeck.y*2) / 2 + 1.5f; //+ creatureContainer.position.y
         creaturePlayable.transform.localPosition = new Vector3(0, heightShift, 0);
         //print("TOTAL HEIGHT: " + heightShift);
+
+        onPartSwap?.Invoke();
     }
 
     public void clearCreature()
