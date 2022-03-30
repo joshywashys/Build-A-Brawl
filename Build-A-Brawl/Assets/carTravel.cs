@@ -26,12 +26,99 @@ public class carTravel : MonoBehaviour
 
     private void Start()
     {
+        for (int i = 1; i < 7; i++){
+            if (gameObject == GameObject.Find("nVehic" + i + "(Clone)")){
+                redLight = GameObject.Find("South").transform.Find("sRed").gameObject;
+                yellowLight = GameObject.Find("South").transform.Find("sYellow").gameObject;
+                greenLight = GameObject.Find("South").transform.Find("sGreen").gameObject;
+                startDest = GameObject.Find("nSpawn").transform;
+                midDest = GameObject.Find("nMid").transform;
+                endDest = GameObject.Find("nEnd").transform;
+            } else if (gameObject == GameObject.Find("sVehic" + i + "(Clone)")){
+                redLight = GameObject.Find("North").transform.Find("nRed").gameObject;
+                yellowLight = GameObject.Find("North").transform.Find("nYellow").gameObject;
+                greenLight = GameObject.Find("North").transform.Find("nGreen").gameObject;
+                startDest = GameObject.Find("sSpawn").transform;
+                midDest = GameObject.Find("sMid").transform;
+                endDest = GameObject.Find("sEnd").transform;
+            } else if (gameObject == GameObject.Find("wVehic" + i + "(Clone)")){
+                redLight = GameObject.Find("East").transform.Find("eRed").gameObject;
+                yellowLight = GameObject.Find("East").transform.Find("eYellow").gameObject;
+                greenLight = GameObject.Find("East").transform.Find("eGreen").gameObject;
+                startDest = GameObject.Find("eSpawn").transform;
+                midDest = GameObject.Find("wMid").transform;
+                endDest = GameObject.Find("wEnd").transform;
+            } else if (gameObject == GameObject.Find("eVehic" + i + "(Clone)")){
+                redLight = GameObject.Find("West").transform.Find("wRed").gameObject;
+                yellowLight = GameObject.Find("West").transform.Find("wYellow").gameObject;
+                greenLight = GameObject.Find("West").transform.Find("wGreen").gameObject;
+                startDest = GameObject.Find("eSpawn").transform;
+                midDest = GameObject.Find("eMid").transform;
+                endDest = GameObject.Find("eEnd").transform;
+            } 
+        }
         startTime = Time.time;
         journeyLength = Vector3.Distance(startDest.position, midDest.position);
     }
 
     void Update()
     {
+
+        for (int i = 1; i < 7; i++){
+            if (gameObject == GameObject.Find("nVehic" + i + "(Clone)")){
+                if (redLight == null){
+                    redLight = GameObject.Find("sRed");
+                }
+                if (yellowLight == null){
+                    yellowLight = GameObject.Find("sYellow");
+                }
+                if (greenLight == null) {
+                    greenLight = GameObject.Find("sGreen");
+                }
+                startDest = GameObject.Find("nSpawn").transform;
+                midDest = GameObject.Find("nMid").transform;
+                endDest = GameObject.Find("nEnd").transform;
+            } else if (gameObject == GameObject.Find("sVehic" + i + "(Clone)")){
+                if (redLight == null){
+                    redLight = GameObject.Find("nRed");
+                }
+                if (yellowLight == null){
+                    yellowLight = GameObject.Find("nYellow");
+                }
+                if (greenLight == null) {
+                    greenLight = GameObject.Find("nGreen");
+                }
+                startDest = GameObject.Find("sSpawn").transform;
+                midDest = GameObject.Find("sMid").transform;
+                endDest = GameObject.Find("sEnd").transform;
+            } else if (gameObject == GameObject.Find("wVehic" + i + "(Clone)")){
+                if (redLight == null){
+                    redLight = GameObject.Find("eRed");
+                } 
+                if (yellowLight == null){
+                    yellowLight = GameObject.Find("nYellow");
+                }
+                if (greenLight == null) {
+                    greenLight = GameObject.Find("eGreen");
+                }
+                startDest = GameObject.Find("eSpawn").transform;
+                midDest = GameObject.Find("wMid").transform;
+                endDest = GameObject.Find("wEnd").transform;
+            } else if (gameObject == GameObject.Find("eVehic" + i + "(Clone)")){
+                if (redLight == null){
+                    redLight = GameObject.Find("wRed");
+                }
+                if (yellowLight == null){
+                    yellowLight = GameObject.Find("wYellow");
+                }
+                if (greenLight == null) {
+                    greenLight = GameObject.Find("wGreen");
+                }
+                startDest = GameObject.Find("eSpawn").transform;
+                midDest = GameObject.Find("eMid").transform;
+                endDest = GameObject.Find("eEnd").transform;
+            } 
+        }
         // if light yellow, destLine not reached and headed West
         // wait until green, then go
 
@@ -49,16 +136,16 @@ public class carTravel : MonoBehaviour
         {
             pastLine = true;
         }
+        if (redLight != null){
+            if (!redLight.activeInHierarchy && destReached)
+            {
+                this.transform.position = Vector3.MoveTowards(this.transform.position, endDest.transform.position, equation);
+            }
+            else if (pastLine)
+            {
+                this.transform.position = Vector3.MoveTowards(this.transform.position, endDest.transform.position, equation);
 
-        if (!redLight.activeInHierarchy && destReached)
-        {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, endDest.transform.position, equation);
-            Debug.Log("SECOND");
-        }
-        else if (pastLine)
-        {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, endDest.transform.position, equation);
-
+            }
         }
         Destroy(vehicle, 30);
 
