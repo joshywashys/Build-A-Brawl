@@ -160,4 +160,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 7466584505690605612}
-  partData: {fileID: 11400000, guid: f5c095ee47202424896e2b6c42bcece5, type: 2}
+  partData: {fileID: 11400000, guid: 78d37ed4deaa1a449af8ca29b332baf2, type: 2}
+  creature: {fileID: 0}

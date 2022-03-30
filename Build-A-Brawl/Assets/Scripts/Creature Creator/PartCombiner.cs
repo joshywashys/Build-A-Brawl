@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using System.IO;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using UnityEngine.Events;
 
 /*
 HOW/WHEN TO USE:
@@ -28,18 +29,18 @@ public class PartCombiner : MonoBehaviour
     private int armRIndex;
     private int legIndex;
     
-    private GameObject currHead;
-	private GameObject currTorso;
-	private GameObject currArmL;
-    private GameObject currArmR;
-    private GameObject currLegs;
+    public GameObject currHead;
+	public GameObject currTorso;
+	public GameObject currArmL;
+    public GameObject currArmR;
+    public GameObject currLegs;
 
-    private GameObject newPlayer;
-    private GameObject newHead;
-	private GameObject newTorso;
-	private GameObject newArmL;
-    private GameObject newArmR;
-    private GameObject newLegs;
+    public GameObject newPlayer;
+    public GameObject newHead;
+	public GameObject newTorso;
+	public GameObject newArmL;
+    public GameObject newArmR;
+    public GameObject newLegs;
 
     // Part Attaching Calculation Variables
     private Vector3 headToNeck;
@@ -64,6 +65,10 @@ public class PartCombiner : MonoBehaviour
     [SerializeField] private float floatHeight;
     [SerializeField] private float floatPeriod;
     private Vector3 posOffset;
+
+    // Events
+    public UnityEvent onPartSwap;
+    public UnityEvent<bool> onFinalize;
 
     #region Creature Generation
 
@@ -113,6 +118,8 @@ public class PartCombiner : MonoBehaviour
         heightShift = (legsToHips.y*2 + torsoToHips.y - torsoToNeck.y + headToNeck.y*2) / 2 + 1.5f; //+ creatureContainer.position.y
         creaturePlayable.transform.localPosition = new Vector3(0, heightShift, 0);
         //print("TOTAL HEIGHT: " + heightShift);
+
+        onPartSwap?.Invoke();
     }
 
     public void clearCreature()
@@ -173,6 +180,8 @@ public class PartCombiner : MonoBehaviour
             creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer, playerNum);
             isReady = true;
             clearCreature();
+
+            onFinalize?.Invoke(true);
         }
         else
         {
@@ -180,6 +189,8 @@ public class PartCombiner : MonoBehaviour
             creatureManager.GetComponent<CreatureManager>().RemoveCreature(playerNum);
             Destroy(newPlayer);
             generateCreature();
+
+            onFinalize?.Invoke(false);
         }
         
     }
@@ -442,16 +453,16 @@ public class PartCombiner : MonoBehaviour
 
     public float GetPartHeight(GameObject toCheck)
     {
-        float height = -1.0f;
+        float height = 0f;
         if (toCheck.GetComponent<Collider>() != null)
         {
             print("- COLLIDER FOUND -");
             height = toCheck.GetComponent<Collider>().bounds.size.y;
         }
-        else if (toCheck.GetComponent<MeshFilter>().mesh != null)
+        else if (toCheck.GetComponent<MeshRenderer>() != null)
         {
             print("- NO COLLIDER - USING MESH DIMS -");
-            height = toCheck.GetComponent<MeshFilter>().mesh.bounds.size.y;
+            height = toCheck.GetComponentInChildren<MeshRenderer>().bounds.size.y;
         }
         else
         {

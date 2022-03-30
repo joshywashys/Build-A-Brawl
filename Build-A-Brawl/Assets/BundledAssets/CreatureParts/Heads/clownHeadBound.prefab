@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 290497998952252317}
   - component: {fileID: 7345326396993419522}
   - component: {fileID: -6616551368808890152}
+  - component: {fileID: 9043858255636053483}
   m_Layer: 0
   m_Name: clownHeadBound
   m_TagString: Untagged
@@ -182,7 +183,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 1897290674884763993}
-  partData: {fileID: 11400000, guid: f5c095ee47202424896e2b6c42bcece5, type: 2}
+  partData: {fileID: 11400000, guid: 221c182903cc8cb428a2c0127c8bd7b8, type: 2}
+  creature: {fileID: 0}
+--- !u!135 &9043858255636053483
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099967686885153063}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.020261534
+  m_Center: {x: 0, y: -0.0037506842, z: 0}
 --- !u!1 &2520349743802368503
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +332,6 @@ GameObject:
   - component: {fileID: 7081997763206243865}
   - component: {fileID: 6548877429562957234}
   - component: {fileID: 198067475072202545}
-  - component: {fileID: 9069361333213678544}
   m_Layer: 0
   m_Name: lollipop tip
   m_TagString: Untagged
@@ -333,7 +347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6368734030895679892}
   m_LocalRotation: {x: -0, y: 0.073545165, z: -0, w: 0.99729186}
-  m_LocalPosition: {x: 0.01095, y: -0.00537, z: 0.03086}
+  m_LocalPosition: {x: 0.01095, y: -0.0059, z: 0.0293}
   m_LocalScale: {x: 0.004723727, y: 0.0083809, z: 0.0083809}
   m_Children: []
   m_Father: {fileID: 290497998952252317}
@@ -388,19 +402,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &9069361333213678544
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6368734030895679892}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0.00000047683716, y: -0.00000047683716, z: 0.0000009536743}
 --- !u!1 &6481584849163902753
 GameObject:
   m_ObjectHideFlags: 0

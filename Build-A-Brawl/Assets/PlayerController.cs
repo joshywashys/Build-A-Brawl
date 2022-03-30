@@ -35,10 +35,9 @@ public class PlayerController : MonoBehaviour
     // States
     public enum State 
 	{ 
-		Idle,									// Player is not performing any actions (moving excluded)
-		Attacking,								// Player is performing an attack action
-		Grabbing, Holding, Throwing,			// Player is performing a grapple action in the sequence
-		Stunned, Held, Thrown, Dead             // Player is unable to perform actions
+		Idle,						// Player is not performing any actions (moving excluded)
+		Attacking, Holding,			// Player is performing an attack action or a grapple action
+		Held, Stunned, Dead			// Player is unable to perform actions
 	}
 	private State m_currentState;
 	private Dictionary<State, UnityAction> m_stateDictionary;
@@ -84,7 +83,10 @@ public class PlayerController : MonoBehaviour
 		//SetPlayerColour(playerColour);
 
 		// Initialize state
-		m_stateDictionary = new Dictionary<State, UnityAction>();
+		m_stateDictionary = new Dictionary<State, UnityAction>
+		{
+			{ State.Stunned, new UnityAction(HandleStunState) }
+		};
 		m_currentState = State.Idle;
 
 		// get the components that have been added in through the character controller at the top
@@ -101,7 +103,7 @@ public class PlayerController : MonoBehaviour
 	void Update()
 	{
 		// Checking what state the player is currently in
-		if (m_currentState != State.Held && m_currentState != State.Stunned && m_currentState != State.Thrown && m_currentState != State.Dead)
+		if (m_currentState != State.Held && m_currentState != State.Stunned && m_currentState != State.Dead)
 		{
 			if (!m_controller.enabled)
 				m_controller.enabled = false;
@@ -134,18 +136,28 @@ public class PlayerController : MonoBehaviour
 				if (rig.currentState != PhysicsIKRig.State.Ragdoll)
 					rig.SetRagdoll(true);
 			}
+		}
 
-			if (m_currentState == State.Thrown && m_controller.isGrounded)
-        		SetState(State.Idle);
-        }
+		if (!m_controller.isGrounded)
+			m_controller.useFloat = false;
+
+		bounds = new Bounds();
 
 		springConstant = attackSpringConstant;
 		if (m_heldObject != null)
 		{
 			springConstant = grabSpringConstant;
-			m_heldObject.rigidbody.position = (fistLeftRigidbody.position + fistRightRigidbody.position) / 2.0f;
+
+			Bounds handBounds = fistLeftRigidbody.GetComponent<Collider>().bounds;
+			handBounds.Encapsulate(fistRightRigidbody.GetComponent<Collider>().bounds);
+
+			m_heldObject.rigidbody.rotation = transform.rotation;
+			m_heldObject.rigidbody.position = transform.forward + handBounds.center;
+
+			bounds = handBounds;
 		}
 	}
+	Bounds bounds;
 
 	private void FixedUpdate()
 	{
@@ -237,15 +249,25 @@ public class PlayerController : MonoBehaviour
 		if (m_currentState != State.Stunned)
 		{
 			if (attackPressed[LEFT_LIMB] && isAttacking[LEFT_LIMB] == null)
-				isAttacking[LEFT_LIMB] = StartCoroutine(Punch(fistLeftRigidbody, LEFT_LIMB, 0.7f));
+			{
+				isAttacking[LEFT_LIMB] = false ? // (statsRef.GetAttackTypeL() != BodyPartData.animType.Robot) ?
+					StartCoroutine(Punch(fistLeftRigidbody, LEFT_LIMB, 0.7f)) :
+					StartCoroutine(Punch(fistLeftRigidbody, LEFT_LIMB, 0.8f, 0.3f, false));
+			}
 
 			if (attackPressed[RIGHT_LIMB] && isAttacking[RIGHT_LIMB] == null)
-				isAttacking[RIGHT_LIMB] = StartCoroutine(Punch(fistRightRigidbody, RIGHT_LIMB, 0.7f));
+			{
+				isAttacking[RIGHT_LIMB] = false ? //(statsRef.GetAttackTypeR() != BodyPartData.animType.Robot) ?
+					StartCoroutine(Punch(fistRightRigidbody, RIGHT_LIMB, 0.7f)) :
+					StartCoroutine(Punch(fistRightRigidbody, RIGHT_LIMB, 0.8f, 0.3f, false));
+			}
 		}
 
 		// Hook's law for spring physics
-		HooksLaw(fistLeftRigidbody, anchorLeft);
-		HooksLaw(fistRightRigidbody, anchorRight);
+//		if (isAttacking[LEFT_LIMB] == null)
+			HooksLaw(fistLeftRigidbody, anchorLeft);
+//		if (isAttacking[RIGHT_LIMB] == null)
+			HooksLaw(fistRightRigidbody, anchorRight);
 
 		UpdateRotation(fistLeftRigidbody);
 		UpdateRotation(fistRightRigidbody);
@@ -254,8 +276,8 @@ public class PlayerController : MonoBehaviour
 	// A physics calculation to determine the force applied to a spring
 	private void HooksLaw(Rigidbody rigidbody, Transform anchor)
 	{
-		Vector3 x = (rigidbody.transform.position - anchor.position);	// Distance form equalibrium 
-		Vector3 springForce = -springConstant * x;						// Hook's Law formula
+		Vector3 x = (rigidbody.position - anchor.position);		// Distance from equalibrium 
+		Vector3 springForce = -springConstant * x;				// Hook's Law formula
 		rigidbody.AddForce(springForce);
 	}
 
@@ -265,17 +287,29 @@ public class PlayerController : MonoBehaviour
 		rigidbody.rotation = rot;
     }
 
-	private IEnumerator Punch(Rigidbody rigidbody, int limb, float activeTime)
+	private IEnumerator Punch(Rigidbody rigidbody, int limb, float recoverTime, float activeTime = 0.0f, bool impulse = true)
 	{
 		SphereCollider collider = rigidbody.gameObject.GetComponent<SphereCollider>();
 		collider.enabled = true;
 
-		rigidbody.AddForce(transform.forward * attackForce, ForceMode.Impulse);
-		yield return new WaitForSeconds(activeTime);
+		if (!impulse)
+		{
+			float activeAttackTime = 0.0f;
+			while (activeAttackTime < activeTime)
+			{
+				rigidbody.AddForce(transform.forward * attackForce, ForceMode.Force);
+				yield return null;
+				activeAttackTime += Time.deltaTime;
+			}
+		}
+		else
+		{
+			rigidbody.AddForce(transform.forward * attackForce, ForceMode.Impulse);
+		}
 
-		AttackComplete(limb);
-		
 		collider.enabled = false;
+		yield return new WaitForSeconds(recoverTime);
+		AttackComplete(limb);
 	}
 	private void AttackComplete(int limb)
 	{
@@ -301,12 +335,24 @@ public class PlayerController : MonoBehaviour
 
 		// Check if a throwable object is in range
 		Vector3 origin = transform.position + grabOrigin;
-		Vector3 halfExtent = new Vector3(grabBounds.x, grabBounds.y, 1.0f);
-		RaycastHit hit;
-		if (!Physics.BoxCast(origin, halfExtent, transform.forward, out hit, transform.rotation, grabBounds.z))
+		Collider[] colliders = Physics.OverlapBox(origin, grabBounds, transform.rotation);
+		if (colliders.Length == 0)
 			return;
 
-		m_heldObject = hit.transform.GetComponent<ThrowableObject>();
+		float closestDistance = Mathf.Infinity;
+		foreach (Collider collider in colliders)
+        {
+			if (collider.transform.root != transform.root && collider.TryGetComponent(out ThrowableObject throwable))
+            {
+				float checkedDistance = Vector3.Distance(collider.transform.position, transform.position);
+				if (checkedDistance < closestDistance)
+                {
+					m_heldObject = throwable;
+					closestDistance = checkedDistance;
+                }
+            }
+        }
+
 		if (m_heldObject == null || m_heldObject.gameObject == gameObject)
 			return;
 
@@ -331,7 +377,7 @@ public class PlayerController : MonoBehaviour
 			print($"{other.name} : {other.GetState()}");
 		}
         m_heldObject.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-        m_heldObject.IsGrabbed(true);
+        m_heldObject.SetGrabbed(true, transform);
 		SetState(State.Holding);
 	}
 
@@ -340,19 +386,34 @@ public class PlayerController : MonoBehaviour
 		PlayerController other = m_heldObject.GetComponent<PlayerController>();
 		if (other != null)
 		{
-			other.SetState(State.Thrown);
+			other.SetState(State.Stunned);
 		}
 
 		Rigidbody rb = m_heldObject.GetComponent<Rigidbody>();
 		rb.isKinematic = false;
 		rb.AddForce(transform.forward * throwForce, ForceMode.Impulse);
 
-		m_heldObject.IsGrabbed(false);
+		m_heldObject.SetGrabbed(false);
 
 		m_heldObject = null;
 		isGrabbing = null;
 		SetState(State.Idle);
 	}
+
+	private void HandleStunState()
+    {
+		float duration = 1.0f; // time in seconds
+		if (isRecoveringFromStun == null)
+			isRecoveringFromStun = StartCoroutine(RecoverFromStun(duration));
+    }
+
+	private Coroutine isRecoveringFromStun = null;
+	private IEnumerator RecoverFromStun(float duration)
+    {
+		yield return new WaitForSeconds(duration);
+		SetState(State.Idle);
+		isRecoveringFromStun = null;
+    }
 
 	#endregion
 
@@ -367,9 +428,9 @@ public class PlayerController : MonoBehaviour
 			average += hit.GetContact(i).point;
 		average /= hit.contactCount;
 
-		m_rigidbody.AddForceAtPosition(hit.impulse, average, ForceMode.Impulse);
-
 		//SetState(State.Stunned);
+		
+		m_rigidbody.AddForceAtPosition(hit.impulse, average, ForceMode.Impulse);
 	}
 
     #endregion
@@ -390,6 +451,9 @@ public class PlayerController : MonoBehaviour
 
 		Vector3 origin = grabOrigin + Vector3.forward * grabBounds.z / 2.0f;
 		Gizmos.DrawWireCube(origin, grabBounds);
+
+		Gizmos.color = Color.green;
+		Gizmos.DrawWireCube(bounds.center, bounds.size);
 	}
 #endif
 }

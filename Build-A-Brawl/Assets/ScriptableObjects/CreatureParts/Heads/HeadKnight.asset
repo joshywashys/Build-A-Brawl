@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   part_name: 
   part_image: {fileID: 0}
+  symbols:
+  - {fileID: 21300000, guid: d5eacf9de515ed14c9fa95814b318828, type: 3}
+  - {fileID: 21300000, guid: e4d59536aecc82240a34dbd0e6052973, type: 3}
   stats:
     healthMultiplier: 1.5
     strengthMultiplier: 1

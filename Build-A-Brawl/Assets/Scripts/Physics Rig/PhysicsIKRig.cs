@@ -35,6 +35,7 @@ public class PhysicsIKRig : MonoBehaviour
 			if (objects[i].transform.root == transform.root)
 			{
 				m_target = objects[i].transform;
+				objects[i].tag = "heavyAttack";
 				return;
 			}
 		}
