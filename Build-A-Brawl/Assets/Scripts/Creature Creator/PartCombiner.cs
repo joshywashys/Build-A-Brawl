@@ -68,6 +68,7 @@ public class PartCombiner : MonoBehaviour
 
     // Events
     public UnityEvent onPartSwap;
+    public UnityEvent<bool> onFinalize;
 
     #region Creature Generation
 
@@ -179,6 +180,8 @@ public class PartCombiner : MonoBehaviour
             creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer, playerNum);
             isReady = true;
             clearCreature();
+
+            onFinalize?.Invoke(true);
         }
         else
         {
@@ -186,6 +189,8 @@ public class PartCombiner : MonoBehaviour
             creatureManager.GetComponent<CreatureManager>().RemoveCreature(playerNum);
             Destroy(newPlayer);
             generateCreature();
+
+            onFinalize?.Invoke(false);
         }
         
     }

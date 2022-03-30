@@ -1352,6 +1352,9 @@ MonoBehaviour:
   onPartSwap:
     m_PersistentCalls:
       m_Calls: []
+  onFinalize:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &199176487
 GameObject:
   m_ObjectHideFlags: 0
@@ -4604,6 +4607,9 @@ MonoBehaviour:
   onPartSwap:
     m_PersistentCalls:
       m_Calls: []
+  onFinalize:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -5772,7 +5778,7 @@ RectTransform:
   m_GameObject: {fileID: 924711287}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 1675637636}
   m_Father: {fileID: 643067899}
@@ -5836,14 +5842,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.83137256, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6249,7 +6255,7 @@ RectTransform:
   m_GameObject: {fileID: 949785076}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 279093566}
   m_Father: {fileID: 988421174}
@@ -6313,14 +6319,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.83137256, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6499,6 +6505,9 @@ MonoBehaviour:
   floatHeight: 0.5
   floatPeriod: 4
   onPartSwap:
+    m_PersistentCalls:
+      m_Calls: []
+  onFinalize:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &963194225
@@ -6749,7 +6758,7 @@ RectTransform:
   m_GameObject: {fileID: 999637402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 1231406354}
   m_Father: {fileID: 519841043}
@@ -6813,14 +6822,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.83137256, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9256,7 +9265,7 @@ RectTransform:
   m_GameObject: {fileID: 1311886820}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 2044148261}
   m_Father: {fileID: 532708040}
@@ -9320,14 +9329,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.83137256, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11841,6 +11850,9 @@ MonoBehaviour:
   onPartSwap:
     m_PersistentCalls:
       m_Calls: []
+  onFinalize:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1735094887
 Transform:
   m_ObjectHideFlags: 0
@@ -13544,6 +13556,9 @@ MonoBehaviour:
   floatHeight: 0.5
   floatPeriod: 4
   onPartSwap:
+    m_PersistentCalls:
+      m_Calls: []
+  onFinalize:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1991882307

@@ -136,8 +136,8 @@ GameObject:
   - component: {fileID: 4600322593604644747}
   - component: {fileID: 7406194676537345993}
   - component: {fileID: 1792220572776060357}
-  - component: {fileID: 6504913300350520211}
   - component: {fileID: 2331599556258996568}
+  - component: {fileID: 6504913300350520211}
   m_Layer: 0
   m_Name: apeHeadBound
   m_TagString: Untagged
@@ -191,19 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 48512616904279326}
   partData: {fileID: 11400000, guid: 512803eed94c963498b85632dba7d16d, type: 2}
---- !u!135 &6504913300350520211
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3791029965167949105}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.0166035
-  m_Center: {x: 0, y: -0.0077609452, z: 0.0056908787}
+  creature: {fileID: 0}
 --- !u!65 &2331599556258996568
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -217,6 +205,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.019806277, y: 0.043849897, z: 0.02513876}
   m_Center: {x: 0, y: -0.000117755684, z: -0.0067302706}
+--- !u!135 &6504913300350520211
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3791029965167949105}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0166035
+  m_Center: {x: 0, y: -0.0077609452, z: 0.0056908787}
 --- !u!1 &4260588744077873139
 GameObject:
   m_ObjectHideFlags: 0
