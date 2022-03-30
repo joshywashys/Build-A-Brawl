@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class CCTooltipManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private List<CCToolTip> tooltips;
+
+    public void Start()
     {
-        
+        tooltips = new List<CCToolTip>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SpawnTooltips()
     {
-        
+
     }
 }

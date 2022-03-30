@@ -35,12 +35,12 @@ public class PartCombiner : MonoBehaviour
     public GameObject currArmR;
     public GameObject currLegs;
 
-    private GameObject newPlayer;
-    private GameObject newHead;
-	private GameObject newTorso;
-	private GameObject newArmL;
-    private GameObject newArmR;
-    private GameObject newLegs;
+    public GameObject newPlayer;
+    public GameObject newHead;
+	public GameObject newTorso;
+	public GameObject newArmL;
+    public GameObject newArmR;
+    public GameObject newLegs;
 
     // Part Attaching Calculation Variables
     private Vector3 headToNeck;

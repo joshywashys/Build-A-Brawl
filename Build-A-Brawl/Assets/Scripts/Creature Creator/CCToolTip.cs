@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class CCToolTip : MonoBehaviour
 {
     public PartCombiner creature;
-    public GameObject tooltip;
+    public GameObject symbolPrefab;
+    private GameObject tooltip;
 
     // Called on PartCombiner partswap
     public void UpdateSymbols()
@@ -18,17 +19,19 @@ public class CCToolTip : MonoBehaviour
         }
 
         // Generate new symbol list
-        List<Image> symbols = creature.currHead.GetComponent<BodyPart>().partData.symbols;
+        List<Sprite> symbols = creature.currHead.GetComponent<BodyPart>().partData.symbols;
+        print(symbols);
         for (int i = 0; i < symbols.Count; i++)
         {
-            Instantiate(symbols[i], tooltip.transform);
+            print("added symbol " + i);
+            Instantiate(symbolPrefab, tooltip.transform);
+            symbolPrefab.GetComponent<Image>().sprite = symbols[i];
         }
     }
 
     public void Start()
     {
-        // Get Tooltip!!!
-        // Get Creature!!!
+        tooltip = gameObject;
 
         creature.onPartSwap.AddListener(UpdateSymbols);
     }
