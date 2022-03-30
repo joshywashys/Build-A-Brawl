@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 //HOW TO USE/PURPOSE
 //During runtime, this is the mothership data script. All of a creature's data will be imported here from it's parts so we don't have to access each individual part.
@@ -8,7 +9,8 @@ public class CreatureStats : MonoBehaviour
 {
     // part references
     private GameObject creature;
-    [SerializeField] private int playerNum;
+    public GameObject ctrlsPart;
+    public int playerNum;
 
     private GameObject head;
     private GameObject torso;
@@ -72,6 +74,9 @@ public class CreatureStats : MonoBehaviour
     public const float MASS_ARMS_BASE = 1;
     public const float MASS_LEGS_BASE = 1;
 
+    public UnityEvent<int> onDamage;
+    public UnityEvent<int> onDeath;
+
     #region  Internal Functions
 
     //call when a creature's stats need to be updated (when a limb is knocked off)
@@ -113,11 +118,11 @@ public class CreatureStats : MonoBehaviour
         legs.GetComponent<BodyPart>().creature = gameObject.GetComponent<CreatureStats>();
 
         // Health pools
-        healthHead = healthHeadMax = headPart.getHealthMultiplier();
-        healthTorso = healthTorsoMax = torsoPart.getHealthMultiplier();
-        healthArmL = healthArmLMax = armLPart.getHealthMultiplier();
-        healthArmR = healthArmRMax = armRPart.getHealthMultiplier();
-        healthLegs = healthLegsMax = legsPart.getHealthMultiplier();
+        healthHead = healthHeadMax = headPart.getHealthMultiplier() * HEALTH_BASE;
+        healthTorso = healthTorsoMax = torsoPart.getHealthMultiplier() * HEALTH_BASE;
+        healthArmL = healthArmLMax = armLPart.getHealthMultiplier() * HEALTH_BASE;
+        healthArmR = healthArmRMax = armRPart.getHealthMultiplier() * HEALTH_BASE;
+        healthLegs = healthLegsMax = legsPart.getHealthMultiplier() * HEALTH_BASE;
 
         // Creature Stats
         mass = headPart.getMass() * MASS_HEAD_BASE + torsoPart.getMass() * MASS_TORSO_BASE + armLPart.getMass() * MASS_ARMS_BASE + armRPart.getMass() * MASS_ARMS_BASE + legsPart.getMass() * MASS_LEGS_BASE;
@@ -142,20 +147,23 @@ public class CreatureStats : MonoBehaviour
     }
 
     //initialize. called by the creature creator for initial setup.
-    public void attachParts(GameObject newHead, GameObject newTorso, GameObject newArmL, GameObject newArmR, GameObject newLegs)
+    public void attachParts(GameObject newHead, GameObject newTorso, GameObject newArmL, GameObject newArmR, GameObject newLegs, GameObject ctrlsObj)
     {
         head = newHead;
         torso = newTorso;
         armL = newArmL;
         armR = newArmR;
         legs = newLegs;
+        ctrlsPart = ctrlsObj;
     }
 
     public void Damage(BodyPartData bodyPart, float incForce)
     {
         float dmg = incForce;
+        dmg = 1.0f; //TEMP FOR DEBUGGING
 
-        //debugging
+        //headPart = head.GetComponent<BodyPart>(); //head is null. probably has to do with AttachParts being called in PartCombiner
+        //print(headPart); // why is it null only in game???
         if (bodyPart == headPart.partData)
         {
             healthHead -= dmg;
@@ -197,6 +205,21 @@ public class CreatureStats : MonoBehaviour
             print("legs damage");
         }
         recalculate();
+        
+        onDamage?.Invoke(playerNum); //it said to use this might look into later
+    }
+
+    public void Kill()
+    {
+        healthHead = 0;
+        healthTorso = 0;
+        healthArmL = 0;
+        healthArmR = 0;
+        healthLegs = 0;
+
+        Destroy(creature.transform.root.gameObject);
+        onDamage?.Invoke(playerNum);
+        onDeath?.Invoke(playerNum);
     }
 
     #endregion
@@ -205,9 +228,18 @@ public class CreatureStats : MonoBehaviour
 
     void Start()
     {
-        //initializeCreature();
+        creature = gameObject;
+        if (head == null) { head = creature.transform.GetChild(0).GetChild(5).gameObject; }
+        if (torso == null) { torso = creature.transform.GetChild(0).gameObject; }
+        if (armL == null) { armL = creature.transform.GetChild(0).GetChild(6).gameObject; }
+        if (armR == null) { armR = creature.transform.GetChild(0).GetChild(7).gameObject; } print("armR: " + armR);
+        if (legs == null) { legs = creature.transform.GetChild(0).GetChild(8).gameObject; } print("legs: " + legs);
 
-        //Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
+        if (headPart == null) { headPart = head.GetComponent<BodyPart>(); }
+        if (torsoPart == null) { torsoPart = torso.GetComponent<BodyPart>(); }
+        if (armLPart == null) { armLPart = armL.GetComponent<BodyPart>(); }
+        if (armRPart == null) { armRPart = armR.GetComponent<BodyPart>(); }
+        if (legsPart == null) { legsPart = legs.GetComponent<BodyPart>(); }
     }
 
     void Awake()
@@ -219,47 +251,70 @@ public class CreatureStats : MonoBehaviour
 
     #region Part Detaching
 
-    private void detachHead()
+    private void detachHead() //add throwable obj scripts?
     {
-        detachTorso();
-
+        headPart.ToggleKinematics(headPart.gameObject.transform, false);
         head.transform.parent = null;
         head = null;
+        headPart.creature = null;
+        if (torso != null) { detachTorso(); } //AFTER head becomes null. prevents infinite loops of head->torso->head->torso...
+
         recalculate();
+        Kill();
     }
 
     private void detachTorso()
     {
-        detachArmL();
-        detachArmR();
-        detachLegs();
-        detachHead();
+        if (armL != null) { detachArmL(); }
+        if (armR != null) { detachArmR(); }
+        if (legs != null) { detachLegs(); }
+        if (head != null) { detachHead(); }
 
+        torsoPart.ToggleKinematics(torsoPart.gameObject.transform, false);
         torso.transform.parent = null;
         torso = null;
+        torsoPart.creature = null;
+
         recalculate();
+        Kill();
     }
 
     private void detachArmL()
     {
-        //armL.AddComponent<Rigidbody>();
+        armLPart.ToggleKinematics(armLPart.gameObject.transform, false);
+        //enable colliders
+        armLPart.GetComponent<PhysicsIKRig>().enabled = false;
+        armLPart.GetComponent<Animator>().enabled = false;
         armL.transform.parent = null;
         armL = null;
+        armLPart.creature = null;
+
         recalculate();
     }
 
     private void detachArmR()
     {
+        armRPart.ToggleKinematics(armRPart.gameObject.transform, false);
+        //enable colliders
+        armRPart.GetComponent<PhysicsIKRig>().enabled = false;
+        armRPart.GetComponent<Animator>().enabled = false;
         armR.transform.parent = null;
-        //armR.AddComponent<Rigidbody>();
         armR = null;
+        armRPart.creature = null;
+
         recalculate();
     }
 
     private void detachLegs()
     {
+        ctrlsPart.GetComponent<RigidbodyController>().useFloat = false;
+        //enable collider?
+        legsPart.ToggleKinematics(legsPart.gameObject.transform, false);
+        legsPart.GetComponent<LegIKRig>().enabled = false;
         legs.transform.parent = null;
         legs = null;
+        legsPart.creature = null;
+
         recalculate();
     }
 

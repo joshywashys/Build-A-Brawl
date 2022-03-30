@@ -9,6 +9,7 @@ public class goopRise : MonoBehaviour
      public Transform target;
      public float speed = 0.8f;
      bool goopRising = false;
+     public int punchGoop = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,17 +20,20 @@ public class goopRise : MonoBehaviour
     void Update()
     {
         if (goopRising) {
-            Debug.Log("goig up");
+            //Debug.Log("goig up");
             float step = speed * Time.deltaTime;
             goop.transform.position = Vector3.MoveTowards(goop.transform.position, target.position, step);
-            Debug.Log("i am up");
+            //Debug.Log("i am up");
         }
     }
 
     void OnCollisionEnter(Collision collision)
     {
         //Check for a match with the specified name on any GameObject that collides with your GameObject
-        if (collision.gameObject.tag == "heavyAttack")
+        if (collision.gameObject.tag == "heavyAttack"){
+            punchGoop++;
+        }
+        else if (collision.gameObject.tag == "heavyAttack" && punchGoop >= 7)
         {
             goopRising = true;
             //goop.transform.position = Vector3.MoveTowards(goop.transform.position, target, Time.deltaTime);

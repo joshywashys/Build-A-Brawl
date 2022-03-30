@@ -24,6 +24,6 @@ public class deleteCrater : MonoBehaviour
     void Update()
     {
         curScale = Mathf.MoveTowards(curScale, startScale, Time.deltaTime * shrinkSpeed);
-        gameObject.transform.localScale = new Vector3(curScale, curScale, curScale);
+        gameObject.transform.localScale = new Vector3(curScale, 0, curScale);
     }
 }

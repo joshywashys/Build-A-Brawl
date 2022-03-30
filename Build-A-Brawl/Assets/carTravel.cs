@@ -9,7 +9,7 @@ public class carTravel : MonoBehaviour
     [SerializeField] GameObject yellowLight;
     [SerializeField] GameObject greenLight;
     [SerializeField] GameObject destination;
-
+    [SerializeField] GameObject vehicle;
 
     public Transform startDest;
     public Transform midDest;
@@ -60,6 +60,7 @@ public class carTravel : MonoBehaviour
             this.transform.position = Vector3.MoveTowards(this.transform.position, endDest.transform.position, equation);
 
         }
+        Destroy(vehicle, 30);
 
     }
 }
