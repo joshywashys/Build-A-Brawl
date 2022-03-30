@@ -15,7 +15,7 @@ MonoBehaviour:
   part_name: 
   part_image: {fileID: 0}
   symbols:
-  - {fileID: 21300000, guid: 68120c92d03671042bb630e219a5eac4, type: 3}
+  - {fileID: 21300000, guid: d5eacf9de515ed14c9fa95814b318828, type: 3}
   - {fileID: 21300000, guid: 5dea843f5177c2444b492490cb8b2200, type: 3}
   stats:
     healthMultiplier: 1.5
