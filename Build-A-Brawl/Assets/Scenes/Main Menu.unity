@@ -1491,7 +1491,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129543093}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< Updated upstream
 --- !u!1 &181592513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,9 +1546,7 @@ MonoBehaviour:
   floatHeight: 0.5
   floatPeriod: 4
 --- !u!1 &199176487
-=======
 --- !u!1 &148827727
->>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2770,7 +2767,6 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
   m_GameObject: {fileID: 493866982}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &511828451
@@ -2856,11 +2852,9 @@ Transform:
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &512981060
-=======
   m_GameObject: {fileID: 263726664}
   m_CullTransparentMesh: 1
 --- !u!1 &267581973
->>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3292,7 +3286,6 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< Updated upstream
   - component: {fileID: 582631127}
   - component: {fileID: 582631126}
   - component: {fileID: 582631125}
@@ -3392,12 +3385,10 @@ GameObject:
   - component: {fileID: 583231809}
   - component: {fileID: 583231811}
   - component: {fileID: 583231810}
-=======
   - component: {fileID: 313965852}
   - component: {fileID: 313965855}
   - component: {fileID: 313965854}
   - component: {fileID: 313965853}
->>>>>>> Stashed changes
   m_Layer: 5
   m_Name: Back_Button
   m_TagString: Untagged
@@ -4396,7 +4387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   playerNum: 4
   creatureContainer: {fileID: 2034365951}
   creaturePlayable: {fileID: 1975898665}
@@ -4408,7 +4398,6 @@ MonoBehaviour:
   floatHeight: 0.5
   floatPeriod: 4
 --- !u!1 &705507993
-=======
   m_Padding:
     m_Left: 0
     m_Right: 0
@@ -4422,7 +4411,6 @@ MonoBehaviour:
   m_Constraint: 1
   m_ConstraintCount: 2
 --- !u!1 &444721710
->>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5966,7 +5954,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   playerNum: 2
   creatureContainer: {fileID: 1475612524}
   creaturePlayable: {fileID: 1764208445}
@@ -6051,7 +6038,6 @@ Camera:
   m_StereoSeparation: 0.022
 --- !u!4 &963194228
 Transform:
-=======
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
@@ -6078,12 +6064,10 @@ Transform:
 '
 --- !u!222 &583231811
 CanvasRenderer:
->>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
   m_LocalPosition: {x: -12.5, y: 1.5, z: 11.5}
@@ -6094,12 +6078,10 @@ CanvasRenderer:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
-=======
   m_GameObject: {fileID: 583231808}
   m_CullTransparentMesh: 1
 --- !u!1 &597191508
 GameObject:
->>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -19969,7 +19951,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   playerNum: 3
   creatureContainer: {fileID: 2001775053}
   creaturePlayable: {fileID: 948162965}
@@ -19980,7 +19961,6 @@ MonoBehaviour:
   floating: 1
   floatHeight: 0.5
   floatPeriod: 4
-=======
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
@@ -20011,7 +19991,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987050287}
   m_CullTransparentMesh: 1
->>>>>>> Stashed changes
 --- !u!1 &1991882307
 GameObject:
   m_ObjectHideFlags: 0
