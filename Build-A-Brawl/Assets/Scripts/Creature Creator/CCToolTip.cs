@@ -7,16 +7,16 @@ public class CCToolTip : MonoBehaviour
 {
     public PartCombiner creature;
     public GameObject symbolPrefab;
-    private GameObject tooltip;
+    public GameObject tooltip;
     private Camera cam;
 
-    private bool selected;
     private GameObject selectedPart;
+    private Vector3 offset = new Vector3(0, 20, 0);
 
     // Called on PartCombiner partswap
     public void UpdateSymbols()
     {
-        //clear if there's any
+        // Clear debris from last update
         foreach (Transform child in tooltip.transform)
         {
             Destroy(child.gameObject);
@@ -33,40 +33,36 @@ public class CCToolTip : MonoBehaviour
         }
     }
 
-    public void UpdatePosition(GameObject target)
+    public void UpdatePosition()
     {
-        Vector3 newPos = cam.WorldToScreenPoint(target.transform.position);
-        tooltip.transform.position = newPos;
+        Vector3 headHeight = new Vector3(0, creature.newHead.GetComponent<Collider>().bounds.size.y, 0);
+        Vector3 targetPos = cam.WorldToScreenPoint(creature.newHead.transform.position + headHeight);
+        tooltip.transform.position = targetPos + offset;
     }
 
     public void Start()
     {
-        tooltip = gameObject;
         cam = FindObjectOfType<Camera>();
 
         creature.onPartSwap.AddListener(UpdateSymbols);
 
-        Show(); // DEBUGGING
+        Select();
     }
 
     public void Update()
     {
-        if (true)
-        {
-            selectedPart = creature.currHead; // DEBUGGING // replace with actual selected part
-            UpdatePosition(selectedPart);
-        }
+        UpdatePosition();
     }
 
-    //maybe i can add in a function to make them appear not all at once
+    //maybe i can add in a function to make them appear with an animation
 
-    public void Show()
+    public void Select()
     {
-        gameObject.SetActive(true);
+        tooltip.SetActive(true);
     }
 
-    public void Hide()
+    public void Deselect()
     {
-        gameObject.SetActive(false);
+        tooltip.SetActive(false);
     }
 }

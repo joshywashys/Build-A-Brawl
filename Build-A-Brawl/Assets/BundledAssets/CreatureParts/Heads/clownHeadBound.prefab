@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 290497998952252317}
   - component: {fileID: 7345326396993419522}
   - component: {fileID: -6616551368808890152}
+  - component: {fileID: 9043858255636053483}
   m_Layer: 0
   m_Name: clownHeadBound
   m_TagString: Untagged
@@ -184,6 +185,19 @@ MonoBehaviour:
   skeletonBase: {fileID: 1897290674884763993}
   partData: {fileID: 11400000, guid: 221c182903cc8cb428a2c0127c8bd7b8, type: 2}
   creature: {fileID: 0}
+--- !u!135 &9043858255636053483
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099967686885153063}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.020261534
+  m_Center: {x: 0, y: -0.0037506842, z: 0}
 --- !u!1 &2520349743802368503
 GameObject:
   m_ObjectHideFlags: 0
