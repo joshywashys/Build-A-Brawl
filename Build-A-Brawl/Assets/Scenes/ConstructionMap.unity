@@ -3921,6 +3921,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: beginManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8395950255215378667, guid: 1152e794670bc8a40a90f38f6679b7b8, type: 3}
+      propertyPath: mapMusic
+      value: 
+      objectReference: {fileID: 195288016}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1152e794670bc8a40a90f38f6679b7b8, type: 3}
 --- !u!4 &125518966 stripped
@@ -4814,7 +4818,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cc005ae0c86a71b4698ea8424fe8518d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.184
   m_Pitch: 1
   Loop: 1

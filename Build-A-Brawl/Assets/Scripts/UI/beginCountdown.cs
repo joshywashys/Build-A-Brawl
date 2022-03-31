@@ -9,9 +9,10 @@ public class beginCountdown : MonoBehaviour
     int count = 3;
     
     public AudioSource startSound;
+    public AudioSource mapMusic;
     void Start()
     {
-        InvokeRepeating("countDown", 0.0f, 0.9f);
+        InvokeRepeating("countDown", 1f, 0.85f);
     }
 
     // Update is called once per frame
@@ -38,6 +39,7 @@ public class beginCountdown : MonoBehaviour
             GameObject brawlTxt = Instantiate(brawl,transform.position, transform.rotation);
             Destroy(brawlTxt, 0.5f);
             CancelInvoke("countDown");
+            mapMusic.Play();
         }
 
     }

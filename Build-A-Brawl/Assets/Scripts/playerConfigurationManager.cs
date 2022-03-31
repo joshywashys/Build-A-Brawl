@@ -40,6 +40,7 @@ public class playerConfigurationManager : MonoBehaviour
         }
     }
 
+    //this is where player index is assigned
     public void HandlePlayerJoin(PlayerInput pi)
     {
         Debug.Log("Player " + pi.playerIndex + " joined!");
