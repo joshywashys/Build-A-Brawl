@@ -6,12 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class RoundManager : MonoBehaviour
 {
+    public BetaStageSelect stages;
     public List<string> selectedMaps;
     public int numRounds = 1;
     private int currRound = 0;
-
-    public Dictionary<string, decimal> playerScores;
     private float time;
+
+    public struct playerStats
+    {
+        decimal score;
+        bool isAlive;
+    }
+
+    public int numPlayers;
+    public List<playerStats> stats;
 
     #region Main Menu
     [Header("Main Menu")]
@@ -72,7 +80,12 @@ public class RoundManager : MonoBehaviour
             StartCoroutine(crCountdown);
 
             //get all maps
-
+            if (stages.stage1Sel) { selectedMaps.Add("Lab"); }
+            if (stages.stage2Sel) { selectedMaps.Add("TrafficMap"); }
+            if (stages.stage3Sel) { selectedMaps.Add("ConstructionMap"); }
+            if (stages.stage4Sel) { selectedMaps.Add("VolcanoMap"); }
+            if (stages.stage5Sel) { selectedMaps.Add("MallMap"); }
+            if (stages.stage6Sel) { selectedMaps.Add("BalloonMap"); }
 
             starting = true;
             return;
@@ -81,11 +94,19 @@ public class RoundManager : MonoBehaviour
         {
             print("CANCELLING");
             CancelStart();
+            selectedMaps.Clear();
+
             starting = false;
             return;
         }
     }
     #endregion
+
+    public void OnRoundEnd()
+    {
+        //update player scores etc
+        NextRound();
+    }
 
     public void NextRound()
     {
@@ -104,10 +125,10 @@ public class RoundManager : MonoBehaviour
 
     public void Start()
     {
-        playerScores.Add("Player 1", 0);
-        playerScores.Add("Player 2", 0);
-        playerScores.Add("Player 3", 0);
-        playerScores.Add("Player 4", 0);
+        for (int i = 0; i < numPlayers; i++)
+        {
+            stats.Add(new playerStats());
+        }
 
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
