@@ -9,14 +9,16 @@ public class generateLocate : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-      //  searchList = FindObjectsOfType;
+    {       
+        
+     //   searchList = FindObjectsOfType;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-      /*  foreach(searchList)
+      /*  foreach(searchList items)
         {
             
         }*/
