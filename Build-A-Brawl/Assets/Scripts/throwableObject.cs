@@ -49,6 +49,7 @@ public class ThrowableObject : MonoBehaviour
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = gizmoColour;
+        if (holdPoints.Length == 0) { return; }
 		foreach (Transform point in holdPoints)
 			Gizmos.DrawWireSphere(point.position, gizmoSize);
 	}
