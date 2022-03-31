@@ -56,7 +56,7 @@ public class PartCombiner : MonoBehaviour
     // Saving/Loading
     public int maxSaveSlots = 8;
     private static bool m_resourcesLoaded = false;
-    private static Dictionary<string, GameObject[]> partsList;
+    public static Dictionary<string, GameObject[]> partsList;
     private CreatureData creature;
 	public CreatureData[] savedCreatureData;
 
@@ -85,11 +85,11 @@ public class PartCombiner : MonoBehaviour
         Destroy(creaturePlayable.GetComponent<CreatureStats>());
 
         //spawn parts
-        newHead = Instantiate(currHead, creaturePlayable.transform.position, Quaternion.identity, creaturePlayable.transform);
-        newTorso = Instantiate(currTorso, creaturePlayable.transform.position, Quaternion.identity, creaturePlayable.transform);
-		newArmL = Instantiate(currArmL, creaturePlayable.transform.position, Quaternion.identity, creaturePlayable.transform);
-        newArmR = Instantiate(currArmR, creaturePlayable.transform.position, Quaternion.identity, creaturePlayable.transform);
-        newLegs = Instantiate(currLegs, creaturePlayable.transform.position, Quaternion.identity, creaturePlayable.transform);
+        newHead = Instantiate(currHead, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
+        newTorso = Instantiate(currTorso, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
+		newArmL = Instantiate(currArmL, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
+        newArmR = Instantiate(currArmR, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
+        newLegs = Instantiate(currLegs, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
 
         //calculate where to move parts to attach to body parts
         headToNeck = newHead.transform.position - newHead.transform.GetChild(0).transform.position;
@@ -105,10 +105,10 @@ public class PartCombiner : MonoBehaviour
         armRToShoulder = newArmR.transform.GetChild(0).transform.position + newArmR.transform.position;
 
         //move each part
-        newHead.transform.Translate(headToNeck - torsoToNeck);
-        newArmL.transform.Translate(torsoToShoulderL - armLToShoulder);
-        newArmR.transform.Translate(torsoToShoulderR - armRToShoulder);
-        newLegs.transform.Translate(-(legsToHips + torsoToHips));
+        newHead.transform.position += headToNeck - torsoToNeck;
+        newArmL.transform.position += torsoToShoulderL - armLToShoulder;
+        newArmR.transform.position += torsoToShoulderR - armRToShoulder;
+        newLegs.transform.position += -(legsToHips + torsoToHips);
 
         //shift creature upwards
         //float headHeight = GetPartHeight(newHead);
@@ -354,6 +354,12 @@ public class PartCombiner : MonoBehaviour
             currHead = partsList[BundleNameCache.creaturepartsHeads][headIndex];
             generateCreature();
         }
+        else if (!isReady && headIndex == partsList[BundleNameCache.creaturepartsHeads].Length - 1)
+        {
+            headIndex = 0;
+            currHead = partsList[BundleNameCache.creaturepartsHeads][headIndex];
+            generateCreature();
+        }
     }
 
     public void PrevHead()
@@ -364,7 +370,12 @@ public class PartCombiner : MonoBehaviour
             currHead = partsList[BundleNameCache.creaturepartsHeads][headIndex];
             generateCreature();
         }
-      
+        else if (!isReady && headIndex == 0)
+        {
+            headIndex = partsList[BundleNameCache.creaturepartsHeads].Length - 1;
+            currHead = partsList[BundleNameCache.creaturepartsHeads][headIndex];
+            generateCreature();
+        }
     }
 
     public void NextTorso()
@@ -372,6 +383,12 @@ public class PartCombiner : MonoBehaviour
         if (!isReady && torsoIndex < partsList[BundleNameCache.creaturepartsTorsos].Length - 1)
         {
             torsoIndex += 1;
+            currTorso = partsList[BundleNameCache.creaturepartsTorsos][torsoIndex];
+            generateCreature();
+        }
+        else if (!isReady && torsoIndex == partsList[BundleNameCache.creaturepartsTorsos].Length - 1)
+        {
+            torsoIndex = 0;
             currTorso = partsList[BundleNameCache.creaturepartsTorsos][torsoIndex];
             generateCreature();
         }
@@ -385,7 +402,12 @@ public class PartCombiner : MonoBehaviour
             currTorso = partsList[BundleNameCache.creaturepartsTorsos][torsoIndex];
             generateCreature();
         }
-
+        else if (!isReady && torsoIndex == 0)
+        {
+            torsoIndex = partsList[BundleNameCache.creaturepartsTorsos].Length - 1;
+            currTorso = partsList[BundleNameCache.creaturepartsTorsos][torsoIndex];
+            generateCreature();
+        }
     }
 
     public void NextArmL()
@@ -393,6 +415,12 @@ public class PartCombiner : MonoBehaviour
         if (!isReady && armLIndex < partsList[BundleNameCache.creaturepartsArmsL].Length - 1)
         {
             armLIndex += 1;
+            currArmL = partsList[BundleNameCache.creaturepartsArmsL][armLIndex];
+            generateCreature();
+        }
+        else if (!isReady && armLIndex == partsList[BundleNameCache.creaturepartsArmsL].Length - 1)
+        {
+            armLIndex = 0;
             currArmL = partsList[BundleNameCache.creaturepartsArmsL][armLIndex];
             generateCreature();
         }
@@ -406,6 +434,12 @@ public class PartCombiner : MonoBehaviour
             currArmL = partsList[BundleNameCache.creaturepartsArmsL][armLIndex];
             generateCreature();
         }
+        else if (!isReady && armLIndex == 0)
+        {
+            armLIndex = partsList[BundleNameCache.creaturepartsArmsL].Length - 1;
+            currArmL = partsList[BundleNameCache.creaturepartsArmsL][armLIndex];
+            generateCreature();
+        }
     }
 
     public void NextArmR()
@@ -413,6 +447,12 @@ public class PartCombiner : MonoBehaviour
         if (!isReady && armRIndex < partsList[BundleNameCache.creaturepartsArmsR].Length - 1)
         {
             armRIndex += 1;
+            currArmR = partsList[BundleNameCache.creaturepartsArmsR][armRIndex];
+            generateCreature();
+        }
+        else if (!isReady && armRIndex == partsList[BundleNameCache.creaturepartsArmsR].Length - 1)
+        {
+            armRIndex = 0;
             currArmR = partsList[BundleNameCache.creaturepartsArmsR][armRIndex];
             generateCreature();
         }
@@ -426,6 +466,12 @@ public class PartCombiner : MonoBehaviour
             currArmR = partsList[BundleNameCache.creaturepartsArmsR][armRIndex];
             generateCreature();
         }
+        else if (!isReady && armRIndex == 0)
+        {
+            armRIndex = partsList[BundleNameCache.creaturepartsArmsR].Length - 1;
+            currArmR = partsList[BundleNameCache.creaturepartsArmsR][armRIndex];
+            generateCreature();
+        }
     }
 
     public void NextLegs()
@@ -436,6 +482,12 @@ public class PartCombiner : MonoBehaviour
             currLegs = partsList[BundleNameCache.creaturepartsLegs][legIndex];
             generateCreature();
         }
+        else if (!isReady && legIndex == partsList[BundleNameCache.creaturepartsLegs].Length - 1)
+        {
+            legIndex = 0;
+            currLegs = partsList[BundleNameCache.creaturepartsLegs][legIndex];
+            generateCreature();
+        }
     }
 
     public void PrevLegs()
@@ -443,6 +495,12 @@ public class PartCombiner : MonoBehaviour
         if (!isReady && legIndex > 0)
         {
             legIndex -= 1;
+            currLegs = partsList[BundleNameCache.creaturepartsLegs][legIndex];
+            generateCreature();
+        }
+        else if (!isReady && legIndex == 0)
+        {
+            legIndex = partsList[BundleNameCache.creaturepartsLegs].Length - 1;
             currLegs = partsList[BundleNameCache.creaturepartsLegs][legIndex];
             generateCreature();
         }
