@@ -6,6 +6,9 @@ public class meteorLand : MonoBehaviour
 {
     public GameObject explode, crater, craterSpawn;
     public float explosionStrength, limit;
+    public AudioSource land1;
+    public AudioSource land2;
+    int landSound;
     // Start is called before the first frame update
     
 
@@ -24,6 +27,14 @@ public class meteorLand : MonoBehaviour
             Destroy(_explosion, 3);
             knockBack();
             Destroy(gameObject);
+        }
+        landSound = Random.Range( 1, 3);
+        Debug.Log(landSound);
+        if (landSound == 1){
+            land1.Play();
+        }
+        else if (landSound == 2){
+            land2.Play();
         }
     }
 

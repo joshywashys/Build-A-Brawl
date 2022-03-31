@@ -12,12 +12,15 @@ public class Eruption : MonoBehaviour
     public List<int> prevLoc = new List<int>();
     int randomNum;
 
+    public AudioSource erputionSound;
+
     void Start()
     {
         InvokeRepeating("spawnEnemy", delay, repeat);
     }
 
     public void spawnEnemy(){
+        erputionSound.Play();
         GameObject _eruption = Instantiate(eruption, eruptionLocation.transform.position, eruptionLocation.transform.rotation);
         Destroy(_eruption, 10);
         checkSpawn();

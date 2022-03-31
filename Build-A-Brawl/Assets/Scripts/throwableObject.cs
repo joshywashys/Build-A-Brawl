@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class ThrowableObject : MonoBehaviour
@@ -11,12 +12,15 @@ public class ThrowableObject : MonoBehaviour
 
 	public new Collider collider;
 	public Transform[] holdPoints;
+	public UnityEvent onGrab;
 
 	public bool IsGrabbed { get; private set; } = false;
 
 	public void Start()
 	{
 		rigidbody = GetComponent<Rigidbody>();
+		holdPoints = new Transform[1];
+		holdPoints[1] = gameObject.transform;
 	}
 
 	public void SetGrabbed(bool pickedUp, Transform grabber = null)
@@ -24,8 +28,11 @@ public class ThrowableObject : MonoBehaviour
 		collider.enabled = !pickedUp;
 		IsGrabbed = pickedUp;
 
-		if (pickedUp)
+		if (pickedUp){
 			holder = grabber;
+		}
+
+		onGrab?.Invoke();
 	}
 
 	internal bool IsHolder(Transform transform)

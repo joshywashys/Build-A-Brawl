@@ -7,6 +7,7 @@ public class blowUpCar : MonoBehaviour
     public GameObject explode, bits, smoke, flame;
     public float explosionStrength, limit;
     int health = 0;
+    public AudioSource carBoom;
     // Start is called before the first frame update
     
 
@@ -25,6 +26,7 @@ public class blowUpCar : MonoBehaviour
                 Destroy(_explosion, 3);
                 Destroy(_bits, 5);
                 knockBack();
+                carBoom.Play();
                 Destroy(gameObject);
             }
             

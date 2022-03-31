@@ -5,6 +5,11 @@ using UnityEngine;
 public class punchGlass : MonoBehaviour
 {
     public GameObject glassBits;
+    public AudioSource shatter1;
+    public AudioSource shatter2;
+    public AudioSource shatter3;
+    public AudioSource shatter4;
+    int shatterSelect;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +28,20 @@ public class punchGlass : MonoBehaviour
         {
             GameObject _bits = Instantiate(glassBits,transform.position, transform.rotation);
             Destroy(_bits, 5);
+            shatterSelect = Random.Range( 1, 4);
+            if (shatterSelect == 1){
+                shatter1.Play();
+            }
+            else if (shatterSelect == 2){
+                shatter2.Play();
+            }
+            else if (shatterSelect == 3){
+                shatter3.Play();
+            }
+            else if (shatterSelect == 4){
+                shatter4.Play();
+            }
+        
             Destroy(gameObject);
         }
     }

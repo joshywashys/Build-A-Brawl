@@ -735,6 +735,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &36296895
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -861,6 +865,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &41370509
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1272,6 +1280,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &43872107
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1678,7 +1690,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &56262100 stripped
 Transform:
@@ -1876,6 +1889,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &67324363
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2361,6 +2378,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &97102002
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2487,6 +2508,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &115485188
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2667,7 +2692,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &161991962 stripped
 Transform:
@@ -2757,7 +2783,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &166407605 stripped
 Transform:
@@ -2874,6 +2901,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &178584270
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3190,6 +3221,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &211137246
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3490,6 +3525,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &244258706
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3881,6 +3920,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &274443159
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3944,8 +3987,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 2448316687815073240, guid: c80d1a4610acf8941890ae5e5c93ff8d, type: 3}
   bits: {fileID: 2448316687815073240, guid: 13f76b036c486e04bb3fe52e067d4d8c, type: 3}
-  explosionStrength: 800
-  limit: 14
+  explosionStrength: 500
+  limit: 10
+  boom: {fileID: 907286978}
+  useMechanics: 0
+  dmg: 0
+  kb: 0
 --- !u!114 &284096204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3958,8 +4005,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
   rigidbody: {fileID: 0}
   collider: {fileID: 284096202}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
+  gizmoSize: 0.25
+  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!54 &284096205
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4231,6 +4285,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &304898676
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4357,6 +4415,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &316472557
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5227,8 +5289,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
   rigidbody: {fileID: 0}
   collider: {fileID: 360603287}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
+  gizmoSize: 0.25
+  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!54 &360603286
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5367,6 +5436,7 @@ GameObject:
   - component: {fileID: 364850295}
   - component: {fileID: 364850294}
   - component: {fileID: 364850296}
+  - component: {fileID: 364850297}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5582,11 +5652,108 @@ MonoBehaviour:
   players:
   - {fileID: 0}
   - {fileID: 0}
+  mode: 0
   offset: {x: 51.93, y: 11, z: 0}
   smoothTime: 0.5
   minZoom: 69.5
   maxZoom: 25.3
   zoomLimit: 65
+--- !u!82 &364850297
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364850290}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7a2adf052b104a34d8c7415cce845470, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.184
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &376201172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5670,7 +5837,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &376201173 stripped
 Transform:
@@ -6058,6 +6226,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &396318819
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6295,8 +6467,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
   rigidbody: {fileID: 0}
   collider: {fileID: 400821467}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
+  gizmoSize: 0.25
+  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!54 &400821466
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6436,6 +6615,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &405896537
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6738,6 +6921,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &420676129
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7099,6 +7286,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &432694714
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7589,6 +7780,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &470213980
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8160,7 +8355,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &536297586 stripped
 Transform:
@@ -8358,6 +8554,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &547680504
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9140,6 +9340,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &608826076
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9362,6 +9566,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &611942844
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9583,6 +9791,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &623227828
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9709,6 +9921,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &629185719
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10220,7 +10436,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &650538807 stripped
 Transform:
@@ -10528,6 +10745,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &681011496
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10654,6 +10875,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &704345633
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10848,7 +11073,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &721918648 stripped
 Transform:
@@ -11617,6 +11843,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &759268148
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11811,7 +12041,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &765657750 stripped
 Transform:
@@ -11928,6 +12159,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &766560424
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12432,6 +12667,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &780822284
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12937,6 +13176,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &869144452
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13437,6 +13680,7 @@ GameObject:
   - component: {fileID: 907286976}
   - component: {fileID: 907286975}
   - component: {fileID: 907286974}
+  - component: {fileID: 907286978}
   m_Layer: 0
   m_Name: w (9)
   m_TagString: ground
@@ -13520,6 +13764,102 @@ Transform:
   m_Father: {fileID: 298942530}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!82 &907286978
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907286973}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 05b163855c059314d9deeaef3188c636, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.217
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &919247562
 GameObject:
   m_ObjectHideFlags: 0
@@ -13988,6 +14328,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &933466208
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14114,6 +14458,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &939643439
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17766,7 +18114,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &1110835655 stripped
 Transform:
@@ -17883,6 +18232,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1113100825
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18679,7 +19032,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &1172168691 stripped
 Transform:
@@ -18796,6 +19150,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1179346294
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18990,7 +19348,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &1194823582 stripped
 Transform:
@@ -19647,7 +20006,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &1243599733 stripped
 Transform:
@@ -19943,6 +20303,7 @@ GameObject:
   - component: {fileID: 1284185041}
   - component: {fileID: 1284185040}
   - component: {fileID: 1284185039}
+  - component: {fileID: 1284185043}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -20027,6 +20388,102 @@ Transform:
   m_Father: {fileID: 665428430}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!82 &1284185043
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284185038}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 76559de5d7bbf1b409c7beee841f4dbd, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.211
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1292479069
 GameObject:
   m_ObjectHideFlags: 0
@@ -20302,6 +20759,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1317954289
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20679,6 +21140,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1342508449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20926,7 +21391,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &1354470807 stripped
 Transform:
@@ -21460,7 +21926,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &1397935956 stripped
 Transform:
@@ -21577,6 +22044,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1405438085
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22126,6 +22597,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1433923632
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22486,6 +22961,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1450955540
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23244,6 +23723,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1562918959
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23831,6 +24314,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1580275069
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23973,8 +24460,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
   rigidbody: {fileID: 0}
   collider: {fileID: 1599694879}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
+  gizmoSize: 0.25
+  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!54 &1599694878
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24114,6 +24608,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1600262180
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24256,8 +24754,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
   rigidbody: {fileID: 0}
   collider: {fileID: 1604595053}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
+  gizmoSize: 0.25
+  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!54 &1604595051
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24962,6 +25467,7 @@ MonoBehaviour:
   flame: {fileID: 2448316687815073240, guid: bc8d67c4e606acf43afd4c6e97598a66, type: 3}
   explosionStrength: 800
   limit: 14
+  carBoom: {fileID: 1848636164}
 --- !u!54 &1674704286
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27038,6 +27544,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1838641545
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27276,6 +27786,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1843751808
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27304,6 +27818,7 @@ GameObject:
   - component: {fileID: 1847727785}
   - component: {fileID: 1847727784}
   - component: {fileID: 1847727783}
+  - component: {fileID: 1847727787}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -27388,6 +27903,102 @@ Transform:
   m_Father: {fileID: 665428430}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!82 &1847727787
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847727782}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 30714287589fa5f4c90c983bf68894f8, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.211
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1848636159
 GameObject:
   m_ObjectHideFlags: 0
@@ -27400,6 +28011,7 @@ GameObject:
   - component: {fileID: 1848636162}
   - component: {fileID: 1848636161}
   - component: {fileID: 1848636160}
+  - component: {fileID: 1848636164}
   m_Layer: 0
   m_Name: Plane
   m_TagString: ground
@@ -27484,6 +28096,102 @@ Transform:
   m_Father: {fileID: 298942530}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1848636164
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848636159}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 05b163855c059314d9deeaef3188c636, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.244
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1858612431
 GameObject:
   m_ObjectHideFlags: 0
@@ -27594,6 +28302,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1858612437
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27720,6 +28432,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1861424658
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28081,6 +28797,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1864910700
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28432,8 +29152,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 2448316687815073240, guid: c80d1a4610acf8941890ae5e5c93ff8d, type: 3}
   bits: {fileID: 2448316687815073240, guid: 13f76b036c486e04bb3fe52e067d4d8c, type: 3}
-  explosionStrength: 800
-  limit: 14
+  explosionStrength: 500
+  limit: 10
+  boom: {fileID: 907286978}
+  useMechanics: 0
+  dmg: 0
+  kb: 0
 --- !u!114 &1922617867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28446,8 +29170,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
   rigidbody: {fileID: 0}
   collider: {fileID: 1922617870}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
+  gizmoSize: 0.25
+  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!54 &1922617868
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28608,6 +29339,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1926186261
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28734,6 +29469,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1929289860
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29269,6 +30008,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &1948309588
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29920,7 +30663,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &1992817472 stripped
 Transform:
@@ -30420,6 +31164,7 @@ GameObject:
   - component: {fileID: 2053674187}
   - component: {fileID: 2053674186}
   - component: {fileID: 2053674185}
+  - component: {fileID: 2053674189}
   m_Layer: 0
   m_Name: w
   m_TagString: Untagged
@@ -30503,6 +31248,102 @@ Transform:
   m_Father: {fileID: 665428430}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2053674189
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053674184}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a7b5c42e7c6e18a47bce879a217a93e7, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.211
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2056324456
 GameObject:
   m_ObjectHideFlags: 0
@@ -30881,6 +31722,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &2061280840
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30909,6 +31754,7 @@ GameObject:
   - component: {fileID: 2062539001}
   - component: {fileID: 2062539000}
   - component: {fileID: 2062538999}
+  - component: {fileID: 2062539003}
   m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Untagged
@@ -30993,6 +31839,102 @@ Transform:
   m_Father: {fileID: 665428430}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
+--- !u!82 &2062539003
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062538998}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7e6bf7d9756fd554ab89062d3ba211ae, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.211
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2073027102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31076,7 +32018,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crater
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8130479096437277493, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
 --- !u!4 &2073027103 stripped
 Transform:
@@ -31305,6 +32248,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &2075988780
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31442,8 +32389,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 2448316687815073240, guid: c80d1a4610acf8941890ae5e5c93ff8d, type: 3}
   bits: {fileID: 2448316687815073240, guid: 13f76b036c486e04bb3fe52e067d4d8c, type: 3}
-  explosionStrength: 800
-  limit: 14
+  explosionStrength: 500
+  limit: 10
+  boom: {fileID: 907286978}
+  useMechanics: 0
+  dmg: 0
+  kb: 0
 --- !u!114 &2083082349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31456,8 +32407,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
   rigidbody: {fileID: 0}
   collider: {fileID: 2083082347}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
+  gizmoSize: 0.25
+  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!54 &2083082350
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31760,6 +32718,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &2106584279
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32322,6 +33284,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &2127787386
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32464,8 +33430,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
   rigidbody: {fileID: 0}
   collider: {fileID: 2131074602}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
+  gizmoSize: 0.25
+  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!54 &2131074600
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32700,6 +33673,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassBits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
+  shatter1: {fileID: 1284185043}
+  shatter2: {fileID: 1847727787}
+  shatter3: {fileID: 2062539003}
+  shatter4: {fileID: 2053674189}
 --- !u!54 &2143328548
 Rigidbody:
   m_ObjectHideFlags: 0

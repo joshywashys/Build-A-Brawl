@@ -6,6 +6,7 @@ public class explosion : MonoBehaviour
 {
 	public GameObject explode, bits;
 	public float explosionStrength, limit;
+	public AudioSource boom;
 
 	[Header("Mechanical Variables")]
 	public bool useMechanics = false;
@@ -38,6 +39,7 @@ public class explosion : MonoBehaviour
 			Destroy(_bits, 5);
 			knockBack();
 			Destroy(gameObject);
+			boom.Play();
 		}
 
 		if (useMechanics)
