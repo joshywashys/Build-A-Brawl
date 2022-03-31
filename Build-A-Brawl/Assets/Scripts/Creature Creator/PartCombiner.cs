@@ -537,7 +537,7 @@ public class PartCombiner : MonoBehaviour
 
     public void Float()
     {
-        Vector3 tempPos = posOffset;
+        Vector3 tempPos = gameObject.transform.position;
         tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI / floatPeriod) * floatHeight;
 
         creatureContainer.position = tempPos + new Vector3(0, floatHeight, 0);
