@@ -27,7 +27,6 @@ public class playerSetupMenuController : MonoBehaviour
         playerTitle.SetText("Player " + (pi + 1).ToString());
         ignoreInputTime = Time.time + ignoreInputTime;
         
-        Debug.Log("HMMM");
     }
 
     // Update is called once per frame
@@ -45,7 +44,7 @@ public class playerSetupMenuController : MonoBehaviour
     {
         if(!inputEnabled)
         {
-            Debug.Log("Inpute not enabled");
+            Debug.Log("Input not enabled");
             return;
         }
         readyPanel.SetActive(true);
@@ -58,14 +57,12 @@ public class playerSetupMenuController : MonoBehaviour
     {
         if(!inputEnabled)
         {
-            Debug.Log("INPUT NOT ENABLED");
             return;
 
         }
 
         playerConfigurationManager.Instance.readyPlayer(PlayerIndex);
         readyButton.gameObject.SetActive(false);
-        Debug.Log("Ugh");
     }
 
 }
