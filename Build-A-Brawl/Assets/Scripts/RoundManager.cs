@@ -10,7 +10,8 @@ public class RoundManager : MonoBehaviour
     public int numRounds = 1;
     private int currRound = 0;
 
-    private List<decimal> scores;
+    public Dictionary<string, decimal> playerScores;
+    private float time;
 
     #region Main Menu
     [Header("Main Menu")]
@@ -70,6 +71,9 @@ public class RoundManager : MonoBehaviour
             crCountdown = Countdown();
             StartCoroutine(crCountdown);
 
+            //get all maps
+
+
             starting = true;
             return;
         }
@@ -100,6 +104,11 @@ public class RoundManager : MonoBehaviour
 
     public void Start()
     {
+        playerScores.Add("Player 1", 0);
+        playerScores.Add("Player 2", 0);
+        playerScores.Add("Player 3", 0);
+        playerScores.Add("Player 4", 0);
+
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
