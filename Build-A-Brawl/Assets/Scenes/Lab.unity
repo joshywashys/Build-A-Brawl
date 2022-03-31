@@ -214,15 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holder: {fileID: 0}
-  rigidbody: {fileID: 0}
-  collider: {fileID: 2600819}
-  holdPoints: []
-  onGrab:
-    m_PersistentCalls:
-      m_Calls: []
-  gizmoSize: 0.25
-  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!114 &2600818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2112,15 +2103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holder: {fileID: 0}
-  rigidbody: {fileID: 0}
-  collider: {fileID: 95305886}
-  holdPoints: []
-  onGrab:
-    m_PersistentCalls:
-      m_Calls: []
-  gizmoSize: 0.25
-  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &95305892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c203f2ae166392e4193056fa8185e555, type: 3}
@@ -8054,15 +8036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holder: {fileID: 0}
-  rigidbody: {fileID: 0}
-  collider: {fileID: 389996961}
-  holdPoints: []
-  onGrab:
-    m_PersistentCalls:
-      m_Calls: []
-  gizmoSize: 0.25
-  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!114 &389996960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8513,6 +8486,118 @@ LODGroup:
     renderers:
     - renderer: {fileID: 1794455562}
   m_Enabled: 1
+--- !u!1001 &400817428
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4278497741579619522, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_Name
+      value: gas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497741579619523, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497741579619523, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497741579619523, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497741579619523, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 26.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497741579619523, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497741579619523, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497741579619523, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497741579619523, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497741579619523, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497741579619523, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497741579619523, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497742072358467, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 44.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497742072358467, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -23.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497742072358467, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497742072358477, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497743283929028, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 33.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497743283929028, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497743283929029, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497743362435208, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 34.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497743362435208, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278497743362435208, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+--- !u!1 &400817429 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4278497743362435215, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+  m_PrefabInstance: {fileID: 400817428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &400817430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4278497743283928123, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+  m_PrefabInstance: {fileID: 400817428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &400817431 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4278497742072358466, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
+  m_PrefabInstance: {fileID: 400817428}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &401901672
 GameObject:
   m_ObjectHideFlags: 0
@@ -17633,15 +17718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holder: {fileID: 0}
-  rigidbody: {fileID: 0}
-  collider: {fileID: 816502049}
-  holdPoints: []
-  onGrab:
-    m_PersistentCalls:
-      m_Calls: []
-  gizmoSize: 0.25
-  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &816502056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c203f2ae166392e4193056fa8185e555, type: 3}
@@ -20269,15 +20345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holder: {fileID: 0}
-  rigidbody: {fileID: 0}
-  collider: {fileID: 935529686}
-  holdPoints: []
-  onGrab:
-    m_PersistentCalls:
-      m_Calls: []
-  gizmoSize: 0.25
-  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!114 &935529685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25468,7 +25535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   computeOverride: 0
-  _depthTex: {fileID: 1788315457}
+  _depthTex: {fileID: 1997260167}
   bakedDepthTex: {fileID: 0}
   _waves:
   - amplitude: 0.098139
@@ -27696,6 +27763,42 @@ Transform:
   m_Father: {fileID: 124206273}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!84 &1298242884
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 2
+  m_ColorFormat: 142
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1303495126
 GameObject:
   m_ObjectHideFlags: 0
@@ -34567,15 +34670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holder: {fileID: 0}
-  rigidbody: {fileID: 0}
-  collider: {fileID: 1572705166}
-  holdPoints: []
-  onGrab:
-    m_PersistentCalls:
-      m_Calls: []
-  gizmoSize: 0.25
-  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!114 &1572705165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36627,15 +36721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holder: {fileID: 0}
-  rigidbody: {fileID: 0}
-  collider: {fileID: 1646104501}
-  holdPoints: []
-  onGrab:
-    m_PersistentCalls:
-      m_Calls: []
-  gizmoSize: 0.25
-  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &1646104506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3001b54f6e109e243b320dfd54bce60e, type: 3}
@@ -40001,42 +40086,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788157230}
   m_Mesh: {fileID: 4300006, guid: fb2f5cec30b474b89b778e3aab6f3dfe, type: 3}
---- !u!84 &1788315457
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 2
-  m_ColorFormat: 142
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1794455560
 GameObject:
   m_ObjectHideFlags: 0
@@ -41675,42 +41724,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871173120}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!84 &1872364058
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 2
-  m_ColorFormat: 142
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1873942804
 GameObject:
   m_ObjectHideFlags: 0
@@ -44044,6 +44057,42 @@ LODGroup:
     renderers:
     - renderer: {fileID: 1097522116}
   m_Enabled: 1
+--- !u!84 &1997260167
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 2
+  m_ColorFormat: 142
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1997261896
 GameObject:
   m_ObjectHideFlags: 0
@@ -45049,6 +45098,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 963194228}
     m_Modifications:
+    - target: {fileID: 6281850480808708567, guid: 1152e794670bc8a40a90f38f6679b7b8, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 400817429}
+    - target: {fileID: 6281850480808708567, guid: 1152e794670bc8a40a90f38f6679b7b8, type: 3}
+      propertyPath: hurtGas
+      value: 
+      objectReference: {fileID: 400817430}
+    - target: {fileID: 6281850480808708567, guid: 1152e794670bc8a40a90f38f6679b7b8, type: 3}
+      propertyPath: riseGas
+      value: 
+      objectReference: {fileID: 400817431}
     - target: {fileID: 8395950255215378664, guid: 1152e794670bc8a40a90f38f6679b7b8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -46187,15 +46248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holder: {fileID: 0}
-  rigidbody: {fileID: 0}
-  collider: {fileID: 2100121065}
-  holdPoints: []
-  onGrab:
-    m_PersistentCalls:
-      m_Calls: []
-  gizmoSize: 0.25
-  gizmoColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &2100121070 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0df0e996771cc3c49b86d6065728c399, type: 3}
@@ -70353,7 +70405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   computeOverride: 0
-  _depthTex: {fileID: 1872364058}
+  _depthTex: {fileID: 1298242884}
   bakedDepthTex: {fileID: 0}
   _waves:
   - amplitude: 0.098139
