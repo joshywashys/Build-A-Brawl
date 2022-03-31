@@ -11,9 +11,22 @@ public class sliderChange : MonoBehaviour
     public UnityEvent leftIndex;
     public UnityEvent rightIndex;
 
+    [SerializeField] private GameObject generateLocate1;
+
+    [SerializeField] private GameObject generateLocate2;
+
+    [SerializeField] private GameObject generateLocate3;
+
+    [SerializeField] private GameObject generateLocate4;
+
     void Start()
     {
         charSelection.onValueChanged.AddListener(delegate { ValueChangeCheck(); });       
+    }
+
+   public void accessLocation()
+    {
+    //    if ()
     }
 
     public void ValueChangeCheck()
