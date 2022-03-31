@@ -299,6 +299,46 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e4a56022-6d02-4611-8f84-8734c907f186
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 914b9773-502e-48c0-beeb-4b98c8e4a293
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bc588071-894d-425a-ab21-75f12d3fe809
+    m_ActionName: UI/Cancel[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 707c32e5-6126-4c3d-b0f7-fa18c757c99a
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cb451503-b8a9-4c7b-aaa9-76f2009f5464
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ff0c20b8-169e-4482-a5d9-77d188c30b26
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 790b4a97-b402-4004-9e51-b7a35fd48e06
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 858f9928-5fd3-4756-91a0-53771d8b72de
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2fe40f7a-815d-4afb-8b87-7b06ce256e70
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a30d1db2-dfcb-4b31-8a69-71cdd5274b3f
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3622046291138277065}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
@@ -312,7 +352,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 4382fc78-cbaf-4d7f-8f7c-d954301d4684
+    m_ActionId: 68b29b7a-d64e-4a3b-b05c-72bafb55b8cb
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
@@ -328,7 +368,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 4c9ca148-5b17-48aa-90e6-3ae8fad9eb6a
+    m_ActionId: ee87058c-4b61-4434-a9a7-94bad8069fec
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
@@ -344,8 +384,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 1ba5db97-9a75-4b68-93c9-c339e6ee0639
-    m_ActionName: Player/PickUp[/Keyboard/q]
+    m_ActionId: 25aa7c95-10b7-4e3e-87a2-1d992bfac358
+    m_ActionName: Player/PickUp[/Keyboard/g]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3622046291138277065}
@@ -360,8 +400,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: e9c45b1b-96c5-47e5-974d-325cbc2efeea
-    m_ActionName: Player/Punch[/Keyboard/q]
+    m_ActionId: 9c417a08-d3fd-4b05-a979-a5f5cc3caf35
+    m_ActionName: Player/LeftPunch[/Keyboard/q]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3622046291138277065}
@@ -376,8 +416,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 392a799a-f9d0-46fc-b6c3-7a8a6bda6a59
+    m_ActionId: 1eca301a-3631-4b1a-b7a4-a7a42299c5cf
     m_ActionName: Player/RightPunch[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 288468fc-117e-4065-91af-0f94e226b9d7
+    m_ActionName: Player/Join[/Keyboard/anyKey]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
