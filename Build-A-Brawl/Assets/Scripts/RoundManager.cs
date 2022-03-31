@@ -2,25 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class RoundManager : MonoBehaviour
 {
+    public List<string> selectedMaps;
+    public int numRounds = 1;
+    private int currRound = 0;
+
+    private List<decimal> scores;
+
+    #region Main Menu
     [Header("Main Menu")]
     public float waitTime;
 
     public UnityEvent onCancelStart;
 
-    #region Menus
+    private bool starting = false;
+    private IEnumerator crDropBlocks;
+    private IEnumerator crCountdown;
+
+    #region Blocks
     [Header("Main Menu Blocks")]
     public List<GameObject> numberBlocks;
     public Transform blockSpawnpoint;
     public bool useRandomRotation;
     public bool destroyBlocksOnCancel;
     public Vector3 launchVector;
-
-    private bool starting = false;
-    private IEnumerator crDropBlocks;
-    private IEnumerator crCountdown;
 
     public IEnumerator DropBlocks()
     {
@@ -36,11 +44,12 @@ public class RoundManager : MonoBehaviour
             yield return new WaitForSeconds(waitTime / numberBlocks.Count);
         }
     }
+    #endregion
 
     public IEnumerator Countdown()
     {
         yield return new WaitForSeconds(waitTime);
-
+        NextRound();
     }
 
     public void CancelStart()
@@ -74,10 +83,35 @@ public class RoundManager : MonoBehaviour
     }
     #endregion
 
+    public void NextRound()
+    {
+        if (currRound < numRounds)
+        {
+            SceneManager.LoadScene(selectedMaps[currRound]);
+        }
+        if (currRound == numRounds)
+        {
+            SceneManager.LoadScene("VictoryScreen");
+        }
+
+        currRound += 1;
+        return;
+    }
+
     public void Start()
     {
         DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnSceneLoaded: " + scene.name);
+    }
+
+    public void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
 }
