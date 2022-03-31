@@ -15,8 +15,12 @@ public class RoundManager : MonoBehaviour
     public List<GameObject> numberBlocks;
     public Transform blockSpawnpoint;
     public bool useRandomRotation;
+    public bool destroyBlocksOnCancel;
     public Vector3 launchVector;
+
     private bool starting = false;
+    private IEnumerator crDropBlocks;
+    private IEnumerator crCountdown;
 
     public IEnumerator DropBlocks()
     {
@@ -41,21 +45,31 @@ public class RoundManager : MonoBehaviour
 
     public void CancelStart()
     {
-        StopCoroutine(DropBlocks());
-        StopCoroutine(Countdown());
-        onCancelStart?.Invoke();
+        StopCoroutine(crDropBlocks);
+        StopCoroutine(crCountdown);
+        if (destroyBlocksOnCancel) { onCancelStart?.Invoke(); }
     }
 
     public void StartGame()
     {
         if (!starting)
         {
-            StartCoroutine(DropBlocks());
-            StartCoroutine(Countdown());
+            print("STARTING");
+            crDropBlocks = DropBlocks();
+            StartCoroutine(crDropBlocks);
+
+            crCountdown = Countdown();
+            StartCoroutine(crCountdown);
+
+            starting = true;
+            return;
         }
         if (starting)
         {
+            print("CANCELLING");
             CancelStart();
+            starting = false;
+            return;
         }
     }
     #endregion
