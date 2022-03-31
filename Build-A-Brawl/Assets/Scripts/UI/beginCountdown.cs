@@ -11,7 +11,7 @@ public class beginCountdown : MonoBehaviour
     public AudioSource startSound;
     void Start()
     {
-        InvokeRepeating("countDown", 0.0f, 0.7f);
+        InvokeRepeating("countDown", 0.0f, 0.9f);
     }
 
     // Update is called once per frame
