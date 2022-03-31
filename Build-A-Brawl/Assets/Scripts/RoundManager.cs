@@ -8,7 +8,7 @@ public class RoundManager : MonoBehaviour
 {
     public BetaStageSelect stages;
     public List<string> selectedMaps;
-    public int numRounds = 1;
+    public int numRounds = 5;
     private int currRound = 0;
     private float time;
 
@@ -57,7 +57,9 @@ public class RoundManager : MonoBehaviour
 
     public IEnumerator Countdown()
     {
+        //print("Starting Countdown");
         yield return new WaitForSeconds(waitTime);
+        //print("Ended Countdown");
         NextRound();
     }
 
@@ -72,7 +74,7 @@ public class RoundManager : MonoBehaviour
     {
         if (!starting)
         {
-            print("STARTING");
+            //print("STARTING");
             crDropBlocks = DropBlocks();
             StartCoroutine(crDropBlocks);
 
@@ -86,13 +88,14 @@ public class RoundManager : MonoBehaviour
             if (stages.stage4Sel) { selectedMaps.Add("VolcanoMap"); }
             if (stages.stage5Sel) { selectedMaps.Add("MallMap"); }
             if (stages.stage6Sel) { selectedMaps.Add("BalloonMap"); }
+            if (selectedMaps == null) { selectedMaps.Add("Lab"); }
 
             starting = true;
             return;
         }
         if (starting)
         {
-            print("CANCELLING");
+            //print("CANCELLING");
             CancelStart();
             selectedMaps.Clear();
 
@@ -110,12 +113,15 @@ public class RoundManager : MonoBehaviour
 
     public void NextRound()
     {
+        print("next round");
         if (currRound < numRounds)
         {
-            SceneManager.LoadScene(selectedMaps[currRound]);
+            print("LOAD SCENE: " + selectedMaps[currRound % selectedMaps.Count]);
+            SceneManager.LoadScene(selectedMaps[currRound % selectedMaps.Count]);
         }
         if (currRound == numRounds)
         {
+            print("LOAD SCENE: Victory");
             SceneManager.LoadScene("VictoryScreen");
         }
 

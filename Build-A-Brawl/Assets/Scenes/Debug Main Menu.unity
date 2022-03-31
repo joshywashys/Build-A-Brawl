@@ -2217,6 +2217,15 @@ MonoBehaviour:
   stage2Sel: 0
   stage3Sel: 0
   stage4Sel: 0
+  stage5Sel: 0
+  stage6Sel: 0
+  Material1: {fileID: 0}
+  Material2: {fileID: 0}
+  Material3: {fileID: 0}
+  Material4: {fileID: 0}
+  Material5: {fileID: 0}
+  Material6: {fileID: 0}
+  thumbNail: {fileID: 0}
   select: {fileID: 444721710}
 --- !u!1 &282748381
 GameObject:
@@ -8192,6 +8201,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3acf83a5cd0402f4c9648322b5e87b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stages: {fileID: 1641258110}
+  selectedMaps: []
+  numRounds: 5
+  numPlayers: 0
   waitTime: 6
   onCancelStart:
     m_PersistentCalls:
@@ -11433,6 +11446,15 @@ MonoBehaviour:
   stage2Sel: 0
   stage3Sel: 0
   stage4Sel: 0
+  stage5Sel: 0
+  stage6Sel: 0
+  Material1: {fileID: 0}
+  Material2: {fileID: 0}
+  Material3: {fileID: 0}
+  Material4: {fileID: 0}
+  Material5: {fileID: 0}
+  Material6: {fileID: 0}
+  thumbNail: {fileID: 0}
   select: {fileID: 1379174988}
 --- !u!1 &1527867652
 GameObject:
@@ -12488,6 +12510,15 @@ MonoBehaviour:
   stage2Sel: 0
   stage3Sel: 0
   stage4Sel: 0
+  stage5Sel: 0
+  stage6Sel: 0
+  Material1: {fileID: 0}
+  Material2: {fileID: 0}
+  Material3: {fileID: 0}
+  Material4: {fileID: 0}
+  Material5: {fileID: 0}
+  Material6: {fileID: 0}
+  thumbNail: {fileID: 0}
   select: {fileID: 2138417347}
 --- !u!1 &1675637635
 GameObject:
@@ -14740,6 +14771,15 @@ MonoBehaviour:
   stage2Sel: 0
   stage3Sel: 0
   stage4Sel: 0
+  stage5Sel: 0
+  stage6Sel: 0
+  Material1: {fileID: 0}
+  Material2: {fileID: 0}
+  Material3: {fileID: 0}
+  Material4: {fileID: 0}
+  Material5: {fileID: 0}
+  Material6: {fileID: 0}
+  thumbNail: {fileID: 0}
   select: {fileID: 1247075232}
 --- !u!1 &1975898665
 GameObject:
