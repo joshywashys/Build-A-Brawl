@@ -616,15 +616,10 @@ GameObject:
   - component: {fileID: 5206510206185833545}
   - component: {fileID: 3377443000650985768}
   - component: {fileID: 6922348913997038548}
-<<<<<<< HEAD
   - component: {fileID: 7836072692186697659}
   - component: {fileID: 5362091865346399224}
   - component: {fileID: 4667532608607840025}
   m_Layer: 0
-=======
-  - component: {fileID: 3758133693719591514}
-  m_Layer: 3
->>>>>>> 3fb97c5923c90b52dd697628c6859b3fad908735
   m_Name: clownLegsBound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,20 +675,14 @@ MonoBehaviour:
   skeletonBase: {fileID: 8970327856598894165}
   partData: {fileID: 11400000, guid: eff8f940feb3ead4eb2eba5056ddf7d6, type: 2}
   creature: {fileID: 0}
-<<<<<<< HEAD
 --- !u!95 &7836072692186697659
 Animator:
   serializedVersion: 3
-=======
---- !u!65 &3758133693719591514
-BoxCollider:
->>>>>>> 3fb97c5923c90b52dd697628c6859b3fad908735
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4830935091898703603}
-<<<<<<< HEAD
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
@@ -740,7 +729,7 @@ MonoBehaviour:
     m_Bits: 8
   strideLength: 0.7
   strideHeight: 0.675
-  strideSpeed: 2
+  strideSpeed: 3
   ragdoll:
     bones: []
   currentState: 0
@@ -756,14 +745,6 @@ MonoBehaviour:
     targetOffset: 0.21
     target: {fileID: 7766271540049720969}
     foot: {fileID: 4698355624100979946}
-=======
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.07511292, y: 0.07347257, z: 0.054498743}
-  m_Center: {x: -0.000014817715, y: -0.0008052469, z: 0.005777584}
->>>>>>> 3fb97c5923c90b52dd697628c6859b3fad908735
 --- !u!1 &5365174937493249056
 GameObject:
   m_ObjectHideFlags: 0

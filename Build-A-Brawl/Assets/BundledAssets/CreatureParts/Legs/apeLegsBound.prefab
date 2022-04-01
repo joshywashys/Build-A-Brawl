@@ -441,12 +441,9 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 8
-<<<<<<< HEAD
   strideLength: 0.5
   strideHeight: 0.5
   strideSpeed: 4
-=======
->>>>>>> 3fb97c5923c90b52dd697628c6859b3fad908735
   ragdoll:
     bones: []
   currentState: 0
