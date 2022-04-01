@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
+    public RoundManager rm;
     [SerializeField] private CreatureManager creatureManager;
     [SerializeField] private List<Transform> spawnpoints;
 
