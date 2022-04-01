@@ -1760,6 +1760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 181592514}
   - component: {fileID: 181592515}
+  - component: {fileID: 181592516}
   m_Layer: 0
   m_Name: GenerationLocation1
   m_TagString: Untagged
@@ -1821,6 +1822,19 @@ MonoBehaviour:
   onFinalize:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &181592516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181592513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68480b1228dfc354bb649629a9eb9a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4443079348437890297, guid: c27cfc3cfa19186489d5675731bd4993, type: 3}
 --- !u!1 &223554030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,7 +2104,7 @@ MonoBehaviour:
   leftIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 687205165}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: PrevHead
         m_Mode: 1
@@ -2117,7 +2131,7 @@ MonoBehaviour:
   rightIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 687205165}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: NextHead
         m_Mode: 1
@@ -3384,7 +3398,7 @@ MonoBehaviour:
   leftIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 1982228499}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: PrevHead
         m_Mode: 1
@@ -3411,7 +3425,7 @@ MonoBehaviour:
   rightIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 1982228499}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: NextHead
         m_Mode: 1
@@ -3751,7 +3765,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -976.0266, y: -399.89966}
+  m_AnchoredPosition: {x: 765, y: -290}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &409333240
@@ -3851,7 +3865,7 @@ MonoBehaviour:
   leftIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 1982228499}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: PrevTorso
         m_Mode: 1
@@ -3866,7 +3880,7 @@ MonoBehaviour:
   rightIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 1982228499}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: NextTorso
         m_Mode: 1
@@ -5123,7 +5137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1223172839167569807, guid: c27cfc3cfa19186489d5675731bd4993, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1223172839167569807, guid: c27cfc3cfa19186489d5675731bd4993, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5288,7 +5302,7 @@ MonoBehaviour:
   leftIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 687205165}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: PrevArmL
         m_Mode: 1
@@ -5303,7 +5317,7 @@ MonoBehaviour:
   rightIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 687205165}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: NextArmL
         m_Mode: 1
@@ -8275,7 +8289,7 @@ MonoBehaviour:
   leftIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 1982228499}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: PrevLegs
         m_Mode: 1
@@ -8290,7 +8304,7 @@ MonoBehaviour:
   rightIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 1982228499}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: NextLegs
         m_Mode: 1
@@ -11149,7 +11163,7 @@ MonoBehaviour:
   leftIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 1982228499}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: PrevArmR
         m_Mode: 1
@@ -11164,7 +11178,7 @@ MonoBehaviour:
   rightIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 1982228499}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: NextArmR
         m_Mode: 1
@@ -12964,7 +12978,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -976.0266, y: -399.89966}
+  m_AnchoredPosition: {x: 1070, y: -291}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1247075232
@@ -13242,7 +13256,7 @@ MonoBehaviour:
   leftIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 687205165}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: PrevArmR
         m_Mode: 1
@@ -13257,7 +13271,7 @@ MonoBehaviour:
   rightIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 687205165}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: NextArmR
         m_Mode: 1
@@ -16074,7 +16088,7 @@ MonoBehaviour:
   leftIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 687205165}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: PrevTorso
         m_Mode: 1
@@ -16089,7 +16103,7 @@ MonoBehaviour:
   rightIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 687205165}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: NextTorso
         m_Mode: 1
@@ -17632,22 +17646,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 372517193230918665, guid: 5233ce81d55bf194891c72b21fdc734f, type: 3}
+      - m_Target: {fileID: 687205165}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: FinalizeCreature
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17870,22 +17872,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 372517193230918665, guid: 5233ce81d55bf194891c72b21fdc734f, type: 3}
+      - m_Target: {fileID: 1982228499}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: FinalizeCreature
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -18484,7 +18474,7 @@ MonoBehaviour:
   leftIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 687205165}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: PrevLegs
         m_Mode: 1
@@ -18499,7 +18489,7 @@ MonoBehaviour:
   rightIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 687205165}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: NextLegs
         m_Mode: 1
@@ -21611,7 +21601,7 @@ MonoBehaviour:
   leftIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 1982228499}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: PrevArmL
         m_Mode: 1
@@ -21626,7 +21616,7 @@ MonoBehaviour:
   rightIndex:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181592515}
+      - m_Target: {fileID: 1982228499}
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: NextArmL
         m_Mode: 1
@@ -26348,18 +26338,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PartCombiner, Assembly-CSharp
         m_MethodName: FinalizeCreature
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
