@@ -177,8 +177,8 @@ public class PartCombiner : MonoBehaviour
             pc.rotateSpeed = stats.GetRotateSpeed();
 
             if (savedLegs.GetComponent<LegIKRig>() != null) { savedLegs.GetComponent<LegIKRig>().enabled = true; }
-            savedLegs.GetComponent<Collider>().enabled = false;
-            savedTorso.GetComponent<Collider>().enabled = false;
+            if (savedLegs.GetComponent<Collider>() != null) { savedLegs.GetComponent<Collider>().enabled = false; }
+            if (savedTorso.GetComponent<Collider>() != null) { savedTorso.GetComponent<Collider>().enabled = false; }
             MakeChildrenPlayerLayer(creature.transform);
 
             //DontDestroyOnLoad(newPlayer); //.transform.root.gameObject
