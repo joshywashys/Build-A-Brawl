@@ -1,12 +1,25 @@
 using UnityEngine;
+using System.Linq;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
+using static UnityEngine.InputSystem.InputAction;
 
 [RequireComponent(typeof(RigidbodyController))]
 public class PlayerController : MonoBehaviour
 {
+
+	//start of Anna
+	private PlayerConfiguration playerConfig;
+
+	[SerializeField]
+	private MeshRenderer playerMesh;
+
+	private Controls theControls;
+
+	//end of Anna
+
     private CreatureStats statsRef;
 
     [Header("Animators")]
@@ -81,6 +94,11 @@ public class PlayerController : MonoBehaviour
 	{
 		// This is for quick testing please remove this function call later
 		//SetPlayerColour(playerColour);
+
+		//Anna start
+		theControls = new Controls();
+
+		//Anna end
 
 		// Initialize state
 		m_stateDictionary = new Dictionary<State, UnityAction>
@@ -180,6 +198,43 @@ public class PlayerController : MonoBehaviour
 			OnHit(collision);
 		}
 	}
+
+	//Anna start
+	public void InitializePlayer(PlayerConfiguration pc)
+	{
+		playerConfig = pc;
+		playerConfig.Input.onActionTriggered += Input_onActionTriggered;
+	}
+
+	private void Input_onActionTriggered(CallbackContext obj)
+	{
+		if (obj.action.name == theControls.Player.Move.name)
+		{
+			OnMove(obj);
+		} 
+		
+		if (obj.action.name == theControls.Player.Jump.name)
+		{
+			OnJump(obj);
+		}
+
+		if(obj.action.name == theControls.Player.PickUp.name)
+		{
+			OnPickUp(obj);
+		}
+
+		if(obj.action.name == theControls.Player.RightPunch.name)
+		{
+			OnRightPunch(obj);
+		}
+
+		if(obj.action.name == theControls.Player.LeftPunch.name)
+		{
+			OnLeftPunch(obj);
+		}
+	}
+
+	//Anna end
 
 	#endregion
 
