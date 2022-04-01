@@ -310,12 +310,12 @@ MonoBehaviour:
   m_targetTag: Left Hand
   ragdoll:
     bones:
-    - rigidbody: {fileID: 0}
-      collider: {fileID: 0}
-    - rigidbody: {fileID: 0}
-      collider: {fileID: 0}
-    - rigidbody: {fileID: 0}
-      collider: {fileID: 0}
+    - rigidbody: {fileID: 493015787033111077}
+      collider: {fileID: 2933184020877269058}
+    - rigidbody: {fileID: 8559617933267949142}
+      collider: {fileID: 7731043120682254862}
+    - rigidbody: {fileID: 5802271035860204992}
+      collider: {fileID: 5143282357196435533}
   currentState: 0
 --- !u!1 &3933531063259131106
 GameObject:
