@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8777199868674013373}
   - component: {fileID: 8777199868674013372}
   - component: {fileID: 8777199868674013371}
-  - component: {fileID: 8777199868674013374}
   m_Layer: 0
   m_Name: eVehic5
   m_TagString: heavyAttack
@@ -137,17 +136,3 @@ MonoBehaviour:
   destReached: 0
   pastLine: 0
   speed: 30
---- !u!114 &8777199868674013374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8777199868674013370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody: {fileID: 0}
-  collider: {fileID: 0}

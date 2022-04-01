@@ -89,6 +89,7 @@ public class RoundManager : MonoBehaviour
             if (stages.stage5Sel) { selectedMaps.Add("MallMap"); }
             if (stages.stage6Sel) { selectedMaps.Add("BalloonMap"); }
             if (selectedMaps == null) { selectedMaps.Add("Lab"); }
+            selectedMaps = ShuffleList(selectedMaps);
 
             starting = true;
             return;
@@ -109,6 +110,18 @@ public class RoundManager : MonoBehaviour
     {
         //update player scores etc
         NextRound();
+    }
+
+    public List<string> ShuffleList(List<string> toShuffle)
+    {
+        for (int i = 0; i < toShuffle.Count; i++)
+        {
+            string temp = toShuffle[i];
+            int randIndex = Random.Range(i, toShuffle.Count);
+            toShuffle[i] = toShuffle[randIndex];
+            toShuffle[randIndex] = temp;
+        }
+        return toShuffle;
     }
 
     public void NextRound()

@@ -28,19 +28,19 @@ public class playerJoins : MonoBehaviour
     {
         if (input.playerIndex == 0)
         {
-
+            player1.SetActive(true);
             return player1;
         } else if (input.playerIndex == 1)
         {
-
+            player2.SetActive(true);
             return player2;
         } else if (input.playerIndex == 2)
         {
-
+            player3.SetActive(true);
             return player3;
         } else if (input.playerIndex == 3)
         {
-
+            player4.SetActive(true);
             return player4;
         } else { }
 
@@ -54,9 +54,9 @@ public class playerJoins : MonoBehaviour
         var baseMenu = GameObject.Find("CharCreaMenu");
         if (baseMenu != null)
         {
-        
-            Debug.Log("IM TRTYING TO SPAWNN");
-            var playerMenu = Instantiate(figure(), baseMenu.transform);
+
+            Debug.Log("IM TRTYING TO SPAWNN " + input.playerIndex);
+            var playerMenu = figure();
             input.uiInputModule = playerMenu.GetComponentInChildren<InputSystemUIInputModule>();
             playerMenu.GetComponent<playerSetupMenuController>().SetPlayerIndex(input.playerIndex);
         }
