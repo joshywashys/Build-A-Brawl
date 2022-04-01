@@ -84,6 +84,7 @@ public class BodyPart : MonoBehaviour
         if (currChild.GetComponent<Rigidbody>() != null)
         {
             currChild.GetComponent<Rigidbody>().isKinematic = toggleType;
+            if (toggleType == false) { currChild.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None; }
         }
         if (currChild.childCount > 0)
         {
