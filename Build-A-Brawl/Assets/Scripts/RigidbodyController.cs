@@ -13,7 +13,7 @@ public class RigidbodyController : MonoBehaviour
 	public float floatHeight;
 	public float m_floatSpringStrength;
 	[SerializeField] private float m_floatSpringDamper;
-	[SerializeField] private Vector3 m_rayOriginOffset;
+	[SerializeField] private Vector3 m_rayOriginOffset { get { return Vector3.up * m_rayOffset; } }
 	public bool useFloat = true;
 
 	[Header("Balancing")]
@@ -23,7 +23,8 @@ public class RigidbodyController : MonoBehaviour
 
 	[Header("Ground Check Settings")]
 	[SerializeField] private float m_groundCheckBuffer;
-	public bool isGrounded = false;
+	[SerializeField] private float m_rayOffset;
+	public bool isGrounded { get; private set; } = false;
 	public UnityAction OnGrounded;
 
 	[Header("Locomotion")]
@@ -32,6 +33,7 @@ public class RigidbodyController : MonoBehaviour
 	[SerializeField] private float m_maxAccelForce;
 	[SerializeField] private Vector3 m_forceScale;
 	[SerializeField] private float m_gravityScale;
+	public bool useMovement;
 
 	[HideInInspector] public Vector3 groundNormal;
 
@@ -41,15 +43,17 @@ public class RigidbodyController : MonoBehaviour
 	private Ray m_ray;
 
 	private Vector3 m_desiredVel;
-	public void SetVelocity(Vector3 velocity) => m_desiredVel = velocity;
+    
+    public void SetVelocity(Vector3 velocity) => m_desiredVel = velocity;
  
+	public float Velocity { get { return m_rigidbody.velocity.magnitude; } }
+
     private void InitializeValues()
     {
         floatHeight = 3;
         m_floatSpringStrength = 30;
         m_floatSpringDamper = 4;
-        m_rayOriginOffset = new Vector3(0, 0.1f, 0);
-
+        
         m_balanceSpringStrength = 50;
         m_balanceSpringDamper = 1.5f;
 
@@ -82,7 +86,7 @@ public class RigidbodyController : MonoBehaviour
 
 	private void PhysicsCheck()
 	{
-		if (Physics.Raycast(m_ray, out RaycastHit hit, floatHeight + m_groundCheckBuffer + m_rayOriginOffset.y, ~ignoreLayer))
+		if (Physics.Raycast(m_ray, out RaycastHit hit, floatHeight + m_groundCheckBuffer + m_rayOffset, ~ignoreLayer))
 		{
 			if (!isGrounded)
 				OnGrounded?.Invoke();
@@ -103,12 +107,8 @@ public class RigidbodyController : MonoBehaviour
 		if (!useFloat)
 			return;
 
-		if (Physics.Raycast(m_ray, out RaycastHit hit, floatHeight * 2.0f + m_rayOriginOffset.y, ~ignoreLayer))
+		if (Physics.Raycast(m_ray, out RaycastHit hit, floatHeight * 2.0f + m_rayOffset, ~ignoreLayer))
 		{
-            //print(hit.transform.tag);
-            //print(hit.distance);
-            //print(hit.transform.gameObject.layer);
-
             Vector3 otherVel = Vector3.zero;
 			Rigidbody otherBody = hit.rigidbody;
 			if (otherBody != null)
@@ -131,6 +131,9 @@ public class RigidbodyController : MonoBehaviour
 
 	private void Move()
 	{
+		if (!useMovement)
+			return;
+
 		float velDot = Vector3.Dot(m_desiredVel.normalized, m_rigidbody.velocity.normalized);
 		float accel = m_acceleration * m_accelerationFactor.Evaluate(velDot);
 

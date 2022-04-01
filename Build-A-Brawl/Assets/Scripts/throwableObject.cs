@@ -19,8 +19,8 @@ public class ThrowableObject : MonoBehaviour
 	public void Start()
 	{
 		rigidbody = GetComponent<Rigidbody>();
-		holdPoints = new Transform[1];
-		holdPoints[1] = gameObject.transform;
+		//holdPoints = new Transform[1];
+		//holdPoints[1] = gameObject.transform;
 	}
 
 	public void SetGrabbed(bool pickedUp, Transform grabber = null)
@@ -43,15 +43,17 @@ public class ThrowableObject : MonoBehaviour
 	}
 
 #if UNITY_EDITOR
+	/*
 	[Header("Debug")]
 	[SerializeField] private float gizmoSize = 0.25f;
 	[SerializeField] private Color gizmoColour = Color.blue;
-	private void OnDrawGizmos()
+	//private void OnDrawGizmos()
 	{
 		Gizmos.color = gizmoColour;
         //if (holdPoints.Length == 0) { return; }
 		//foreach (Transform point in holdPoints)
 			//Gizmos.DrawWireSphere(point.position, gizmoSize);
 	}
+	*/
 #endif
 }
