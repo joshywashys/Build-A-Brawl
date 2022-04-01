@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BodyPart : MonoBehaviour
 {
-    [SerializeField] private Transform skeletonBase;
+    [SerializeField] public Transform skeletonBase;
     private Component[] colliderJoints;
     public BodyPartData partData;
     public CreatureStats creature;

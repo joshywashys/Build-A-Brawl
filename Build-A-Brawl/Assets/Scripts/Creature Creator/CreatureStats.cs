@@ -288,8 +288,12 @@ public class CreatureStats : MonoBehaviour
     {
         armLPart.ToggleKinematics(armLPart.gameObject.transform, false);
         //enable colliders
-        armLPart.GetComponent<PhysicsIKRig>().enabled = false;
+        //armLPart.GetComponent<PhysicsIKRig>().enabled = false;
         armLPart.GetComponent<Animator>().enabled = false;
+        if (armL.GetComponent<Rigidbody>() == null) { armL.AddComponent<Rigidbody>(); }
+        armL.GetComponent<PhysicsIKRig>().currentState = PhysicsIKRig.State.Ragdoll;
+        armL.GetComponent<BodyPart>().ToggleKinematics(armL.GetComponent<BodyPart>().skeletonBase, false);
+
         armL.transform.parent = null;
         armL = null;
         armLPart.creature = null;
@@ -301,8 +305,12 @@ public class CreatureStats : MonoBehaviour
     {
         armRPart.ToggleKinematics(armRPart.gameObject.transform, false);
         //enable colliders
-        armRPart.GetComponent<PhysicsIKRig>().enabled = false;
+        //armRPart.GetComponent<PhysicsIKRig>().enabled = false;
         armRPart.GetComponent<Animator>().enabled = false;
+        if (armR.GetComponent<Rigidbody>() == null) { armR.AddComponent<Rigidbody>(); }
+        armR.GetComponent<PhysicsIKRig>().currentState = PhysicsIKRig.State.Ragdoll;
+        armR.GetComponent<BodyPart>().ToggleKinematics(armR.GetComponent<BodyPart>().skeletonBase, false);
+
         armR.transform.parent = null;
         armR = null;
         armRPart.creature = null;
