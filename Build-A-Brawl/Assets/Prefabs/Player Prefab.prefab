@@ -40,7 +40,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812509945516770448}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5479808838921011391}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -446,13 +446,12 @@ MonoBehaviour:
   floatHeight: 3
   m_floatSpringStrength: 30
   m_floatSpringDamper: 4
-  m_rayOriginOffset: {x: 0, y: 0.1, z: 0}
   useFloat: 1
   m_balanceSpringStrength: 50
   m_balanceSpringDamper: 1.5
   useBalance: 1
   m_groundCheckBuffer: 0.75
-  isGrounded: 0
+  m_rayOffset: 0
   m_acceleration: 200
   m_accelerationFactor:
     serializedVersion: 2
@@ -490,6 +489,7 @@ MonoBehaviour:
   m_maxAccelForce: 150
   m_forceScale: {x: 1, y: 0, z: 1}
   m_gravityScale: 5
+  useMovement: 0
   groundNormal: {x: 0, y: 0, z: 0}
 --- !u!114 &3622046291138277065
 MonoBehaviour:
@@ -694,7 +694,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8871093476895808470}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5

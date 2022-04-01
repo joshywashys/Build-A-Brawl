@@ -14,8 +14,8 @@ public class RoundManager : MonoBehaviour
 
     public struct playerStats
     {
-        decimal score;
-        bool isAlive;
+        public decimal score;
+        public bool isAlive;
     }
 
     public int numPlayers;
