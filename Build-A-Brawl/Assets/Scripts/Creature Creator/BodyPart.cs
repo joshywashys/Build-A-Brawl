@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BodyPart : MonoBehaviour
 {
-    [SerializeField] private Transform skeletonBase;
+    [SerializeField] public Transform skeletonBase;
     private Component[] colliderJoints;
     public BodyPartData partData;
     public CreatureStats creature;
@@ -84,6 +84,7 @@ public class BodyPart : MonoBehaviour
         if (currChild.GetComponent<Rigidbody>() != null)
         {
             currChild.GetComponent<Rigidbody>().isKinematic = toggleType;
+            if (toggleType == false) { currChild.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None; }
         }
         if (currChild.childCount > 0)
         {
