@@ -719,9 +719,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 1
   m_Data:
-    m_Root: {fileID: 0}
-    m_Mid: {fileID: 0}
-    m_Tip: {fileID: 0}
+    m_Root: {fileID: 4525394861828656641}
+    m_Mid: {fileID: 8671908365530408159}
+    m_Tip: {fileID: 3528691295471015491}
     m_Target: {fileID: 0}
     m_Hint: {fileID: 6074616099358869951}
     m_TargetPositionWeight: 1
