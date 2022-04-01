@@ -17,9 +17,12 @@ public class playerSetupMenuController : MonoBehaviour
 
     [SerializeField] private Button readyButton;
 
+    [SerializeField] public GameObject player;
 
     private float ignoreInputTime = 1.5f;
     private bool inputEnabled;
+
+
 
     //set player controller number, and change text
     public void SetPlayerIndex(int pi)
@@ -64,6 +67,7 @@ public class playerSetupMenuController : MonoBehaviour
 
         playerConfigurationManager.Instance.readyPlayer(PlayerIndex);
         readyButton.gameObject.SetActive(false);
+    
     }
 
 }
