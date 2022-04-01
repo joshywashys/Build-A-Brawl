@@ -48,7 +48,7 @@ public class LegIKRig : MonoBehaviour
 			m_raycastDistance = raycastOrigin.position.y - foot.position.y + targetOffset + 0.2f;
         }
 
-		public void SetIKTarget(Vector3 forwards, Vector4 stride, float timeOffset, float runSpeed = 1.0f)
+		public void SetIKTarget(Vector3 forwards, Vector4 stride, float timeOffset, float runSpeed)
         {
 			Ray ray = new Ray(raycastOrigin.position, Vector3.down);
 			if (Physics.Raycast(ray, out RaycastHit hit, m_raycastDistance, m_layerMask))
@@ -104,8 +104,10 @@ public class LegIKRig : MonoBehaviour
 		//float leftLegWeight = m_animator.GetFloat("LeftIKWeight");
 		//float rightLegWeight = m_animator.GetFloat("RightIKWeight");
 
-		SetLeftLegIKTarget();
-		SetRightLegIKTarget();
+		float animSpeed = Mathf.Clamp01(m_rController.isGrounded ? m_rController.Velocity : 0.0f);
+
+		SetLeftLegIKTarget(animSpeed);
+		SetRightLegIKTarget(animSpeed);
 
 		leftLeg.UpdateWeightInflence();
 		rightLeg.UpdateWeightInflence();
@@ -116,18 +118,17 @@ public class LegIKRig : MonoBehaviour
 		//leftLeg.UpdateIKTargetRotation();
 		//rightLeg.UpdateIKTargetRotation();
 
-		//float animSpeed = m_rController.isGrounded ? m_rController.Velocity : 0.0f;
 		//m_animator.SetFloat("Speed", animSpeed);
 	}
 
-	public void SetLeftLegIKTarget()
+	public void SetLeftLegIKTarget(float speed)
     {
-		leftLeg.SetIKTarget(transform.forward, m_stride, 0.0f);
+		leftLeg.SetIKTarget(transform.forward, m_stride, 0.0f, speed);
     }
 
-	public void SetRightLegIKTarget()
+	public void SetRightLegIKTarget(float speed)
     {
-		rightLeg.SetIKTarget(transform.forward, m_stride, 3.0f);
+		rightLeg.SetIKTarget(transform.forward, m_stride, 3.0f, speed);
     }
 
 	public void SetRagdoll(bool active)
