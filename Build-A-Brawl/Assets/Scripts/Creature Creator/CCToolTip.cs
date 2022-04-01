@@ -37,7 +37,7 @@ public class CCToolTip : MonoBehaviour
         List<Sprite> symbols = creature.newHead.GetComponent<BodyPart>().partData.symbols;
         for (int i = 0; i < symbols.Count; i++)
         {
-            print("added symbol " + symbols[i].name);
+            //print("added symbol " + symbols[i].name);
             currSymbol = Instantiate(symbolPrefab, tooltip.transform);
             currSymbol.GetComponent<Image>().sprite = symbols[i];
         }

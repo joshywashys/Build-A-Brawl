@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class playerSetupMenuController : MonoBehaviour
 {
-    private int PlayerIndex;
+    public int PlayerIndex;
 
     //text to change
     [SerializeField] private TextMeshProUGUI playerTitle;
@@ -16,6 +16,7 @@ public class playerSetupMenuController : MonoBehaviour
     [SerializeField] private GameObject menuPanel;
 
     [SerializeField] private Button readyButton;
+
 
     private float ignoreInputTime = 1.5f;
     private bool inputEnabled;

@@ -16,8 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private List<Image[]> limbImgs;
     public List<Color> hitColors;
     public List<Color> playerColors;
-
-
+    private Text playerNumText;
     
     public Color CalculateHitColour(float health, float healthMax)
     {
@@ -73,7 +72,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < statsList.Count; i++)
         {
             GameObject currOverlay = Instantiate(overlayPrefab, canvas.transform);
-            currOverlay.GetComponent<RectTransform>().localPosition = new Vector3((Screen.width / (statsList.Count + 1)) * (i + 1) - Screen.width / 2, (Screen.height/2) * 0.8f, 0);
+            currOverlay.GetComponent<RectTransform>().localPosition = new Vector3((Screen.width / (statsList.Count + 1)) * (i + 1) - Screen.width / 2, -(Screen.height/2) * 0.8f, 0);
             overlays.Add(currOverlay);
         }
 
@@ -90,6 +89,11 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < overlays.Count; i++)
         {
             overlays[i].transform.Find("bg").GetComponent<Image>().color = playerColors[i];
+        }
+
+        for (int i = 0; i < overlays.Count; i++)
+        {
+            overlays[i].transform.Find("playerNum").GetComponent<Text>().text = "Player " + (i + 1);
         }
 
         // Get limb imgs

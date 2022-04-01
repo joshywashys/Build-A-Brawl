@@ -74,5 +74,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dded900016109c4bb9bb6383f3388e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerJoinMenuPrefab: {fileID: 1417350423453854671, guid: 14562a30eb834504db017720fe378695, type: 3}
+  playerMenuType: {fileID: 1417350423453854671, guid: 14562a30eb834504db017720fe378695, type: 3}
+  player1: {fileID: 8450979735793481809, guid: 17b25b56e2d8ed84191cbee140625cd8, type: 3}
+  player2: {fileID: 3020331003727127248, guid: 602b144a5e01c924fa51d7852f7a5b8f, type: 3}
+  player3: {fileID: 7224217183380755472, guid: 63b3bbb53315b5b47bf826676350aff2, type: 3}
+  player4: {fileID: 7187063021779166690, guid: e336c03cb14add94f905e4a6d3ae0b02, type: 3}
   input: {fileID: 6934948865195750401}

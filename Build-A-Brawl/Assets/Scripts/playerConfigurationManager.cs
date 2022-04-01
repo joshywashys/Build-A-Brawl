@@ -52,6 +52,9 @@ public class playerConfigurationManager : MonoBehaviour
             
             pi.transform.SetParent(transform);
             playerConfigs.Add(new PlayerConfiguration(pi));
+
+
+
         }
     }
 
