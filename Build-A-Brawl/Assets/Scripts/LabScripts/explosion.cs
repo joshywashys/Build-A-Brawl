@@ -22,7 +22,7 @@ public class explosion : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		print(collision.gameObject.tag);
+		//print(collision.gameObject.tag);
 
 		if (collision.gameObject.tag == "heavyAttack" ||
 			collision.gameObject.tag == "ground")

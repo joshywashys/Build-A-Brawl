@@ -237,8 +237,8 @@ public class CreatureStats : MonoBehaviour
         if (head == null) { head = creature.transform.GetChild(0).GetChild(5).gameObject; }
         if (torso == null) { torso = creature.transform.GetChild(0).gameObject; }
         if (armL == null) { armL = creature.transform.GetChild(0).GetChild(6).gameObject; }
-        if (armR == null) { armR = creature.transform.GetChild(0).GetChild(7).gameObject; } print("armR: " + armR);
-        if (legs == null) { legs = creature.transform.GetChild(0).GetChild(8).gameObject; } print("legs: " + legs);
+        if (armR == null) { armR = creature.transform.GetChild(0).GetChild(7).gameObject; } //print("armR: " + armR);
+        if (legs == null) { legs = creature.transform.GetChild(0).GetChild(8).gameObject; } //print("legs: " + legs);
 
         if (headPart == null) { headPart = head.GetComponent<BodyPart>(); }
         if (torsoPart == null) { torsoPart = torso.GetComponent<BodyPart>(); }

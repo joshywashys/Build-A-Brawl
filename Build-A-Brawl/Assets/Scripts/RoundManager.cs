@@ -11,9 +11,8 @@ public class RoundManager : MonoBehaviour
     public List<int> selectedMapIndexes;
     public int numRounds = 5;
     private int currRound = 0;
-    private float time;
 
-    public struct playerStats
+    public class playerStats
     {
         public decimal score;
         public bool isAlive;
@@ -32,6 +31,7 @@ public class RoundManager : MonoBehaviour
     private bool starting = false;
     private IEnumerator crDropBlocks;
     private IEnumerator crCountdown;
+    private IEnumerator crRoundEnd;
 
     #region Blocks
     [Header("Main Menu Blocks")]
@@ -83,6 +83,8 @@ public class RoundManager : MonoBehaviour
             crCountdown = Countdown();
             StartCoroutine(crCountdown);
 
+            selectedMaps = new List<string>();
+
             //get all maps
             if (stages.stage1Sel) { selectedMaps.Add("Lab"); }
             if (stages.stage2Sel) { selectedMaps.Add("TrafficMap"); }
@@ -91,6 +93,19 @@ public class RoundManager : MonoBehaviour
             if (stages.stage5Sel) { selectedMaps.Add("MallMap"); }
             if (stages.stage6Sel) { selectedMaps.Add("BalloonMap"); }
             if (selectedMaps == null) { selectedMaps.Add("Lab"); }
+
+            selectedMaps.Add("Lab");
+            selectedMaps.Add("TrafficMap");
+            selectedMaps.Add("ConstructionMap");
+            selectedMaps.Add("VolcanoMap");
+            selectedMaps.Add("MallMap");
+            selectedMaps.Add("BalloonMap");
+
+            print(selectedMaps.Count);
+            for (int i = 0; i < selectedMaps.Count; i++)
+            {
+                print(selectedMaps[i]);
+            }
 
             selectedMapIndexes = new List<int>();
             for (int i = 0; i < numRounds; i++)
@@ -113,42 +128,77 @@ public class RoundManager : MonoBehaviour
     }
     #endregion
 
-    public void UpdateScore()
+    public void UpdateScore(int playerNum)
     {
+        print("updating scores");
+        print(stats.Count);
+        stats[playerNum - 1].isAlive = false;
 
+        // Check if one person standing
+        int numDead = 0;
+        for (int i = 0; i < stats.Count; i++)
+        {
+            print("in tha loop");
+            if (stats[i].isAlive == false)
+            {
+                print("someone fucking died lmao");
+                numDead += 1;
+            }
+            if (numDead == stats.Count - 1)
+            {
+                print("round ending");
+                OnRoundEnd();
+            }
+        }
+    }
+
+    public IEnumerator RoundEndTimer()
+    {
+        print("waiting");
+        yield return new WaitForSeconds(3);
+        print("done waiting");
+        NextRound();
     }
 
     public void OnRoundEnd()
     {
         //update player scores etc
-        NextRound();
+        for (int i = 0; i < stats.Count; i++)
+        {
+            if (stats[i].isAlive == true)
+            {
+                stats[i].score += 1;
+            }
+        }
+        for (int i = 0; i < stats.Count; i++)
+        {
+            if (players[i] != null) { players[i].onDeath.RemoveListener(UpdateScore); }
+        }
+
+        print("round ending!!!");
+        crRoundEnd = RoundEndTimer();
+        StartCoroutine(RoundEndTimer());
     }
 
     public void NextRound()
     {
-        print("next round");
         if (currRound < numRounds)
         {
-            //print("LOAD SCENE: " + selectedMaps[currRound % selectedMaps.Count]);
-            SceneManager.LoadScene(selectedMapIndexes[currRound]);
+            print("selectedMaps.Count: " + selectedMaps.Count);
+            print("currRound: " + currRound);
+            print("LOAD SCENE: " + selectedMaps[currRound % selectedMaps.Count]); // % selectedMaps.Count
+            SceneManager.LoadScene(selectedMaps[currRound % selectedMaps.Count]); // % selectedMaps.Count
         }
         if (currRound == numRounds)
         {
             print("LOAD SCENE: Victory");
             SceneManager.LoadScene("VictoryScreen");
         }
-
         currRound += 1;
-        return;
     }
 
     public void Start()
     {
-        for (int i = 0; i < numPlayers; i++)
-        {
-            stats.Add(new playerStats());
-        }
-
         CreatureStats[] searchList = FindObjectsOfType<CreatureStats>();
         for (int i = 0; i < 4; i++)
         {
@@ -157,9 +207,16 @@ public class RoundManager : MonoBehaviour
                 if (searchList[j].GetPlayerNum() == i + 1)
                 {
                     players.Add(searchList[j]);
-                    //players[i].onDeath.AddListener();
+                    players[i].onDeath.AddListener(UpdateScore);
                 }
             }
+        }
+
+        stats = new List<playerStats>();
+
+        for (int i = 0; i < numPlayers; i++)
+        {
+            stats.Add(new playerStats());
         }
 
         DontDestroyOnLoad(gameObject);
@@ -168,6 +225,9 @@ public class RoundManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        StopAllCoroutines();
+
+        players.Clear();
         CreatureStats[] searchList = FindObjectsOfType<CreatureStats>();
         for (int i = 0; i < 4; i++)
         {
@@ -176,15 +236,25 @@ public class RoundManager : MonoBehaviour
                 if (searchList[j].GetPlayerNum() == i + 1)
                 {
                     players.Add(searchList[j]);
+                    players[i].onDeath.AddListener(UpdateScore);
                 }
             }
         }
-        Debug.Log("OnSceneLoaded: " + scene.name);
+        //print("player " + players[0].playerNum + " detected");
+
+        for (int i = 0; i < stats.Count; i++)
+        {
+            stats[i].isAlive = true;
+            print(i);
+        }
+
+        //Debug.Log("OnSceneLoaded: " + scene.name);
     }
 
     public void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        StopAllCoroutines();
     }
 
 }
