@@ -8,6 +8,8 @@ using TMPro;
 public class scoreBoard : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public RoundManager rm;
     public TextMeshProUGUI firstName;
     public TextMeshProUGUI firstScore;
 
@@ -21,21 +23,43 @@ public class scoreBoard : MonoBehaviour
     public TextMeshProUGUI fourthScore;
 
     public string firstNameVal;
-    public int firstScoreVal;
+    public decimal firstScoreVal;
 
     public string secondNameVal;
-    public int secondScoreVal;
+    public decimal secondScoreVal;
 
     public string thirdNameVal;
-    public int thirdScoreVal;
+    public decimal thirdScoreVal;
 
     public string fourthNameVal;
-    public int fourthScoreVal;
+    public decimal fourthScoreVal;
 
     public int playerCount;
 
     void Start()
     {
+        rm = GameObject.FindObjectOfType<RoundManager>();
+        firstScoreVal = rm.stats[0].score;
+        secondScoreVal = rm.stats[1].score;
+        thirdScoreVal = rm.stats[2].score;
+        fourthScoreVal = rm.stats[3].score;
+
+        firstNameVal = "Player1";
+        secondNameVal = "Player2";
+        thirdNameVal = "Player3";
+        fourthNameVal = "Player4";
+        playerCount = rm.players.Count;
+
+        if (firstScoreVal == secondScoreVal || firstScoreVal == thirdScoreVal || firstScoreVal == fourthScoreVal){
+            firstScoreVal += 0.5M;
+        }
+        else if (secondScoreVal == thirdScoreVal || secondScoreVal == fourthScoreVal){
+            secondScoreVal += 0.5M;
+        }
+        else if (thirdScoreVal == fourthScoreVal){
+            thirdScoreVal += 0.5M;
+        }
+        
         if (playerCount == 1){
             firstName.text = firstNameVal;
             firstScore.text = firstScoreVal.ToString();
@@ -87,7 +111,7 @@ public class scoreBoard : MonoBehaviour
                     thirdName.text = thirdNameVal;
                     thirdScore.text = thirdScoreVal.ToString();
                 }
-                else if (thirdScoreVal > secondScoreVal){
+                else if (thirdScoreVal > firstScoreVal){
                     secondName.text = thirdNameVal;
                     secondScore.text = thirdScoreVal.ToString();
                     
@@ -231,7 +255,7 @@ public class scoreBoard : MonoBehaviour
                     }
                 }
             }
-            else if (thirdScoreVal > firstScoreVal && secondScoreVal > secondScoreVal && thirdScoreVal > fourthScoreVal){
+            else if (thirdScoreVal > firstScoreVal && thirdScoreVal > secondScoreVal && thirdScoreVal > fourthScoreVal){
                 firstName.text = thirdNameVal;
                 firstScore.text = thirdScoreVal.ToString();
                 if (firstScoreVal>secondScoreVal && firstScoreVal > fourthScoreVal){
@@ -277,8 +301,8 @@ public class scoreBoard : MonoBehaviour
                         thirdName.text = firstNameVal;
                         thirdScore.text = firstScoreVal.ToString();
 
-                        fourthName.text = thirdNameVal;
-                        fourthScore.text = thirdScoreVal.ToString();
+                        fourthName.text = secondNameVal;
+                        fourthScore.text = secondScoreVal.ToString();
                     }
                     else if (secondScoreVal > firstScoreVal){
                         thirdName.text = secondNameVal;
@@ -349,5 +373,14 @@ public class scoreBoard : MonoBehaviour
             }
             
         }
+        Debug.Log(firstNameVal + " " + firstScoreVal);
+        Debug.Log(secondNameVal + " " + secondScoreVal);
+        Debug.Log(thirdNameVal + " " + thirdScoreVal);
+        Debug.Log(fourthNameVal + " " + fourthScoreVal);
+        Debug.Log(playerCount);
+
+    }
+    void update(){
+        
     }
 }
