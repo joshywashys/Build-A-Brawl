@@ -43,6 +43,8 @@ public class RigidbodyController : MonoBehaviour
 	private Vector3 m_desiredVel;
 	public void SetVelocity(Vector3 velocity) => m_desiredVel = velocity;
  
+	public float Velocity { get { return m_rigidbody.velocity.magnitude; } }
+
     private void InitializeValues()
     {
         floatHeight = 3;

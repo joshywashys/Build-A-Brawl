@@ -5,10 +5,16 @@ using UnityEngine.Animations.Rigging;
 [RequireComponent(typeof(RigBuilder))]
 public class LegIKRig : MonoBehaviour
 {
-	public bool overrideIKWeights = false;
+	private Animator m_animator;
+	private RigidbodyController m_rController;
+	private Vector4 m_stride { get { return new Vector4(0, strideHeight, strideLength, strideSpeed); } }
+
 	public LayerMask ignoreLayer;
 
-	private Animator m_animator;
+	[Header("Procedural Walking Settings")]
+	public float strideLength = 1.0f;
+	public float strideHeight = 1.0f;
+	public float strideSpeed = 2.0f;
 
 	[Header("Physics Rig Settings")]
 	public Ragdoll ragdoll;
@@ -26,8 +32,12 @@ public class LegIKRig : MonoBehaviour
 		public Transform foot;
 
 		private LayerMask m_layerMask;
+
 		private Vector3 m_targetPosition;
+		private Quaternion m_targetRotation;
+
 		private Vector3 m_targetPosDampVel;
+
 		private float m_weightInflence;
 		private float m_weightLerpSpeed;
 		private float m_raycastDistance;
@@ -38,16 +48,22 @@ public class LegIKRig : MonoBehaviour
 			m_raycastDistance = raycastOrigin.position.y - foot.position.y + targetOffset + 0.2f;
         }
 
-		public void SetIKTarget()
+		public void SetIKTarget(Vector3 forwards, Vector4 stride, float timeOffset, float runSpeed = 1.0f)
         {
-			// Should probably include a max distance
 			Ray ray = new Ray(raycastOrigin.position, Vector3.down);
 			if (Physics.Raycast(ray, out RaycastHit hit, m_raycastDistance, m_layerMask))
 			{
 				m_weightInflence = 1.0f;
 				m_weightLerpSpeed = 15.0f;
 
-				m_targetPosition = hit.point + hit.normal * targetOffset;
+				Vector3 hitTarget = hit.point + hit.normal * targetOffset;
+				
+				// Procedural Walking code
+				Vector3 forwardPos = forwards * Mathf.Sin(Time.time * stride.w + timeOffset) * stride.z;
+				Vector3 upwardPos = Vector3.up * Mathf.Clamp01(Mathf.Cos(Time.time * stride.w + timeOffset)) * stride.y;
+				Vector3 sidePos = Vector3.Cross(forwards, Vector3.up) * Mathf.Clamp01(Mathf.Cos(Time.time * stride.w + timeOffset)) * stride.x;
+
+				m_targetPosition = ((forwardPos + upwardPos) * runSpeed) + hitTarget;
 				return;
 			}
 
@@ -60,9 +76,14 @@ public class LegIKRig : MonoBehaviour
 			target.position = Vector3.SmoothDamp(target.position, m_targetPosition, ref m_targetPosDampVel, Time.deltaTime);
         }
 
-		public void UpdateWeightInflence()
+		public void UpdateIKTargetRotation()
         {
-			rig.weight = Mathf.Lerp(rig.weight, m_weightInflence, Time.deltaTime * m_weightLerpSpeed);
+			target.rotation = m_targetRotation;
+        }
+
+		public void UpdateWeightInflence(float multiplier = 1.0f)
+        {
+			rig.weight = Mathf.Lerp(rig.weight, m_weightInflence, Time.deltaTime * m_weightLerpSpeed) * multiplier;
         }
 	}
 	public Leg leftLeg, rightLeg;
@@ -70,6 +91,7 @@ public class LegIKRig : MonoBehaviour
     private void Start()
     {
 		m_animator = GetComponent<Animator>();
+		m_rController = GetComponentInParent<RigidbodyController>();
 
 		leftLeg.Initialize(~ignoreLayer);
 		rightLeg.Initialize(~ignoreLayer);
@@ -79,27 +101,33 @@ public class LegIKRig : MonoBehaviour
 
     private void Update()
 	{
-		if (overrideIKWeights)
-        {
-			SetLeftLegIKTarget();
-			SetRightLegIKTarget();
+		//float leftLegWeight = m_animator.GetFloat("LeftIKWeight");
+		//float rightLegWeight = m_animator.GetFloat("RightIKWeight");
 
-			leftLeg.UpdateWeightInflence();
-			rightLeg.UpdateWeightInflence();
-        }
+		SetLeftLegIKTarget();
+		SetRightLegIKTarget();
 
+		leftLeg.UpdateWeightInflence();
+		rightLeg.UpdateWeightInflence();
+        
 		leftLeg.UpdateIKTargetPosition();
 		rightLeg.UpdateIKTargetPosition();
+
+		//leftLeg.UpdateIKTargetRotation();
+		//rightLeg.UpdateIKTargetRotation();
+
+		//float animSpeed = m_rController.isGrounded ? m_rController.Velocity : 0.0f;
+		//m_animator.SetFloat("Speed", animSpeed);
 	}
 
 	public void SetLeftLegIKTarget()
     {
-		leftLeg.SetIKTarget();
+		leftLeg.SetIKTarget(transform.forward, m_stride, 0.0f);
     }
 
 	public void SetRightLegIKTarget()
     {
-		rightLeg.SetIKTarget();
+		rightLeg.SetIKTarget(transform.forward, m_stride, 3.0f);
     }
 
 	public void SetRagdoll(bool active)
