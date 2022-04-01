@@ -175,6 +175,8 @@ public class PartCombiner : MonoBehaviour
             pc.jumpHeight = stats.GetJumpHeight();
             pc.rotateSpeed = stats.GetRotateSpeed();
 
+
+
             //DontDestroyOnLoad(newPlayer); //.transform.root.gameObject
             //creatureManager.GetComponent<CreatureManager>().RemoveCreature(playerNum);
             creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer, playerNum);

@@ -226,6 +226,11 @@ public class CreatureStats : MonoBehaviour
 
     #region MonoBehaviour Functions
 
+    private void OnDisable()
+    {
+        onDeath?.Invoke(playerNum);
+    }
+
     void Start()
     {
         creature = gameObject;
