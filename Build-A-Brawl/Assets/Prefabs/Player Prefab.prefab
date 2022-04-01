@@ -41,7 +41,7 @@ SphereCollider:
   m_GameObject: {fileID: 812509945516770448}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 8
   floatHeight: 3
   m_floatSpringStrength: 30
   m_floatSpringDamper: 4
@@ -694,7 +694,7 @@ SphereCollider:
   m_GameObject: {fileID: 8871093476895808470}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

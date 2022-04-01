@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 706020449199944084}
   - component: {fileID: 182283046379662127}
   - component: {fileID: 8030806048048766800}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: apeArmRBound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,6 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 3942814793589529345}
   partData: {fileID: 11400000, guid: 8ce3861c9cca06d4499dc92a9841a7f4, type: 2}
+  creature: {fileID: 0}
 --- !u!1 &495436750867967245
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +74,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5766899264451718057}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: group3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1035972731142142511}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: knuckle_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3942814793589529345}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: apeSkeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +168,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6180615917573967583}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: shoulder_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1181982230716203531}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: shoulderJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1391706285713286145}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Elbow_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +262,7 @@ GameObject:
   - component: {fileID: 3220189487857849911}
   - component: {fileID: 3644307555738694581}
   - component: {fileID: 2572867234137152974}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: polySurface1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 219785996945511819}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: finger_tip_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +371,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6625065263943636637}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wrist_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}

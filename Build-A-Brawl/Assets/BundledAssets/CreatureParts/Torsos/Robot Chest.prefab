@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5080783356213701639}
   - component: {fileID: 1063584016389660567}
   - component: {fileID: 3826849333360015552}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Robot Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 1290035756863838863}
   partData: {fileID: 11400000, guid: 558eec279ce1114468567f02a27700b5, type: 2}
+  creature: {fileID: 0}
 --- !u!54 &3826849333360015552
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,7 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4791035506503446355}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HipJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4713532966949604890}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ShoulderJointL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5925485665637690737}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ShoulderJointR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 764916933692554637}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NeckJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

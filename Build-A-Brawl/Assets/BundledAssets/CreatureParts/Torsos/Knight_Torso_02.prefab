@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3160096706897779874}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ClavicleL_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8619533903554424110}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spine_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8432487157119450092}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ClavicleR_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 447631660229436621}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: neckJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 223013482345667293}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: shoulderR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3786590068560269739}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spine_004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3093045027033424834}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: shoulderL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7898453628953971851}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spine_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1549017824433023702}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ClavicleR_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 753393367676925183}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ClavicleL_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 784591470283226547}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hipJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,8 @@ GameObject:
   - component: {fileID: 8298399675764219225}
   - component: {fileID: 8676140483681657990}
   - component: {fileID: 3435090637866268826}
-  m_Layer: 0
+  - component: {fileID: 7732006407902400252}
+  m_Layer: 3
   m_Name: Knight_Torso_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,6 +405,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 1011725032310178461}
   partData: {fileID: 11400000, guid: f48f970afd0f0fc4ab9ce884d29ba4e2, type: 2}
+  creature: {fileID: 0}
+--- !u!65 &7732006407902400252
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674502589671589859}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.7071996, z: 0.862627}
+  m_Center: {x: 0, y: -0.002005577, z: -0.068686485}
 --- !u!1 &8840325889801500342
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1011725032310178461}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spine_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +461,7 @@ GameObject:
   - component: {fileID: 5581728182618714248}
   - component: {fileID: 2621019777696994640}
   - component: {fileID: 6273420341891960212}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

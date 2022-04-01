@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8240616642238713417}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: base_R 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 102327225447886224}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: toe_R 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2954503803278826434}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: knee_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5486868507743051052}
   - component: {fileID: 8358632357379027595}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: polySurface3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 976157566047316936}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: transform3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4698355624100979946}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: base_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 205612992239822948}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: transform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4096416215794149550}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hip_R1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8441907583019509381}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hipJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,8 @@ GameObject:
   - component: {fileID: 5206510206185833545}
   - component: {fileID: 3377443000650985768}
   - component: {fileID: 6922348913997038548}
-  m_Layer: 0
+  - component: {fileID: 3758133693719591514}
+  m_Layer: 3
   m_Name: clownLegsBound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,6 +400,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 8970327856598894165}
   partData: {fileID: 11400000, guid: eff8f940feb3ead4eb2eba5056ddf7d6, type: 2}
+  creature: {fileID: 0}
+--- !u!65 &3758133693719591514
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830935091898703603}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.07511292, y: 0.07347257, z: 0.054498743}
+  m_Center: {x: -0.000014817715, y: -0.0008052469, z: 0.005777584}
 --- !u!1 &5365174937493249056
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +423,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8970327856598894165}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: legConnections
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +455,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2591632214674908018}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ball_R 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +486,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1656251027304035639}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ball_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8196105016026550775}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hip_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +548,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7893388016335004979}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: group1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +580,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7298895979395276823}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: toe_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3414853886948385660}
   - component: {fileID: 1952161312405141425}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: polySurface4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,7 +698,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6454578500582137994}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: knee_R 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -714,7 +729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8272327772715384278}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: transform4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
