@@ -13,10 +13,7 @@ public class PlayerController : MonoBehaviour
 	//start of Anna
 	private PlayerConfiguration playerConfig;
 
-	[SerializeField]
-	private MeshRenderer playerMesh;
-
-	private Controls theControls;
+	private Controlss theControls;
 
 	//end of Anna
 
@@ -88,17 +85,20 @@ public class PlayerController : MonoBehaviour
 
 	#region MonoBehaviour Functions
 
+	private void Awake()
+	{
+		//Anna start
+		theControls = new Controlss();
 
+		//Anna end
+	}
 
 	private void Start()
 	{
 		// This is for quick testing please remove this function call later
 		//SetPlayerColour(playerColour);
 
-		//Anna start
-		theControls = new Controls();
-
-		//Anna end
+		
 
 		// Initialize state
 		m_stateDictionary = new Dictionary<State, UnityAction>
@@ -204,6 +204,7 @@ public class PlayerController : MonoBehaviour
 	{
 		playerConfig = pc;
 		playerConfig.Input.onActionTriggered += Input_onActionTriggered;
+		Debug.Log("Player configered");
 	}
 
 	private void Input_onActionTriggered(CallbackContext obj)

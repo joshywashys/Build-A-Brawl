@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 3622046291138277065}
   - component: {fileID: 8228551700721319051}
   - component: {fileID: 4866000927752231823}
+  - component: {fileID: 9125610177296057866}
   m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
@@ -503,7 +504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9deb124cdfc8046b431115bbf91915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMesh: {fileID: 0}
   m_rigs: []
   playerColour: {r: 1, g: 0.8441375, b: 0, a: 0}
   m_meshRenderers:
@@ -559,6 +559,19 @@ CapsuleCollider:
   m_Height: 2.5
   m_Direction: 1
   m_Center: {x: 0, y: 1.25, z: 0}
+--- !u!114 &9125610177296057866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5479808838921011391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68480b1228dfc354bb649629a9eb9a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4443079348437890297}
 --- !u!1 &6365239696861500406
 GameObject:
   m_ObjectHideFlags: 0
