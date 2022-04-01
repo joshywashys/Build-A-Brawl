@@ -9,7 +9,7 @@ public class LegIKRig : MonoBehaviour
 	private RigidbodyController m_rController;
 	private Vector4 m_stride { get { return new Vector4(0, strideHeight, strideLength, strideSpeed); } }
 
-	public LayerMask ignoreLayer;
+	public LayerMask groundLayer;
 
 	[Header("Procedural Walking Settings")]
 	public float strideLength = 1.0f;
@@ -93,8 +93,8 @@ public class LegIKRig : MonoBehaviour
 		m_animator = GetComponent<Animator>();
 		m_rController = GetComponentInParent<RigidbodyController>();
 
-		leftLeg.Initialize(~ignoreLayer);
-		rightLeg.Initialize(~ignoreLayer);
+		leftLeg.Initialize(groundLayer);
+		rightLeg.Initialize(groundLayer);
 
 		SetRagdoll(currentState == State.Ragdoll);
     }
