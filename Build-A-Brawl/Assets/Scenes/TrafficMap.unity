@@ -1408,6 +1408,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 0}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &34926481
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1671,6 +1678,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 79709147}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &79709145
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2323,6 +2337,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 0}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &288599843
 GameObject:
   m_ObjectHideFlags: 0
@@ -22201,6 +22222,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 0}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &988872405
 GameObject:
   m_ObjectHideFlags: 0
@@ -26007,6 +26035,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 1133172160}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1133172158 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ef6e5dde2f93d024485321cc27d38247, type: 3}
@@ -29090,6 +29125,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 1481882150}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &1481882152
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32518,6 +32560,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 0}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1582038131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33345,6 +33394,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 0}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1749566024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34197,6 +34253,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 1841214257}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &1841214256
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -37913,6 +37976,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 0}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1928890482
 GameObject:
   m_ObjectHideFlags: 0
