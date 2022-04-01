@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7235039347649507771}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NeckJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6835126254696218144}
   - component: {fileID: 977111548819480459}
   - component: {fileID: 627282623536291563}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Robot Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 6735098549382767216}
   partData: {fileID: 11400000, guid: 60073a4f98943074ab8d9980837968f2, type: 2}
+  creature: {fileID: 0}
 --- !u!54 &627282623536291563
 Rigidbody:
   m_ObjectHideFlags: 0

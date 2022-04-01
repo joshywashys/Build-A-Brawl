@@ -9,15 +9,17 @@ public class JointCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
+        
         float force = col.impulse.magnitude;
 
-        if (col.gameObject.tag == "heavyAttack")
+        //if (col.gameObject == bodyPart.creature.ctrlsPart.GetComponent<PlayerController>().fistLeftRigidbody.gameObject) { print("left hit COL"); }
+        //if (col.gameObject == bodyPart.creature.ctrlsPart.GetComponent<PlayerController>().fistRightRigidbody.gameObject) { print("right hit COL"); }
+        if (col.gameObject.tag == "heavyAttack" && col.gameObject != bodyPart.creature.ctrlsPart.GetComponent<PlayerController>().fistLeftRigidbody.gameObject && col.gameObject != bodyPart.creature.ctrlsPart.GetComponent<PlayerController>().fistRightRigidbody.gameObject)
         {
-            //print("heavyAttack collision: " + gameObject.name + " --- impulse: " + col.impulse);
-            //print(bodyPart.partData);
+            print(col.gameObject);
             if (bodyPart.creature != null) { bodyPart.creature.Damage(bodyPart.partData, force); }
         }
-
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,5 +30,17 @@ public class JointCollision : MonoBehaviour
             //print(bodyPart.partData);
             if (bodyPart.creature != null) { bodyPart.creature.Kill(); }
         }
+
+        //float force = other.impulse.magnitude;
+
+        //if (other.gameObject == bodyPart.creature.ctrlsPart.GetComponent<PlayerController>().fistLeftRigidbody.gameObject) { print("left hit"); }
+        //if (other.gameObject == bodyPart.creature.ctrlsPart.GetComponent<PlayerController>().fistRightRigidbody.gameObject) { print("right hit"); }
+        
+        if (other.gameObject.tag == "heavyAttack" && other.gameObject != bodyPart.creature.ctrlsPart.GetComponent<PlayerController>().fistLeftRigidbody.gameObject && other.gameObject != bodyPart.creature.ctrlsPart.GetComponent<PlayerController>().fistRightRigidbody.gameObject)
+        {
+            print(other.gameObject);
+            if (bodyPart.creature != null) { bodyPart.creature.Damage(bodyPart.partData, 1f); }
+        }
+        
     }
 }

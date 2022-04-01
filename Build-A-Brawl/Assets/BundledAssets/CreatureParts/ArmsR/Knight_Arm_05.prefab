@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6254389121827502875}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1685039154623183242}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: shoulderJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1510143479583180169}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wrist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 2165961067584651514}
   - component: {fileID: 2172671009017008582}
   - component: {fileID: 5860064432791655547}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Knight_Arm_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 8366103783241579499}
   partData: {fileID: 11400000, guid: 01bc5657167149a42b651028b9ccde06, type: 2}
+  creature: {fileID: 0}
 --- !u!1 &1926611946708392143
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4049601854007380356}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8366103783241579499}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +231,7 @@ GameObject:
   - component: {fileID: 3311193511635627008}
   - component: {fileID: 9026299750926798148}
   - component: {fileID: 7796693641772289771}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ArmR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +311,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4296544304703381257}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fingers
   m_TagString: Untagged
   m_Icon: {fileID: 0}

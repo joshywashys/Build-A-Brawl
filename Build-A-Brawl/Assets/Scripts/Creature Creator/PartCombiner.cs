@@ -109,6 +109,7 @@ public class PartCombiner : MonoBehaviour
         newArmL.transform.position += torsoToShoulderL - armLToShoulder;
         newArmR.transform.position += torsoToShoulderR - armRToShoulder;
         newLegs.transform.position += -(legsToHips + torsoToHips);
+        if (newLegs.GetComponent<LegIKRig>() != null) { newLegs.GetComponent<LegIKRig>().enabled = false; }
 
         //shift creature upwards
         //float headHeight = GetPartHeight(newHead);
@@ -117,6 +118,7 @@ public class PartCombiner : MonoBehaviour
         //creatureContainer.transform.position = new Vector3(0, (torsoHeight + headHeight + legsHeight)/2 + 1, 0);
         heightShift = (legsToHips.y*2 + torsoToHips.y - torsoToNeck.y + headToNeck.y*2) / 2 + 1.5f; //+ creatureContainer.position.y
         creaturePlayable.transform.localPosition = new Vector3(0, heightShift, 0);
+        //MakeChildrenPlayerLayer(creaturePlayable.transform);
         //print("TOTAL HEIGHT: " + heightShift);
 
         onPartSwap?.Invoke();
@@ -143,7 +145,6 @@ public class PartCombiner : MonoBehaviour
             RigidbodyController rbc = body.GetComponent<RigidbodyController>();
             PlayerController pc = body.GetComponent<PlayerController>();
             GameObject creature = Instantiate(creaturePlayable, newPlayer.transform.position + new Vector3(0, 3, 0), Quaternion.identity, newPlayer.transform.GetChild(2));
-            MakeChildrenPlayerLayer(creature);
 
             //rearrange part hierarchy
             GameObject savedHead = creature.transform.GetChild(0).gameObject;
@@ -175,7 +176,10 @@ public class PartCombiner : MonoBehaviour
             pc.jumpHeight = stats.GetJumpHeight();
             pc.rotateSpeed = stats.GetRotateSpeed();
 
-
+            if (savedLegs.GetComponent<LegIKRig>() != null) { savedLegs.GetComponent<LegIKRig>().enabled = true; }
+            savedLegs.GetComponent<Collider>().enabled = false;
+            savedTorso.GetComponent<Collider>().enabled = false;
+            MakeChildrenPlayerLayer(creature.transform);
 
             //DontDestroyOnLoad(newPlayer); //.transform.root.gameObject
             //creatureManager.GetComponent<CreatureManager>().RemoveCreature(playerNum);
@@ -545,11 +549,12 @@ public class PartCombiner : MonoBehaviour
         creatureContainer.position = tempPos + new Vector3(0, floatHeight, 0);
     }
 
-    public void MakeChildrenPlayerLayer(GameObject child)
+    public void MakeChildrenPlayerLayer(Transform child)
     {
-        foreach (Transform trans in child.GetComponentsInChildren<Transform>(true))
+        child.gameObject.layer = 3;
+        foreach (Transform trans in child)
         {
-            trans.gameObject.layer = 6;
+            MakeChildrenPlayerLayer(trans);
         }
     }
 

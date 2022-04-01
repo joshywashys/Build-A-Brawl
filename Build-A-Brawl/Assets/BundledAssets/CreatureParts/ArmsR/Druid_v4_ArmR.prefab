@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6616561814307006182}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4268844570037000324}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wrist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8720355630643996182}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1728242701420926089}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5271619171324465138}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: shoulderJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3587093909382176247}
   - component: {fileID: 7246391948735273127}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Druid_v4_ArmR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 6616561814307006182}
   partData: {fileID: 11400000, guid: 7642a7f4ac463a3439acef64ee97c686, type: 2}
+  creature: {fileID: 0}
 --- !u!1 &6814769568085905937
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1470571226854720004}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fingers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +244,7 @@ GameObject:
   - component: {fileID: 4958086631109611487}
   - component: {fileID: 6824273011455034873}
   - component: {fileID: 4412877904316173866}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

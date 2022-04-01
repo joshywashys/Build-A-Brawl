@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594324596310992955}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: shoulderJointR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 769040684773700660}
   - component: {fileID: 7778443840163839584}
   - component: {fileID: 7447229656397846271}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Druid Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,8 +131,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.023220234, y: 0.0265549, z: 0.018699521}
-  m_Center: {x: 0, y: 0.00069142814, z: 0}
+  m_Size: {x: 0.016870173, y: 0.024848768, z: 0.013585743}
+  m_Center: {x: 0, y: 0.000102469596, z: 0}
 --- !u!114 &7778443840163839584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 1010895011057569272}
   partData: {fileID: 11400000, guid: 69dc6bae90f6a844e862e8b0a6466754, type: 2}
+  creature: {fileID: 0}
 --- !u!54 &7447229656397846271
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -172,7 +173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2158116703848428343}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: shoulderJointL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4416941581831269717}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hipJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1010895011057569272}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: neckJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

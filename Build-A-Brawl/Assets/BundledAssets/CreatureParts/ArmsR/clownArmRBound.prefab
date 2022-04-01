@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 942681480857977333}
   - component: {fileID: 459019043757710156}
   - component: {fileID: 4551783153537861840}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: clownArmRBound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,6 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 1389811812711080753}
   partData: {fileID: 11400000, guid: c4162cfbf34e04f4788e632d672c7868, type: 2}
+  creature: {fileID: 0}
 --- !u!1 &550514813205099474
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9218989079473003828}
   - component: {fileID: 1980240658172515192}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: polySurface1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 765518147036254010}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: shoulderJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1389811812711080753}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: clownSkeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1759312795253385579}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: group1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1075268430187921618}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Elbow_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3229791031164254299}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: knuckle_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2544724754241272378}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: shoulder_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8571717647170303380}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wrist_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,7 +379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7925297646349098616}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: finger_tip_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}

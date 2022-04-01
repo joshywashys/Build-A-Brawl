@@ -256,8 +256,10 @@ public class CreatureStats : MonoBehaviour
 
     #region Part Detaching
 
-    private void detachHead() //add throwable obj scripts?
+    private void detachHead()
     {
+        head.AddComponent<ThrowableObject>();
+        head.GetComponent<Collider>().enabled = true;
         headPart.ToggleKinematics(headPart.gameObject.transform, false);
         head.transform.parent = null;
         head = null;
@@ -275,6 +277,8 @@ public class CreatureStats : MonoBehaviour
         if (legs != null) { detachLegs(); }
         if (head != null) { detachHead(); }
 
+        torso.AddComponent<ThrowableObject>();
+        torso.GetComponent<Collider>().enabled = true;
         torsoPart.ToggleKinematics(torsoPart.gameObject.transform, false);
         torso.transform.parent = null;
         torso = null;
@@ -286,6 +290,7 @@ public class CreatureStats : MonoBehaviour
 
     private void detachArmL()
     {
+        armL.AddComponent<ThrowableObject>();
         armLPart.ToggleKinematics(armLPart.gameObject.transform, false);
         armLPart.GetComponent<Animator>().enabled = false;
         Transform skeletonBase = armL.GetComponent<BodyPart>().skeletonBase;
@@ -303,6 +308,7 @@ public class CreatureStats : MonoBehaviour
 
     private void detachArmR()
     {
+        armR.AddComponent<ThrowableObject>();
         armRPart.ToggleKinematics(armRPart.gameObject.transform, false);
         armRPart.GetComponent<Animator>().enabled = false;
         Transform skeletonBase = armR.GetComponent<BodyPart>().skeletonBase;
@@ -320,8 +326,9 @@ public class CreatureStats : MonoBehaviour
 
     private void detachLegs()
     {
+        legs.AddComponent<ThrowableObject>();
         ctrlsPart.GetComponent<RigidbodyController>().useFloat = false;
-        //enable collider?
+        if (legs.GetComponent<Collider>() != null) { legs.GetComponent<Collider>().enabled = true; }
         legsPart.ToggleKinematics(legsPart.gameObject.transform, false);
         legsPart.GetComponent<LegIKRig>().enabled = false;
         legs.transform.parent = null;

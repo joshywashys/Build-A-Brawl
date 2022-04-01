@@ -40,6 +40,11 @@ public class playerConfigurationManager : MonoBehaviour
         }
     }
 
+    public List<PlayerConfiguration> GetPlayerConfigs()
+    {
+        return playerConfigs;
+    }
+
     //this is where player index is assigned
     public void HandlePlayerJoin(PlayerInput pi)
     {

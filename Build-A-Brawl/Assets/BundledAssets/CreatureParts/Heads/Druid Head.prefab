@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7466584505690605612}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NeckJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 2815060016450784334}
   - component: {fileID: 9221743421541806477}
   - component: {fileID: 331441613769122968}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Druid Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -8,18 +8,20 @@ public class RoundManager : MonoBehaviour
 {
     public BetaStageSelect stages;
     public List<string> selectedMaps;
+    public List<int> selectedMapIndexes;
     public int numRounds = 5;
     private int currRound = 0;
     private float time;
 
     public struct playerStats
     {
-        decimal score;
-        bool isAlive;
+        public decimal score;
+        public bool isAlive;
     }
 
     public int numPlayers;
     public List<playerStats> stats;
+    public List<CreatureStats> players;
 
     #region Main Menu
     [Header("Main Menu")]
@@ -89,7 +91,12 @@ public class RoundManager : MonoBehaviour
             if (stages.stage5Sel) { selectedMaps.Add("MallMap"); }
             if (stages.stage6Sel) { selectedMaps.Add("BalloonMap"); }
             if (selectedMaps == null) { selectedMaps.Add("Lab"); }
-            selectedMaps = ShuffleList(selectedMaps);
+
+            selectedMapIndexes = new List<int>();
+            for (int i = 0; i < numRounds; i++)
+            {
+                selectedMapIndexes.Add(Random.Range(0,selectedMaps.Count));
+            }
 
             starting = true;
             return;
@@ -106,22 +113,15 @@ public class RoundManager : MonoBehaviour
     }
     #endregion
 
+    public void UpdateScore()
+    {
+
+    }
+
     public void OnRoundEnd()
     {
         //update player scores etc
         NextRound();
-    }
-
-    public List<string> ShuffleList(List<string> toShuffle)
-    {
-        for (int i = 0; i < toShuffle.Count; i++)
-        {
-            string temp = toShuffle[i];
-            int randIndex = Random.Range(i, toShuffle.Count);
-            toShuffle[i] = toShuffle[randIndex];
-            toShuffle[randIndex] = temp;
-        }
-        return toShuffle;
     }
 
     public void NextRound()
@@ -129,8 +129,8 @@ public class RoundManager : MonoBehaviour
         print("next round");
         if (currRound < numRounds)
         {
-            print("LOAD SCENE: " + selectedMaps[currRound % selectedMaps.Count]);
-            SceneManager.LoadScene(selectedMaps[currRound % selectedMaps.Count]);
+            //print("LOAD SCENE: " + selectedMaps[currRound % selectedMaps.Count]);
+            SceneManager.LoadScene(selectedMapIndexes[currRound]);
         }
         if (currRound == numRounds)
         {
@@ -149,12 +149,36 @@ public class RoundManager : MonoBehaviour
             stats.Add(new playerStats());
         }
 
+        CreatureStats[] searchList = FindObjectsOfType<CreatureStats>();
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < searchList.Length; j++)
+            {
+                if (searchList[j].GetPlayerNum() == i + 1)
+                {
+                    players.Add(searchList[j]);
+                    //players[i].onDeath.AddListener();
+                }
+            }
+        }
+
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        CreatureStats[] searchList = FindObjectsOfType<CreatureStats>();
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < searchList.Length; j++)
+            {
+                if (searchList[j].GetPlayerNum() == i + 1)
+                {
+                    players.Add(searchList[j]);
+                }
+            }
+        }
         Debug.Log("OnSceneLoaded: " + scene.name);
     }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6591999110542479417}
   - component: {fileID: 4876599600779259840}
   - component: {fileID: 4838739963784181702}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Knight_Head_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6542952885922860696}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: neckJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8660146197294581105}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 6957451409052367046}
   - component: {fileID: 2103845731794688450}
   - component: {fileID: 5444030847968847349}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6155294578393865377}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NeckJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

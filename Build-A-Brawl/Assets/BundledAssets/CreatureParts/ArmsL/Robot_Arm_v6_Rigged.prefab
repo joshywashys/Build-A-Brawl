@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6828284730824974964}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wrist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4838644141614066604}
   - component: {fileID: 4697123817252510645}
   - component: {fileID: 4276981954074273728}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Blade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 382287291425996743}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3281581301027243164}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: shoulderJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4667378351544877311}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fingers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1896646749684995838}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 3857346948239610725}
   - component: {fileID: 1102465073297027348}
   - component: {fileID: 3344108321409919128}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Arm 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6231700219007493265}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8090553067751108079}
   - component: {fileID: 7753262632010975195}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Robot_Arm_v6_Rigged
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,3 +396,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 1896646749684995838}
   partData: {fileID: 11400000, guid: aa1f9aa5c722662439c720d93afc7b20, type: 2}
+  creature: {fileID: 0}
