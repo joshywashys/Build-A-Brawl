@@ -40,7 +40,7 @@ public class BetaStageSelect : MonoBehaviour
             levels.Add("Lab");
             select.SetActive(true);
             foreach( var x in levels) {
-                Debug.Log( x.ToString());
+                //Debug.Log( x.ToString());
                 thumbNail.GetComponent<MeshRenderer>().material = Material1;
             }
         } else if (this.name == "stage1" && stage1Sel == true){
@@ -48,7 +48,7 @@ public class BetaStageSelect : MonoBehaviour
             levels.Remove("Lab");
             select.SetActive(false);
             foreach( var x in levels) {
-                Debug.Log( x.ToString());
+                //Debug.Log( x.ToString());
                 thumbNail.GetComponent<MeshRenderer>().material = Material1;
             }
         } 
@@ -58,7 +58,7 @@ public class BetaStageSelect : MonoBehaviour
             levels.Add("TrafficMap");
             select.SetActive(true);
             foreach( var x in levels) {
-                Debug.Log( x.ToString());
+                //Debug.Log( x.ToString());
                 thumbNail.GetComponent<MeshRenderer>().material = Material2;
             }
         } else if (this.name == "stage2" && stage2Sel == true){
@@ -66,7 +66,7 @@ public class BetaStageSelect : MonoBehaviour
             levels.Remove("TrafficMap");
             select.SetActive(false);
             foreach( var x in levels) {
-                Debug.Log( x.ToString());
+                //Debug.Log( x.ToString());
                 thumbNail.GetComponent<MeshRenderer>().material = Material2;
             }
         }
@@ -76,7 +76,7 @@ public class BetaStageSelect : MonoBehaviour
             levels.Add("ConstructionMap");
             select.SetActive(true);
             foreach( var x in levels) {
-                Debug.Log( x.ToString());
+                //Debug.Log( x.ToString());
                 thumbNail.GetComponent<MeshRenderer>().material = Material3;
             }
         } else if (this.name == "stage3" && stage3Sel == true){
@@ -84,7 +84,7 @@ public class BetaStageSelect : MonoBehaviour
             levels.Remove("ConstructionMap");
             select.SetActive(false);
             foreach( var x in levels) {
-                Debug.Log( x.ToString());
+                //Debug.Log( x.ToString());
                 thumbNail.GetComponent<MeshRenderer>().material = Material3;
             }
         }
@@ -94,7 +94,7 @@ public class BetaStageSelect : MonoBehaviour
             levels.Add("VolcanoMap");
             select.SetActive(true);
             foreach( var x in levels) {
-                Debug.Log( x.ToString());
+                //Debug.Log( x.ToString());
                 thumbNail.GetComponent<MeshRenderer>().material = Material4;
             }
         } else if (this.name == "stage4" && stage4Sel == true){
@@ -102,7 +102,7 @@ public class BetaStageSelect : MonoBehaviour
             levels.Remove("VolcanoMap");
             select.SetActive(false);
             foreach( var x in levels) {
-                Debug.Log( x.ToString());
+                //Debug.Log( x.ToString());
                 thumbNail.GetComponent<MeshRenderer>().material = Material4;
             }
         }
@@ -112,7 +112,7 @@ public class BetaStageSelect : MonoBehaviour
             levels.Add("MallMap");
             select.SetActive(true);
             foreach( var x in levels) {
-                Debug.Log( x.ToString());
+                //Debug.Log( x.ToString());
                 thumbNail.GetComponent<MeshRenderer>().material = Material5;
             }
         } else if (this.name == "stage5" && stage5Sel == true){
@@ -120,7 +120,7 @@ public class BetaStageSelect : MonoBehaviour
             levels.Remove("MallMap");
             select.SetActive(false);
             foreach( var x in levels) {
-                Debug.Log( x.ToString());
+                //Debug.Log( x.ToString());
                 thumbNail.GetComponent<MeshRenderer>().material = Material5;
             }
         }
@@ -130,7 +130,7 @@ public class BetaStageSelect : MonoBehaviour
             levels.Add("BalloonMap");
             select.SetActive(true);
             foreach( var x in levels) {
-                Debug.Log( x.ToString());
+                //Debug.Log( x.ToString());
                 thumbNail.GetComponent<MeshRenderer>().material = Material6;
             }
         } else if (this.name == "stage6" && stage6Sel == true){
@@ -138,7 +138,7 @@ public class BetaStageSelect : MonoBehaviour
             levels.Remove("BalloonMap");
             select.SetActive(false);
             foreach( var x in levels) {
-                Debug.Log( x.ToString());
+                //Debug.Log( x.ToString());
                 thumbNail.GetComponent<MeshRenderer>().material = Material6;
             }
         }

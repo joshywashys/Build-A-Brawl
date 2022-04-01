@@ -8203,8 +8203,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stages: {fileID: 1641258110}
   selectedMaps: []
+  selectedMapIndexes: 
   numRounds: 5
-  numPlayers: 0
+  numPlayers: 4
+  players: []
   waitTime: 6
   onCancelStart:
     m_PersistentCalls:

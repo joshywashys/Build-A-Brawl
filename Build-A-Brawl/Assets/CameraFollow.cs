@@ -76,8 +76,8 @@ public class CameraFollow : MonoBehaviour
             if (playerNum == i + 1)
             {
                 players.RemoveAt(i);
+                //print("removed index " + i);
             }
-            print("removed index " + i);
         }
     }
 
