@@ -490,15 +490,16 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 8
+  useFloat: 1
   floatHeight: 3
   m_floatSpringStrength: 30
   m_floatSpringDamper: 4
-  useFloat: 1
+  useBalance: 1
   m_balanceSpringStrength: 50
   m_balanceSpringDamper: 1.5
-  useBalance: 1
   m_groundCheckBuffer: 0.75
   m_rayOffset: 0
+  useMovement: 1
   m_acceleration: 200
   m_accelerationFactor:
     serializedVersion: 2
@@ -536,7 +537,6 @@ MonoBehaviour:
   m_maxAccelForce: 150
   m_forceScale: {x: 1, y: 0, z: 1}
   m_gravityScale: 5
-  useMovement: 0
   groundNormal: {x: 0, y: 0, z: 0}
 --- !u!114 &3622046291138277065
 MonoBehaviour:
