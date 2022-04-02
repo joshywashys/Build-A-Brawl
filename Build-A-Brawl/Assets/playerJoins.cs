@@ -30,7 +30,7 @@ public class playerJoins : MonoBehaviour
     {
         for (int i = 0; i < parts.Count; i++)
         {
-            parts[i].onFinalize.AddListener(SwitchInputs);
+       //Anna     parts[i].onFinalize.AddListener(SwitchInputs);
         }
     }
 
@@ -62,8 +62,8 @@ public class playerJoins : MonoBehaviour
     {
         if (toggle)
         {
-            input.uiInputModule = parts[playerNum - 1].GetComponent<PlayerInput>();
-            parts[playerNum - 1] = 
+          //  input.uiInputModule = parts[playerNum - 1].GetComponent<PlayerInput>();
+          ///  parts[playerNum - 1] = 
         } else if (!toggle)
         {
 

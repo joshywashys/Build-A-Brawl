@@ -68,7 +68,7 @@ public class PartCombiner : MonoBehaviour
 
     // Events
     public UnityEvent onPartSwap;
-    public UnityEvent<bool, int> onFinalize;
+    public UnityEvent<bool> onFinalize; //, int
 
     #region Creature Generation
 
