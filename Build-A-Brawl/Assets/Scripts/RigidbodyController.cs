@@ -10,16 +10,16 @@ public class RigidbodyController : MonoBehaviour
     [SerializeField] private LayerMask ignoreLayer;
 
 	[Header("Floating Settings")]
+	public bool useFloat = true;
 	public float floatHeight;
 	public float m_floatSpringStrength;
 	[SerializeField] private float m_floatSpringDamper;
 	[SerializeField] private Vector3 m_rayOriginOffset { get { return Vector3.up * m_rayOffset; } }
-	public bool useFloat = true;
 
 	[Header("Balancing")]
+	public bool useBalance = true;
 	public float m_balanceSpringStrength;
 	public float m_balanceSpringDamper;
-	public bool useBalance = true;
 
 	[Header("Ground Check Settings")]
 	[SerializeField] private float m_groundCheckBuffer;
@@ -28,12 +28,12 @@ public class RigidbodyController : MonoBehaviour
 	public UnityAction OnGrounded;
 
 	[Header("Locomotion")]
+	public bool useMovement = true;
 	[SerializeField] private float m_acceleration;
 	[SerializeField] private AnimationCurve m_accelerationFactor;
 	[SerializeField] private float m_maxAccelForce;
 	[SerializeField] private Vector3 m_forceScale;
 	[SerializeField] private float m_gravityScale;
-	public bool useMovement;
 
 	[HideInInspector] public Vector3 groundNormal;
 

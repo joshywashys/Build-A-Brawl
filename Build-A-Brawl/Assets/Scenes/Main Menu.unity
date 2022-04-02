@@ -29789,9 +29789,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMenuType: {fileID: 0}
   player1: {fileID: 8450979734324455815}
-  player2: {fileID: 0}
-  player3: {fileID: 0}
-  player4: {fileID: 0}
+  player2: {fileID: 425183860}
+  player3: {fileID: 1674114050}
+  player4: {fileID: 1776408042}
   parts: []
   input: {fileID: 8306878944775645264}
 --- !u!1 &1286800851322746706
@@ -31780,7 +31780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!223 &7190570659776143070
 Canvas:
   m_ObjectHideFlags: 0

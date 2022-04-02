@@ -7,13 +7,17 @@ public class LegIKRig : MonoBehaviour
 {
 	private Animator m_animator;
 	private RigidbodyController m_rController;
-	private Vector4 m_stride { get { return new Vector4(0, strideHeight, strideLength, strideSpeed); } }
+	private Vector4 m_stride { get { return new Vector4(strideWaddle, strideHeight, strideLength, strideSpeed); } }
+
+	private float m_animSpeed = 0;
+	private float m_animSpeedDampVel = 0;
 
 	public LayerMask groundLayer;
 
 	[Header("Procedural Walking Settings")]
 	public float strideLength = 1.0f;
 	public float strideHeight = 1.0f;
+	public float strideWaddle = 1.0f;
 	public float strideSpeed = 2.0f;
 
 	[Header("Physics Rig Settings")]
@@ -37,16 +41,19 @@ public class LegIKRig : MonoBehaviour
 		private Quaternion m_targetRotation;
 
 		private Vector3 m_targetPosDampVel;
-
+		
 		private float m_weightInflence;
 		private float m_weightLerpSpeed;
 		private float m_raycastDistance;
 
-		public void Initialize(LayerMask layer)
+		private float legSide = 0;
+
+		public void Initialize(float leg, LayerMask layer)
         {
+			legSide = leg;
 			m_layerMask = layer;
 			m_raycastDistance = raycastOrigin.position.y - foot.position.y + targetOffset + 0.2f;
-        }
+		}
 
 		public void SetIKTarget(Vector3 forwards, Vector4 stride, float timeOffset, float runSpeed)
         {
@@ -61,9 +68,9 @@ public class LegIKRig : MonoBehaviour
 				// Procedural Walking code
 				Vector3 forwardPos = forwards * Mathf.Sin(Time.time * stride.w + timeOffset) * stride.z;
 				Vector3 upwardPos = Vector3.up * Mathf.Clamp01(Mathf.Cos(Time.time * stride.w + timeOffset)) * stride.y;
-				Vector3 sidePos = Vector3.Cross(forwards, Vector3.up) * Mathf.Clamp01(Mathf.Cos(Time.time * stride.w + timeOffset)) * stride.x;
+				Vector3 sidePos = Vector3.Cross(forwards, Vector3.up) * Mathf.Clamp01(Mathf.Cos(Time.time * stride.w + timeOffset)) * stride.x * legSide;
 
-				m_targetPosition = ((forwardPos + upwardPos) * runSpeed) + hitTarget;
+				m_targetPosition = ((forwardPos + upwardPos + sidePos) * runSpeed) + hitTarget;
 				return;
 			}
 
@@ -93,8 +100,8 @@ public class LegIKRig : MonoBehaviour
 		m_animator = GetComponent<Animator>();
 		m_rController = GetComponentInParent<RigidbodyController>();
 
-		leftLeg.Initialize(groundLayer);
-		rightLeg.Initialize(groundLayer);
+		leftLeg.Initialize(1.0f, groundLayer);
+		rightLeg.Initialize(-1.0f, groundLayer);
 
 		SetRagdoll(currentState == State.Ragdoll);
     }
@@ -104,10 +111,13 @@ public class LegIKRig : MonoBehaviour
 		//float leftLegWeight = m_animator.GetFloat("LeftIKWeight");
 		//float rightLegWeight = m_animator.GetFloat("RightIKWeight");
 
-		float animSpeed = Mathf.Clamp01(m_rController.isGrounded ? m_rController.Velocity : 0.0f);
+		//float targetAnimSpeed = Mathf.Clamp01(m_rController.isGrounded ? m_rController.Velocity : 0.0f);
+		//m_animSpeed = Mathf.SmoothDamp(m_animSpeed, targetAnimSpeed, ref m_animSpeedDampVel, Time.deltaTime);
 
-		SetLeftLegIKTarget(animSpeed);
-		SetRightLegIKTarget(animSpeed);
+		m_animSpeed = 1.0f;
+
+		SetLeftLegIKTarget(m_animSpeed);
+		SetRightLegIKTarget(m_animSpeed);
 
 		leftLeg.UpdateWeightInflence();
 		rightLeg.UpdateWeightInflence();
@@ -146,9 +156,13 @@ public class LegIKRig : MonoBehaviour
 		currentState = active ? State.Ragdoll : State.Animated;
 	}
 
-    private void OnDrawGizmos()
+	private void OnDrawGizmos()
     {
 		if (Application.isPlaying)
+			return;
+
+		if (leftLeg.raycastOrigin == null && leftLeg.target == null && leftLeg.foot == null &&
+			rightLeg.raycastOrigin == null && rightLeg.target == null && rightLeg.foot == null)
 			return;
 
 		// Left Leg
