@@ -22,7 +22,6 @@ using UnityEngine.Events;
         [SerializeField] public GameObject location2;
         public int menuGo = 0;
         public Canvas CanvasObject;
-        int introduceInt = 1;
 
         // Start is called before the first frame update
         void Start()

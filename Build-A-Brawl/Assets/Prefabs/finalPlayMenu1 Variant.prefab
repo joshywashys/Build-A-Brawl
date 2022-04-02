@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca90797bf219b7f4badb4e222d9fa886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generateLocate1: {fileID: 0}
-  generateLocate2: {fileID: 0}
-  generateLocate3: {fileID: 0}
-  generateLocate4: {fileID: 0}
+  searchList: []
 --- !u!1001 &7416471976866861982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -250,6 +247,10 @@ PrefabInstance:
     - target: {fileID: 3645565432964160589, guid: 14562a30eb834504db017720fe378695, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782183515141441599, guid: 14562a30eb834504db017720fe378695, type: 3}
+      propertyPath: m_text
+      value: Player 1
       objectReference: {fileID: 0}
     - target: {fileID: 4077930838880853178, guid: 14562a30eb834504db017720fe378695, type: 3}
       propertyPath: m_AnchorMax.y

@@ -13,6 +13,8 @@ TagManager:
   - bridge
   - bridge1
   - meteor
+  - menuDelete
+  - menuDeleteDelay
   layers:
   - Default
   - TransparentFX
