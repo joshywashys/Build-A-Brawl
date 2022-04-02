@@ -214,6 +214,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 2600819}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2600818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2103,6 +2110,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 95305886}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &95305892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c203f2ae166392e4193056fa8185e555, type: 3}
@@ -8036,6 +8050,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 389996961}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &389996960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17718,6 +17739,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 816502049}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &816502056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c203f2ae166392e4193056fa8185e555, type: 3}
@@ -20345,6 +20373,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 935529686}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &935529685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34670,6 +34705,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 1572705166}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1572705165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36721,6 +36763,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 1646104501}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1646104506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3001b54f6e109e243b320dfd54bce60e, type: 3}
@@ -46252,6 +46301,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 2100121065}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &2100121070 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0df0e996771cc3c49b86d6065728c399, type: 3}

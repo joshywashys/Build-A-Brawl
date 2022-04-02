@@ -10,12 +10,13 @@ using static UnityEngine.InputSystem.InputAction;
 public class PlayerController : MonoBehaviour
 {
 
-	//start of Anna
+	/*start of Anna
 	private PlayerConfiguration playerConfig;
 
 	private Controlss theControls;
 
-	//end of Anna
+	//end of Anna 
+	*/
 
     private CreatureStats statsRef;
 
@@ -84,14 +85,14 @@ public class PlayerController : MonoBehaviour
 
 
 	#region MonoBehaviour Functions
-
+	/*
 	private void Awake()
 	{
 		//Anna start
 		theControls = new Controlss();
 
 		//Anna end
-	}
+	}*/
 
 	private void Start()
 	{
@@ -199,7 +200,7 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	//Anna start
+	/*Anna start
 	public void InitializePlayer(PlayerConfiguration pc)
 	{
 		playerConfig = pc;
@@ -235,7 +236,7 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	//Anna end
+	//Anna end*/
 
 	#endregion
 

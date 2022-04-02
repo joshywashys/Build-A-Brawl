@@ -63,7 +63,7 @@ public class CCToolTip : MonoBehaviour
         cam = FindObjectOfType<Camera>();
 
         creature.onPartSwap.AddListener(UpdateSymbols);
-        creature.onFinalize.AddListener(Toggle);
+       //creature.onFinalize.AddListener(Toggle); Anna
     }
 
     public void Update()

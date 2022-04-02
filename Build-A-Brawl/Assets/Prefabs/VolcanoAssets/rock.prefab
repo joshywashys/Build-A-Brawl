@@ -491,8 +491,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holder: {fileID: 0}
   rigidbody: {fileID: 0}
-  collider: {fileID: 0}
+  collider: {fileID: 1287937045322860463}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1287937045417569731
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class playerJoins : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class playerJoins : MonoBehaviour
     public GameObject player3;
     public GameObject player4;
 
+    public List<PartCombiner> parts;
 
     public PlayerInput input;
 
@@ -22,6 +24,14 @@ public class playerJoins : MonoBehaviour
     void Awake()
     {
         playerJoining();
+    }
+
+    public void Start()
+    {
+        for (int i = 0; i < parts.Count; i++)
+        {
+       //Anna     parts[i].onFinalize.AddListener(SwitchInputs);
+        }
     }
 
     public GameObject figure()
@@ -46,6 +56,18 @@ public class playerJoins : MonoBehaviour
 
 
         return null;
+    }
+
+    public void SwitchInputs(bool toggle, int playerNum)
+    {
+        if (toggle)
+        {
+          //  input.uiInputModule = parts[playerNum - 1].GetComponent<PlayerInput>();
+          ///  parts[playerNum - 1] = 
+        } else if (!toggle)
+        {
+
+        }
     }
 
     public void playerJoining()

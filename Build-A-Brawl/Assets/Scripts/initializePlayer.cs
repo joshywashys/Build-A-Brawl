@@ -12,10 +12,10 @@ public class initializePlayer : MonoBehaviour
         
     }
 
-    public void playerOne ()
-    {
-            var playerConfigs = playerConfigurationManager.Instance.GetPlayerConfigs().ToArray();
-            player.GetComponent<PlayerController>().InitializePlayer(playerConfigs[0]);
-        
-    }
+     public void playerOne ()
+     {/*
+             var playerConfigs = playerConfigurationManager.Instance.GetPlayerConfigs().ToArray();
+             player.GetComponent<PlayerController>().InitializePlayer(playerConfigs[0]);
+      */
+}
 }
