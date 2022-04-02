@@ -39,7 +39,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168238610452721517}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -50,7 +50,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8748892135801146194, guid: 720ccf154e20e5a4f984d39c8648ee00, type: 3}
+  - {fileID: 2100000, guid: 42537b8317c24b24f8c43ef574b02655, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -403,7 +403,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3800003951054307878}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -414,7 +414,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8748892135801146194, guid: 720ccf154e20e5a4f984d39c8648ee00, type: 3}
+  - {fileID: 2100000, guid: 42537b8317c24b24f8c43ef574b02655, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -830,11 +830,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa49c12ed2cf8549bc9070c9637d992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreLayer:
+  groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 1
   strideLength: 0.7
   strideHeight: 0.2
+  strideWaddle: 0
   strideSpeed: 2
   ragdoll:
     bones: []
