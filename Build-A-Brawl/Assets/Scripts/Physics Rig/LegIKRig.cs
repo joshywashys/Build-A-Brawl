@@ -9,6 +9,9 @@ public class LegIKRig : MonoBehaviour
 	private RigidbodyController m_rController;
 	private Vector4 m_stride { get { return new Vector4(0, strideHeight, strideLength, strideSpeed); } }
 
+	private float m_animSpeed = 0;
+	private float m_animSpeedDampVel = 0;
+
 	public LayerMask groundLayer;
 
 	[Header("Procedural Walking Settings")]
@@ -37,7 +40,7 @@ public class LegIKRig : MonoBehaviour
 		private Quaternion m_targetRotation;
 
 		private Vector3 m_targetPosDampVel;
-
+		
 		private float m_weightInflence;
 		private float m_weightLerpSpeed;
 		private float m_raycastDistance;
@@ -104,10 +107,11 @@ public class LegIKRig : MonoBehaviour
 		//float leftLegWeight = m_animator.GetFloat("LeftIKWeight");
 		//float rightLegWeight = m_animator.GetFloat("RightIKWeight");
 
-		float animSpeed = Mathf.Clamp01(m_rController.isGrounded ? m_rController.Velocity : 0.0f);
+		float targetAnimSpeed = Mathf.Clamp01(m_rController.isGrounded ? m_rController.Velocity : 0.0f);
+		m_animSpeed = Mathf.SmoothDamp(m_animSpeed, targetAnimSpeed, ref m_animSpeedDampVel, Time.deltaTime);
 
-		SetLeftLegIKTarget(animSpeed);
-		SetRightLegIKTarget(animSpeed);
+		SetLeftLegIKTarget(m_animSpeed);
+		SetRightLegIKTarget(m_animSpeed);
 
 		leftLeg.UpdateWeightInflence();
 		rightLeg.UpdateWeightInflence();
@@ -146,9 +150,18 @@ public class LegIKRig : MonoBehaviour
 		currentState = active ? State.Ragdoll : State.Animated;
 	}
 
-    private void OnDrawGizmos()
+	public Transform raycastOrigin;
+	public float targetOffset;
+	public Transform target;
+	public Transform foot;
+
+	private void OnDrawGizmos()
     {
 		if (Application.isPlaying)
+			return;
+
+		if (leftLeg.raycastOrigin == null && leftLeg.target == null && leftLeg.foot == null &&
+			rightLeg.raycastOrigin == null && rightLeg.target == null && rightLeg.foot == null)
 			return;
 
 		// Left Leg
