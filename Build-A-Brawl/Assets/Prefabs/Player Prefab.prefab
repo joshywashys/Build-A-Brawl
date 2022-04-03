@@ -298,7 +298,8 @@ GameObject:
   - component: {fileID: 8228551700721319051}
   - component: {fileID: 4866000927752231823}
   - component: {fileID: 6538213606438656198}
-  m_Layer: 6
+  - component: {fileID: 5301282257657366604}
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +330,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5479808838921011391}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -624,6 +625,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5301282257657366604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5479808838921011391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85cf164e3b74a9741af705f8cebbdc5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxColliders: {fileID: 0}
+  sphereColliders: {fileID: 0}
 --- !u!1 &6365239696861500406
 GameObject:
   m_ObjectHideFlags: 0

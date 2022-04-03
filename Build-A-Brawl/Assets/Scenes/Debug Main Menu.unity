@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4427151, g: 0.4918484, b: 0.5716403, a: 1}
+  m_IndirectSpecularColor: {r: 0.4427158, g: 0.491849, b: 0.571641, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1446,6 +1446,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onFinalize:
+    m_PersistentCalls:
+      m_Calls: []
+  onCreatureSave:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &199176487
@@ -5045,6 +5048,9 @@ MonoBehaviour:
   onFinalize:
     m_PersistentCalls:
       m_Calls: []
+  onCreatureSave:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -7039,6 +7045,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onFinalize:
+    m_PersistentCalls:
+      m_Calls: []
+  onCreatureSave:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &963194225
@@ -10131,7 +10140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299523093}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.27, y: 3.29, z: -15.32}
+  m_LocalPosition: {x: 7.3, y: 3.29, z: -17.72}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13169,6 +13178,9 @@ MonoBehaviour:
   onFinalize:
     m_PersistentCalls:
       m_Calls: []
+  onCreatureSave:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1735094887
 Transform:
   m_ObjectHideFlags: 0
@@ -14994,6 +15006,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onFinalize:
+    m_PersistentCalls:
+      m_Calls: []
+  onCreatureSave:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1991882307
