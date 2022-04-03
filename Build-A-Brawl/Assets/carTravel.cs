@@ -127,6 +127,8 @@ public class carTravel : MonoBehaviour
         float equation = speed * Time.deltaTime;
         float limit = 73.2f;
 
+        isCollidable = false;
+
         if (!destReached && this.transform.position.z != midDest.transform.position.z) {
             this.transform.position = Vector3.MoveTowards(this.transform.position, midDest.transform.position, equation);
         } else if (this.transform.position.z == midDest.transform.position.z)
@@ -137,17 +139,34 @@ public class carTravel : MonoBehaviour
             pastLine = true;
         }
         if (redLight != null){
-            if (!redLight.activeInHierarchy && destReached)
+            if ((!redLight.activeInHierarchy && destReached) || pastLine)
             {
                 this.transform.position = Vector3.MoveTowards(this.transform.position, endDest.transform.position, equation);
-            }
-            else if (pastLine)
-            {
-                this.transform.position = Vector3.MoveTowards(this.transform.position, endDest.transform.position, equation);
-
+                isCollidable = true;
             }
         }
         Destroy(vehicle, 30);
 
+    }
+
+    private bool isCollidable = true;
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!isCollidable)
+            return;
+
+        if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController controller))
+        {
+            Rigidbody rig = GetComponent<Rigidbody>();
+
+            Vector3 collisionPoint = Vector3.zero;
+            foreach (ContactPoint contact in collision.contacts)
+                collisionPoint += contact.point;
+            collisionPoint /= collision.contactCount;
+
+            controller.SetState(PlayerController.State.Stunned);
+
+            rig.AddExplosionForce(200.0f, collisionPoint, 5.0f);;
+        }
     }
 }

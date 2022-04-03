@@ -104,6 +104,7 @@ public class PlayerController : MonoBehaviour
 		// Initialize state
 		m_stateDictionary = new Dictionary<State, UnityAction>
 		{
+			{ State.Idle,    new UnityAction(HandleIdleState) },			
 			{ State.Stunned, new UnityAction(HandleStunState) }
 		};
 		m_currentState = State.Idle;
@@ -124,9 +125,6 @@ public class PlayerController : MonoBehaviour
 		// Checking what state the player is currently in
 		if (m_currentState != State.Held && m_currentState != State.Stunned && m_currentState != State.Dead)
 		{
-			if (!m_controller.enabled)
-				m_controller.enabled = false;
-
 			// If PhysicsIKRig is not in the animated state, do so
 			foreach (PhysicsIKRig rig in m_rigs)
 			{
@@ -146,9 +144,6 @@ public class PlayerController : MonoBehaviour
 		}
 		else
         {
-			if (m_controller.enabled)
-				m_controller.enabled = false;
-
 			// If PhysicsIKRig is in the animated state, activate ragdoll
 			foreach (PhysicsIKRig rig in m_rigs)
 			{
@@ -459,10 +454,27 @@ public class PlayerController : MonoBehaviour
 
 	private void HandleStunState()
     {
-		float duration = 1.0f; // time in seconds
+		m_controller.isStunned = true;
+
+		m_controller.useFloat = false;
+		m_controller.useBalance = false;
+		m_controller.useMovement = false;
+
+		float duration = 5.0f; // time in seconds
 		if (isRecoveringFromStun == null)
 			isRecoveringFromStun = StartCoroutine(RecoverFromStun(duration));
     }
+
+	private void HandleIdleState()
+	{
+		m_controller.isStunned = false;
+
+		m_controller.ResetVelocity();
+		
+		m_controller.useFloat = true;
+		m_controller.useMovement = true;
+		m_controller.useBalance = true;
+	}
 
 	private Coroutine isRecoveringFromStun = null;
 	private IEnumerator RecoverFromStun(float duration)

@@ -13,7 +13,7 @@ using UnityEngine;
 
 [DisallowMultipleComponent]
 
-public class Outline : MonoBehaviour {
+public class PlayerOutline : MonoBehaviour {
   private static HashSet<Mesh> registeredMeshes = new HashSet<Mesh>();
 
   public enum Mode {
@@ -57,11 +57,11 @@ public class Outline : MonoBehaviour {
   private Mode outlineMode;
 
   [SerializeField]
-  private Color outlineColor = Color.white;
+  private Color outlineColor = new Color(255.0f, 0.0f, 204.0f);
   public void SetOutlineColour(Color colour) { outlineColor = colour; }
 
   [SerializeField, Range(0f, 10f)]
-  private float outlineWidth = 2f;
+  private float outlineWidth = 10f;
 
   [Header("Optional")]
 
@@ -87,11 +87,11 @@ public class Outline : MonoBehaviour {
     renderers = GetComponentsInChildren<Renderer>();
 
     // Instantiate outline materials
-    outlineMaskMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineMask"));
-    outlineFillMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineFill"));
+    outlineMaskMaterial = Instantiate(Resources.Load<Material>(@"Materials/PlayerOutlineMask"));
+    outlineFillMaterial = Instantiate(Resources.Load<Material>(@"Materials/PlayerOutlineFill"));
 
-    outlineMaskMaterial.name = "OutlineMask (Instance)";
-    outlineFillMaterial.name = "OutlineFill (Instance)";
+    outlineMaskMaterial.name = "PlayerOutlineMask (Instance)";
+    outlineFillMaterial.name = "PlayerOutlineFill (Instance)";
 
     // Retrieve or generate smooth normals
     LoadSmoothNormals();

@@ -16,8 +16,14 @@ public class ThrowableObject : MonoBehaviour
 
 	public bool IsGrabbed { get; private set; } = false;
 
+	private int m_layer;
+	private int m_playerLayer;
+
 	public void Start()
 	{
+		m_layer = gameObject.layer;
+		m_playerLayer = LayerMask.NameToLayer("Player");
+
 		rigidbody = GetComponent<Rigidbody>();
 		//holdPoints = new Transform[1];
 		//holdPoints[1] = gameObject.transform;
@@ -27,9 +33,11 @@ public class ThrowableObject : MonoBehaviour
 	{
 		collider.enabled = !pickedUp;
 		IsGrabbed = pickedUp;
+		gameObject.layer = m_layer;
 
 		if (pickedUp){
 			holder = grabber;
+			gameObject.layer = m_playerLayer;
 		}
 
 		onGrab?.Invoke();

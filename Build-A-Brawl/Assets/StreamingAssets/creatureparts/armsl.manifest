@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 612444218
+CRC: 2885297877
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d26c0b67a4f6d303b531f33eca102efd
+    Hash: daa3560c5b9658ed724fb7d6ade77db2
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f6ffe23ae86034544dd51a3be220f436
+    Hash: 7861af422de6d0435c82d64c52e65d42
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -39,6 +39,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 407c8e8d43bd85e4aabed3c038e0e665, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 135
@@ -58,4 +60,4 @@ Assets:
 - Assets/BundledAssets/CreatureParts/ArmsL/Druid_v4_ArmL.prefab
 - Assets/BundledAssets/CreatureParts/ArmsL/Robot_Arm_v6_Rigged.prefab
 Dependencies:
-- D:/IMD4901A/REPO/Build-A-Brawl/Build-A-Brawl/Assets/StreamingAssets/creatureparts/armsr
+- C:/Users/Tristan/Documents/Git/Build-A-Brawl/Build-A-Brawl/Assets/StreamingAssets/creatureparts/armsr

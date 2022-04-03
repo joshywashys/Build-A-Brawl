@@ -8,6 +8,7 @@ public class RigidbodyController : MonoBehaviour
     private CreatureStats statsRef;
 
     [SerializeField] private LayerMask ignoreLayer;
+	public bool isStunned = false;
 
 	[Header("Floating Settings")]
 	public bool useFloat = true;
@@ -75,6 +76,9 @@ public class RigidbodyController : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+		if (isStunned)
+			return;
+
 		m_ray = new Ray(transform.position + m_rayOriginOffset, m_rayDir);
 
 		PhysicsCheck();
@@ -83,6 +87,12 @@ public class RigidbodyController : MonoBehaviour
 		Balance();
 		Move();
 	}
+
+	public void ResetVelocity()
+    {
+		m_rigidbody.velocity = Vector3.zero;
+		m_rigidbody.angularVelocity = Vector3.zero;
+    }
 
 	private void PhysicsCheck()
 	{
@@ -93,7 +103,6 @@ public class RigidbodyController : MonoBehaviour
 			
 			isGrounded = true;
 			groundNormal = hit.normal;
-		
 			return;
 		}
 
