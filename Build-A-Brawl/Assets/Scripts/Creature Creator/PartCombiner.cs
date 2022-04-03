@@ -16,6 +16,10 @@ public class PartCombiner : MonoBehaviour
     private bool isReady;
     //public bool spawnButtons = true;
 
+    //Anna
+
+    private PlayerConfiguration playerConfigs;
+
     // Locations/Prefabs for generation
     public Transform creatureContainer;
     public GameObject creaturePlayable;
@@ -69,8 +73,11 @@ public class PartCombiner : MonoBehaviour
     // Events
     public UnityEvent onPartSwap;
     public UnityEvent<bool> onFinalize; //, int
+    public UnityEvent<int, GameObject> onCreatureSave;
+
 
     #region Creature Generation
+
 
     //we will recreate the creature every time a part is swapped out, despite it not being optimal, since it's not cpu-heavy at all anyways.
     //If it turns out to be cpu-heavy, we can optimize it to adjust part locations rather than re-generate.
@@ -135,6 +142,10 @@ public class PartCombiner : MonoBehaviour
     }
 
     // Add necessary scripts to turn creature into a playable character, send it to the manager, and start moving around as it
+    //var playerConfigs = playerConfigurationManager.Instance.GetPlayerConfigs().ToArray();
+    //player.GetComponent<PlayerController>().InitializePlayer(playerConfigs[0]);
+    //(Anna) I need to find way of taking that player controller and attaching our player configuration
+        
     public void FinalizeCreature()
     {
         if (!isReady)
@@ -144,6 +155,8 @@ public class PartCombiner : MonoBehaviour
             GameObject body = newPlayer.transform.GetChild(2).gameObject;
             RigidbodyController rbc = body.GetComponent<RigidbodyController>();
             PlayerController pc = body.GetComponent<PlayerController>();
+
+           
             GameObject creature = Instantiate(creaturePlayable, newPlayer.transform.position + new Vector3(0, 3, 0), Quaternion.identity, newPlayer.transform.GetChild(2));
 
             //rearrange part hierarchy
@@ -180,13 +193,17 @@ public class PartCombiner : MonoBehaviour
             if (savedLegs.GetComponent<Collider>() != null) { savedLegs.GetComponent<Collider>().enabled = false; }
             if (savedTorso.GetComponent<Collider>() != null) { savedTorso.GetComponent<Collider>().enabled = false; }
             MakeChildrenPlayerLayer(creature.transform);
-
+            
+            //Anna
+            // initializePlayer(newPlayer, playerNum);
+            
             //DontDestroyOnLoad(newPlayer); //.transform.root.gameObject
             //creatureManager.GetComponent<CreatureManager>().RemoveCreature(playerNum);
             creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer, playerNum);
             isReady = true;
             clearCreature();
 
+            onCreatureSave?.Invoke(playerNum, newPlayer);
             onFinalize?.Invoke(true);
         }
         else
@@ -197,13 +214,15 @@ public class PartCombiner : MonoBehaviour
             generateCreature();
 
             onFinalize?.Invoke(false);
+            
         }
         
     }
 
-#endregion
 
-#region Monobehaviour Functions
+    #endregion
+
+    #region Monobehaviour Functions
 
     public void FixedUpdate()
     {
