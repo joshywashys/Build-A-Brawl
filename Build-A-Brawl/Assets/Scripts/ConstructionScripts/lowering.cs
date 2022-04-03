@@ -31,6 +31,20 @@ public class lowering : MonoBehaviour
                 concreteSmash3.Play();
             }
         }
+
+        if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController controller))
+        {
+            Rigidbody rig = GetComponent<Rigidbody>();
+
+            Vector3 collisionPoint = Vector3.zero;
+            foreach (ContactPoint contact in collision.contacts)
+                collisionPoint += contact.point;
+            collisionPoint /= collision.contactCount;
+
+            controller.SetState(PlayerController.State.Stunned);
+
+            rig.AddExplosionForce(200.0f, collisionPoint, 5.0f);;
+        }
         
     }
 
