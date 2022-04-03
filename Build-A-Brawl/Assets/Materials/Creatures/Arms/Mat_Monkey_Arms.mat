@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-428590176242385003
+--- !u!114 &-3938484954982553679
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_MonkeyHead
+  m_Name: Mat_Monkey_Arms
   m_Shader: {fileID: -6465566751694194690, guid: 8e61eb288abff7d4799c31d4c11a58f3, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -33,11 +33,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoTexture:
-        m_Texture: {fileID: 2800000, guid: 357b4e7bdff369d419c5c217e3371338, type: 3}
+        m_Texture: {fileID: 2800000, guid: b79c68e010bbb9a4f80cffbba7f02f1a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 357b4e7bdff369d419c5c217e3371338, type: 3}
+        m_Texture: {fileID: 2800000, guid: b79c68e010bbb9a4f80cffbba7f02f1a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BrushTexture:
@@ -65,7 +65,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 357b4e7bdff369d419c5c217e3371338, type: 3}
+        m_Texture: {fileID: 2800000, guid: b79c68e010bbb9a4f80cffbba7f02f1a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -98,7 +98,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaClip: 0
-    - _BackLightStrength: 0
+    - _BackLightStrength: 1
     - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
@@ -118,7 +118,7 @@ Material:
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.75
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

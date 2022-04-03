@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8164064680336427647}
   - component: {fileID: 1986403208133069875}
   - component: {fileID: 6834294580802289428}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9063649000609979522}
   - component: {fileID: 5104015963425940400}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ArmR1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134842741384665661}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -240,8 +240,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5506428115389609390, guid: 925525d0ace544042b38687819f7dec1, type: 3}
-  - {fileID: -6145224532638616112, guid: 925525d0ace544042b38687819f7dec1, type: 3}
+  - {fileID: 2100000, guid: 554443dad2f1f8e458b2ecd8d5fb67eb, type: 2}
+  - {fileID: 2100000, guid: 2ede7ef28cce2304c9ed4417e75385e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -419,7 +419,7 @@ GameObject:
   - component: {fileID: 8069514539137460732}
   - component: {fileID: 4099126483321770154}
   - component: {fileID: 1971229870190467903}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 744940636758342472}
   - component: {fileID: 6285571014380257476}
   - component: {fileID: 4612156886618491164}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wrist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 783973831678527936}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shoulder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

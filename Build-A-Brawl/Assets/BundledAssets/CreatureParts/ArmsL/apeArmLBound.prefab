@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 584042780219179649}
   - component: {fileID: 2310840523633967513}
   - component: {fileID: 2376992263114115018}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wrist_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5168147268779710185}
   - component: {fileID: 596783685566932820}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: polySurface1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5323623778002729154}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -337,7 +337,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1247661674132634658, guid: a43bc2d7379cebb4ea5255d4bf7bbdf4, type: 3}
+  - {fileID: 2100000, guid: cccfb5be3f384a446af9fd60bf2f1f7a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -414,7 +414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6755165116242385887}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: apeSkeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 6745847388228149447}
   - component: {fileID: 3039684337219446356}
   - component: {fileID: 1186720699744554272}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Elbow_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -773,7 +773,7 @@ GameObject:
   - component: {fileID: 4245305925138129051}
   - component: {fileID: 1226559932840642597}
   - component: {fileID: 5542255687496192465}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: shoulder_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}

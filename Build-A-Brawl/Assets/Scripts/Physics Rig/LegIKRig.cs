@@ -7,18 +7,29 @@ public class LegIKRig : MonoBehaviour
 {
 	private Animator m_animator;
 	private RigidbodyController m_rController;
-	private Vector4 m_stride { get { return new Vector4(strideWaddle, strideHeight, strideLength, strideSpeed); } }
-
+	
 	private float m_animSpeed = 0;
 	private float m_animSpeedDampVel = 0;
 
 	public LayerMask groundLayer;
 
+	[System.Serializable]
+	public class StrideData
+	{
+		public float length = 1.0f;
+		public AnimationCurve lengthCurve = new AnimationCurve(new Keyframe(0, 1));
+		[Space]
+		public float height = 1.0f;
+		public AnimationCurve heightCurve = new AnimationCurve(new Keyframe(0, 1));
+		[Space]
+		public float waddle = 1.0f;
+		public AnimationCurve waddleCurve = new AnimationCurve(new Keyframe(0, 1));
+		[Space]
+		public float speed = 2.0f;
+		public AnimationCurve speedCurve = new AnimationCurve(new Keyframe(0, 1));
+	}
 	[Header("Procedural Walking Settings")]
-	public float strideLength = 1.0f;
-	public float strideHeight = 1.0f;
-	public float strideWaddle = 1.0f;
-	public float strideSpeed = 2.0f;
+	public StrideData stride;
 
 	[Header("Physics Rig Settings")]
 	public Ragdoll ragdoll;
@@ -55,7 +66,7 @@ public class LegIKRig : MonoBehaviour
 			m_raycastDistance = raycastOrigin.position.y - foot.position.y + targetOffset + 0.2f;
 		}
 
-		public void SetIKTarget(Vector3 forwards, Vector4 stride, float timeOffset, float runSpeed)
+		public void SetIKTarget(Vector3 forwards, StrideData stride, float timeOffset, float runSpeed)
         {
 			Ray ray = new Ray(raycastOrigin.position, Vector3.down);
 			if (Physics.Raycast(ray, out RaycastHit hit, m_raycastDistance, m_layerMask))
@@ -64,11 +75,18 @@ public class LegIKRig : MonoBehaviour
 				m_weightLerpSpeed = 15.0f;
 
 				Vector3 hitTarget = hit.point + hit.normal * targetOffset;
-				
+
 				// Procedural Walking code
-				Vector3 forwardPos = forwards * Mathf.Sin(Time.time * stride.w + timeOffset) * stride.z;
-				Vector3 upwardPos = Vector3.up * Mathf.Clamp01(Mathf.Cos(Time.time * stride.w + timeOffset)) * stride.y;
-				Vector3 sidePos = Vector3.Cross(forwards, Vector3.up) * Mathf.Clamp01(Mathf.Cos(Time.time * stride.w + timeOffset)) * stride.x * legSide;
+				float time = Time.time * stride.speed + timeOffset;
+
+				float lengthTime = Mathf.Sin(time);
+				Vector3 forwardPos = forwards * lengthTime * stride.length * stride.lengthCurve.Evaluate(lengthTime);
+
+				float heightTime = Mathf.Cos(time);
+				Vector3 upwardPos = Vector3.up * heightTime * stride.height * stride.heightCurve.Evaluate(heightTime);
+
+				float waddleTime = Mathf.Cos(time);
+				Vector3 sidePos = legSide * Vector3.Cross(forwards, Vector3.up) * waddleTime * stride.waddle * stride.waddleCurve.Evaluate(waddleTime);
 
 				m_targetPosition = ((forwardPos + upwardPos + sidePos) * runSpeed) + hitTarget;
 				return;
@@ -108,13 +126,16 @@ public class LegIKRig : MonoBehaviour
 
     private void Update()
 	{
-		//float leftLegWeight = m_animator.GetFloat("LeftIKWeight");
-		//float rightLegWeight = m_animator.GetFloat("RightIKWeight");
-
-		//float targetAnimSpeed = Mathf.Clamp01(m_rController.isGrounded ? m_rController.Velocity : 0.0f);
-		//m_animSpeed = Mathf.SmoothDamp(m_animSpeed, targetAnimSpeed, ref m_animSpeedDampVel, Time.deltaTime);
-
-		m_animSpeed = 1.0f;
+		// For testing purposes
+		if (m_rController != null)
+		{
+			float targetAnimSpeed = Mathf.Clamp01(m_rController.isGrounded ? m_rController.Velocity : 0.0f);
+			m_animSpeed = Mathf.SmoothDamp(m_animSpeed, targetAnimSpeed, ref m_animSpeedDampVel, Time.deltaTime);
+		}
+		else
+		{
+			m_animSpeed = 1.0f;
+		}
 
 		SetLeftLegIKTarget(m_animSpeed);
 		SetRightLegIKTarget(m_animSpeed);
@@ -127,18 +148,16 @@ public class LegIKRig : MonoBehaviour
 
 		//leftLeg.UpdateIKTargetRotation();
 		//rightLeg.UpdateIKTargetRotation();
-
-		//m_animator.SetFloat("Speed", animSpeed);
 	}
 
 	public void SetLeftLegIKTarget(float speed)
     {
-		leftLeg.SetIKTarget(transform.forward, m_stride, 0.0f, speed);
+		leftLeg.SetIKTarget(transform.forward, stride, 0.0f, speed);
     }
 
 	public void SetRightLegIKTarget(float speed)
     {
-		rightLeg.SetIKTarget(transform.forward, m_stride, 3.0f, speed);
+		rightLeg.SetIKTarget(transform.forward, stride, 3.0f, speed);
     }
 
 	public void SetRagdoll(bool active)

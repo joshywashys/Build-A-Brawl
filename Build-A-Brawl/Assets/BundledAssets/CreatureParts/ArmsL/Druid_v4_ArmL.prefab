@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3514872049809095550}
   - component: {fileID: 4961680711845809266}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965182324951117842}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -80,10 +80,10 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8384905303152084235, guid: 30e66dc8f9436b048b6247cc42d03772, type: 3}
-  - {fileID: -4449262492210819702, guid: 30e66dc8f9436b048b6247cc42d03772, type: 3}
-  - {fileID: -4459297117519461758, guid: 30e66dc8f9436b048b6247cc42d03772, type: 3}
-  - {fileID: -2903437871700408911, guid: 30e66dc8f9436b048b6247cc42d03772, type: 3}
+  - {fileID: 2100000, guid: 9ef7f6f96c045c84ca724585a544c051, type: 2}
+  - {fileID: 2100000, guid: bc561a7d820e11e43af70205cc1b2406, type: 2}
+  - {fileID: 2100000, guid: 43fffe5042b0a6a4ba3718e93b8e9965, type: 2}
+  - {fileID: 2100000, guid: a1fbce035ef700c4c953e168967d46eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -158,7 +158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7201835868035489832}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5707194877567970341}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wrist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 940426839953494711}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3448424629886636615}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

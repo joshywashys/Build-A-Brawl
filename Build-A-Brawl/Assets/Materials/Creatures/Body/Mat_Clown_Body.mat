@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_ClownHead
+  m_Name: Mat_Clown_Body
   m_Shader: {fileID: -6465566751694194690, guid: 8e61eb288abff7d4799c31d4c11a58f3, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,11 +20,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoTexture:
-        m_Texture: {fileID: 2800000, guid: 15cb07e0a52aa6347972c95586cd6348, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1ff88d952b7bf7c46a353c9e6a73fcae, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 15cb07e0a52aa6347972c95586cd6348, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1ff88d952b7bf7c46a353c9e6a73fcae, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BrushTexture:
@@ -52,7 +52,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 15cb07e0a52aa6347972c95586cd6348, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1ff88d952b7bf7c46a353c9e6a73fcae, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -121,7 +121,7 @@ Material:
     - _PlayerColour: {r: 1, g: 1, b: 1, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &2362707002860193746
+--- !u!114 &4687516883429618902
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

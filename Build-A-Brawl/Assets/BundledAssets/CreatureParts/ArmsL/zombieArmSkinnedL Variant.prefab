@@ -35,6 +35,14 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 0.0026069665
       objectReference: {fileID: 0}
+    - target: {fileID: 5338216852596043677, guid: 7221acb28e9ced24692625e11864f14c, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5338216852596043677, guid: 7221acb28e9ced24692625e11864f14c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fcb59ab96e1a9f04794ff275c0577551, type: 2}
     - target: {fileID: 5868032806314143729, guid: 7221acb28e9ced24692625e11864f14c, type: 3}
       propertyPath: m_RootOrder
       value: 0
