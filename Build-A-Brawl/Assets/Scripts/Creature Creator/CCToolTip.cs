@@ -45,9 +45,9 @@ public class CCToolTip : MonoBehaviour
 
     public void UpdatePosition()
     {
-        Vector3 headHeight = new Vector3(0, creature.newHead.GetComponent<Collider>().bounds.size.y, 0);
-        Vector3 targetPos = cam.WorldToScreenPoint(creature.newHead.transform.position + headHeight);
-        tooltip.transform.position = targetPos + offset;
+        //Vector3 headHeight = new Vector3(0, creature.newHead.GetComponent<Collider>().bounds.size.y, 0);
+        //Vector3 targetPos = cam.WorldToScreenPoint(creature.newHead.transform.position + headHeight);
+        //tooltip.transform.position = targetPos + offset;
     }
 
     public void UpdateColor()

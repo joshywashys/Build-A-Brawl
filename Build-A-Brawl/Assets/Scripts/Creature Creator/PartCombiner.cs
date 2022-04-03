@@ -152,7 +152,7 @@ public class PartCombiner : MonoBehaviour
         {
             // Create references
             newPlayer = Instantiate(playerPrefab, creatureContainer.transform.position, Quaternion.identity);
-            GameObject body = newPlayer.transform.GetChild(2).gameObject;
+            GameObject body = newPlayer.transform.Find("Body").gameObject;
             RigidbodyController rbc = body.GetComponent<RigidbodyController>();
             PlayerController pc = body.GetComponent<PlayerController>();
 
@@ -192,6 +192,48 @@ public class PartCombiner : MonoBehaviour
             if (savedLegs.GetComponent<LegIKRig>() != null) { savedLegs.GetComponent<LegIKRig>().enabled = true; }
             if (savedLegs.GetComponent<Collider>() != null) { savedLegs.GetComponent<Collider>().enabled = false; }
             if (savedTorso.GetComponent<Collider>() != null) { savedTorso.GetComponent<Collider>().enabled = false; }
+
+            //foreach (Collider col in savedTorso.GetComponents())
+            //deactivate all colliders on torso
+            //for (int i = 0; i < savedTorso.GetComponents(typeof(Collider)).Length; i++)
+
+            Component CopyComponent(Component original, GameObject destination)
+            {
+                System.Type type = original.GetType();
+                Component copy = destination.AddComponent(type);
+                // Copied fields can be restricted with BindingFlags
+                System.Reflection.FieldInfo[] fields = type.GetFields();
+                foreach (System.Reflection.FieldInfo field in fields)
+                {
+                    field.SetValue(copy, field.GetValue(original));
+                }
+                return copy;
+            }
+
+            // Copy the necessary colliders
+            CapsuleCollider bodyCol = body.GetComponent<CapsuleCollider>();
+            bool dontDestroyCapsule = true;
+
+            SphereCollider sc = savedTorso.GetComponent<SphereCollider>();
+            if (sc != null) { CopyComponent(sc, body); }
+
+            CapsuleCollider cc = savedTorso.GetComponent<CapsuleCollider>();
+            if (savedTorso.GetComponent<CapsuleCollider>() != null) { CopyComponent(cc, body); dontDestroyCapsule = false; }
+
+            BoxCollider bc = savedTorso.GetComponent<BoxCollider>();
+            if (bc != null) { CopyComponent(bc, body); }
+
+            // Disable colliders after copying them over
+            foreach (Collider col in savedTorso.GetComponents(typeof(Collider)))
+            {
+                col.enabled = false;
+            }
+            if (!dontDestroyCapsule)
+            {
+                Destroy(bodyCol);
+            }
+
+
             MakeChildrenPlayerLayer(creature.transform);
             
             //Anna
