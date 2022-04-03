@@ -15,9 +15,9 @@ public class deleteUselessColliders : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        boxColliders = this.GetComponent<BoxCollider>();
-        sphereColliders = this.GetComponent<SphereCollider>();
-        Destroy(boxColliders);
-        Destroy(sphereColliders);
+        //boxColliders = this.GetComponent<BoxCollider>();
+        //sphereColliders = this.GetComponent<SphereCollider>();
+        //Destroy(boxColliders);
+        //Destroy(sphereColliders);
     }
 }

@@ -197,6 +197,7 @@ public class PartCombiner : MonoBehaviour
             //deactivate all colliders on torso
             //for (int i = 0; i < savedTorso.GetComponents(typeof(Collider)).Length; i++)
 
+            /*
             Component CopyComponent(Component original, GameObject destination)
             {
                 System.Type type = original.GetType();
@@ -209,29 +210,72 @@ public class PartCombiner : MonoBehaviour
                 }
                 return copy;
             }
+            */
+
+            /*
+            T CopyComponent<T>(T original, GameObject destination) where T : Component
+            {
+                System.Type type = original.GetType();
+                Component copy = destination.AddComponent(type);
+                System.Reflection.FieldInfo[] fields = type.GetFields();
+                foreach (System.Reflection.FieldInfo field in fields)
+                {
+                    field.SetValue(copy, field.GetValue(original));
+                }
+                return copy as T;
+            }
+            */
+
 
             // Copy the necessary colliders
             CapsuleCollider bodyCol = body.GetComponent<CapsuleCollider>();
             bool dontDestroyCapsule = true;
 
             SphereCollider sc = savedTorso.GetComponent<SphereCollider>();
-            if (sc != null) { CopyComponent(sc, body); }
+            if (sc != null)
+            {
+                SphereCollider SCnew = body.AddComponent<SphereCollider>();
+                //SCnew.transform.localScale = savedTorso.transform.localScale;
+                SCnew.transform.position = sc.transform.position;
+                SCnew.center = sc.center * savedTorso.transform.localScale.x;
+                SCnew.radius = sc.radius * savedTorso.transform.localScale.x;
+            }
 
             CapsuleCollider cc = savedTorso.GetComponent<CapsuleCollider>();
-            if (savedTorso.GetComponent<CapsuleCollider>() != null) { CopyComponent(cc, body); dontDestroyCapsule = false; }
+            if (savedTorso.GetComponent<CapsuleCollider>() != null)
+            {
+                Destroy(bodyCol);
+                dontDestroyCapsule = false;
+
+                CapsuleCollider CCnew = body.AddComponent<CapsuleCollider>();
+                //CCnew.transform.localScale = savedTorso.transform.localScale;
+                CCnew.transform.position = cc.transform.position;
+                CCnew.center = cc.center * savedTorso.transform.localScale.x;
+                CCnew.direction = cc.direction;
+                CCnew.height = cc.height * savedTorso.transform.localScale.x;
+                CCnew.radius = cc.radius * savedTorso.transform.localScale.x;
+            }
 
             BoxCollider bc = savedTorso.GetComponent<BoxCollider>();
-            if (bc != null) { CopyComponent(bc, body); }
+            if (bc != null)
+            {
+                BoxCollider BCnew = body.AddComponent<BoxCollider>();
+                //BCnew.transform.localScale = savedTorso.transform.localScale;
+                BCnew.transform.position = bc.transform.position;
+                BCnew.center = bc.center * savedTorso.transform.localScale.x;
+                BCnew.size = bc.size * savedTorso.transform.localScale.x;
+            }
 
             // Disable colliders after copying them over
             foreach (Collider col in savedTorso.GetComponents(typeof(Collider)))
             {
                 col.enabled = false;
             }
-            if (!dontDestroyCapsule)
+            if (dontDestroyCapsule)
             {
                 Destroy(bodyCol);
             }
+            //Destroy(bodyCol);
 
 
             MakeChildrenPlayerLayer(creature.transform);
@@ -598,9 +642,7 @@ public class PartCombiner : MonoBehaviour
     }
     #endregion
 
-#region Misc
-
-    
+    #region Misc
 
     public void Float()
     {
