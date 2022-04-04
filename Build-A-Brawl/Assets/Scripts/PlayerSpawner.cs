@@ -7,6 +7,7 @@ public class PlayerSpawner : MonoBehaviour
     public RoundManager rm;
     [SerializeField] private CreatureManager creatureManager;
     [SerializeField] private List<Transform> spawnpoints;
+    private PlayerConfiguration playerConfigs;
 
     void Awake()
     {
@@ -20,14 +21,28 @@ public class PlayerSpawner : MonoBehaviour
         {
             if (toSpawn[i] != null)
             {
-                SpawnPlayer(toSpawn[i], spawnpoints[i % spawnpoints.Count]);
+
+                SpawnPlayer(toSpawn[i], spawnpoints[i % spawnpoints.Count], i);
+                
             }
         }
     }
 
-    public void SpawnPlayer(GameObject toSpawn, Transform spawnpoint)
-    {
+    public void SpawnPlayer(GameObject toSpawn, Transform spawnpoint, int playerNum)
+    {   
+
+        var playerConfig = playerConfigurationManager.Instance.GetPlayerConfigs().ToArray();
+
         GameObject newCreature = Instantiate(toSpawn, new Vector3(spawnpoint.position.x, spawnpoint.position.y, spawnpoint.position.z), Quaternion.identity);
+        
+        Debug.Log(toSpawn.name + " " + playerNum);
+        Debug.Log(playerConfig[playerNum]);
+
+        var player = newCreature;
+
         newCreature.SetActive(true);
+        player.GetComponentInChildren<PlayerController>().InitializePlayer(playerConfig[playerNum]);
+
+
     }
 }
