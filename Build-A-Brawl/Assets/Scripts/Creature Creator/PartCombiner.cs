@@ -289,7 +289,7 @@ public class PartCombiner : MonoBehaviour
             isReady = true;
             clearCreature();
 
-            onCreatureSave?.Invoke(playerNum, newPlayer);
+            onCreatureSave?.Invoke(playerNum, creature);
             onFinalize?.Invoke(true);
         }
         else

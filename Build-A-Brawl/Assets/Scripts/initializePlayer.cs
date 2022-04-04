@@ -1,52 +1,78 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using UnityEngine.EventSystems;
 public class initializePlayer : MonoBehaviour
 {
     private PlayerConfiguration playerConfigs;
     public List<PartCombiner> partCombiners;
-    
-        
 
-[SerializeField] public GameObject player;
-  //  PlayerController pc = body.GetComponent<PlayerController>();
+    //I need the finalized game object and the player number assigned to that
+    // made a unity event in partcombiner
+
 
     // Start is called before the first frame update
-    void Start()
+    public void Initializer(int playerNum, GameObject player)
     {
-        for (int i = 0; i < partCombiners.Count; i++)
-        {
-            //partCombiners[i].onSaveCreature.AddListener(Initializer());
-        }
 
-    }
-
-    public void Initializer()
-    {
+        Debug.Log(player.name);
         var playerConfig = playerConfigurationManager.Instance.GetPlayerConfigs().ToArray();
+        
 
-        if (playerConfigs.PlayerIndex == 0)
-        {
-            Debug.Log("Configured to the first player");
+        if (playerNum == 1)
+        {        Debug.Log("PLAYERS CONFIGURE ACTION EVENT CALLED");
+
             //go into player controller on body, assign the player configuration to that body
-          //  pc.GetComponent<PlayerController>().InitializePlayer(playerConfig[0]);
+
+             player.GetComponentInParent<PlayerController>().InitializePlayer(playerConfig[0]);
+            
+        }
+        else if (playerNum == 2)
+        {
+            Debug.Log("PLAYER 2 CONFIGURATION");
+            player.GetComponentInParent<PlayerController>().InitializePlayer(playerConfig[1]);
+        }
+        else if (playerNum == 3)
+        {
+            player.GetComponentInParent<PlayerController>().InitializePlayer(playerConfig[2]);
+        }
+        else if (playerNum == 4)
+        {
+            player.GetComponentInParent<PlayerController>().InitializePlayer(playerConfig[3]);
+        } else { 
+
+        Debug.Log(playerNum);
 
         }
-        else if (playerConfigs.PlayerIndex == 1)
-        {
-          //  pc.GetComponent<PlayerController>().InitializePlayer(playerConfig[1]);
 
-        }
-        else if (playerConfigs.PlayerIndex == 2)
-        {
-          //  pc.GetComponent<PlayerController>().InitializePlayer(playerConfig[2]);
 
-        }
-        else if (playerConfigs.PlayerIndex == 3)
-        {
-           // pc.GetComponent<PlayerController>().InitializePlayer(playerConfig[3]);
-        }
+        throw new NotImplementedException();
     }
-}
+
+
+
+    void Start()
+    { 
+        
+        Debug.Log("Started this!!!");
+        
+        for (int i = 0; i < partCombiners.Count; i++) { 
+            partCombiners[i].onCreatureSave.AddListener(Initializer);
+            Debug.Log("Listener added");
+           }
+           
+       
+
+    }
+
+
+}      
+    
+   
+    
+
+
+
+
