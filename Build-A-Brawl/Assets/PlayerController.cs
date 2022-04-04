@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
 
     private CreatureStats statsRef;
 
+	[SerializeField] private PhysicMaterial m_slidePhysicMaterial;
+	[SerializeField] private Collider m_bodyCollider;
+
     [Header("Animators")]
 	[SerializeField] private PhysicsIKRig[] m_rigs;
 
@@ -456,6 +459,7 @@ public class PlayerController : MonoBehaviour
 	private void HandleStunState()
     {
 		m_controller.isStunned = true;
+		m_bodyCollider.material = null;
 
 		m_controller.useFloat = false;
 		m_controller.useBalance = false;
@@ -469,6 +473,7 @@ public class PlayerController : MonoBehaviour
 	private void HandleIdleState()
 	{
 		m_controller.isStunned = false;
+		m_bodyCollider.material = m_slidePhysicMaterial;
 
 		m_controller.ResetVelocity();
 		

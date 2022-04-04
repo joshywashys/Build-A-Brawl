@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5436828549448006228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4886386839477635452}
+  - component: {fileID: 3053649002919869652}
+  - component: {fileID: 7766299993235368479}
+  m_Layer: 0
+  m_Name: ParentingTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4886386839477635452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436828549448006228}
+  m_LocalRotation: {x: -0, y: 0.01252985, z: -0, w: 0.99992156}
+  m_LocalPosition: {x: -0.00003509136, y: 0.0804, z: -0.0013995806}
+  m_LocalScale: {x: 0.12285004, y: 0.22524986, z: 0.29605868}
+  m_Children: []
+  m_Father: {fileID: 8777199868674013375}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3053649002919869652
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436828549448006228}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0.0000038146973, y: 0, z: 0.0000019073486}
+--- !u!114 &7766299993235368479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436828549448006228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c695750f1c6a8b34a98d3633372b9251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootPlatform: {fileID: 8777199868674013375}
+  displayZoneType: 1
+  displayZoneColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &8777199868674013370
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +72,7 @@ GameObject:
   - component: {fileID: 8777199868674013361}
   - component: {fileID: 8777199868674013360}
   - component: {fileID: 8777199868674013373}
-  - component: {fileID: 8777199868674013372}
+  - component: {fileID: 725690184982975657}
   - component: {fileID: 8777199868674013371}
   m_Layer: 0
   m_Name: eVehic2
@@ -28,13 +88,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8777199868674013370}
-  m_LocalRotation: {x: -0, y: -0.7159112, z: -0, w: 0.69819134}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -47.896988, y: -2.4264364, z: -13.303974}
   m_LocalScale: {x: 50.331615, y: 50.33162, z: 50.331615}
-  m_Children: []
+  m_Children:
+  - {fileID: 4886386839477635452}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -91.436, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8777199868674013361
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -100,8 +161,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8777199868674013372
-BoxCollider:
+--- !u!64 &725690184982975657
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -110,9 +171,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.12579569, y: 0.09761527, z: 0.31382453}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8227720962241186826, guid: ecf929d78f5301a429a9adafb9f9d8d0, type: 3}
 --- !u!114 &8777199868674013371
 MonoBehaviour:
   m_ObjectHideFlags: 0
