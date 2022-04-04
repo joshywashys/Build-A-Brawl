@@ -2513,6 +2513,9 @@ MonoBehaviour:
   onFinalize:
     m_PersistentCalls:
       m_Calls: []
+  onCreatureSave:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &181592516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2525,7 +2528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68480b1228dfc354bb649629a9eb9a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4443079348437890297, guid: c27cfc3cfa19186489d5675731bd4993, type: 3}
+  partCombiners: []
 --- !u!1 &198475354
 GameObject:
   m_ObjectHideFlags: 0
@@ -10260,6 +10263,9 @@ MonoBehaviour:
   onFinalize:
     m_PersistentCalls:
       m_Calls: []
+  onCreatureSave:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &696171606
 GameObject:
   m_ObjectHideFlags: 0
@@ -14449,7 +14455,7 @@ MonoBehaviour:
   creatureContainer: {fileID: 1475612524}
   creaturePlayable: {fileID: 1764208445}
   creatureManager: {fileID: 2095921165}
-  playerPrefab: {fileID: 9026564780555503763, guid: 8004321b4414d1f498225faf3e1a90c3, type: 3}
+  playerPrefab: {fileID: 4443079348437890297, guid: c27cfc3cfa19186489d5675731bd4993, type: 3}
   currHead: {fileID: 0}
   currTorso: {fileID: 0}
   currArmL: {fileID: 0}
@@ -14470,6 +14476,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onFinalize:
+    m_PersistentCalls:
+      m_Calls: []
+  onCreatureSave:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &963194225
@@ -21663,6 +21672,7 @@ GameObject:
   - component: {fileID: 1556229010}
   - component: {fileID: 1556229009}
   - component: {fileID: 1556229008}
+  - component: {fileID: 1556229011}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -21726,6 +21736,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1556229011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556229007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68480b1228dfc354bb649629a9eb9a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partCombiners:
+  - {fileID: 181592515}
+  - {fileID: 960095889}
+  - {fileID: 1982228499}
+  - {fileID: 687205165}
 --- !u!1 &1563659446
 GameObject:
   m_ObjectHideFlags: 0
@@ -24221,6 +24248,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onFinalize:
+    m_PersistentCalls:
+      m_Calls: []
+  onCreatureSave:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1735094887
@@ -27244,7 +27274,7 @@ MonoBehaviour:
   creatureContainer: {fileID: 2001775053}
   creaturePlayable: {fileID: 948162965}
   creatureManager: {fileID: 2095921165}
-  playerPrefab: {fileID: 4443079348437890297, guid: ce565364d110fc949b27937a80e15fae, type: 3}
+  playerPrefab: {fileID: 4443079348437890297, guid: c27cfc3cfa19186489d5675731bd4993, type: 3}
   currHead: {fileID: 0}
   currTorso: {fileID: 0}
   currArmL: {fileID: 0}
@@ -27265,6 +27295,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onFinalize:
+    m_PersistentCalls:
+      m_Calls: []
+  onCreatureSave:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1985090936
@@ -28424,6 +28457,7 @@ GameObject:
   - component: {fileID: 2095921167}
   - component: {fileID: 2095921166}
   - component: {fileID: 2095921168}
+  - component: {fileID: 2095921169}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -28500,6 +28534,23 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &2095921169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095921165}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68480b1228dfc354bb649629a9eb9a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partCombiners:
+  - {fileID: 181592515}
+  - {fileID: 960095889}
+  - {fileID: 1982228499}
+  - {fileID: 687205165}
 --- !u!1 &2095930254
 GameObject:
   m_ObjectHideFlags: 0
@@ -32299,7 +32350,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 288468fc-117e-4065-91af-0f94e226b9d7
     m_ActionName: Player/Join[/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonSouth,/Keyboard/anyKey]
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1

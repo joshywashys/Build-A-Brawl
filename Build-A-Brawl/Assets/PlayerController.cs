@@ -201,9 +201,10 @@ public class PlayerController : MonoBehaviour
 	/*Anna start*/
 	public void InitializePlayer(PlayerConfiguration config)
 	{
+		
 		playerConfig = config;
 		playerConfig.Input.onActionTriggered += Input_onActionTriggered;
-		Debug.Log("Player configered");
+		Debug.Log("Player initialized and configered");
 	}
 
 	private void Input_onActionTriggered(CallbackContext obj)
