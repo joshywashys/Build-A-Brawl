@@ -61,8 +61,8 @@ public class initializePlayer : MonoBehaviour
 
 
     void Start()
-    { 
-        
+    {
+       // DontDestroyOnLoad(gameObject);
         Debug.Log("Started this!!!");
         
         for (int i = 0; i < partCombiners.Count; i++) { 

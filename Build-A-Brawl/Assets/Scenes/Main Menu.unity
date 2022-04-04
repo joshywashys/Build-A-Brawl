@@ -28636,6 +28636,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2091036607}
+  - component: {fileID: 2091036608}
   m_Layer: 0
   m_Name: PlayerParentPrefab
   m_TagString: Untagged
@@ -28661,6 +28662,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2091036608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091036606}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efefe2023f9b056488f4ac5f8dc92894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2095921165
 GameObject:
   m_ObjectHideFlags: 0
@@ -28672,7 +28685,6 @@ GameObject:
   - component: {fileID: 2095921167}
   - component: {fileID: 2095921166}
   - component: {fileID: 2095921168}
-  - component: {fileID: 2095921169}
   - component: {fileID: 2095921170}
   m_Layer: 0
   m_Name: GameManager
@@ -28750,24 +28762,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &2095921169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2095921165}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68480b1228dfc354bb649629a9eb9a09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  partCombiners:
-  - {fileID: 181592515}
-  - {fileID: 960095889}
-  - {fileID: 1982228499}
-  - {fileID: 687205165}
-  creatureManager: {fileID: 0}
 --- !u!114 &2095921170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28780,7 +28774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3acf83a5cd0402f4c9648322b5e87b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stages: {fileID: 1641258110}
+  stages: {fileID: 1973558668}
   selectedMaps: []
   selectedMapIndexes: 
   numRounds: 5
