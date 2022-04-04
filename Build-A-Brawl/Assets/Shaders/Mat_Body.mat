@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_Body
   m_Shader: {fileID: -6465566751694194690, guid: 8e61eb288abff7d4799c31d4c11a58f3, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: MAIN_LIGHT_CALCULATE_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0

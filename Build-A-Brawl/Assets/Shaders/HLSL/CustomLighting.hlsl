@@ -10,12 +10,17 @@ void MainLight_half(float3 WorldPos, out half3 Direction, out half3 Colour, out 
 	ShadowAtten = 1;
 #else
 	#if SHADOWS_SCREEN
-		half4 clipPos = TransformWorldToHClip(WorldPos);
-		half4 shadowCoord = ComputeScreenPos(clipPos);
+		half4 shadowCoord = ComputeScreenPos(ClipSpacePos);
 	#else
 		half4 shadowCoord = TransformWorldToShadowCoord(WorldPos);
 	#endif
-	Light mainLight = GetMainLight(shadowCoord);
+
+	#ifdef _MAIN_LIGHT_SHADOWS_CASCADE
+		Light mainLight = GetMainLight(shadowCoord);
+	#else
+		Light mainLight = GetMainLight();
+	#endif	
+
 	Direction = mainLight.direction;
 	Colour = mainLight.color;
 	DistanceAtten = mainLight.distanceAttenuation;
