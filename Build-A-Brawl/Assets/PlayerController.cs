@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 {
 
 	/*start of Anna*/
-	private PlayerConfiguration playerConfig;
+	public PlayerConfiguration playerConfig;
 
 	private Controlss theControls;
 

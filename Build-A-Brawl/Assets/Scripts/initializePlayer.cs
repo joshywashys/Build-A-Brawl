@@ -8,6 +8,7 @@ public class initializePlayer : MonoBehaviour
 {
     private PlayerConfiguration playerConfigs;
     public List<PartCombiner> partCombiners;
+    public CreatureManager creatureManager;
 
     //I need the finalized game object and the player number assigned to that
     // made a unity event in partcombiner
@@ -25,30 +26,36 @@ public class initializePlayer : MonoBehaviour
         {        Debug.Log("PLAYERS CONFIGURE ACTION EVENT CALLED");
 
             //go into player controller on body, assign the player configuration to that body
-
-             player.GetComponentInParent<PlayerController>().InitializePlayer(playerConfig[0]);
-            
+             GameObject newPlayer = player;
+             newPlayer.GetComponentInChildren<PlayerController>().InitializePlayer(playerConfig[0]);
+             creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer, playerNum);
         }
         else if (playerNum == 2)
         {
             Debug.Log("PLAYER 2 CONFIGURATION");
-            player.GetComponentInParent<PlayerController>().InitializePlayer(playerConfig[1]);
+            player.GetComponentInChildren<PlayerController>().InitializePlayer(playerConfig[1]);
+            creatureManager.GetComponent<CreatureManager>().AddCreature(player, playerNum);
+
         }
         else if (playerNum == 3)
         {
-            player.GetComponentInParent<PlayerController>().InitializePlayer(playerConfig[2]);
+            player.GetComponentInChildren<PlayerController>().InitializePlayer(playerConfig[2]);
+            creatureManager.GetComponent<CreatureManager>().AddCreature(player, playerNum);
+
         }
         else if (playerNum == 4)
         {
-            player.GetComponentInParent<PlayerController>().InitializePlayer(playerConfig[3]);
-        } else { 
+            player.GetComponentInChildren<PlayerController>().InitializePlayer(playerConfig[3]);
+            creatureManager.GetComponent<CreatureManager>().AddCreature(player, playerNum);
+
+        }
+        else { 
 
         Debug.Log(playerNum);
 
         }
 
 
-        throw new NotImplementedException();
     }
 
 
