@@ -43,6 +43,9 @@ public class meteorLand : MonoBehaviour
 
         foreach (Collider close in colliders){
             Rigidbody rigg = close.GetComponent<Rigidbody>();
+            if (close.TryGetComponent<PlayerController>(out PlayerController controller))
+				controller.SetState(PlayerController.State.Stunned);
+                
             if (rigg != null){
                 rigg.AddExplosionForce(explosionStrength, transform.position, limit);
             }
