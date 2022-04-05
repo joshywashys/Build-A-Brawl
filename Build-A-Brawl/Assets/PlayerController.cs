@@ -14,11 +14,19 @@ public class PlayerController : MonoBehaviour
 	public PlayerConfiguration playerConfig;
 	public PauseMenu pause;
 	private Controlss theControls;
-
+	public GameObject cameraChange;
+	public GameObject location1;
+	public GameObject location2;
+	public GameObject location3;
+	public GameObject location4;
+	public GameObject location5;
+	public GameObject location6;
+	public CamMovement cameraMoving;
+	public bool inMenu;
 	//end of Anna 
-	
 
-    private CreatureStats statsRef;
+
+	private CreatureStats statsRef;
 
 	[SerializeField] private PhysicMaterial m_slidePhysicMaterial;
 	[SerializeField] private Collider m_bodyCollider;
@@ -102,7 +110,15 @@ public class PlayerController : MonoBehaviour
 		// This is for quick testing please remove this function call later
 		//SetPlayerColour(playerColour);
 
-		
+		cameraChange = GameObject.Find("Main Camera");
+		location1 = GameObject.Find("location1");
+		location2 = GameObject.Find("location2");
+		location3 = GameObject.Find("location3");
+		location4 = GameObject.Find("location4");
+		location5 = GameObject.Find("location5");
+		location6 = GameObject.Find("location6");
+		inMenu = cameraChange.GetComponent<CamMovement>().inMenu;
+
 
 		// Initialize state
 		m_stateDictionary = new Dictionary<State, UnityAction>
@@ -125,6 +141,7 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
+
 		// Checking what state the player is currently in
 		if (m_currentState != State.Held && m_currentState != State.Stunned && m_currentState != State.Dead)
 		{
@@ -273,15 +290,52 @@ public class PlayerController : MonoBehaviour
 
 	public void OnPickUp(InputAction.CallbackContext context)
 	{
+		inMenu = cameraChange.GetComponent<CamMovement>().inMenu;
+
+
 		if (context.action.triggered)
 		{
-			if (m_currentState == State.Holding)
+			//check if in menu or in game, if in game throw. if not, back action
+
+			if (!inMenu)
 			{
-				HandleThrowAction();
-				return;
+
+				if (m_currentState == State.Holding)
+				{
+					HandleThrowAction();
+					return;
+				}
+
+				HandleGrabbingAction();
+			} else
+			{
+				//call function to switch camera locations
+				//might change to different button to get out as b needs to be used in main menu eitehr way
+				if (cameraChange.transform.position == location2.transform.position)
+				{
+					cameraMoving.cameraMovement(location1);
+				} else if (cameraChange.transform.position == location3.transform.position)
+				{
+					cameraMoving.cameraMovement(location2);
+				}
+				else if (cameraChange.transform.position == location4.transform.position) 
+				{
+					cameraMoving.cameraMovement(location3);
+				}
+				else if (cameraChange.transform.position == location5.transform.position)
+				{
+					cameraMoving.cameraMovement(location4);
+				}
+				else if (cameraChange.transform.position == location6.transform.position)
+				{
+					cameraMoving.cameraMovement(location5);
+				} else
+				{
+					Debug.Log("Registering action");
+				}
+
+
 			}
-			
-			HandleGrabbingAction();
 		}
 	}
 
