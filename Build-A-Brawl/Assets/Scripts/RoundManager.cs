@@ -184,7 +184,7 @@ public class RoundManager : MonoBehaviour
             print("in tha loop");
             if (stats[i].isAlive == false)
             {
-                print("someone fucking died lmao");
+                print("someone died lmao :(");
                 numDead += 1;
             }
             if (numDead == stats.Count - 1)
