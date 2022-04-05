@@ -98,6 +98,12 @@ public class PartCombiner : MonoBehaviour
         newArmR = Instantiate(currArmR, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
         newLegs = Instantiate(currLegs, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
 
+        newHead.name = "head";
+        newTorso.name = "torso";
+        newArmL.name = "armL";
+        newArmR.name = "armR";
+        newLegs.name = "legs";
+
         //calculate where to move parts to attach to body parts
         headToNeck = newHead.transform.position - newHead.transform.GetChild(0).transform.position;
         torsoToNeck = newTorso.transform.position - newTorso.transform.GetChild(0).transform.position;
@@ -184,6 +190,8 @@ public class PartCombiner : MonoBehaviour
             rbc.m_balanceSpringDamper = stats.GetSpringDamperLegs(); //newPlayer.transform.position + 
             pc.anchorLeft.localPosition = new Vector3(-0.7f, 0.2f, 1f); //new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y - 0.3f, armLToShoulder.x * 0.5f); //needs fix
             pc.anchorRight.localPosition = new Vector3(0.7f, 0.2f, 1f); //new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y - 0.3f, -armRToShoulder.x * 0.5f); //needs fix
+            pc.fistLeftRigidbody.mass *= stats.fistMassMultiplierR;
+            pc.fistRightRigidbody.mass *= stats.fistMassMultiplierR;
             pc.attackForce = stats.GetStrengthArmL(); //change this later to work for both arms in playercontroller
             pc.playerSpeed = stats.GetMoveSpeed();
             pc.jumpHeight = stats.GetJumpHeight();

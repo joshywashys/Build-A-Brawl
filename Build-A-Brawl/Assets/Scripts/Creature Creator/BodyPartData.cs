@@ -9,7 +9,10 @@ public class BodyPartData : ScriptableObject
     public string part_name;
     public Image part_image;
     public List<Sprite> symbols;
-    public List<AudioClip> noises;
+
+    [Header("Audio")]
+    public List<AudioClip> funNoises;
+    public List<AudioClip> hurtNoises;
 
 
     public enum animType
