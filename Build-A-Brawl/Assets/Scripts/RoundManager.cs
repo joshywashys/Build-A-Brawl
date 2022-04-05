@@ -25,6 +25,7 @@ public class RoundManager : MonoBehaviour
     #region Main Menu
     [Header("Main Menu")]
     public float waitTime;
+    public float onRoundEndWait;
 
     public UnityEvent onCancelStart;
 
@@ -155,7 +156,7 @@ public class RoundManager : MonoBehaviour
     public IEnumerator RoundEndTimer()
     {
         print("waiting");
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(onRoundEndWait);
         print("done waiting");
         NextRound();
     }
