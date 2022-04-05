@@ -14,6 +14,7 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private int maxRounds;
     public int numRounds { get; private set; } = 5;
     private int currRound = 0;
+    public UnityEvent<string> onRoundCountChange;
 
     public class playerStats
     {
@@ -314,6 +315,7 @@ public class RoundManager : MonoBehaviour
         {
             numRounds += 1;
         }
+        onRoundCountChange?.Invoke(numRounds.ToString());
     }
 
     public void RoundMinus()
@@ -322,6 +324,7 @@ public class RoundManager : MonoBehaviour
         {
             numRounds -= 1;
         }
+        onRoundCountChange?.Invoke(numRounds.ToString());
     }
 
 }
