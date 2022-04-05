@@ -222,7 +222,12 @@ public class CreatureStats : MonoBehaviour
             }
             if (bodyPart == legsPart.partData)
             {
+                healthLegs -= dmg;
                 //print("legs damage");
+                if (healthLegs <= 0)
+                {
+                    detachLegs();
+                }
             }
             recalculate();
 
@@ -272,7 +277,13 @@ public class CreatureStats : MonoBehaviour
         //if (armR == null) { armR = creature.transform.GetChild(0).GetChild(7).gameObject; } //print("armR: " + armR);
         //if (legs == null) { legs = creature.transform.GetChild(0).GetChild(8).gameObject; } //print("legs: " + legs);
 
-        if (headPart == null) { headPart = head.GetComponent<BodyPart>(); }
+        torso = creature.transform.Find("torso").gameObject;
+        head = torso.transform.Find("head").gameObject;
+        armL = torso.transform.Find("armL").gameObject;
+        armR = torso.transform.Find("armR").gameObject;
+        legs = torso.transform.Find("legs").gameObject;
+
+        //if (headPart == null) { headPart = head.GetComponent<BodyPart>(); }
         if (torsoPart == null) { torsoPart = torso.GetComponent<BodyPart>(); }
         if (armLPart == null) { armLPart = armL.GetComponent<BodyPart>(); }
         if (armRPart == null) { armRPart = armR.GetComponent<BodyPart>(); }
