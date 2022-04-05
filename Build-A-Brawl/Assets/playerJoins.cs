@@ -23,6 +23,7 @@ public class playerJoins : MonoBehaviour
 
     void Awake()
     {
+
         playerJoining();
     }
 
