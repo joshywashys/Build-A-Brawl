@@ -491,6 +491,7 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 8
+  isStunned: 0
   useFloat: 1
   floatHeight: 3
   m_floatSpringStrength: 30
@@ -551,6 +552,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9deb124cdfc8046b431115bbf91915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_slidePhysicMaterial: {fileID: 0}
+  m_bodyCollider: {fileID: 0}
   m_rigs: []
   playerColour: {r: 1, g: 0.8441375, b: 0, a: 0}
   m_meshRenderers:

@@ -293,11 +293,11 @@ public class PartCombiner : MonoBehaviour
             
             //DontDestroyOnLoad(newPlayer); //.transform.root.gameObject
             //creatureManager.GetComponent<CreatureManager>().RemoveCreature(playerNum);
-            creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer, playerNum);
+     //       creatureManager.GetComponent<CreatureManager>().AddCreature(newPlayer, playerNum);
             isReady = true;
             clearCreature();
 
-            onCreatureSave?.Invoke(playerNum, creature);
+            onCreatureSave?.Invoke(playerNum, newPlayer);
             onFinalize?.Invoke(true);
         }
         else
