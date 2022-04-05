@@ -14,7 +14,6 @@ using UnityEngine.Events;
         public int menuLayer = 1;
         public bool next, prev = false;
         public GameObject UIButtons1;
-        [SerializeField] public bool inMenu;
 
         public bool nextLocation;
 
@@ -30,7 +29,6 @@ using UnityEngine.Events;
             menuLayer = 1;
             nextLocation = false;
             UIButtons1.gameObject.SetActive(true);
-            inMenu = true;
         }
 
         public void cameraMovement(GameObject location)
@@ -40,6 +38,7 @@ using UnityEngine.Events;
             nextLocation = true;
         }
       
+
 
         
 
