@@ -185,10 +185,14 @@ public class RoundManager : MonoBehaviour
     {
         if (currRound < numRounds)
         {
-            print("selectedMaps.Count: " + selectedMaps.Count);
-            print("currRound: " + currRound);
-            print("LOAD SCENE: " + selectedMaps[currRound % selectedMaps.Count]); // % selectedMaps.Count
-            SceneManager.LoadScene(selectedMaps[currRound % selectedMaps.Count]); // % selectedMaps.Count
+            //print("selectedMaps.Count: " + selectedMaps.Count);
+            //print("currRound: " + currRound);
+            //print("LOAD SCENE: " + selectedMaps[currRound % selectedMaps.Count]); // % selectedMaps.Count
+
+
+            //SceneManager.LoadScene(selectedMaps[selectedMapIndexes[numRounds % selectedMapIndexes.Count] % selectedMaps.Count]);
+            // seelcted maps, selected map indexes (rand list), currRound
+            SceneManager.LoadScene(selectedMaps[selectedMapIndexes[currRound]]);
         }
         if (currRound == numRounds)
         {

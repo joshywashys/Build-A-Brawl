@@ -22,15 +22,15 @@ public class beginCountdown : MonoBehaviour
             rigidbodyControllers.Add(searchList[i]);
         }
 
-        InvokeRepeating("countDown", 1f, 0.85f);
-    }
-
-    void countDown(){
-
         for (int i = 0; i < rigidbodyControllers.Count; i++)
         {
             rigidbodyControllers[i].useMovement = false;
         }
+
+        InvokeRepeating("countDown", 1f, 0.85f);
+    }
+
+    void countDown(){
 
         if (count == 3){
             GameObject number3 = Instantiate(num3,transform.position, transform.rotation);
