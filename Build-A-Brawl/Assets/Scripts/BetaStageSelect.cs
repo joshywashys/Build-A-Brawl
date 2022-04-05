@@ -18,6 +18,7 @@ public class BetaStageSelect : MonoBehaviour
     public Material Material4;
     public Material Material5;
     public Material Material6;
+    public Material nothingSelected;
     //public GameObject thumbNail;
     public Image thumbNail;
 
@@ -34,7 +35,9 @@ public class BetaStageSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (levels.Count == 0){
+            thumbNail.GetComponent<Image>().material = nothingSelected;
+        }
     }
     void OnMouseDown(){
         if (this.name == "stage1" && stage1Sel == false){
