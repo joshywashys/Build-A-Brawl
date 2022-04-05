@@ -42,7 +42,7 @@ public class PauseMenu : MonoBehaviour
         }
         
     }
-    void Pause(){
+    public void Pause(){
         if (allowPauseOpen == true)
         {
             PauseMenuObject.SetActive(true);
