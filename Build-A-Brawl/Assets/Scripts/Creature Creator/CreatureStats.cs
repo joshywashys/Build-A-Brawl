@@ -176,14 +176,14 @@ public class CreatureStats : MonoBehaviour
     {
         if (incForce > FORCE_THRESHOLD)
         {
-            hurtSounds[Random.Range(0, headPart.partData.hurtNoises.Count)].Play();
-            print("NOISE: " + hurtSounds[Random.Range(0, headPart.partData.hurtNoises.Count)]);
+            print("NOISE: " + hurtSounds[Random.Range(0, hurtSounds.Count)]);
+            hurtSounds[Random.Range(0, hurtSounds.Count)].Play();
 
             float dmg = incForce;
             //dmg = 1.0f; //TEMP FOR DEBUGGING
 
             //headPart = head.GetComponent<BodyPart>(); //head is null. probably has to do with AttachParts being called in PartCombiner
-            //print(headPart); // why is it null only in game???
+            print(headPart); // why is it null only in game???
             if (bodyPart == headPart.partData)
             {
                 healthHead -= dmg;
@@ -193,6 +193,7 @@ public class CreatureStats : MonoBehaviour
                     detachHead();
                 }
             }
+            print(torsoPart);
             if (bodyPart == torsoPart.partData)
             {
                 healthTorso -= dmg;
@@ -277,13 +278,13 @@ public class CreatureStats : MonoBehaviour
         //if (armR == null) { armR = creature.transform.GetChild(0).GetChild(7).gameObject; } //print("armR: " + armR);
         //if (legs == null) { legs = creature.transform.GetChild(0).GetChild(8).gameObject; } //print("legs: " + legs);
 
-        torso = creature.transform.Find("torso").gameObject;
-        head = torso.transform.Find("head").gameObject;
-        armL = torso.transform.Find("armL").gameObject;
-        armR = torso.transform.Find("armR").gameObject;
-        legs = torso.transform.Find("legs").gameObject;
+        //torso = creature.transform.Find("torso").gameObject;
+        //head = torso.transform.Find("head").gameObject;
+        //armL = torso.transform.Find("armL").gameObject;
+        //armR = torso.transform.Find("armR").gameObject;
+        //legs = torso.transform.Find("legs").gameObject;
 
-        //if (headPart == null) { headPart = head.GetComponent<BodyPart>(); }
+        if (headPart == null) { headPart = head.GetComponent<BodyPart>(); }
         if (torsoPart == null) { torsoPart = torso.GetComponent<BodyPart>(); }
         if (armLPart == null) { armLPart = armL.GetComponent<BodyPart>(); }
         if (armRPart == null) { armRPart = armR.GetComponent<BodyPart>(); }

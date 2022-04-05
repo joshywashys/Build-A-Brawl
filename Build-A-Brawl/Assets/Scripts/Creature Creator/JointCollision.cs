@@ -9,6 +9,9 @@ public class JointCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
+        //print("bodyPart: " + bodyPart);
+        //print("bodyPart.creature: " + bodyPart.creature);
+        //print("bodyPart.creature.alive: " + bodyPart.creature.alive);
         if (bodyPart.creature.alive)
         {
             float force = col.impulse.magnitude;
