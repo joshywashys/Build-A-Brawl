@@ -158,6 +158,7 @@ public class PartCombiner : MonoBehaviour
         {
             // Create references
             newPlayer = Instantiate(playerPrefab, creatureContainer.transform.position, Quaternion.identity);
+            newPlayer.name = "Creature";
             GameObject body = newPlayer.transform.Find("Body").gameObject;
             RigidbodyController rbc = body.GetComponent<RigidbodyController>();
             PlayerController pc = body.GetComponent<PlayerController>();

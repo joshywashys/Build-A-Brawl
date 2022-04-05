@@ -51,7 +51,14 @@ public class BodyPart : MonoBehaviour
 
     public void Start()
     {
-
+        if (gameObject.name == "torso")
+        {
+            creature = transform.parent.GetComponent<CreatureStats>();
+        }
+        if (gameObject.name == "head" || gameObject.name == "armL" || gameObject.name == "armR" || gameObject.name == "legs")
+        {
+            creature = transform.parent.parent.GetComponent<CreatureStats>();
+        }
     }
 
     /*

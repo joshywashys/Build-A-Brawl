@@ -17,6 +17,18 @@ MonoBehaviour:
   symbols:
   - {fileID: 21300000, guid: ca0332e3c719b9a429d3a517e9d73e96, type: 3}
   - {fileID: 21300000, guid: 19ed400bbc0c8f449bb9da34a852fda7, type: 3}
+  funNoises:
+  - {fileID: 8300000, guid: 85deb363cbe71b045946011fd0e9cc0c, type: 3}
+  - {fileID: 8300000, guid: 1cbc5c3ac21dea34294771ed333983a1, type: 3}
+  - {fileID: 8300000, guid: eb2ff986841df4649a93bf8345a4a880, type: 3}
+  - {fileID: 8300000, guid: 3ea94c5b622d8914e8589e626bcd992b, type: 3}
+  hurtNoises:
+  - {fileID: 8300000, guid: 42272112a78347443a1b7ba3d88920f1, type: 3}
+  - {fileID: 8300000, guid: 62a4c6181a10e9c41bf946fdb8477fc8, type: 3}
+  - {fileID: 8300000, guid: b205d2a3c6c8891419354bd987c89626, type: 3}
+  - {fileID: 8300000, guid: 6189cf56c0b4ab547876dc9d82700e12, type: 3}
+  - {fileID: 8300000, guid: 5da7728be8565eb4d8e1f9eb80a314f8, type: 3}
+  - {fileID: 8300000, guid: cb9f0cd4b02ed044abb46050947981d9, type: 3}
   stats:
     healthMultiplier: 0.6
     strengthMultiplier: 1
