@@ -46,6 +46,8 @@ public class scoreBoard : MonoBehaviour
 
     public int playerCount;
 
+    public List<RigidbodyController> rigidbodyControllers;
+
     void Start()
     {
         rm = GameObject.FindObjectOfType<RoundManager>();
@@ -480,8 +482,33 @@ public class scoreBoard : MonoBehaviour
         Debug.Log(fourthNameVal + " " + fourthScoreVal);
         Debug.Log(playerCount);
 
-    }
-    void update(){
-        
+        rigidbodyControllers = new List<RigidbodyController>();
+        RigidbodyController[] searchList = FindObjectsOfType<RigidbodyController>();
+        for (int i = 0; i < searchList.Length; i++)
+        {
+            rigidbodyControllers.Add(searchList[i]);
+        }
+
+        foreach (RigidbodyController rbc in rigidbodyControllers)
+        {
+            int playerNum = rbc.GetComponentInChildren<CreatureStats>().GetPlayerNum();
+            if (playerNum == rm.players[0].GetPlayerNum())
+            {
+                rbc.gameObject.transform.position = play1Spawn.transform.position;
+            }
+            if (playerNum == rm.players[1].GetPlayerNum())
+            {
+                rbc.gameObject.transform.position = play2Spawn.transform.position;
+            }
+            if (playerNum == rm.players[2].GetPlayerNum())
+            {
+                rbc.gameObject.transform.position = play3Spawn.transform.position;
+            }
+            if (playerNum == rm.players[3].GetPlayerNum())
+            {
+                rbc.gameObject.transform.position = play4Spawn.transform.position;
+            }
+        }
+
     }
 }

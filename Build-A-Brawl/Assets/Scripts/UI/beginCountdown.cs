@@ -10,17 +10,28 @@ public class beginCountdown : MonoBehaviour
     
     public AudioSource startSound;
     public AudioSource mapMusic;
+
+    public List<RigidbodyController> rigidbodyControllers;
+
     void Start()
     {
+        rigidbodyControllers = new List<RigidbodyController>();
+        RigidbodyController[] searchList = FindObjectsOfType<RigidbodyController>();
+        for (int i = 0; i < searchList.Length; i++)
+        {
+            rigidbodyControllers.Add(searchList[i]);
+        }
+
         InvokeRepeating("countDown", 1f, 0.85f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void countDown(){
+
+        for (int i = 0; i < rigidbodyControllers.Count; i++)
+        {
+            rigidbodyControllers[i].useMovement = false;
+        }
+
         if (count == 3){
             GameObject number3 = Instantiate(num3,transform.position, transform.rotation);
             Destroy(number3, 0.5f);
@@ -36,6 +47,10 @@ public class beginCountdown : MonoBehaviour
             count =0;
         }
         else if (count == 0){
+            for (int i = 0; i < rigidbodyControllers.Count; i++)
+            {
+                rigidbodyControllers[i].useMovement = false;
+            }
             GameObject brawlTxt = Instantiate(brawl,transform.position, transform.rotation);
             Destroy(brawlTxt, 0.5f);
             CancelInvoke("countDown");
