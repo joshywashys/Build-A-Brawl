@@ -7507,7 +7507,7 @@ GameObject:
   - component: {fileID: 360603287}
   m_Layer: 0
   m_Name: tool1 (1)
-  m_TagString: Untagged
+  m_TagString: heavyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7572,7 +7572,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360603283}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.42, y: 4.39, z: 1}
@@ -7752,7 +7752,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364850290}
   m_LocalRotation: {x: 0.17685533, y: -0, z: -0, w: 0.9842369}
-  m_LocalPosition: {x: -513, y: -263.5, z: -37.2}
+  m_LocalPosition: {x: -513, y: -249.34, z: -38.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1090671304}
@@ -8989,7 +8989,7 @@ GameObject:
   - component: {fileID: 400821467}
   m_Layer: 0
   m_Name: tool1 (2)
-  m_TagString: Untagged
+  m_TagString: heavyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9054,7 +9054,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400821463}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.42, y: 4.39, z: 1}
@@ -32025,7 +32025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4278497743362435208, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.4
+      value: -12.1
       objectReference: {fileID: 0}
     - target: {fileID: 4278497743362435208, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -35580,7 +35580,7 @@ GameObject:
   - component: {fileID: 1599694879}
   m_Layer: 0
   m_Name: tool1
-  m_TagString: Untagged
+  m_TagString: heavyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35645,7 +35645,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599694875}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.42, y: 4.39, z: 1}
@@ -35889,7 +35889,7 @@ GameObject:
   - component: {fileID: 1604595053}
   m_Layer: 0
   m_Name: tool1 (4)
-  m_TagString: Untagged
+  m_TagString: heavyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35954,7 +35954,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604595049}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.42, y: 4.39, z: 1}
@@ -38096,7 +38096,7 @@ Transform:
   m_GameObject: {fileID: 1758686392}
   m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -49, y: 288.5, z: 493}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.58586, y: 0.58586, z: 0.58586}
   m_Children:
   - {fileID: 364850293}
   - {fileID: 1416091746}
@@ -48542,7 +48542,7 @@ GameObject:
   - component: {fileID: 2131074602}
   m_Layer: 0
   m_Name: tool1 (3)
-  m_TagString: Untagged
+  m_TagString: heavyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48607,7 +48607,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131074598}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.42, y: 4.39, z: 1}

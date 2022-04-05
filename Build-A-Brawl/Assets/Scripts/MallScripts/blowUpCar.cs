@@ -33,6 +33,28 @@ public class blowUpCar : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider collision){
+        if (collision.gameObject.tag == "heavyAttack"){
+            health++;
+            if (health==5){
+                GameObject _smoke = Instantiate(smoke,transform.position, transform.rotation);
+                Destroy(_smoke, 10);
+            }else if (health==10){
+                GameObject _flame = Instantiate(flame,transform.position, transform.rotation);
+                Destroy(_flame, 10);
+            }else if (health==15){
+                GameObject _explosion = Instantiate(explode,transform.position, transform.rotation);
+                GameObject _bits = Instantiate(bits,transform.position, transform.rotation);
+                Destroy(_explosion, 3);
+                Destroy(_bits, 5);
+                knockBack();
+                carBoom.Play();
+                Destroy(gameObject);
+            }
+            
+        }
+    }
+
     void knockBack() {
         Collider[] colliders = Physics.OverlapSphere(transform.position, limit);
 

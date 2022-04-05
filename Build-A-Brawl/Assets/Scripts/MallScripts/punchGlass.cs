@@ -45,4 +45,26 @@ public class punchGlass : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnTriggerEnter(Collider collision) {
+                if (collision.gameObject.tag == "heavyAttack" || collision.gameObject.tag == "ground"){
+                GameObject _bits = Instantiate(glassBits,transform.position, transform.rotation);
+                Destroy(_bits, 5);
+                shatterSelect = Random.Range( 1, 4);
+                if (shatterSelect == 1){
+                    shatter1.Play();
+                }
+                else if (shatterSelect == 2){
+                    shatter2.Play();
+                }
+                else if (shatterSelect == 3){
+                    shatter3.Play();
+                }
+                else if (shatterSelect == 4){
+                    shatter4.Play();
+                }
+            
+                Destroy(gameObject);
+            }
+     }
 }
