@@ -32063,6 +32063,7 @@ GameObject:
   - component: {fileID: 8306878944775645264}
   - component: {fileID: 1242873315046002643}
   - component: {fileID: 7190570659776143070}
+  - component: {fileID: 7190570659776143072}
   m_Layer: 0
   m_Name: PlayerConfiguration 1
   m_TagString: Untagged
@@ -32114,6 +32115,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &7190570659776143072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7190570659776143069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efefe2023f9b056488f4ac5f8dc92894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7210935798542772386
 GameObject:
   m_ObjectHideFlags: 0
