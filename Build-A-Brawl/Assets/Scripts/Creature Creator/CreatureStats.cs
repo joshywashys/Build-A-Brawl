@@ -251,6 +251,14 @@ public class CreatureStats : MonoBehaviour
         onDeath?.Invoke(playerNum);
     }
 
+    public void MakeNoise()
+    {
+        if (funSounds.Count > 0)
+        {
+            funSounds[Random.Range(0, funSounds.Count)].Play();
+        }
+    }
+
     private void Cleanup()
     {
         //Destroy(audioStorageFun);
