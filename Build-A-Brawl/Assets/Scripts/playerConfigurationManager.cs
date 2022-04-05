@@ -15,15 +15,11 @@ public class playerConfigurationManager : MonoBehaviour
     //sets the max players in the scene
     [SerializeField] private int MaxPlayers = 4;
 
-
     //sets an instance of the class to get the entirety of the data.
     public static playerConfigurationManager Instance { get; private set; }
 
-  
-
     private void Awake()
     {
-
         if(Instance != null)
         {
             Debug.Log("Trying to create another instance of bad bad things");
@@ -59,19 +55,19 @@ public class playerConfigurationManager : MonoBehaviour
     {
         Debug.Log("Player " + pi.playerIndex + " joined!");
 
-        
-            //checking if player added yet
-            if (!playerConfigs.Any(p => p.PlayerIndex == pi.playerIndex))
-            {
-                //puts the player input into the transform (script-attached object)
-                //  pi.transform.parent.SetParent(transform);
-                playerConfigs.Add(new PlayerConfiguration(pi));
+
+        //checking if player added yet
+        if (!playerConfigs.Any(p => p.PlayerIndex == pi.playerIndex))
+        {     
+            //puts the player input into the transform (script-attached object)
+          //  pi.transform.parent.SetParent(transform);
+            playerConfigs.Add(new PlayerConfiguration(pi));
 
 
 
-           
         }
     }
+
 
 }
 
