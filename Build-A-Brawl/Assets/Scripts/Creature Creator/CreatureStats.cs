@@ -222,7 +222,12 @@ public class CreatureStats : MonoBehaviour
             }
             if (bodyPart == legsPart.partData)
             {
+                healthLegs -= dmg;
                 //print("legs damage");
+                if (healthLegs <= 0)
+                {
+                    detachLegs();
+                }
             }
             recalculate();
 
