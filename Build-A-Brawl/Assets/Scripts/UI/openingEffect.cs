@@ -7,10 +7,6 @@ public class openingEffect : MonoBehaviour
 
     public GameObject[] firstDelete;
     public GameObject[] secondDelete;
-
-    public AudioSource fullVol;
-    public AudioSource lowPass;
-    
     public static bool shrinkStart = false;
     public float finalSize = 1;
     // Start is called before the first frame update
@@ -18,8 +14,6 @@ public class openingEffect : MonoBehaviour
     {
         firstDelete = GameObject.FindGameObjectsWithTag("menuDelete");
         secondDelete = GameObject.FindGameObjectsWithTag("menuDeleteDelay");
-        fullVol.volume = 0f;
-        lowPass.volume = 1.0f;
     }
 
     // Update is called once per frame
@@ -44,8 +38,7 @@ public class openingEffect : MonoBehaviour
 			knockBack();
         }
         shrinkStart = true;
-        fullVol.volume = 0.24f;
-        lowPass.volume = 0f;
+        
     }
 
     void knockBack() {
