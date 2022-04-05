@@ -76,6 +76,9 @@ public class goopRise : MonoBehaviour
 		Collider[] colliders = Physics.OverlapSphere(transform.position, limit);
 
 		foreach (Collider close in colliders){
+            if (close.TryGetComponent<PlayerController>(out PlayerController controller))
+				controller.SetState(PlayerController.State.Stunned);
+                
 			Rigidbody rigg = close.GetComponent<Rigidbody>();
 			if (rigg != null){
 				rigg.AddExplosionForce(explosionStrength, transform.position, limit);
