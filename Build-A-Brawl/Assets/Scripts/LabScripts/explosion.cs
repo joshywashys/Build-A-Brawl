@@ -48,6 +48,34 @@ public class explosion : MonoBehaviour
 		}
 	}
 
+	private void OnTriggerEnter(Collider collision)
+	{
+		//print(collision.gameObject.tag);
+
+		if (collision.gameObject.tag == "heavyAttack" ||
+			collision.gameObject.tag == "ground")
+		{
+			bool shouldNotExplode = m_throwableObject != null && 
+				(m_throwableObject.IsGrabbed || m_throwableObject.IsHolder(collision.transform));
+
+			if (shouldNotExplode)
+				return;
+			
+			GameObject _explosion = Instantiate(explode,transform.position, transform.rotation);
+			GameObject _bits = Instantiate(bits,transform.position, transform.rotation);
+			Destroy(_explosion, 3);
+			Destroy(_bits, 5);
+			knockBack();
+			Destroy(gameObject);
+			boom.Play();
+		}
+
+		if (useMechanics)
+		{
+			//inverse square law, apply collision to players in radius. force = knockback
+		}
+	}
+
 	void knockBack() {
 		Collider[] colliders = Physics.OverlapSphere(transform.position, limit);
 
