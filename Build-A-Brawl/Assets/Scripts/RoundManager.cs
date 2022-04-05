@@ -8,6 +8,7 @@ public class RoundManager : MonoBehaviour
 {
     public BetaStageSelect stages;
     public List<string> selectedMaps;
+    public List<string> randomMapPool;
     public List<int> selectedMapIndexes;
     public int numRounds = 5;
     private int currRound = 0;
@@ -95,24 +96,48 @@ public class RoundManager : MonoBehaviour
             if (stages.stage6Sel) { selectedMaps.Add("BalloonMap"); }
             if (selectedMaps == null) { selectedMaps.Add("Lab"); }
 
-            selectedMaps.Add("Lab");
-            selectedMaps.Add("TrafficMap");
-            selectedMaps.Add("ConstructionMap");
-            selectedMaps.Add("VolcanoMap");
-            selectedMaps.Add("MallMap");
-            selectedMaps.Add("BalloonMap");
+            print(stages.stage1Sel);
+            print(stages.stage2Sel);
+            print(stages.stage3Sel);
+            print(stages.stage4Sel);
+            print(stages.stage5Sel);
+            print(stages.stage6Sel);
 
-            print(selectedMaps.Count);
+            //selectedMaps.Add("Lab");
+            //selectedMaps.Add("TrafficMap");
+            //selectedMaps.Add("ConstructionMap");
+            //selectedMaps.Add("VolcanoMap");
+            //selectedMaps.Add("MallMap");
+            //selectedMaps.Add("BalloonMap");
+
+            //print(selectedMaps.Count);
+            /*
             for (int i = 0; i < selectedMaps.Count; i++)
             {
                 print(selectedMaps[i]);
             }
+            */
 
+            /*
             selectedMapIndexes = new List<int>();
             for (int i = 0; i < numRounds; i++)
             {
                 selectedMapIndexes.Add(Random.Range(0,selectedMaps.Count));
             }
+            */
+
+            // Randomize Maps
+            randomMapPool = new List<string>();
+            randomMapPool = selectedMaps;
+            for (int i = 0; i < randomMapPool.Count; i++)
+            {
+                int randNum = Random.Range(0, randomMapPool.Count);
+                string temp = randomMapPool[i];
+                randomMapPool[i] = randomMapPool[randNum];
+                randomMapPool[randNum] = randomMapPool[i];
+            }
+            //print("(StartGame) round num: " + currRound);
+            //print("(StartGame) pool count: " + randomMapPool.Count);
 
             starting = true;
             return;
@@ -192,7 +217,9 @@ public class RoundManager : MonoBehaviour
 
             //SceneManager.LoadScene(selectedMaps[selectedMapIndexes[numRounds % selectedMapIndexes.Count] % selectedMaps.Count]);
             // seelcted maps, selected map indexes (rand list), currRound
-            SceneManager.LoadScene(selectedMaps[selectedMapIndexes[currRound]]);
+            print("(NextRound) round num: " + currRound);
+            print("(NextRound) pool count: " + randomMapPool.Count);
+            SceneManager.LoadScene(randomMapPool[currRound % randomMapPool.Count]);
         }
         if (currRound == numRounds)
         {
