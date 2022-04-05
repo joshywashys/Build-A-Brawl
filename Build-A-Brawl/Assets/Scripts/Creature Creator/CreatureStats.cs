@@ -24,6 +24,8 @@ public class CreatureStats : MonoBehaviour
     private BodyPart armRPart;
     private BodyPart legsPart;
 
+    public bool alive = true;
+
     // <0 health means a part will be detached, for heads+torsos creatures die instead
     [Header("Part Health Pools")]
     [SerializeField] private float healthHeadMax = 10;
@@ -58,6 +60,8 @@ public class CreatureStats : MonoBehaviour
     [SerializeField] private BodyPartData.animType attackTypeR = 0;
     [SerializeField] private bool canGrabL = true;
     [SerializeField] private bool canGrabR = true;
+    public float fistMassMultiplierL = 1;
+    public float fistMassMultiplierR = 1;
 
     // Constants that we can edit to make our Scriptable Objects values nicer
     public const float HEALTH_BASE = 10;
@@ -73,6 +77,14 @@ public class CreatureStats : MonoBehaviour
     public const float MASS_TORSO_BASE = 3;
     public const float MASS_ARMS_BASE = 1;
     public const float MASS_LEGS_BASE = 1;
+
+    public const float FORCE_THRESHOLD = 0;
+
+    public GameObject audioStorages;
+    public GameObject audioStorageFun;
+    public GameObject audioStorageHurt;
+    public List<AudioSource> funSounds;
+    public List<AudioSource> hurtSounds;
 
     public UnityEvent<int> onDamage;
     public UnityEvent<int> onDeath;
@@ -140,6 +152,9 @@ public class CreatureStats : MonoBehaviour
         springConstantArmR = armRPart.getSpringConstantMultiplier() * SPRING_CONSTANT_BASE;
         attackTypeL = armLPart.getAttackTypeL();
         attackTypeR = armRPart.getAttackTypeR();
+        fistMassMultiplierL = armLPart.getMass();
+        fistMassMultiplierR = armRPart.getMass();
+
 
         // Toggle Kinematics
         torsoPart.ToggleKinematics(torsoPart.gameObject.transform, true);
@@ -159,67 +174,82 @@ public class CreatureStats : MonoBehaviour
 
     public void Damage(BodyPartData bodyPart, float incForce)
     {
-        float dmg = incForce;
-        dmg = 1.0f; //TEMP FOR DEBUGGING
+        if (incForce > FORCE_THRESHOLD)
+        {
+            hurtSounds[Random.Range(0, headPart.partData.hurtNoises.Count)].Play();
+            print("NOISE: " + hurtSounds[Random.Range(0, headPart.partData.hurtNoises.Count)]);
 
-        //headPart = head.GetComponent<BodyPart>(); //head is null. probably has to do with AttachParts being called in PartCombiner
-        //print(headPart); // why is it null only in game???
-        if (bodyPart == headPart.partData)
-        {
-            healthHead -= dmg;
-            print("head: " + healthHead);
-            if (healthHead <= 0)
+            float dmg = incForce;
+            //dmg = 1.0f; //TEMP FOR DEBUGGING
+
+            //headPart = head.GetComponent<BodyPart>(); //head is null. probably has to do with AttachParts being called in PartCombiner
+            //print(headPart); // why is it null only in game???
+            if (bodyPart == headPart.partData)
             {
-                detachHead();
+                healthHead -= dmg;
+                //print("head: " + healthHead);
+                if (healthHead <= 0)
+                {
+                    detachHead();
+                }
             }
-        }
-        if (bodyPart == torsoPart.partData)
-        {
-            healthTorso -= dmg;
-            print("torso: " + healthTorso);
-            if (healthTorso <= 0)
+            if (bodyPart == torsoPart.partData)
             {
-                detachTorso();
+                healthTorso -= dmg;
+                //print("torso: " + healthTorso);
+                if (healthTorso <= 0)
+                {
+                    detachTorso();
+                }
             }
-        }
-        if (bodyPart == armLPart.partData)
-        {
-            healthArmL -= dmg;
-            print("armL: " + healthArmL);
-            if (healthArmL <= 0)
+            if (bodyPart == armLPart.partData)
             {
-                detachArmL();
+                healthArmL -= dmg;
+                //print("armL: " + healthArmL);
+                if (healthArmL <= 0)
+                {
+                    detachArmL();
+                }
             }
-        }
-        if (bodyPart == armRPart.partData)
-        {
-            healthArmR -= dmg;
-            print("armR: " + healthArmR);
-            if (healthArmR <= 0)
+            if (bodyPart == armRPart.partData)
             {
-                detachArmR();
+                healthArmR -= dmg;
+                //print("armR: " + healthArmR);
+                if (healthArmR <= 0)
+                {
+                    detachArmR();
+                }
             }
+            if (bodyPart == legsPart.partData)
+            {
+                //print("legs damage");
+            }
+            recalculate();
+
+            onDamage?.Invoke(playerNum); //it said to use this might look into later
         }
-        if (bodyPart == legsPart.partData)
-        {
-            print("legs damage");
-        }
-        recalculate();
         
-        onDamage?.Invoke(playerNum); //it said to use this might look into later
     }
 
     public void Kill()
     {
-        healthHead = 0;
-        healthTorso = 0;
-        healthArmL = 0;
-        healthArmR = 0;
-        healthLegs = 0;
+        if (head != null) { detachHead(); }
+        if (torso != null) { detachTorso(); }
+        if (armL != null) { detachArmL(); }
+        if (armR != null) { detachArmR(); }
+        if (legs != null) { detachLegs(); }
 
-        Destroy(creature.transform.root.gameObject);
+        Cleanup();
+
         onDamage?.Invoke(playerNum);
         onDeath?.Invoke(playerNum);
+    }
+
+    private void Cleanup()
+    {
+        //Destroy(audioStorageFun);
+        //Destroy(audioStorageHurt);
+        Destroy(creature.transform.root.gameObject);
     }
 
     #endregion
@@ -234,17 +264,54 @@ public class CreatureStats : MonoBehaviour
     void Start()
     {
         creature = gameObject;
-        if (head == null) { head = creature.transform.GetChild(0).GetChild(5).gameObject; }
-        if (torso == null) { torso = creature.transform.GetChild(0).gameObject; }
-        if (armL == null) { armL = creature.transform.GetChild(0).GetChild(6).gameObject; }
-        if (armR == null) { armR = creature.transform.GetChild(0).GetChild(7).gameObject; } //print("armR: " + armR);
-        if (legs == null) { legs = creature.transform.GetChild(0).GetChild(8).gameObject; } //print("legs: " + legs);
+        funSounds = new List<AudioSource>();
+        hurtSounds = new List<AudioSource>();
+        //if (head == null) { head = creature.transform.GetChild(0).GetChild(5).gameObject; }
+        //if (torso == null) { torso = creature.transform.GetChild(0).gameObject; }
+        //if (armL == null) { armL = creature.transform.GetChild(0).GetChild(6).gameObject; }
+        //if (armR == null) { armR = creature.transform.GetChild(0).GetChild(7).gameObject; } //print("armR: " + armR);
+        //if (legs == null) { legs = creature.transform.GetChild(0).GetChild(8).gameObject; } //print("legs: " + legs);
 
         if (headPart == null) { headPart = head.GetComponent<BodyPart>(); }
         if (torsoPart == null) { torsoPart = torso.GetComponent<BodyPart>(); }
         if (armLPart == null) { armLPart = armL.GetComponent<BodyPart>(); }
         if (armRPart == null) { armRPart = armR.GetComponent<BodyPart>(); }
         if (legsPart == null) { legsPart = legs.GetComponent<BodyPart>(); }
+
+        // Add sounds from ScriptableObjects
+        audioStorages = new GameObject("Audio Storages");
+        audioStorageFun = new GameObject("Storage - Fun Audio");
+        audioStorageHurt = new GameObject("Storage - Hurt Audio");
+        audioStorages.transform.parent = head.transform;
+        audioStorageFun.transform.parent = audioStorages.transform;
+        audioStorageHurt.transform.parent = audioStorages.transform;
+        audioStorages.transform.position = creature.transform.position;
+        audioStorageFun.transform.position = audioStorages.transform.position;
+        audioStorageHurt.transform.position = audioStorages.transform.position;
+
+        if (headPart.partData.funNoises != null)
+        {
+            foreach (AudioClip sound in headPart.partData.funNoises)
+            {
+                AudioSource newAudio = audioStorageFun.AddComponent<AudioSource>();
+                newAudio.clip = sound;
+                funSounds.Add(newAudio);
+            }
+        }
+
+        if (headPart.partData.hurtNoises != null)
+        {
+            foreach (AudioClip sound in headPart.partData.hurtNoises)
+            {
+                AudioSource newAudio = audioStorageHurt.AddComponent<AudioSource>();
+                newAudio.clip = sound;
+                hurtSounds.Add(newAudio);
+                //print(sound);
+                //print(newAudio);
+                //print(hurtSounds);
+            }
+        }
+        
     }
 
     void Awake()
@@ -258,84 +325,108 @@ public class CreatureStats : MonoBehaviour
 
     private void detachHead()
     {
-        head.AddComponent<ThrowableObject>();
-        head.GetComponent<Collider>().enabled = true;
-        headPart.ToggleKinematics(headPart.gameObject.transform, false);
-        head.transform.parent = null;
-        head = null;
-        headPart.creature = null;
-        if (torso != null) { detachTorso(); } //AFTER head becomes null. prevents infinite loops of head->torso->head->torso...
+        if (head != null)
+        {
+            head.AddComponent<ThrowableObject>();
+            head.GetComponent<Collider>().enabled = true;
+            headPart.ToggleKinematics(headPart.gameObject.transform, false);
+            head.transform.parent = null;
+            head = null;
+            headPart.creature = null;
+            healthHead = 0;
+            //if (torso != null) { detachTorso(); } //AFTER head becomes null. prevents infinite loops of head->torso->head->torso...
 
-        recalculate();
-        Kill();
+            //recalculate();
+            Kill();
+        }
+        if (alive)
+        {
+            Kill();
+        }
     }
 
     private void detachTorso()
     {
-        if (armL != null) { detachArmL(); }
-        if (armR != null) { detachArmR(); }
-        if (legs != null) { detachLegs(); }
-        if (head != null) { detachHead(); }
-
-        torso.AddComponent<ThrowableObject>();
-        torso.GetComponent<Collider>().enabled = true;
-        torsoPart.ToggleKinematics(torsoPart.gameObject.transform, false);
-        torso.transform.parent = null;
-        torso = null;
-        torsoPart.creature = null;
-
-        recalculate();
-        Kill();
+        //if (armL != null) { detachArmL(); }
+        //if (armR != null) { detachArmR(); }
+        //if (legs != null) { detachLegs(); }
+        //if (head != null) { detachHead(); }
+        if (torso != null)
+        {
+            torso.AddComponent<ThrowableObject>();
+            torso.GetComponent<Collider>().enabled = true;
+            torsoPart.ToggleKinematics(torsoPart.gameObject.transform, false);
+            torso.transform.parent = null;
+            torso = null;
+            torsoPart.creature = null;
+            healthTorso = 0;
+        }
+        if (alive)
+        {
+            Kill();
+        }
     }
 
     private void detachArmL()
     {
-        armL.AddComponent<ThrowableObject>();
-        armLPart.ToggleKinematics(armLPart.gameObject.transform, false);
-        armLPart.GetComponent<Animator>().enabled = false;
-        Transform skeletonBase = armL.GetComponent<BodyPart>().skeletonBase;
-        if (skeletonBase.GetComponent<Rigidbody>() == null) { skeletonBase.gameObject.AddComponent<Rigidbody>(); }
-        skeletonBase.GetChild(0).GetComponent<ConfigurableJoint>().connectedBody = skeletonBase.GetComponent<Rigidbody>();
-        armL.GetComponent<PhysicsIKRig>().currentState = PhysicsIKRig.State.Ragdoll;
-        armL.GetComponent<BodyPart>().ToggleKinematics(armL.GetComponent<BodyPart>().skeletonBase, false);
+        if (armL != null)
+        {
+            armL.AddComponent<ThrowableObject>();
+            armLPart.ToggleKinematics(armLPart.gameObject.transform, false);
+            armLPart.GetComponent<Animator>().enabled = false;
+            Transform skeletonBase = armL.GetComponent<BodyPart>().skeletonBase;
+            if (skeletonBase.GetComponent<Rigidbody>() == null) { skeletonBase.gameObject.AddComponent<Rigidbody>(); }
+            skeletonBase.GetChild(0).GetComponent<ConfigurableJoint>().connectedBody = skeletonBase.GetComponent<Rigidbody>();
+            armL.GetComponent<PhysicsIKRig>().currentState = PhysicsIKRig.State.Ragdoll;
+            armL.GetComponent<BodyPart>().ToggleKinematics(armL.GetComponent<BodyPart>().skeletonBase, false);
 
-        armL.transform.parent = null;
-        armL = null;
-        armLPart.creature = null;
+            armL.transform.parent = null;
+            armL = null;
+            armLPart.creature = null;
+            healthArmL = 0;
 
-        recalculate();
+            recalculate();
+        }
     }
 
     private void detachArmR()
     {
-        armR.AddComponent<ThrowableObject>();
-        armRPart.ToggleKinematics(armRPart.gameObject.transform, false);
-        armRPart.GetComponent<Animator>().enabled = false;
-        Transform skeletonBase = armR.GetComponent<BodyPart>().skeletonBase;
-        if (skeletonBase.GetComponent<Rigidbody>() == null) { skeletonBase.gameObject.AddComponent<Rigidbody>(); }
-        skeletonBase.GetChild(0).GetComponent<ConfigurableJoint>().connectedBody = skeletonBase.GetComponent<Rigidbody>();
-        armR.GetComponent<PhysicsIKRig>().currentState = PhysicsIKRig.State.Ragdoll;
-        armR.GetComponent<BodyPart>().ToggleKinematics(armR.GetComponent<BodyPart>().skeletonBase, false);
+        if (armR != null)
+        {
+            armR.AddComponent<ThrowableObject>();
+            armRPart.ToggleKinematics(armRPart.gameObject.transform, false);
+            armRPart.GetComponent<Animator>().enabled = false;
+            Transform skeletonBase = armR.GetComponent<BodyPart>().skeletonBase;
+            if (skeletonBase.GetComponent<Rigidbody>() == null) { skeletonBase.gameObject.AddComponent<Rigidbody>(); }
+            skeletonBase.GetChild(0).GetComponent<ConfigurableJoint>().connectedBody = skeletonBase.GetComponent<Rigidbody>();
+            armR.GetComponent<PhysicsIKRig>().currentState = PhysicsIKRig.State.Ragdoll;
+            armR.GetComponent<BodyPart>().ToggleKinematics(armR.GetComponent<BodyPart>().skeletonBase, false);
 
-        armR.transform.parent = null;
-        armR = null;
-        armRPart.creature = null;
+            armR.transform.parent = null;
+            armR = null;
+            armRPart.creature = null;
+            healthArmR = 0;
 
-        recalculate();
+            recalculate();
+        }
     }
 
     private void detachLegs()
     {
-        legs.AddComponent<ThrowableObject>();
-        ctrlsPart.GetComponent<RigidbodyController>().useFloat = false;
-        if (legs.GetComponent<Collider>() != null) { legs.GetComponent<Collider>().enabled = true; }
-        legsPart.ToggleKinematics(legsPart.gameObject.transform, false);
-        legsPart.GetComponent<LegIKRig>().enabled = false;
-        legs.transform.parent = null;
-        legs = null;
-        legsPart.creature = null;
+        if (legs != null)
+        {
+            legs.AddComponent<ThrowableObject>();
+            ctrlsPart.GetComponent<RigidbodyController>().useFloat = false;
+            if (legs.GetComponent<Collider>() != null) { legs.GetComponent<Collider>().enabled = true; }
+            legsPart.ToggleKinematics(legsPart.gameObject.transform, false);
+            legsPart.GetComponent<LegIKRig>().enabled = false;
+            legs.transform.parent = null;
+            legs = null;
+            legsPart.creature = null;
+            healthLegs = 0;
 
-        recalculate();
+            recalculate();
+        }
     }
 
     #endregion
