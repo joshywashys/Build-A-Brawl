@@ -582,6 +582,14 @@ public class @Controlss : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""PauseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""0340ff7b-7fa4-4ae7-9a75-0cb055573204"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -760,6 +768,17 @@ public class @Controlss : IInputActionCollection, IDisposable
                     ""action"": ""Join"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f5cede25-f079-46a8-9a2a-894696bae277"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -809,6 +828,7 @@ public class @Controlss : IInputActionCollection, IDisposable
         m_Player_LeftPunch = m_Player.FindAction("LeftPunch", throwIfNotFound: true);
         m_Player_RightPunch = m_Player.FindAction("RightPunch", throwIfNotFound: true);
         m_Player_Join = m_Player.FindAction("Join", throwIfNotFound: true);
+        m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -969,6 +989,7 @@ public class @Controlss : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_LeftPunch;
     private readonly InputAction m_Player_RightPunch;
     private readonly InputAction m_Player_Join;
+    private readonly InputAction m_Player_PauseMenu;
     public struct PlayerActions
     {
         private @Controlss m_Wrapper;
@@ -979,6 +1000,7 @@ public class @Controlss : IInputActionCollection, IDisposable
         public InputAction @LeftPunch => m_Wrapper.m_Player_LeftPunch;
         public InputAction @RightPunch => m_Wrapper.m_Player_RightPunch;
         public InputAction @Join => m_Wrapper.m_Player_Join;
+        public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1006,6 +1028,9 @@ public class @Controlss : IInputActionCollection, IDisposable
                 @Join.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJoin;
                 @Join.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJoin;
                 @Join.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJoin;
+                @PauseMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
+                @PauseMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
+                @PauseMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1028,6 +1053,9 @@ public class @Controlss : IInputActionCollection, IDisposable
                 @Join.started += instance.OnJoin;
                 @Join.performed += instance.OnJoin;
                 @Join.canceled += instance.OnJoin;
+                @PauseMenu.started += instance.OnPauseMenu;
+                @PauseMenu.performed += instance.OnPauseMenu;
+                @PauseMenu.canceled += instance.OnPauseMenu;
             }
         }
     }
@@ -1071,5 +1099,6 @@ public class @Controlss : IInputActionCollection, IDisposable
         void OnLeftPunch(InputAction.CallbackContext context);
         void OnRightPunch(InputAction.CallbackContext context);
         void OnJoin(InputAction.CallbackContext context);
+        void OnPauseMenu(InputAction.CallbackContext context);
     }
 }

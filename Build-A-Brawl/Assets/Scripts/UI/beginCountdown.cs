@@ -49,7 +49,7 @@ public class beginCountdown : MonoBehaviour
         else if (count == 0){
             for (int i = 0; i < rigidbodyControllers.Count; i++)
             {
-                rigidbodyControllers[i].useMovement = false;
+                rigidbodyControllers[i].useMovement = true;
             }
             GameObject brawlTxt = Instantiate(brawl,transform.position, transform.rotation);
             Destroy(brawlTxt, 0.5f);

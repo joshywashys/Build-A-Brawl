@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
 	/*start of Anna*/
 	public PlayerConfiguration playerConfig;
-
+	public PauseMenu pause;
 	private Controlss theControls;
 
 	//end of Anna 
@@ -207,31 +207,36 @@ public class PlayerController : MonoBehaviour
 		Debug.Log("Player initialized and configered");
 	}
 
-	private void Input_onActionTriggered(CallbackContext obj)
+	private void Input_onActionTriggered(CallbackContext context)
 	{
-		if (obj.action.name == theControls.Player.Move.name)
+		if (context.action.name == theControls.Player.Move.name)
 		{
-			OnMove(obj);
+			OnMove(context);
 		} 
 		
-		if (obj.action.name == theControls.Player.Jump.name)
+		if (context.action.name == theControls.Player.Jump.name)
 		{
-			OnJump(obj);
+			OnJump(context);
 		}
 
-		if(obj.action.name == theControls.Player.PickUp.name)
+		if(context.action.name == theControls.Player.PickUp.name)
 		{
-			OnPickUp(obj);
+			OnPickUp(context);
 		}
 
-		if(obj.action.name == theControls.Player.RightPunch.name)
+		if(context.action.name == theControls.Player.RightPunch.name)
 		{
-			OnRightPunch(obj);
+			OnRightPunch(context);
 		}
 
-		if(obj.action.name == theControls.Player.LeftPunch.name)
+		if(context.action.name == theControls.Player.LeftPunch.name)
 		{
-			OnLeftPunch(obj);
+			OnLeftPunch(context);
+		}
+
+		if(context.action.name == theControls.Player.PauseMenu.name)
+		{
+			OnPause(context);
 		}
 	}
 
@@ -253,6 +258,11 @@ public class PlayerController : MonoBehaviour
 		//triggered returns boolean true if triggered on the frame
 		if (context.action.phase == InputActionPhase.Started)
 			jumped = true;
+	}
+
+	public void OnPause(InputAction.CallbackContext context)
+	{
+		pause.Pause();
 	}
 
 	public void OnLeftPunch(InputAction.CallbackContext context) => attackPressed[LEFT_LIMB] = context.action.triggered;
