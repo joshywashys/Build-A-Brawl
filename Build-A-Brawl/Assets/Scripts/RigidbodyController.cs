@@ -96,7 +96,7 @@ public class RigidbodyController : MonoBehaviour
 
 	private void PhysicsCheck()
 	{
-		if (Physics.Raycast(m_ray, out RaycastHit hit, floatHeight + m_groundCheckBuffer + m_rayOffset, ~ignoreLayer))
+		if (Physics.Raycast(m_ray, out RaycastHit hit, floatHeight + m_groundCheckBuffer + m_rayOffset, ~ignoreLayer, QueryTriggerInteraction.Ignore))
 		{
 			if (!isGrounded)
 				OnGrounded?.Invoke();
@@ -116,7 +116,7 @@ public class RigidbodyController : MonoBehaviour
 		if (!useFloat)
 			return;
 
-		if (Physics.Raycast(m_ray, out RaycastHit hit, floatHeight * 2.0f + m_rayOffset, ~ignoreLayer))
+		if (Physics.Raycast(m_ray, out RaycastHit hit, floatHeight * 2.0f + m_rayOffset, ~ignoreLayer, QueryTriggerInteraction.Ignore))
 		{
             Vector3 otherVel = Vector3.zero;
 			Rigidbody otherBody = hit.rigidbody;
