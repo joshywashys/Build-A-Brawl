@@ -5171,7 +5171,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   mode: 0
-  offset: {x: 51.93, y: 11, z: 0}
+  offset: {x: 51.93, y: 28, z: 0}
   smoothTime: 0.5
   minZoom: 69.5
   maxZoom: 25.3
