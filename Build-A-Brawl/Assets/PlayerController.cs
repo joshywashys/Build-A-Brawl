@@ -256,6 +256,9 @@ public class PlayerController : MonoBehaviour
 	public void OnJump(InputAction.CallbackContext context)
 	{
 		//triggered returns boolean true if triggered on the frame
+		if (m_currentState == State.Stunned || m_currentState == State.Held || m_currentState == State.Dead)
+			return;
+
 		if (context.action.phase == InputActionPhase.Started)
 			jumped = true;
 	}
@@ -283,8 +286,6 @@ public class PlayerController : MonoBehaviour
 	}
 
 	#endregion
-
-	
 
 	#region COMBAT SYSTEM
 
@@ -475,7 +476,7 @@ public class PlayerController : MonoBehaviour
 		m_controller.useBalance = false;
 		m_controller.useMovement = false;
 
-		float duration = 5.0f; // time in seconds
+		float duration = 2.5f; // time in seconds
 		if (isRecoveringFromStun == null)
 			isRecoveringFromStun = StartCoroutine(RecoverFromStun(duration));
     }

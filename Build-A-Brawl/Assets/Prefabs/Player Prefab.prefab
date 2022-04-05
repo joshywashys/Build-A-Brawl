@@ -117,8 +117,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987236500597835189}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -502.5, z: 0}
-  m_LocalScale: {x: 3, y: 1005, z: 3}
+  m_LocalPosition: {x: 0, y: -2.5550003, z: 0}
+  m_LocalScale: {x: 3, y: 5.11, z: 3}
   m_Children: []
   m_Father: {fileID: 3804294177723920671}
   m_RootOrder: 0
@@ -471,6 +471,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 288468fc-117e-4065-91af-0f94e226b9d7
     m_ActionName: Player/Join[/Keyboard/anyKey]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0340ff7b-7fa4-4ae7-9a75-0cb055573204
+    m_ActionName: Player/PauseMenu
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -552,8 +556,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9deb124cdfc8046b431115bbf91915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_slidePhysicMaterial: {fileID: 0}
-  m_bodyCollider: {fileID: 0}
+  pause: {fileID: 0}
+  m_slidePhysicMaterial: {fileID: 13400000, guid: 8d81d7e9b38f3cb4db59ad85608f5827, type: 2}
+  m_bodyCollider: {fileID: 4866000927752231823}
   m_rigs: []
   playerColour: {r: 1, g: 0.8441375, b: 0, a: 0}
   m_meshRenderers:
