@@ -238,6 +238,11 @@ public class PlayerController : MonoBehaviour
 		{
 			OnPause(context);
 		}
+
+		if(context.action.name == theControls.Player.MakeNoise.name)
+		{
+			OnNoise(context);
+		}
 	}
 
 	//Anna end
@@ -283,6 +288,11 @@ public class PlayerController : MonoBehaviour
 			
 			HandleGrabbingAction();
 		}
+	}
+
+	public void OnNoise(InputAction.CallbackContext context)
+	{
+
 	}
 
 	#endregion

@@ -590,6 +590,14 @@ public class @Controlss : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MakeNoise"",
+                    ""type"": ""Button"",
+                    ""id"": ""48aeb5f9-f433-4f84-ab96-c18f3d0f2da5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -779,6 +787,28 @@ public class @Controlss : IInputActionCollection, IDisposable
                     ""action"": ""PauseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f03bdc6f-bf1b-44ce-b7ab-e08e331de7fa"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MakeNoise"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57107638-e02c-414d-b3cf-b66bb26c01a5"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""MakeNoise"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -829,6 +859,7 @@ public class @Controlss : IInputActionCollection, IDisposable
         m_Player_RightPunch = m_Player.FindAction("RightPunch", throwIfNotFound: true);
         m_Player_Join = m_Player.FindAction("Join", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
+        m_Player_MakeNoise = m_Player.FindAction("MakeNoise", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -990,6 +1021,7 @@ public class @Controlss : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_RightPunch;
     private readonly InputAction m_Player_Join;
     private readonly InputAction m_Player_PauseMenu;
+    private readonly InputAction m_Player_MakeNoise;
     public struct PlayerActions
     {
         private @Controlss m_Wrapper;
@@ -1001,6 +1033,7 @@ public class @Controlss : IInputActionCollection, IDisposable
         public InputAction @RightPunch => m_Wrapper.m_Player_RightPunch;
         public InputAction @Join => m_Wrapper.m_Player_Join;
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
+        public InputAction @MakeNoise => m_Wrapper.m_Player_MakeNoise;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1031,6 +1064,9 @@ public class @Controlss : IInputActionCollection, IDisposable
                 @PauseMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
+                @MakeNoise.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMakeNoise;
+                @MakeNoise.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMakeNoise;
+                @MakeNoise.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMakeNoise;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1056,6 +1092,9 @@ public class @Controlss : IInputActionCollection, IDisposable
                 @PauseMenu.started += instance.OnPauseMenu;
                 @PauseMenu.performed += instance.OnPauseMenu;
                 @PauseMenu.canceled += instance.OnPauseMenu;
+                @MakeNoise.started += instance.OnMakeNoise;
+                @MakeNoise.performed += instance.OnMakeNoise;
+                @MakeNoise.canceled += instance.OnMakeNoise;
             }
         }
     }
@@ -1100,5 +1139,6 @@ public class @Controlss : IInputActionCollection, IDisposable
         void OnRightPunch(InputAction.CallbackContext context);
         void OnJoin(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
+        void OnMakeNoise(InputAction.CallbackContext context);
     }
 }
