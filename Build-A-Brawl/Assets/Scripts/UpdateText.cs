@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class UpdateText : MonoBehaviour
 {
-    public Text text;
+    public GameObject text;
 
     // Add this to an event on another script for it to be called.
     public void ChangeText(string newText)
     {
-        text.text = newText;
+        gameObject.GetComponent<Text>().text = newText;
     }
         
     public void Start()
     {
-        text = gameObject.GetComponent<Text>();
+        text = gameObject;
     }
 
 }
