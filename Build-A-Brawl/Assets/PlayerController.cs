@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private CreatureStats statsRef;
 
 	[SerializeField] private PhysicMaterial m_slidePhysicMaterial;
-	[SerializeField] private Collider m_bodyCollider;
+	[SerializeField] private Collider[] m_bodyColliders;
 
     [Header("Animators")]
 	[SerializeField] private PhysicsIKRig[] m_rigs;
@@ -102,8 +102,6 @@ public class PlayerController : MonoBehaviour
 		// This is for quick testing please remove this function call later
 		//SetPlayerColour(playerColour);
 
-		
-
 		// Initialize state
 		m_stateDictionary = new Dictionary<State, UnityAction>
 		{
@@ -115,6 +113,8 @@ public class PlayerController : MonoBehaviour
 		// get the components that have been added in through the character controller at the top
 		m_controller = gameObject.GetComponent<RigidbodyController>();
 		m_rigidbody = GetComponent<Rigidbody>();
+
+		m_bodyColliders = GetComponents<Collider>();
 
         statsRef = transform.parent.GetComponent<CreatureStats>();
 
@@ -470,7 +470,8 @@ public class PlayerController : MonoBehaviour
 	private void HandleStunState()
     {
 		m_controller.isStunned = true;
-		m_bodyCollider.material = null;
+		for (int i = 0; i < m_bodyColliders.Length; i++)
+			m_bodyColliders[i].material = null;
 
 		m_controller.useFloat = false;
 		m_controller.useBalance = false;
@@ -484,7 +485,8 @@ public class PlayerController : MonoBehaviour
 	private void HandleIdleState()
 	{
 		m_controller.isStunned = false;
-		m_bodyCollider.material = m_slidePhysicMaterial;
+		for (int i = 0; i < m_bodyColliders.Length; i++)
+			m_bodyColliders[i].material = m_slidePhysicMaterial;
 
 		m_controller.ResetVelocity();
 		
