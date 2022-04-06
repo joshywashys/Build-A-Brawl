@@ -1875,8 +1875,8 @@ MonoBehaviour:
   selectedMaps: []
   randomMapPool: []
   selectedMapIndexes: 
-  minRounds: 0
-  maxRounds: 0
+  minRounds: 1
+  maxRounds: 10
   onRoundCountChange:
     m_PersistentCalls:
       m_Calls:
@@ -11951,7 +11951,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 0.8, b: 0.20392157, a: 1}
     m_HighlightedColor: {r: 1, g: 0, b: 0.8, a: 1}
     m_PressedColor: {r: 0, g: 0, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 0.8, b: 0.20392157, a: 1}
+    m_SelectedColor: {r: 1, g: 0, b: 0.8, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -26358,7 +26358,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: '5
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 082acea01f53ca145a64af01e8b13dea, type: 2}
   m_sharedMaterial: {fileID: 6469799956502391349, guid: 082acea01f53ca145a64af01e8b13dea, type: 2}
@@ -26392,7 +26394,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -38469,7 +38471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e708c0a25f58d74f93783847c74d7a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charSelection: {fileID: 0}
+  charSelection: {fileID: 1626987778}
   leftIndex:
     m_PersistentCalls:
       m_Calls:
@@ -38481,7 +38483,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 1
+          m_FloatArgument: 2
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -38508,7 +38510,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 1
+          m_FloatArgument: 2
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -38524,8 +38526,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  lArrow1: {fileID: 0}
-  rArrow1: {fileID: 0}
+  lArrow1: {fileID: 35676274}
+  rArrow1: {fileID: 1725752985}
 --- !u!114 &1626987778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38570,10 +38572,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 938195059}
   m_HandleRect: {fileID: 705120989}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 2
+  m_MinValue: 1
+  m_MaxValue: 3
   m_WholeNumbers: 1
-  m_Value: 1
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
