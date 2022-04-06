@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ColourEvent : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
-    [SerializeField] public GameObject cubeShape;
+    [SerializeField] public GameObject image;
     private bool colourState = false;
     // Start is called before the first frame update
     void Start()
@@ -37,10 +37,11 @@ public class ColourEvent : MonoBehaviour, ISelectHandler, IDeselectHandler
 
         if (colourState)
         {
-           cubeShape.GetComponent<Renderer>().material.color = Color.yellow;
+            image.GetComponent<Image>().color = new Color32(255, 0, 204, 255);
         } else if (!colourState) {
-            
-           cubeShape.GetComponent<Renderer>().material.color = new Color32(142, 108, 139, 1);
+
+          image.GetComponent<Image>().color = new Color32 (255, 204, 52, 255);
+ 
         }
     }
 }
