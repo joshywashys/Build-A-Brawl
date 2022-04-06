@@ -162,8 +162,9 @@ public class PartCombiner : MonoBehaviour
             GameObject body = newPlayer.transform.Find("Body").gameObject;
             RigidbodyController rbc = body.GetComponent<RigidbodyController>();
             PlayerController pc = body.GetComponent<PlayerController>();
+            Rigidbody rb = body.GetComponent<Rigidbody>();
 
-           
+
             GameObject creature = Instantiate(creaturePlayable, newPlayer.transform.position + new Vector3(0, 3, 0), Quaternion.identity, newPlayer.transform.GetChild(2));
 
             //rearrange part hierarchy
@@ -193,10 +194,13 @@ public class PartCombiner : MonoBehaviour
             pc.anchorRight.localPosition = new Vector3(0.7f, 0.2f, 1f); //new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y - 0.3f, -armRToShoulder.x * 0.5f); //needs fix
             pc.fistLeftRigidbody.mass *= stats.fistMassMultiplierR;
             pc.fistRightRigidbody.mass *= stats.fistMassMultiplierR;
-            pc.attackForce = stats.GetStrengthArmL(); //change this later to work for both arms in playercontroller
+            pc.attackForce = (stats.GetStrengthArmL() + stats.GetStrengthArmL() / 2);
             pc.playerSpeed = stats.GetMoveSpeed();
             pc.jumpHeight = stats.GetJumpHeight();
             pc.rotateSpeed = stats.GetRotateSpeed();
+            rb.mass = stats.GetMass();
+            pc.throwForce = (stats.GetStrengthArmL() + stats.GetStrengthArmL() / 2);
+                //throwforce in playercontroller 15f reg
 
             if (savedLegs.GetComponent<LegIKRig>() != null) { savedLegs.GetComponent<LegIKRig>().enabled = true; }
             if (savedLegs.GetComponent<Collider>() != null) { savedLegs.GetComponent<Collider>().enabled = false; }

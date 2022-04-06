@@ -68,17 +68,17 @@ public class CreatureStats : MonoBehaviour
     public const float ARM_STRENGTH_BASE = 120;
     public const float MOVE_SPEED_BASE = 80;
     public const float ROTATE_SPEED_BASE = 10;
-    public const float JUMP_HEIGHT_BASE = 150;
+    public const float JUMP_HEIGHT_BASE = 250;
     public const float SPRING_CONSTANT_BASE = 80;
     public const float LEG_STRENGTH_BASE = 300;
     public const float LEG_DAMPER_BASE = 500;
 
     public const float MASS_HEAD_BASE = 1;
-    public const float MASS_TORSO_BASE = 3;
+    public const float MASS_TORSO_BASE = 2;
     public const float MASS_ARMS_BASE = 1;
     public const float MASS_LEGS_BASE = 1;
 
-    public const float FORCE_THRESHOLD = 0;
+    public const float FORCE_THRESHOLD = 0.2f;
 
     public GameObject audioStorages;
     public GameObject audioStorageFun;
