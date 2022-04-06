@@ -361,7 +361,6 @@ GameObject:
   - component: {fileID: 6777567902055431305}
   - component: {fileID: 7423204849053904567}
   - component: {fileID: 5973644466274202911}
-  - component: {fileID: 8405849142211651234}
   m_Layer: 3
   m_Name: Druid_v4_ArmL
   m_TagString: Untagged
@@ -454,24 +453,6 @@ MonoBehaviour:
   ragdoll:
     bones: []
   currentState: 0
---- !u!114 &8405849142211651234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8202317251866170197}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 407c8e8d43bd85e4aabed3c038e0e665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 255, g: 0, b: 204, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &9194982420663690728
 GameObject:
   m_ObjectHideFlags: 0

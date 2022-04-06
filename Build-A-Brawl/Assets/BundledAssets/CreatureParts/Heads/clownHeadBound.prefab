@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 7345326396993419522}
   - component: {fileID: -6616551368808890152}
   - component: {fileID: 9043858255636053483}
-  - component: {fileID: 4539760214900078091}
   m_Layer: 3
   m_Name: clownHeadBound
   m_TagString: Untagged
@@ -199,24 +198,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.020261534
   m_Center: {x: 0, y: -0.0037506842, z: 0}
---- !u!114 &4539760214900078091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099967686885153063}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 407c8e8d43bd85e4aabed3c038e0e665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 255, g: 0, b: 204, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &2520349743802368503
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2092569181472126042}
   - component: {fileID: 7715891394075664664}
   - component: {fileID: 7673640917957195635}
-  - component: {fileID: 3222538993915537788}
   m_Layer: 3
   m_Name: apeArmRBound
   m_TagString: Untagged
@@ -129,24 +128,6 @@ MonoBehaviour:
     - rigidbody: {fileID: 3260539783395916765}
       collider: {fileID: 1634691436356703452}
   currentState: 0
---- !u!114 &3222538993915537788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182283046379662126}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 407c8e8d43bd85e4aabed3c038e0e665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 255, g: 0, b: 204, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &1181982230716203530
 GameObject:
   m_ObjectHideFlags: 0

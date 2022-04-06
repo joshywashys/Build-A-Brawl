@@ -1,23 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &7210972449551728102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4827844848411228939}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 407c8e8d43bd85e4aabed3c038e0e665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 255, g: 0, b: 204, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1001 &1791116932892659264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143,8 +125,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7221acb28e9ced24692625e11864f14c, type: 3}
---- !u!1 &4827844848411228939 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6495492569730987339, guid: 7221acb28e9ced24692625e11864f14c, type: 3}
-  m_PrefabInstance: {fileID: 1791116932892659264}
-  m_PrefabAsset: {fileID: 0}

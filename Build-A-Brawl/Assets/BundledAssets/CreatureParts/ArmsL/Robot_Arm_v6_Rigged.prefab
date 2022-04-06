@@ -359,7 +359,6 @@ GameObject:
   - component: {fileID: 3827401123743966584}
   - component: {fileID: 7246416364697923187}
   - component: {fileID: 4100534629371473797}
-  - component: {fileID: 7874962094582491920}
   m_Layer: 3
   m_Name: Robot_Arm_v6_Rigged
   m_TagString: Untagged
@@ -452,24 +451,6 @@ MonoBehaviour:
   ragdoll:
     bones: []
   currentState: 0
---- !u!114 &7874962094582491920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8866667971480663893}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 407c8e8d43bd85e4aabed3c038e0e665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 255, g: 0, b: 204, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &8956724815486219789
 GameObject:
   m_ObjectHideFlags: 0
