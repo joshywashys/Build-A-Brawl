@@ -30,8 +30,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c98586fac146f81448121c6cbcd11189, type: 3}
   - {fileID: 8300000, guid: 39bfb757c5fe9b3449f7cead8d69cfdc, type: 3}
   stats:
-    healthMultiplier: 1
+    healthMultiplier: 1.2
     strengthMultiplier: 1
-    massMultiplier: 1
+    massMultiplier: 1.2
     springConstantMultiplier: 1
     animType: 0

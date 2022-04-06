@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812509945516770448}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -1.56, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1223172839167569807}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!135 &7888114767457137901
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -296,7 +296,6 @@ GameObject:
   - component: {fileID: 6110577675486402063}
   - component: {fileID: 3622046291138277065}
   - component: {fileID: 8228551700721319051}
-  - component: {fileID: 4866000927752231823}
   - component: {fileID: 5301282257657366604}
   m_Layer: 3
   m_Name: Body
@@ -558,7 +557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pause: {fileID: 0}
   m_slidePhysicMaterial: {fileID: 13400000, guid: 8d81d7e9b38f3cb4db59ad85608f5827, type: 2}
-  m_bodyCollider: {fileID: 4866000927752231823}
+  m_bodyCollider: {fileID: 0}
   m_rigs: []
   playerColour: {r: 1, g: 0.8441375, b: 0, a: 0}
   m_meshRenderers: []
@@ -594,20 +593,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &4866000927752231823
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5479808838921011391}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.75
-  m_Height: 2.5
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!114 &5301282257657366604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -695,13 +680,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8871093476895808470}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 1.6107934, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1223172839167569807}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!135 &8312040886096187123
 SphereCollider:
   m_ObjectHideFlags: 0

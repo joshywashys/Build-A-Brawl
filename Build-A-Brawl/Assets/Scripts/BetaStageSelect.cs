@@ -28,7 +28,6 @@ public class BetaStageSelect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        select.SetActive(false);
         //thumbNail = GameObject.Find("thumbNail");
     }
 
@@ -43,7 +42,6 @@ public class BetaStageSelect : MonoBehaviour
         if (this.name == "stage1" && stage1Sel == false){
             stage1Sel = true;
             levels.Add("Lab");
-            select.SetActive(true);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material1;
@@ -52,7 +50,6 @@ public class BetaStageSelect : MonoBehaviour
         } else if (this.name == "stage1" && stage1Sel == true){
             stage1Sel = false;
             levels.Remove("Lab");
-            select.SetActive(false);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material1;
@@ -62,7 +59,6 @@ public class BetaStageSelect : MonoBehaviour
         if (this.name == "stage2" && stage2Sel == false){
             stage2Sel = true;
             levels.Add("TrafficMap");
-            select.SetActive(true);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material2;
@@ -70,7 +66,6 @@ public class BetaStageSelect : MonoBehaviour
         } else if (this.name == "stage2" && stage2Sel == true){
             stage2Sel = false;
             levels.Remove("TrafficMap");
-            select.SetActive(false);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material2;
@@ -80,7 +75,6 @@ public class BetaStageSelect : MonoBehaviour
         if (this.name == "stage3" && stage3Sel == false){
             stage3Sel = true;
             levels.Add("ConstructionMap");
-            select.SetActive(true);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material3;
@@ -88,7 +82,6 @@ public class BetaStageSelect : MonoBehaviour
         } else if (this.name == "stage3" && stage3Sel == true){
             stage3Sel = false;
             levels.Remove("ConstructionMap");
-            select.SetActive(false);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material3;
@@ -98,7 +91,6 @@ public class BetaStageSelect : MonoBehaviour
         if (this.name == "stage4" && stage4Sel == false){
             stage4Sel = true;
             levels.Add("VolcanoMap");
-            select.SetActive(true);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material4;
@@ -106,7 +98,6 @@ public class BetaStageSelect : MonoBehaviour
         } else if (this.name == "stage4" && stage4Sel == true){
             stage4Sel = false;
             levels.Remove("VolcanoMap");
-            select.SetActive(false);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material4;
@@ -116,7 +107,6 @@ public class BetaStageSelect : MonoBehaviour
         if (this.name == "stage5" && stage5Sel == false){
             stage5Sel = true;
             levels.Add("MallMap");
-            select.SetActive(true);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material5;
@@ -124,7 +114,6 @@ public class BetaStageSelect : MonoBehaviour
         } else if (this.name == "stage5" && stage5Sel == true){
             stage5Sel = false;
             levels.Remove("MallMap");
-            select.SetActive(false);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material5;
@@ -134,7 +123,6 @@ public class BetaStageSelect : MonoBehaviour
         if (this.name == "stage6" && stage6Sel == false){
             stage6Sel = true;
             levels.Add("BalloonMap");
-            select.SetActive(true);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material6;
@@ -142,7 +130,6 @@ public class BetaStageSelect : MonoBehaviour
         } else if (this.name == "stage6" && stage6Sel == true){
             stage6Sel = false;
             levels.Remove("BalloonMap");
-            select.SetActive(false);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material6;
@@ -154,7 +141,6 @@ public class BetaStageSelect : MonoBehaviour
         if (this.name == "stage1" && stage1Sel == false){
             stage1Sel = true;
             levels.Add("Lab");
-            select.SetActive(true);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material1;
@@ -162,7 +148,6 @@ public class BetaStageSelect : MonoBehaviour
         } else if (this.name == "stage1" && stage1Sel == true){
             stage1Sel = false;
             levels.Remove("Lab");
-            select.SetActive(false);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material1;
@@ -172,7 +157,6 @@ public class BetaStageSelect : MonoBehaviour
         if (this.name == "stage2" && stage2Sel == false){
             stage2Sel = true;
             levels.Add("TrafficMap");
-            select.SetActive(true);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material2;
@@ -180,7 +164,6 @@ public class BetaStageSelect : MonoBehaviour
         } else if (this.name == "stage2" && stage2Sel == true){
             stage2Sel = false;
             levels.Remove("TrafficMap");
-            select.SetActive(false);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material2;
@@ -190,7 +173,6 @@ public class BetaStageSelect : MonoBehaviour
         if (this.name == "stage3" && stage3Sel == false){
             stage3Sel = true;
             levels.Add("ConstructionMap");
-            select.SetActive(true);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material3;
@@ -198,7 +180,6 @@ public class BetaStageSelect : MonoBehaviour
         } else if (this.name == "stage3" && stage3Sel == true){
             stage3Sel = false;
             levels.Remove("ConstructionMap");
-            select.SetActive(false);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material3;
@@ -208,7 +189,6 @@ public class BetaStageSelect : MonoBehaviour
         if (this.name == "stage4" && stage4Sel == false){
             stage4Sel = true;
             levels.Add("VolcanoMap");
-            select.SetActive(true);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material4;
@@ -216,7 +196,6 @@ public class BetaStageSelect : MonoBehaviour
         } else if (this.name == "stage4" && stage4Sel == true){
             stage4Sel = false;
             levels.Remove("VolcanoMap");
-            select.SetActive(false);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material4;
@@ -226,7 +205,6 @@ public class BetaStageSelect : MonoBehaviour
         if (this.name == "stage5" && stage5Sel == false){
             stage5Sel = true;
             levels.Add("MallMap");
-            select.SetActive(true);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material5;
@@ -234,7 +212,6 @@ public class BetaStageSelect : MonoBehaviour
         } else if (this.name == "stage5" && stage5Sel == true){
             stage5Sel = false;
             levels.Remove("MallMap");
-            select.SetActive(false);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material5;
@@ -244,7 +221,6 @@ public class BetaStageSelect : MonoBehaviour
         if (this.name == "stage6" && stage6Sel == false){
             stage6Sel = true;
             levels.Add("BalloonMap");
-            select.SetActive(true);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material6;
@@ -252,7 +228,6 @@ public class BetaStageSelect : MonoBehaviour
         } else if (this.name == "stage6" && stage6Sel == true){
             stage6Sel = false;
             levels.Remove("BalloonMap");
-            select.SetActive(false);
             foreach( var x in levels) {
                 //Debug.Log( x.ToString());
                 thumbNail.GetComponent<Image>().material = Material6;

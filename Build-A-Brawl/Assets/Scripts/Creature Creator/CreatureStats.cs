@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class CreatureStats : MonoBehaviour
 {
     // part references
+    private GameObject rootObj;
     private GameObject creature;
     public GameObject ctrlsPart;
     public int playerNum;
@@ -68,7 +69,7 @@ public class CreatureStats : MonoBehaviour
     public const float HEALTH_BASE = 10;
     public const float ARM_STRENGTH_BASE = 120;
     public const float THROW_STRENGTH_BASE = 25;
-    public const float MOVE_SPEED_BASE = 80;
+    public const float MOVE_SPEED_BASE = 60;
     public const float ROTATE_SPEED_BASE = 10;
     public const float JUMP_HEIGHT_BASE = 150;
     public const float SPRING_CONSTANT_BASE = 80;
@@ -180,28 +181,28 @@ public class CreatureStats : MonoBehaviour
     {
         if (incForce > FORCE_THRESHOLD)
         {
-            print("NOISE: " + hurtSounds[Random.Range(0, hurtSounds.Count)]);
+            //print("NOISE: " + hurtSounds[Random.Range(0, hurtSounds.Count)]);
             hurtSounds[Random.Range(0, hurtSounds.Count)].Play();
 
             float dmg = incForce;
             //dmg = 1.0f; //TEMP FOR DEBUGGING
 
             //headPart = head.GetComponent<BodyPart>(); //head is null. probably has to do with AttachParts being called in PartCombiner
-            print(headPart); // why is it null only in game???
+            //print(headPart); // why is it null only in game???
             if (bodyPart == headPart.partData)
             {
                 healthHead -= dmg;
-                //print("head: " + healthHead);
+                print("HEAD HIT: " + healthHead);
                 if (healthHead <= 0)
                 {
                     detachHead();
                 }
             }
-            print(torsoPart);
+            //print(torsoPart);
             if (bodyPart == torsoPart.partData)
             {
                 healthTorso -= dmg;
-                //print("torso: " + healthTorso);
+                print("torso: " + healthTorso);
                 if (healthTorso <= 0)
                 {
                     detachTorso();
@@ -210,7 +211,7 @@ public class CreatureStats : MonoBehaviour
             if (bodyPart == armLPart.partData)
             {
                 healthArmL -= dmg;
-                //print("armL: " + healthArmL);
+                print("armL: " + healthArmL);
                 if (healthArmL <= 0)
                 {
                     detachArmL();
@@ -219,7 +220,7 @@ public class CreatureStats : MonoBehaviour
             if (bodyPart == armRPart.partData)
             {
                 healthArmR -= dmg;
-                //print("armR: " + healthArmR);
+                print("armR: " + healthArmR);
                 if (healthArmR <= 0)
                 {
                     detachArmR();
@@ -228,7 +229,7 @@ public class CreatureStats : MonoBehaviour
             if (bodyPart == legsPart.partData)
             {
                 healthLegs -= dmg;
-                //print("legs damage");
+                print("legs damage");
                 if (healthLegs <= 0)
                 {
                     detachLegs();
@@ -250,9 +251,9 @@ public class CreatureStats : MonoBehaviour
         detachArmR();
         detachLegs();
 
-        //Cleanup();
+        Cleanup();
 
-        onDamage?.Invoke(playerNum);
+        //onDamage?.Invoke(playerNum);
         onDeath?.Invoke(playerNum);
     }
 
@@ -268,7 +269,7 @@ public class CreatureStats : MonoBehaviour
     {
         //Destroy(audioStorageFun);
         //Destroy(audioStorageHurt);
-        Destroy(creature.transform.root.gameObject);
+        Destroy(rootObj);
     }
 
     #endregion
@@ -282,6 +283,7 @@ public class CreatureStats : MonoBehaviour
 
     void Start()
     {
+        rootObj = transform.root.gameObject;
         creature = gameObject;
         funSounds = new List<AudioSource>();
         hurtSounds = new List<AudioSource>();
@@ -296,6 +298,18 @@ public class CreatureStats : MonoBehaviour
         //armL = torso.transform.Find("armL").gameObject;
         //armR = torso.transform.Find("armR").gameObject;
         //legs = torso.transform.Find("legs").gameObject;
+
+        if (torso == null) { torso = transform.Find("torso").gameObject; }
+        if (head == null) { head = torso.transform.Find("head").gameObject; }
+        if (armL == null) { armL = torso.transform.Find("armL").gameObject; }
+        if (armR == null) { armR = torso.transform.Find("armR").gameObject; }
+        if (legs == null) { legs = torso.transform.Find("legs").gameObject; }
+
+        if (headPart == null) { headPart = head.GetComponent<BodyPart>(); }
+        if (torsoPart == null) { torsoPart = torso.GetComponent<BodyPart>(); }
+        if (armLPart == null) { armLPart = armL.GetComponent<BodyPart>(); }
+        if (armRPart == null) { armRPart = armR.GetComponent<BodyPart>(); }
+        if (legsPart == null) { legsPart = legs.GetComponent<BodyPart>(); }
 
         // Add sounds from ScriptableObjects
         audioStorages = new GameObject("Audio Storages");
@@ -331,18 +345,6 @@ public class CreatureStats : MonoBehaviour
             }
         }
 
-        if (torso == null) { torso = transform.Find("torso").gameObject; }
-        if (head == null) { head = torso.transform.Find("head").gameObject; }
-        if (armL == null) { armL = torso.transform.Find("armL").gameObject; }
-        if (armR == null) { armR = torso.transform.Find("armR").gameObject; }
-        if (legs == null) { legs = torso.transform.Find("legs").gameObject; }
-
-        if (headPart == null) { headPart = head.GetComponent<BodyPart>(); }
-        if (torsoPart == null) { torsoPart = torso.GetComponent<BodyPart>(); }
-        if (armLPart == null) { armLPart = armL.GetComponent<BodyPart>(); }
-        if (armRPart == null) { armRPart = armR.GetComponent<BodyPart>(); }
-        if (legsPart == null) { legsPart = legs.GetComponent<BodyPart>(); }
-
     }
 
     void Awake()
@@ -358,6 +360,8 @@ public class CreatureStats : MonoBehaviour
     {
         if (head != null)
         {
+            print("detaching head");
+            Destroy(head.GetComponent<JointCollision>());
             head.AddComponent<ThrowableObject>();
             head.GetComponent<Collider>().enabled = true;
             headPart.ToggleKinematics(headPart.gameObject.transform, false);
@@ -371,6 +375,7 @@ public class CreatureStats : MonoBehaviour
         }
         if (alive)
         {
+            print("killing player");
             Kill();
         }
     }
@@ -383,6 +388,7 @@ public class CreatureStats : MonoBehaviour
         //if (head != null) { detachHead(); }
         if (torso != null)
         {
+            Destroy(torso.GetComponent<JointCollision>());
             torso.AddComponent<ThrowableObject>();
             torso.GetComponent<Collider>().enabled = true;
             torsoPart.ToggleKinematics(torsoPart.gameObject.transform, false);
@@ -401,6 +407,7 @@ public class CreatureStats : MonoBehaviour
     {
         if (armL != null)
         {
+            Destroy(armL.GetComponent<JointCollision>());
             armL.AddComponent<ThrowableObject>();
             armLPart.ToggleKinematics(armLPart.gameObject.transform, false);
             armLPart.GetComponent<Animator>().enabled = false;
@@ -423,6 +430,7 @@ public class CreatureStats : MonoBehaviour
     {
         if (armR != null)
         {
+            Destroy(armR.GetComponent<JointCollision>());
             armR.AddComponent<ThrowableObject>();
             armRPart.ToggleKinematics(armRPart.gameObject.transform, false);
             armRPart.GetComponent<Animator>().enabled = false;
@@ -445,6 +453,7 @@ public class CreatureStats : MonoBehaviour
     {
         if (legs != null)
         {
+            Destroy(legs.GetComponent<JointCollision>());
             legs.AddComponent<ThrowableObject>();
             ctrlsPart.GetComponent<RigidbodyController>().useFloat = false;
             if (legs.GetComponent<Collider>() != null) { legs.GetComponent<Collider>().enabled = true; }

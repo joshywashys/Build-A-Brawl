@@ -238,7 +238,7 @@ public class RoundManager : MonoBehaviour
             //SceneManager.LoadScene(selectedMaps[selectedMapIndexes[numRounds % selectedMapIndexes.Count] % selectedMaps.Count]);
             // seelcted maps, selected map indexes (rand list), currRound
             //print("(NextRound) round num: " + currRound);
-            print("(NextRound) pool count: " + randomMapPool.Count);
+            //print("(NextRound) pool count: " + randomMapPool.Count);
             SceneManager.LoadScene(randomMapPool[currRound % randomMapPool.Count]);
         }
         if (currRound == numRounds)
@@ -297,7 +297,7 @@ public class RoundManager : MonoBehaviour
         for (int i = 0; i < stats.Count; i++)
         {
             stats[i].isAlive = true;
-            print(i);
+            //print(i);
         }
 
         //Debug.Log("OnSceneLoaded: " + scene.name);
