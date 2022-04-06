@@ -242,11 +242,12 @@ public class CreatureStats : MonoBehaviour
 
     public void Kill()
     {
-        if (head != null) { detachHead(); }
-        if (torso != null) { detachTorso(); }
-        if (armL != null) { detachArmL(); }
-        if (armR != null) { detachArmR(); }
-        if (legs != null) { detachLegs(); }
+        alive = false;
+        detachHead();
+        detachTorso();
+        detachArmL();
+        detachArmR();
+        detachLegs();
 
         Cleanup();
 
@@ -295,12 +296,6 @@ public class CreatureStats : MonoBehaviour
         //armR = torso.transform.Find("armR").gameObject;
         //legs = torso.transform.Find("legs").gameObject;
 
-        if (headPart == null) { headPart = head.GetComponent<BodyPart>(); }
-        if (torsoPart == null) { torsoPart = torso.GetComponent<BodyPart>(); }
-        if (armLPart == null) { armLPart = armL.GetComponent<BodyPart>(); }
-        if (armRPart == null) { armRPart = armR.GetComponent<BodyPart>(); }
-        if (legsPart == null) { legsPart = legs.GetComponent<BodyPart>(); }
-
         // Add sounds from ScriptableObjects
         audioStorages = new GameObject("Audio Storages");
         audioStorageFun = new GameObject("Storage - Fun Audio");
@@ -334,7 +329,19 @@ public class CreatureStats : MonoBehaviour
                 //print(hurtSounds);
             }
         }
-        
+
+        if (head == null) { head = transform.Find("head").gameObject; }
+        if (torso == null) { torso = transform.Find("torso").gameObject; }
+        if (armL == null) { armL = transform.Find("armL").gameObject; }
+        if (armR == null) { armR = transform.Find("armR").gameObject; }
+        if (legs == null) { legs = transform.Find("legs").gameObject; }
+
+        if (headPart == null) { headPart = head.GetComponent<BodyPart>(); }
+        if (torsoPart == null) { torsoPart = torso.GetComponent<BodyPart>(); }
+        if (armLPart == null) { armLPart = armL.GetComponent<BodyPart>(); }
+        if (armRPart == null) { armRPart = armR.GetComponent<BodyPart>(); }
+        if (legsPart == null) { legsPart = legs.GetComponent<BodyPart>(); }
+
     }
 
     void Awake()
@@ -360,7 +367,6 @@ public class CreatureStats : MonoBehaviour
             //if (torso != null) { detachTorso(); } //AFTER head becomes null. prevents infinite loops of head->torso->head->torso...
 
             //recalculate();
-            Kill();
         }
         if (alive)
         {
