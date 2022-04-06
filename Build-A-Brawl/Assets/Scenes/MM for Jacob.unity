@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43986315, g: 0.4883147, b: 0.5685226, a: 1}
+  m_IndirectSpecularColor: {r: 0.4398627, g: 0.4883141, b: 0.5685219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1102,6 +1102,8 @@ MonoBehaviour:
   arrowR: {fileID: 0}
   currPos: {x: 0, y: 0, z: 0}
   focusPos: {x: 0, y: 0, z: 0}
+  offsetPos: {x: 0, y: 0, z: 0}
+  limb: 0
   partCombiner: {fileID: 181592515}
 --- !u!1 &72428261
 GameObject:
@@ -1595,9 +1597,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2239461055009658074, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328640823429783185, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
       propertyPath: m_Name
       value: arrows2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
       propertyPath: m_IsActive
@@ -5532,6 +5546,7 @@ GameObject:
   - component: {fileID: 237291384}
   - component: {fileID: 237291383}
   - component: {fileID: 237291387}
+  - component: {fileID: 237291388}
   m_Layer: 0
   m_Name: head
   m_TagString: Untagged
@@ -5723,9 +5738,21 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 59343695}
+        - m_Target: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
           m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
-          m_MethodName: AddHighlight
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 237291388}
+          m_TargetAssemblyTypeName: HighlightLimbSender, Assembly-CSharp
+          m_MethodName: SendLimb
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5739,6 +5766,20 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &237291388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237291382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLimb: 0
+  script: {fileID: 59343695}
 --- !u!4 &239716972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c7745e579cf01984a953e7695a90ae17, type: 3}
@@ -14058,6 +14099,7 @@ GameObject:
   - component: {fileID: 605267889}
   - component: {fileID: 605267890}
   - component: {fileID: 605267892}
+  - component: {fileID: 605267893}
   m_Layer: 0
   m_Name: legs
   m_TagString: Untagged
@@ -14248,6 +14290,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 605267893}
+          m_TargetAssemblyTypeName: HighlightLimbSender, Assembly-CSharp
+          m_MethodName: SendLimb
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 10
     callback:
       m_PersistentCalls:
@@ -14264,6 +14318,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &605267893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605267888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLimb: 4
+  script: {fileID: 59343695}
 --- !u!1 &605779141
 GameObject:
   m_ObjectHideFlags: 0
@@ -27005,6 +27073,8 @@ MonoBehaviour:
   arrowR: {fileID: 0}
   currPos: {x: 0, y: 0, z: 0}
   focusPos: {x: 0, y: 0, z: 0}
+  offsetPos: {x: 0, y: 0, z: 0}
+  limb: 0
   partCombiner: {fileID: 687205165}
 --- !u!1 &1075964085
 GameObject:
@@ -30330,6 +30400,8 @@ MonoBehaviour:
   arrowR: {fileID: 0}
   currPos: {x: 0, y: 0, z: 0}
   focusPos: {x: 0, y: 0, z: 0}
+  offsetPos: {x: 0, y: 0, z: 0}
+  limb: 0
   partCombiner: {fileID: 1982228499}
 --- !u!1 &1221848570
 GameObject:
@@ -30534,6 +30606,7 @@ GameObject:
   - component: {fileID: 1231089139}
   - component: {fileID: 1231089140}
   - component: {fileID: 1231089142}
+  - component: {fileID: 1231089143}
   m_Layer: 0
   m_Name: left arm
   m_TagString: Untagged
@@ -30724,6 +30797,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1231089143}
+          m_TargetAssemblyTypeName: HighlightLimbSender, Assembly-CSharp
+          m_MethodName: SendLimb
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 10
     callback:
       m_PersistentCalls:
@@ -30740,6 +30825,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1231089143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231089138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLimb: 2
+  script: {fileID: 59343695}
 --- !u!1 &1247075232
 GameObject:
   m_ObjectHideFlags: 0
@@ -31646,6 +31745,7 @@ GameObject:
   - component: {fileID: 1275361574}
   - component: {fileID: 1275361575}
   - component: {fileID: 1275361577}
+  - component: {fileID: 1275361578}
   m_Layer: 0
   m_Name: torso
   m_TagString: Untagged
@@ -31836,6 +31936,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1275361578}
+          m_TargetAssemblyTypeName: HighlightLimbSender, Assembly-CSharp
+          m_MethodName: SendLimb
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 10
     callback:
       m_PersistentCalls:
@@ -31852,6 +31964,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1275361578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275361573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLimb: 1
+  script: {fileID: 59343695}
 --- !u!1001 &1277541182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34533,6 +34659,7 @@ GameObject:
   - component: {fileID: 1428001237}
   - component: {fileID: 1428001238}
   - component: {fileID: 1428001240}
+  - component: {fileID: 1428001241}
   m_Layer: 0
   m_Name: right_arm
   m_TagString: Untagged
@@ -34736,6 +34863,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1428001241}
+          m_TargetAssemblyTypeName: HighlightLimbSender, Assembly-CSharp
+          m_MethodName: SendLimb
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 10
     callback:
       m_PersistentCalls:
@@ -34752,6 +34891,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1428001241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428001235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLimb: 3
+  script: {fileID: 59343695}
 --- !u!1 &1434465167
 GameObject:
   m_ObjectHideFlags: 0
@@ -38131,6 +38284,8 @@ MonoBehaviour:
   arrowR: {fileID: 0}
   currPos: {x: 0, y: 0, z: 0}
   focusPos: {x: 0, y: 0, z: 0}
+  offsetPos: {x: 0, y: 0, z: 0}
+  limb: 0
   partCombiner: {fileID: 960095889}
 --- !u!1 &1578704612
 GameObject:
@@ -39108,9 +39263,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2239461055009658074, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328640823429783185, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
       propertyPath: m_Name
       value: arrows4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
       propertyPath: m_IsActive
@@ -40415,9 +40582,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2239461055009658074, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328640823429783185, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
       propertyPath: m_Name
       value: arrows3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
       propertyPath: m_IsActive
@@ -52954,9 +53133,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2239461055009658074, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328640823429783185, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
       propertyPath: m_Name
       value: arrows1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
       propertyPath: m_IsActive

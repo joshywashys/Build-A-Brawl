@@ -10,8 +10,9 @@ public class HighlightLimb : MonoBehaviour
     public GameObject arrowR;
     public Vector3 currPos;
     public Vector3 focusPos;
+    public Vector3 offsetPos;
 
-    enum Limbs
+    public enum Limbs
     {
         head,
         torso,
@@ -19,13 +20,14 @@ public class HighlightLimb : MonoBehaviour
         armR,
         legs
     }
-    Limbs limb;
+    public Limbs limb;
 
     public PartCombiner partCombiner;
 
     private void Start()
     {
         currPos = partCombiner.gameObject.transform.position;
+        offsetPos = new Vector3(0, 0, 2f);
     }
 
     public void RemoveHighlight()
@@ -69,7 +71,7 @@ public class HighlightLimb : MonoBehaviour
     //drag this onto all partcombiner OnPartSwap Events
     public void AddHighlight()
     {
-        arrows.SetActive(true);
+        //arrows.SetActive(true);
 
         /*
         if (limb == Limbs.head)
