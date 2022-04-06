@@ -9,6 +9,7 @@ public class HighlightLimb : MonoBehaviour
     public GameObject arrowL;
     public GameObject arrowR;
     public Vector3 currPos;
+    public Vector3 focusPos;
 
     enum Limbs
     {
@@ -20,7 +21,7 @@ public class HighlightLimb : MonoBehaviour
     }
     Limbs limb;
 
-    private PartCombiner partCombiner;
+    public PartCombiner partCombiner;
 
     private void Start()
     {
@@ -32,35 +33,71 @@ public class HighlightLimb : MonoBehaviour
         arrows.SetActive(false);
     }
 
-    //drag this onto all partcombiner OnPartSwap Events
-    public void AddHighlight()
+    public void Update()
     {
-        arrows.SetActive(true);
         if (limb == Limbs.head)
         {
             //arrows.transform.position = new Vector3(currPos.x, partCombiner.newHead.transform.position.y, currPos.z);
-            arrows.transform.position = partCombiner.newHead.transform.position;
+            //print(partCombiner.newHead.transform.localPosition);
+            focusPos = partCombiner.creaturePlayable.transform.position + partCombiner.newHead.transform.localPosition;
         }
         if (limb == Limbs.torso)
         {
             //arrows.transform.position = new Vector3(currPos.x, partCombiner.newTorso.transform.position.y, currPos.z);
-            arrows.transform.position = partCombiner.newTorso.transform.position;
+            //print(partCombiner.newTorso.transform.localPosition);
+            focusPos = partCombiner.creaturePlayable.transform.position + partCombiner.newTorso.transform.localPosition;
         }
         if (limb == Limbs.armL)
         {
             //arrows.transform.position = new Vector3(currPos.x, partCombiner.newArmL.transform.position.y, currPos.z);
-            arrows.transform.position = partCombiner.newArmL.transform.position;
+            //print(partCombiner.newArmL.transform.localPosition);
+            focusPos = partCombiner.creaturePlayable.transform.position + partCombiner.newArmL.transform.localPosition;
         }
         if (limb == Limbs.armR)
         {
             //arrows.transform.position = new Vector3(currPos.x, partCombiner.newArmR.transform.position.y, currPos.z);
-            arrows.transform.position = partCombiner.newArmR.transform.position;
+            focusPos = partCombiner.creaturePlayable.transform.position + partCombiner.newArmR.transform.localPosition;
         }
         if (limb == Limbs.legs)
         {
             //arrows.transform.position = new Vector3(currPos.x, partCombiner.newLegs.transform.position.y, currPos.z);
-            arrows.transform.position = partCombiner.newLegs.transform.position;
+            focusPos = partCombiner.creaturePlayable.transform.position + partCombiner.newLegs.transform.localPosition;
         }
+        arrows.transform.position = focusPos;
+    }
+
+    //drag this onto all partcombiner OnPartSwap Events
+    public void AddHighlight()
+    {
+        arrows.SetActive(true);
+
+        /*
+        if (limb == Limbs.head)
+        {
+            //arrows.transform.position = new Vector3(currPos.x, partCombiner.newHead.transform.position.y, currPos.z);
+            focusPos = partCombiner.newHead.transform.position;
+        }
+        if (limb == Limbs.torso)
+        {
+            //arrows.transform.position = new Vector3(currPos.x, partCombiner.newTorso.transform.position.y, currPos.z);
+            focusPos = partCombiner.newTorso.transform.position;
+        }
+        if (limb == Limbs.armL)
+        {
+            //arrows.transform.position = new Vector3(currPos.x, partCombiner.newArmL.transform.position.y, currPos.z);
+            focusPos = partCombiner.newArmL.transform.position;
+        }
+        if (limb == Limbs.armR)
+        {
+            //arrows.transform.position = new Vector3(currPos.x, partCombiner.newArmR.transform.position.y, currPos.z);
+            focusPos = partCombiner.newArmR.transform.position;
+        }
+        if (limb == Limbs.legs)
+        {
+            //arrows.transform.position = new Vector3(currPos.x, partCombiner.newLegs.transform.position.y, currPos.z);
+            focusPos = partCombiner.newLegs.transform.position;
+        }
+        */
 
         /*
         if (limb == Limbs.head)

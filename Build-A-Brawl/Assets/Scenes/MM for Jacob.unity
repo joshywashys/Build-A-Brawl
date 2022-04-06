@@ -955,6 +955,7 @@ GameObject:
   - component: {fileID: 59343691}
   - component: {fileID: 59343693}
   - component: {fileID: 59343694}
+  - component: {fileID: 59343695}
   m_Layer: 0
   m_Name: finalPlayMenu1
   m_TagString: Untagged
@@ -1084,6 +1085,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e6680203f8a33488c794c916ad4f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &59343695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59343688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d47f8645e0a64147a36703181b46f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrows: {fileID: 7623995912778836852}
+  arrowL: {fileID: 0}
+  arrowR: {fileID: 0}
+  currPos: {x: 0, y: 0, z: 0}
+  focusPos: {x: 0, y: 0, z: 0}
+  partCombiner: {fileID: 181592515}
 --- !u!1 &72428261
 GameObject:
   m_ObjectHideFlags: 0
@@ -2576,6 +2595,22 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls: []
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1578550007}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: RemoveHighlight
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &117865847
 GameObject:
   m_ObjectHideFlags: 0
@@ -3754,13 +3789,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1062868637}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -5065,13 +5100,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1062868637}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -5198,6 +5233,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223204600}
   m_CullTransparentMesh: 1
+--- !u!1 &229763069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+  m_PrefabInstance: {fileID: 1602384988}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &233567107
 GameObject:
   m_ObjectHideFlags: 0
@@ -5683,13 +5723,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 59343695}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -5698,19 +5738,7 @@ MonoBehaviour:
   - eventID: 10
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!4 &239716972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c7745e579cf01984a953e7695a90ae17, type: 3}
@@ -7528,13 +7556,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1578550007}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -8048,13 +8076,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1578550007}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -9970,6 +9998,11 @@ MeshFilter:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9b3c593b1f8fddb408266e975aa24f9b, type: 3}
   m_PrefabInstance: {fileID: 1353574077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &452007774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+  m_PrefabInstance: {fileID: 1680912742}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &453894730
 GameObject:
@@ -13312,6 +13345,22 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls: []
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1062868637}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: RemoveHighlight
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &580197117
 GameObject:
   m_ObjectHideFlags: 0
@@ -14117,13 +14166,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 59343695}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -15173,13 +15222,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1220542518}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -15561,13 +15610,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1578550007}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -22960,13 +23009,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1062868637}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -24635,13 +24684,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1220542518}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -25615,6 +25664,11 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1034877869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+  m_PrefabInstance: {fileID: 94252501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1037238606
 GameObject:
   m_ObjectHideFlags: 0
@@ -26344,13 +26398,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1578550007}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -26655,6 +26709,7 @@ GameObject:
   - component: {fileID: 1062868632}
   - component: {fileID: 1062868635}
   - component: {fileID: 1062868636}
+  - component: {fileID: 1062868637}
   m_Layer: 0
   m_Name: finalPlayMenu4
   m_TagString: Untagged
@@ -26784,6 +26839,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e6680203f8a33488c794c916ad4f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1062868637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062868630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d47f8645e0a64147a36703181b46f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrows: {fileID: 229763069}
+  arrowL: {fileID: 0}
+  arrowR: {fileID: 0}
+  currPos: {x: 0, y: 0, z: 0}
+  focusPos: {x: 0, y: 0, z: 0}
+  partCombiner: {fileID: 687205165}
 --- !u!1 &1075964085
 GameObject:
   m_ObjectHideFlags: 0
@@ -28759,6 +28832,22 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls: []
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 59343695}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: RemoveHighlight
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1159493525
 GameObject:
   m_ObjectHideFlags: 0
@@ -29945,6 +30034,7 @@ GameObject:
   - component: {fileID: 1220542514}
   - component: {fileID: 1220542516}
   - component: {fileID: 1220542517}
+  - component: {fileID: 1220542518}
   m_Layer: 0
   m_Name: finalPlayMenu3
   m_TagString: Untagged
@@ -30074,6 +30164,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e6680203f8a33488c794c916ad4f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1220542518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220542511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d47f8645e0a64147a36703181b46f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrows: {fileID: 452007774}
+  arrowL: {fileID: 0}
+  arrowR: {fileID: 0}
+  currPos: {x: 0, y: 0, z: 0}
+  focusPos: {x: 0, y: 0, z: 0}
+  partCombiner: {fileID: 1982228499}
 --- !u!1 &1221848570
 GameObject:
   m_ObjectHideFlags: 0
@@ -30454,13 +30562,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 59343695}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -31566,13 +31674,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 59343695}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -34466,13 +34574,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 59343695}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -34855,6 +34963,22 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls: []
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1220542518}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1440775489 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3449874362877645996, guid: 3452d7aea44a1ce44952ae2f888731ae, type: 3}
@@ -36896,13 +37020,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1220542518}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -37508,13 +37632,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1220542518}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -37710,6 +37834,7 @@ GameObject:
   - component: {fileID: 1578550002}
   - component: {fileID: 1578550005}
   - component: {fileID: 1578550006}
+  - component: {fileID: 1578550007}
   m_Layer: 0
   m_Name: finalPlayMenu2
   m_TagString: Untagged
@@ -37839,6 +37964,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e6680203f8a33488c794c916ad4f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1578550007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578550000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d47f8645e0a64147a36703181b46f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrows: {fileID: 1034877869}
+  arrowL: {fileID: 0}
+  arrowR: {fileID: 0}
+  currPos: {x: 0, y: 0, z: 0}
+  focusPos: {x: 0, y: 0, z: 0}
+  partCombiner: {fileID: 960095889}
 --- !u!1 &1578704612
 GameObject:
   m_ObjectHideFlags: 0
@@ -42929,13 +43072,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1062868637}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -46049,13 +46192,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1062868637}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -47314,13 +47457,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1220542518}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -48874,13 +49017,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 1578550007}
+          m_TargetAssemblyTypeName: HighlightLimb, Assembly-CSharp
+          m_MethodName: AddHighlight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -52715,3 +52858,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+--- !u!1 &7623995912778836852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6125491574508523507, guid: bf0a8fc1df2b761408ef28b7dbfe0c1e, type: 3}
+  m_PrefabInstance: {fileID: 7623995912778836851}
+  m_PrefabAsset: {fileID: 0}
