@@ -4719,7 +4719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 2448316687815073240, guid: c80d1a4610acf8941890ae5e5c93ff8d, type: 3}
   bits: {fileID: 2448316687815073240, guid: 13f76b036c486e04bb3fe52e067d4d8c, type: 3}
-  explosionStrength: 500
+  explosionStrength: 5000
   limit: 10
   boom: {fileID: 907286978}
   useMechanics: 0
@@ -30562,7 +30562,7 @@ MonoBehaviour:
   bits: {fileID: 2448316687815073240, guid: 7e0109f5857889441bd20613fb62355a, type: 3}
   smoke: {fileID: 2448316687815073240, guid: 13f76b036c486e04bb3fe52e067d4d8c, type: 3}
   flame: {fileID: 2448316687815073240, guid: bc8d67c4e606acf43afd4c6e97598a66, type: 3}
-  explosionStrength: 800
+  explosionStrength: 5000
   limit: 14
   carBoom: {fileID: 1848636164}
 --- !u!54 &1674704286
@@ -35540,7 +35540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 2448316687815073240, guid: c80d1a4610acf8941890ae5e5c93ff8d, type: 3}
   bits: {fileID: 2448316687815073240, guid: 13f76b036c486e04bb3fe52e067d4d8c, type: 3}
-  explosionStrength: 500
+  explosionStrength: 5000
   limit: 10
   boom: {fileID: 907286978}
   useMechanics: 0
@@ -39340,7 +39340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 2448316687815073240, guid: c80d1a4610acf8941890ae5e5c93ff8d, type: 3}
   bits: {fileID: 2448316687815073240, guid: 13f76b036c486e04bb3fe52e067d4d8c, type: 3}
-  explosionStrength: 500
+  explosionStrength: 5000
   limit: 10
   boom: {fileID: 907286978}
   useMechanics: 0

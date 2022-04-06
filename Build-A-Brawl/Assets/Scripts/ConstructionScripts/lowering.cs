@@ -43,7 +43,7 @@ public class lowering : MonoBehaviour
 
             controller.SetState(PlayerController.State.Stunned);
 
-            rig.AddExplosionForce(200.0f, collisionPoint, 5.0f);;
+            rig.AddExplosionForce(800.0f, collisionPoint, 5.0f);;
         }
         
     }

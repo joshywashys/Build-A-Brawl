@@ -235,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 7284482264880014555, guid: 7b0e3d488c496cb48885c6bbf6f79d71, type: 3}
   bits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
-  explosionStrength: 300
+  explosionStrength: 5000
   limit: 7
   boom: {fileID: 276079922}
   useMechanics: 0
@@ -1265,7 +1265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 7284482264880014555, guid: 7b0e3d488c496cb48885c6bbf6f79d71, type: 3}
   bits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
-  explosionStrength: 300
+  explosionStrength: 5000
   limit: 7
   boom: {fileID: 976327682}
   useMechanics: 0
@@ -1787,7 +1787,7 @@ MonoBehaviour:
   punchGoop: 0
   explode: {fileID: 2448316687815073240, guid: e979d9d7696c261408d1b0bd2819aa21, type: 3}
   bits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
-  explosionStrength: 800
+  explosionStrength: 7000
   limit: 14
   boom: {fileID: 1721363402}
 --- !u!1 &123392863
@@ -3941,7 +3941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 7284482264880014555, guid: 7b0e3d488c496cb48885c6bbf6f79d71, type: 3}
   bits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
-  explosionStrength: 300
+  explosionStrength: 5000
   limit: 7
   boom: {fileID: 976327682}
   useMechanics: 0
@@ -8126,7 +8126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 7284482264880014555, guid: 7b0e3d488c496cb48885c6bbf6f79d71, type: 3}
   bits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
-  explosionStrength: 300
+  explosionStrength: 5000
   limit: 7
   boom: {fileID: 276079922}
   useMechanics: 0
@@ -9457,7 +9457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 7284482264880014555, guid: 7b0e3d488c496cb48885c6bbf6f79d71, type: 3}
   bits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
-  explosionStrength: 300
+  explosionStrength: 5000
   limit: 7
   boom: {fileID: 2120334018}
   useMechanics: 0
@@ -14938,7 +14938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 7284482264880014555, guid: 7b0e3d488c496cb48885c6bbf6f79d71, type: 3}
   bits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
-  explosionStrength: 300
+  explosionStrength: 5000
   limit: 7
   boom: {fileID: 0}
   useMechanics: 0
@@ -15995,7 +15995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 7284482264880014555, guid: 7b0e3d488c496cb48885c6bbf6f79d71, type: 3}
   bits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
-  explosionStrength: 300
+  explosionStrength: 5000
   limit: 7
   boom: {fileID: 0}
   useMechanics: 0
@@ -16782,7 +16782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 7284482264880014555, guid: d30f6a821537c34499ad0787e4541186, type: 3}
   bits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
-  explosionStrength: 800
+  explosionStrength: 6000
   limit: 14
   boom: {fileID: 1883898417}
   useMechanics: 0
@@ -18829,7 +18829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 7284482264880014555, guid: d30f6a821537c34499ad0787e4541186, type: 3}
   bits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
-  explosionStrength: 800
+  explosionStrength: 6000
   limit: 14
   boom: {fileID: 1217021640}
   useMechanics: 0
@@ -19141,7 +19141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 7284482264880014555, guid: d30f6a821537c34499ad0787e4541186, type: 3}
   bits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
-  explosionStrength: 800
+  explosionStrength: 6000
   limit: 14
   boom: {fileID: 112875005}
   useMechanics: 0
@@ -21415,7 +21415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 7284482264880014555, guid: 7b0e3d488c496cb48885c6bbf6f79d71, type: 3}
   bits: {fileID: 8449561437551216861, guid: 6fa07318360c8c94f8b8ab79571ede47, type: 3}
-  explosionStrength: 300
+  explosionStrength: 5000
   limit: 7
   boom: {fileID: 508741643}
   useMechanics: 0
