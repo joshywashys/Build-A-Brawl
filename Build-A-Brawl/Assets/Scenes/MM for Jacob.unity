@@ -1883,11 +1883,23 @@ MonoBehaviour:
   selectedMaps: []
   randomMapPool: []
   selectedMapIndexes: 
-  minRounds: 0
-  maxRounds: 0
+  minRounds: 1
+  maxRounds: 10
   onRoundCountChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114500649}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   players: []
   waitTime: 6
   onRoundEndWait: 0
@@ -2501,6 +2513,7 @@ GameObject:
   - component: {fileID: 114500648}
   - component: {fileID: 114500650}
   - component: {fileID: 114500649}
+  - component: {fileID: 114500651}
   m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -2624,6 +2637,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114500647}
   m_CullTransparentMesh: 1
+--- !u!114 &114500651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114500647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f47874120a86224db70d6679c04c02f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 114500647}
 --- !u!1 &117865847
 GameObject:
   m_ObjectHideFlags: 0
@@ -36761,7 +36787,6 @@ GameObject:
   - component: {fileID: 1517668280}
   - component: {fileID: 1517668279}
   - component: {fileID: 1517668278}
-  - component: {fileID: 1517668281}
   m_Layer: 5
   m_Name: roundSelect
   m_TagString: Untagged
@@ -36871,27 +36896,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517668276}
   m_CullTransparentMesh: 1
---- !u!114 &1517668281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517668276}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e708c0a25f58d74f93783847c74d7a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charSelection: {fileID: 1626987778}
-  leftIndex:
-    m_PersistentCalls:
-      m_Calls: []
-  rightIndex:
-    m_PersistentCalls:
-      m_Calls: []
-  lArrow1: {fileID: 1395650666}
-  rArrow1: {fileID: 1077631571}
 --- !u!4 &1518957466 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4dcb119fe44f2324a9bf7e1fd0ef07b3, type: 3}
@@ -40021,6 +40025,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114500651}
+        m_TargetAssemblyTypeName: UpdateText, Assembly-CSharp
+        m_MethodName: ChangeText
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   rightIndex:
     m_PersistentCalls:
       m_Calls:
@@ -40040,6 +40056,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: RoundManager, Assembly-CSharp
         m_MethodName: RoundPlus
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114500651}
+        m_TargetAssemblyTypeName: UpdateText, Assembly-CSharp
+        m_MethodName: ChangeText
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
