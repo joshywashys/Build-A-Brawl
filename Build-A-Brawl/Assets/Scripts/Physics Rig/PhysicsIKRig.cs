@@ -70,6 +70,9 @@ public class PhysicsIKRig : MonoBehaviour
 
     public void SetRagdoll(bool active)
     {
+		if (m_tip == null)
+			return;
+
 		ragdoll.SetActive(active);
 
 		if (!active)
