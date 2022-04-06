@@ -40,6 +40,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateUI(int playerNum)
     {
+        print("updating UI");
         limbImgs[playerNum - 1][0].color = CalculateHitColour(statsList[playerNum - 1].GetHealthHead(), statsList[playerNum - 1].GetHealthHeadMax());
         limbImgs[playerNum - 1][1].color = CalculateHitColour(statsList[playerNum - 1].GetHealthTorso(), statsList[playerNum - 1].GetHealthTorsoMax());
         limbImgs[playerNum - 1][2].color = CalculateHitColour(statsList[playerNum - 1].GetHealthArmL(), statsList[playerNum - 1].GetHealthArmLMax());
@@ -109,6 +110,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < statsList.Count; i++)
         {
             statsList[i].onDamage.AddListener(UpdateUI);
+            statsList[i].onDeath.AddListener(UpdateUI);
         }
 
     }

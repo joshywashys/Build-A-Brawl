@@ -14,7 +14,7 @@ public class RigidbodyController : MonoBehaviour
 	public bool useFloat = true;
 	public float floatHeight;
 	public float m_floatSpringStrength;
-	[SerializeField] private float m_floatSpringDamper;
+	public float m_floatSpringDamper;
 	[SerializeField] private Vector3 m_rayOriginOffset { get { return Vector3.up * m_rayOffset; } }
 
 	[Header("Balancing")]
