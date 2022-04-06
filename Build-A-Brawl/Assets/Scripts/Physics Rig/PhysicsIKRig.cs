@@ -25,7 +25,7 @@ public class PhysicsIKRig : MonoBehaviour
 			return;
 		}
 
-		Debug.LogError($"[InitializeTip] : {name} was unable to obtain IK Constraint Data - Please add either a ChainIKConstraint or TwoBoneIKConstraint component to the gameObject");
+		// Debug.LogError($"[InitializeTip] : {name} was unable to obtain IK Constraint Data - Please add either a ChainIKConstraint or TwoBoneIKConstraint component to the gameObject");
 	}
 	private void InitializeTarget()
     {
@@ -40,7 +40,7 @@ public class PhysicsIKRig : MonoBehaviour
 			}
 		}
 
-		Debug.LogError($"[InitializeTarget] : {name} was unable to find a gameObject with tag matching {m_targetTag} - was the tag misspelt?");
+		// Debug.LogError($"[InitializeTarget] : {name} was unable to find a gameObject with tag matching {m_targetTag} - was the tag misspelt?");
 	}
 	
 	[Header("IK Rig Settings")]
