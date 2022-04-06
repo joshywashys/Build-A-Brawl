@@ -93,6 +93,12 @@ public class RoundManager : MonoBehaviour
 
             numPlayers = checkUsers.playerCount;
 
+            stats = new List<playerStats>();
+            for (int i = 0; i < numPlayers; i++)
+            {
+                stats.Add(new playerStats());
+            }
+
             /*
             foreach (string str in selectedMaps)
             {
@@ -264,13 +270,6 @@ public class RoundManager : MonoBehaviour
                     players[i].onDeath.AddListener(UpdateScore);
                 }
             }
-        }
-
-        stats = new List<playerStats>();
-
-        for (int i = 0; i < numPlayers; i++)
-        {
-            stats.Add(new playerStats());
         }
 
         DontDestroyOnLoad(gameObject);
