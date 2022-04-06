@@ -54,6 +54,7 @@ public class CreatureStats : MonoBehaviour
     [SerializeField] private float strengthArmL = 10;
     [SerializeField] private float strengthArmR = 10;
     [SerializeField] private float strengthArms = 20;
+    public float strengthThrow = 25;
     [SerializeField] private float springConstantArmL = 80;
     [SerializeField] private float springConstantArmR = 80;
     [SerializeField] private BodyPartData.animType attackTypeL = 0; //0 uses the default system, others would be robot sticks out arms, druid flails/spins around
@@ -66,9 +67,10 @@ public class CreatureStats : MonoBehaviour
     // Constants that we can edit to make our Scriptable Objects values nicer
     public const float HEALTH_BASE = 10;
     public const float ARM_STRENGTH_BASE = 120;
+    public const float THROW_STRENGTH_BASE = 25;
     public const float MOVE_SPEED_BASE = 80;
     public const float ROTATE_SPEED_BASE = 10;
-    public const float JUMP_HEIGHT_BASE = 250;
+    public const float JUMP_HEIGHT_BASE = 150;
     public const float SPRING_CONSTANT_BASE = 80;
     public const float LEG_STRENGTH_BASE = 300;
     public const float LEG_DAMPER_BASE = 500;
@@ -154,6 +156,7 @@ public class CreatureStats : MonoBehaviour
         attackTypeR = armRPart.getAttackTypeR();
         fistMassMultiplierL = armLPart.getMass();
         fistMassMultiplierR = armRPart.getMass();
+        strengthThrow = (armLPart.getStrengthMultiplier() + armRPart.getStrengthMultiplier())/2 * THROW_STRENGTH_BASE;
 
 
         // Toggle Kinematics
