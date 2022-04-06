@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 7422296772698034807}
   - component: {fileID: 5216516352660469646}
   - component: {fileID: 7559099876159620168}
+  - component: {fileID: 798941169272791413}
   m_Layer: 3
   m_Name: Knight_Arm_05
   m_TagString: Untagged
@@ -407,6 +408,24 @@ MonoBehaviour:
     - rigidbody: {fileID: 6285571014380257476}
       collider: {fileID: 744940636758342472}
   currentState: 0
+--- !u!114 &798941169272791413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532590230782466624}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 407c8e8d43bd85e4aabed3c038e0e665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 255, g: 0, b: 204, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3066296745818331841
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2815060016450784334}
   - component: {fileID: 9221743421541806477}
   - component: {fileID: 331441613769122968}
+  - component: {fileID: 1502416291776756439}
   m_Layer: 3
   m_Name: Druid Head
   m_TagString: Untagged
@@ -162,3 +163,21 @@ MonoBehaviour:
   skeletonBase: {fileID: 7466584505690605612}
   partData: {fileID: 11400000, guid: 78d37ed4deaa1a449af8ca29b332baf2, type: 2}
   creature: {fileID: 0}
+--- !u!114 &1502416291776756439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5739947639838968483}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 407c8e8d43bd85e4aabed3c038e0e665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 255, g: 0, b: 204, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

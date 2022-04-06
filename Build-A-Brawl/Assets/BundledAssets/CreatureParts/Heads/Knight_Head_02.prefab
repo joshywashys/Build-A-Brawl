@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6591999110542479417}
   - component: {fileID: 4876599600779259840}
   - component: {fileID: 4838739963784181702}
+  - component: {fileID: 5216716602486492086}
   m_Layer: 3
   m_Name: Knight_Head_02
   m_TagString: Untagged
@@ -81,6 +82,24 @@ CapsuleCollider:
   m_Height: 2.0348845
   m_Direction: 1
   m_Center: {x: 0, y: 0.010922807, z: -0.030225856}
+--- !u!114 &5216716602486492086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72617447393190143}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 407c8e8d43bd85e4aabed3c038e0e665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 255, g: 0, b: 204, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &689215168672746185
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 6835126254696218144}
   - component: {fileID: 977111548819480459}
   - component: {fileID: 627282623536291563}
+  - component: {fileID: 3883614367166654490}
   m_Layer: 3
   m_Name: Robot Head
   m_TagString: Untagged
@@ -161,3 +162,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3883614367166654490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503052466976011060}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 407c8e8d43bd85e4aabed3c038e0e665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 255, g: 0, b: 204, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
