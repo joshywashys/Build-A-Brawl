@@ -1754,7 +1754,11 @@ MonoBehaviour:
   selectedMaps: []
   randomMapPool: []
   selectedMapIndexes: 
-  numRounds: 5
+  minRounds: 0
+  maxRounds: 0
+  onRoundCountChange:
+    m_PersistentCalls:
+      m_Calls: []
   numPlayers: 4
   players: []
   waitTime: 6
@@ -46791,7 +46795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1223172839167569807, guid: c27cfc3cfa19186489d5675731bd4993, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1223172839167569807, guid: c27cfc3cfa19186489d5675731bd4993, type: 3}
       propertyPath: m_LocalPosition.x
