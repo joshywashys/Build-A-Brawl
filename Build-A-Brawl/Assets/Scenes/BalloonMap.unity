@@ -15008,7 +15008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
-  collider: {fileID: 0}
+  collider: {fileID: 357078868}
   holdPoints: []
   onGrab:
     m_PersistentCalls:
@@ -16633,7 +16633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
-  collider: {fileID: 0}
+  collider: {fileID: 477829204}
   holdPoints: []
   onGrab:
     m_PersistentCalls:
@@ -19265,7 +19265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c695750f1c6a8b34a98d3633372b9251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rootPlatform: {fileID: 6499833239016007112}
+  rootPlatform: {fileID: 814612162}
   displayZoneType: 1
   displayZoneColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!65 &586873336
@@ -19516,7 +19516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c695750f1c6a8b34a98d3633372b9251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rootPlatform: {fileID: 6499833239016007112}
+  rootPlatform: {fileID: 815509972}
   displayZoneType: 1
   displayZoneColour: {r: 0, g: 0, b: 1, a: 1}
 --- !u!65 &599742608
@@ -48039,7 +48039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
-  collider: {fileID: 0}
+  collider: {fileID: 1034928274}
   holdPoints: []
   onGrab:
     m_PersistentCalls:
@@ -67020,7 +67020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
-  collider: {fileID: 0}
+  collider: {fileID: 1395189546}
   holdPoints: []
   onGrab:
     m_PersistentCalls:
@@ -68106,7 +68106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4278497742072358467, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -134.2
+      value: -198.1
       objectReference: {fileID: 0}
     - target: {fileID: 4278497743283928123, guid: 89e9a020896464247ac1cfb7084101ed, type: 3}
       propertyPath: m_IsActive
@@ -83713,7 +83713,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540011752}
   m_LocalRotation: {x: 0.12951128, y: -0, z: -0.000000029802319, w: 0.991578}
-  m_LocalPosition: {x: -17.4, y: 12.4, z: -38.1}
+  m_LocalPosition: {x: -17.4, y: 6.97, z: -41.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2044776061}
@@ -83768,7 +83768,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   mode: 0
-  offset: {x: 51.93, y: 38, z: 0}
+  offset: {x: 51.93, y: 15, z: 0}
   smoothTime: 0.5
   minZoom: 69.5
   maxZoom: 25.3
@@ -97713,7 +97713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
-  collider: {fileID: 0}
+  collider: {fileID: 1775280683}
   holdPoints: []
   onGrab:
     m_PersistentCalls:
@@ -107808,7 +107808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
-  collider: {fileID: 0}
+  collider: {fileID: 2059416086}
   holdPoints: []
   onGrab:
     m_PersistentCalls:
