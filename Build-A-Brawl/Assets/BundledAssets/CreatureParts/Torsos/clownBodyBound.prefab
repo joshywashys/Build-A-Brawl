@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 1665916884633398347}
-  partData: {fileID: 11400000, guid: 314d80f7ae5127040aa4e7d4afc3ad76, type: 2}
+  partData: {fileID: 11400000, guid: 908f49b1c7ffe5b488b5492a012531f0, type: 2}
   creature: {fileID: 0}
 --- !u!135 &530423958843548388
 SphereCollider:

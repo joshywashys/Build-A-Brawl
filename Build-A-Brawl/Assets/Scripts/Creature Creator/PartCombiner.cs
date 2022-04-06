@@ -204,6 +204,7 @@ public class PartCombiner : MonoBehaviour
             pc.rotateSpeed = stats.GetRotateSpeed();
             rb.mass = stats.GetMass();
             rbc.m_floatSpringStrength = 30 * stats.GetMass();
+            rbc.m_floatSpringDamper = 4 * stats.GetMass();
             pc.throwForce = stats.strengthThrow;
                 //throwforce in playercontroller 15f reg
 
