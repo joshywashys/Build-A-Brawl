@@ -725,6 +725,7 @@ GameObject:
   - component: {fileID: 5900148197864291306}
   - component: {fileID: 5501258276788321646}
   - component: {fileID: 2329811148468964078}
+  - component: {fileID: 5718315693473605291}
   m_Layer: 0
   m_Name: zombieLegsBound 1
   m_TagString: Untagged
@@ -976,6 +977,19 @@ MonoBehaviour:
     targetOffset: 0.3
     target: {fileID: 7536938101881263562}
     foot: {fileID: 8858181143623733457}
+--- !u!65 &5718315693473605291
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6039764261599802503}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 2.2353542, y: 8.480035, z: 1.2529216}
+  m_Center: {x: 0, y: 0.16284704, z: -0.46223253}
 --- !u!1 &6215003537007467993
 GameObject:
   m_ObjectHideFlags: 0

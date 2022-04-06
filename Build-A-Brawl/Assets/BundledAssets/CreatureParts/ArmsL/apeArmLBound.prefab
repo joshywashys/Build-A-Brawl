@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonBase: {fileID: 4251608723139128183}
+  skeletonBase: {fileID: 6755165116242385887}
   partData: {fileID: 11400000, guid: 8ce3861c9cca06d4499dc92a9841a7f4, type: 2}
   creature: {fileID: 0}
 --- !u!95 &785787184742037683

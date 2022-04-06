@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 7836072692186697659}
   - component: {fileID: 5362091865346399224}
   - component: {fileID: 4667532608607840025}
+  - component: {fileID: 625307922840381717}
   m_Layer: 0
   m_Name: clownLegsBound
   m_TagString: Untagged
@@ -870,6 +871,19 @@ MonoBehaviour:
     targetOffset: 0.21
     target: {fileID: 7766271540049720969}
     foot: {fileID: 4698355624100979946}
+--- !u!65 &625307922840381717
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830935091898703603}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.07513589, y: 0.071101636, z: 0.05154178}
+  m_Center: {x: 0, y: 0.00066517596, z: -0.0091340365}
 --- !u!1 &5365174937493249056
 GameObject:
   m_ObjectHideFlags: 0
