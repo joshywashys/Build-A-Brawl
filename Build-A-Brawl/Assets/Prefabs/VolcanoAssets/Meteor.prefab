@@ -567,7 +567,7 @@ MonoBehaviour:
   explode: {fileID: 7284482264880014555, guid: eca5aae895aed7f409ab76da67a39933, type: 3}
   crater: {fileID: 7168092939560254064, guid: 5aa7f3080fba0d64ea638361cf36aa3e, type: 3}
   craterSpawn: {fileID: 1287937046351120301}
-  explosionStrength: 800
+  explosionStrength: 5000
   limit: 14
   land1: {fileID: 852353699081308905}
   land2: {fileID: 104596967164499510}

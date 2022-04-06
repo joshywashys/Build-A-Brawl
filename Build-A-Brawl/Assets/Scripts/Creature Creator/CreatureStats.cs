@@ -147,6 +147,7 @@ public class CreatureStats : MonoBehaviour
         springDamperLegs = LEG_DAMPER_BASE * legsPart.getStrengthMultiplier() / mass;
 
         // Arm Stats
+        float avgArms = (armLPart.getStrengthMultiplier() + armRPart.getStrengthMultiplier()) / 2;
         strengthArmL = armLPart.getStrengthMultiplier() * ARM_STRENGTH_BASE;
         strengthArmR = armRPart.getStrengthMultiplier() * ARM_STRENGTH_BASE;
         strengthArms = strengthArmL + strengthArmR;
@@ -156,7 +157,7 @@ public class CreatureStats : MonoBehaviour
         attackTypeR = armRPart.getAttackTypeR();
         fistMassMultiplierL = armLPart.getMass();
         fistMassMultiplierR = armRPart.getMass();
-        strengthThrow = (armLPart.getStrengthMultiplier() + armRPart.getStrengthMultiplier())/2 * THROW_STRENGTH_BASE;
+        strengthThrow = (avgArms + mass / 10) * THROW_STRENGTH_BASE;
 
 
         // Toggle Kinematics
@@ -249,7 +250,7 @@ public class CreatureStats : MonoBehaviour
         detachArmR();
         detachLegs();
 
-        Cleanup();
+        //Cleanup();
 
         onDamage?.Invoke(playerNum);
         onDeath?.Invoke(playerNum);
@@ -330,11 +331,11 @@ public class CreatureStats : MonoBehaviour
             }
         }
 
-        if (head == null) { head = transform.Find("head").gameObject; }
         if (torso == null) { torso = transform.Find("torso").gameObject; }
-        if (armL == null) { armL = transform.Find("armL").gameObject; }
-        if (armR == null) { armR = transform.Find("armR").gameObject; }
-        if (legs == null) { legs = transform.Find("legs").gameObject; }
+        if (head == null) { head = torso.transform.Find("head").gameObject; }
+        if (armL == null) { armL = torso.transform.Find("armL").gameObject; }
+        if (armR == null) { armR = torso.transform.Find("armR").gameObject; }
+        if (legs == null) { legs = torso.transform.Find("legs").gameObject; }
 
         if (headPart == null) { headPart = head.GetComponent<BodyPart>(); }
         if (torsoPart == null) { torsoPart = torso.GetComponent<BodyPart>(); }
