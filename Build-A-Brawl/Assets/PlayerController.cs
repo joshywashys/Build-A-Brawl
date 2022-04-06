@@ -188,16 +188,6 @@ public class PlayerController : MonoBehaviour
 		HandleFistTransforms();
 	}
 
-	private void OnCollisionEnter(Collision collision)
-	{
-		if (collision.transform.CompareTag(attackTag) &&
-			   (collision.gameObject != fistLeftRigidbody.gameObject ||
-				collision.gameObject != fistRightRigidbody.gameObject))
-		{
-			OnHit(collision);
-		}
-	}
-
 	/*Anna start*/
 	public void InitializePlayer(PlayerConfiguration config)
 	{
@@ -514,22 +504,6 @@ public class PlayerController : MonoBehaviour
     }
 
 	#endregion
-
-	[Header("Player Collision Tags")]
-	public string attackTag = "heavyAttack";
-	public void OnHit(Collision hit)
-	{
-		m_rigidbody.constraints = RigidbodyConstraints.None;
-
-		Vector3 average = Vector3.zero;
-		for (int i = 0; i < hit.contactCount; i++)
-			average += hit.GetContact(i).point;
-		average /= hit.contactCount;
-
-		//SetState(State.Stunned);
-		
-		m_rigidbody.AddForceAtPosition(hit.impulse, average, ForceMode.Impulse);
-	}
 
     #endregion
 
