@@ -22,23 +22,23 @@ public class HighlightLimb : MonoBehaviour
     {
         if (limb == Limbs.head)
         {
-            partCombiner.newHead.AddComponent<PlayerOutline>();
+            if (partCombiner.newHead.GetComponent<PlayerOutline>() == null) { partCombiner.newHead.AddComponent<PlayerOutline>(); }
         }
         if (limb == Limbs.torso)
         {
-            partCombiner.newTorso.AddComponent<PlayerOutline>();
+            if (partCombiner.newTorso.GetComponent<PlayerOutline>() == null) { partCombiner.newTorso.AddComponent<PlayerOutline>(); }
         }
         if (limb == Limbs.armL)
         {
-            partCombiner.newArmL.AddComponent<PlayerOutline>();
+            if (partCombiner.newArmL.GetComponent<PlayerOutline>() == null) { partCombiner.newArmL.AddComponent<PlayerOutline>(); }
         }
         if (limb == Limbs.armR)
         {
-            partCombiner.newArmR.AddComponent<PlayerOutline>();
+            if (partCombiner.newArmR.GetComponent<PlayerOutline>() == null) { partCombiner.newArmR.AddComponent<PlayerOutline>(); }
         }
         if (limb == Limbs.legs)
         {
-            partCombiner.newLegs.AddComponent<PlayerOutline>();
+            if (partCombiner.newLegs.GetComponent<PlayerOutline>() == null) { partCombiner.newLegs.AddComponent<PlayerOutline>(); }
         }
     }
 
