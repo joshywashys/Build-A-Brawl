@@ -147,6 +147,7 @@ public class CreatureStats : MonoBehaviour
         springDamperLegs = LEG_DAMPER_BASE * legsPart.getStrengthMultiplier() / mass;
 
         // Arm Stats
+        float avgArms = (armLPart.getStrengthMultiplier() + armRPart.getStrengthMultiplier()) / 2;
         strengthArmL = armLPart.getStrengthMultiplier() * ARM_STRENGTH_BASE;
         strengthArmR = armRPart.getStrengthMultiplier() * ARM_STRENGTH_BASE;
         strengthArms = strengthArmL + strengthArmR;
@@ -156,7 +157,7 @@ public class CreatureStats : MonoBehaviour
         attackTypeR = armRPart.getAttackTypeR();
         fistMassMultiplierL = armLPart.getMass();
         fistMassMultiplierR = armRPart.getMass();
-        strengthThrow = (armLPart.getStrengthMultiplier() + armRPart.getStrengthMultiplier())/2 * THROW_STRENGTH_BASE;
+        strengthThrow = (avgArms + mass / 10) * THROW_STRENGTH_BASE;
 
 
         // Toggle Kinematics
