@@ -12,6 +12,11 @@ public class checkUsers : MonoBehaviour
     public  static bool p3Ready = false;
     public  static bool p4Ready = false;
     public GameObject ReadyButton;
+    public GameObject readyFX;
+    public GameObject p1FX;
+    public GameObject p2FX;
+    public GameObject p3FX;
+    public GameObject p4FX;
 
     void Start()
     {
@@ -28,22 +33,30 @@ public class checkUsers : MonoBehaviour
             playerCount ++;
         }
     }
+    public void ReadyEffect(GameObject playerZone){
+        GameObject _fx = Instantiate(readyFX,playerZone.transform.position, playerZone.transform.rotation);
+		Destroy(_fx, 1);
+    }
 
     public void p1Click(){
         AddPlayer();
         p1Ready = true;
+        ReadyEffect(p1FX);
     }
     public void p2Click(){
         AddPlayer();
         p2Ready = true;
+        ReadyEffect(p2FX);
     }
     public void p3Click(){
         AddPlayer();
         p3Ready = true;
+        ReadyEffect(p3FX);
     }
     public void p4Click(){
         AddPlayer();
         p4Ready = true;
+        ReadyEffect(p4FX);
     }
 
     public void readyUp(){
