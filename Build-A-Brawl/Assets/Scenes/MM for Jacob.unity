@@ -3664,6 +3664,7 @@ GameObject:
   - component: {fileID: 159092458}
   - component: {fileID: 159092459}
   - component: {fileID: 159092461}
+  - component: {fileID: 159092462}
   m_Layer: 0
   m_Name: left arm
   m_TagString: Untagged
@@ -3854,6 +3855,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 159092462}
+          m_TargetAssemblyTypeName: HighlightLimbSender, Assembly-CSharp
+          m_MethodName: SendLimb
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 10
     callback:
       m_PersistentCalls:
@@ -3870,6 +3883,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &159092462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159092457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLimb: 2
+  script: {fileID: 1220542518}
 --- !u!1 &159696659
 GameObject:
   m_ObjectHideFlags: 0
@@ -4975,6 +5002,7 @@ GameObject:
   - component: {fileID: 214881206}
   - component: {fileID: 214881207}
   - component: {fileID: 214881209}
+  - component: {fileID: 214881210}
   m_Layer: 0
   m_Name: legs
   m_TagString: Untagged
@@ -5165,6 +5193,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 214881210}
+          m_TargetAssemblyTypeName: HighlightLimbSender, Assembly-CSharp
+          m_MethodName: SendLimb
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 10
     callback:
       m_PersistentCalls:
@@ -5181,6 +5221,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &214881210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214881205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLimb: 4
+  script: {fileID: 1220542518}
 --- !u!1 &216426208
 GameObject:
   m_ObjectHideFlags: 0
@@ -15262,6 +15316,7 @@ GameObject:
   - component: {fileID: 637939181}
   - component: {fileID: 637939180}
   - component: {fileID: 637939184}
+  - component: {fileID: 637939185}
   m_Layer: 0
   m_Name: head
   m_TagString: Untagged
@@ -15465,6 +15520,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 637939185}
+          m_TargetAssemblyTypeName: HighlightLimbSender, Assembly-CSharp
+          m_MethodName: SendLimb
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 10
     callback:
       m_PersistentCalls:
@@ -15481,6 +15548,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &637939185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637939179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLimb: 0
+  script: {fileID: 1220542518}
 --- !u!1 &645258692
 GameObject:
   m_ObjectHideFlags: 0
@@ -23168,6 +23249,7 @@ GameObject:
   - component: {fileID: 950051364}
   - component: {fileID: 950051365}
   - component: {fileID: 950051367}
+  - component: {fileID: 950051368}
   m_Layer: 0
   m_Name: torso
   m_TagString: Untagged
@@ -23358,6 +23440,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 950051368}
+          m_TargetAssemblyTypeName: HighlightLimbSender, Assembly-CSharp
+          m_MethodName: SendLimb
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 10
     callback:
       m_PersistentCalls:
@@ -23374,6 +23468,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &950051368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950051363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLimb: 1
+  script: {fileID: 1220542518}
 --- !u!1 &950938408
 GameObject:
   m_ObjectHideFlags: 0
@@ -24843,6 +24951,7 @@ GameObject:
   - component: {fileID: 990532529}
   - component: {fileID: 990532530}
   - component: {fileID: 990532532}
+  - component: {fileID: 990532533}
   m_Layer: 0
   m_Name: torso
   m_TagString: Untagged
@@ -25033,6 +25142,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 990532533}
+          m_TargetAssemblyTypeName: HighlightLimbSender, Assembly-CSharp
+          m_MethodName: SendLimb
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 10
     callback:
       m_PersistentCalls:
@@ -25049,6 +25170,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &990532533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990532528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLimb: 1
+  script: {fileID: 1220542518}
 --- !u!1 &990919549
 GameObject:
   m_ObjectHideFlags: 0
@@ -37523,6 +37658,7 @@ GameObject:
   - component: {fileID: 1539006721}
   - component: {fileID: 1539006722}
   - component: {fileID: 1539006724}
+  - component: {fileID: 1539006725}
   m_Layer: 0
   m_Name: legs
   m_TagString: Untagged
@@ -37713,6 +37849,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1539006725}
+          m_TargetAssemblyTypeName: HighlightLimbSender, Assembly-CSharp
+          m_MethodName: SendLimb
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 10
     callback:
       m_PersistentCalls:
@@ -37729,6 +37877,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1539006725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539006720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLimb: 4
+  script: {fileID: 1220542518}
 --- !u!4 &1541992620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b72e29e1016d1b247989a86e1cf14a4b, type: 3}
@@ -38122,6 +38284,7 @@ GameObject:
   - component: {fileID: 1560317242}
   - component: {fileID: 1560317243}
   - component: {fileID: 1560317245}
+  - component: {fileID: 1560317246}
   m_Layer: 0
   m_Name: right_arm
   m_TagString: Untagged
@@ -38325,6 +38488,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1560317246}
+          m_TargetAssemblyTypeName: HighlightLimbSender, Assembly-CSharp
+          m_MethodName: SendLimb
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 10
     callback:
       m_PersistentCalls:
@@ -38341,6 +38516,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1560317246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560317240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLimb: 3
+  script: {fileID: 1220542518}
 --- !u!1001 &1563793004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43494,6 +43683,7 @@ GameObject:
   - component: {fileID: 1791939502}
   - component: {fileID: 1791939501}
   - component: {fileID: 1791939505}
+  - component: {fileID: 1791939506}
   m_Layer: 0
   m_Name: head
   m_TagString: Untagged
@@ -43697,6 +43887,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1791939506}
+          m_TargetAssemblyTypeName: HighlightLimbSender, Assembly-CSharp
+          m_MethodName: SendLimb
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 10
     callback:
       m_PersistentCalls:
@@ -43713,6 +43915,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1791939506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791939500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLimb: 0
+  script: {fileID: 1220542518}
 --- !u!1 &1797242501
 GameObject:
   m_ObjectHideFlags: 0
@@ -46614,6 +46830,7 @@ GameObject:
   - component: {fileID: 1925243546}
   - component: {fileID: 1925243547}
   - component: {fileID: 1925243549}
+  - component: {fileID: 1925243550}
   m_Layer: 0
   m_Name: right_arm
   m_TagString: Untagged
@@ -46817,6 +47034,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1925243550}
+          m_TargetAssemblyTypeName: HighlightLimbSender, Assembly-CSharp
+          m_MethodName: SendLimb
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 10
     callback:
       m_PersistentCalls:
@@ -46833,6 +47062,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1925243550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925243544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLimb: 3
+  script: {fileID: 1220542518}
 --- !u!1001 &1925422044
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47813,6 +48056,7 @@ GameObject:
   - component: {fileID: 1972614794}
   - component: {fileID: 1972614795}
   - component: {fileID: 1972614797}
+  - component: {fileID: 1972614798}
   m_Layer: 0
   m_Name: left arm
   m_TagString: Untagged
@@ -48003,6 +48247,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1972614798}
+          m_TargetAssemblyTypeName: HighlightLimbSender, Assembly-CSharp
+          m_MethodName: SendLimb
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 10
     callback:
       m_PersistentCalls:
@@ -48019,6 +48275,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1972614798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972614793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50cebc2132e0408d9e03b867e4a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLimb: 2
+  script: {fileID: 1220542518}
 --- !u!1 &1972660402
 GameObject:
   m_ObjectHideFlags: 0
