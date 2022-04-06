@@ -292,7 +292,7 @@ public class PlayerController : MonoBehaviour
 
 	public void OnNoise(InputAction.CallbackContext context)
 	{
-		statsRef.GetComponent<CreatureStats>().MakeNoise();
+
 	}
 
 	#endregion
