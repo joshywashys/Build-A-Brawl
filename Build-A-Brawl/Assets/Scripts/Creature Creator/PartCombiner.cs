@@ -83,58 +83,62 @@ public class PartCombiner : MonoBehaviour
     //If it turns out to be cpu-heavy, we can optimize it to adjust part locations rather than re-generate.
     public void generateCreature()
 	{
-        //clear previous creature
-        Destroy(newHead);
-        Destroy(newTorso);
-        Destroy(newArmL);
-        Destroy(newArmR);
-        Destroy(newLegs);
-        Destroy(creaturePlayable.GetComponent<CreatureStats>());
+        if (!isReady)
+        {
+            //clear previous creature
+            Destroy(newHead);
+            Destroy(newTorso);
+            Destroy(newArmL);
+            Destroy(newArmR);
+            Destroy(newLegs);
+            Destroy(creaturePlayable.GetComponent<CreatureStats>());
 
-        //spawn parts
-        newHead = Instantiate(currHead, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
-        newTorso = Instantiate(currTorso, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
-		newArmL = Instantiate(currArmL, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
-        newArmR = Instantiate(currArmR, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
-        newLegs = Instantiate(currLegs, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
+            //spawn parts
+            newHead = Instantiate(currHead, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
+            newTorso = Instantiate(currTorso, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
+            newArmL = Instantiate(currArmL, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
+            newArmR = Instantiate(currArmR, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
+            newLegs = Instantiate(currLegs, creaturePlayable.transform.position, creaturePlayable.transform.rotation, creaturePlayable.transform);
 
-        newHead.name = "head";
-        newTorso.name = "torso";
-        newArmL.name = "armL";
-        newArmR.name = "armR";
-        newLegs.name = "legs";
+            newHead.name = "head";
+            newTorso.name = "torso";
+            newArmL.name = "armL";
+            newArmR.name = "armR";
+            newLegs.name = "legs";
 
-        //calculate where to move parts to attach to body parts
-        headToNeck = newHead.transform.position - newHead.transform.GetChild(0).transform.position;
-        torsoToNeck = newTorso.transform.position - newTorso.transform.GetChild(0).transform.position;
+            //calculate where to move parts to attach to body parts
+            headToNeck = newHead.transform.position - newHead.transform.GetChild(0).transform.position;
+            torsoToNeck = newTorso.transform.position - newTorso.transform.GetChild(0).transform.position;
 
-        legsToHips = newLegs.transform.GetChild(0).transform.position - newLegs.transform.position;
-		torsoToHips = newTorso.transform.position - newTorso.transform.GetChild(3).transform.position;
+            legsToHips = newLegs.transform.GetChild(0).transform.position - newLegs.transform.position;
+            torsoToHips = newTorso.transform.position - newTorso.transform.GetChild(3).transform.position;
 
-        torsoToShoulderL = newTorso.transform.position + newTorso.transform.GetChild(1).transform.position;
-        armLToShoulder = newArmL.transform.GetChild(0).transform.position + newArmL.transform.position;
+            torsoToShoulderL = newTorso.transform.position + newTorso.transform.GetChild(1).transform.position;
+            armLToShoulder = newArmL.transform.GetChild(0).transform.position + newArmL.transform.position;
 
-        torsoToShoulderR = newTorso.transform.position + newTorso.transform.GetChild(2).transform.position;
-        armRToShoulder = newArmR.transform.GetChild(0).transform.position + newArmR.transform.position;
+            torsoToShoulderR = newTorso.transform.position + newTorso.transform.GetChild(2).transform.position;
+            armRToShoulder = newArmR.transform.GetChild(0).transform.position + newArmR.transform.position;
 
-        //move each part
-        newHead.transform.position += headToNeck - torsoToNeck;
-        newArmL.transform.position += torsoToShoulderL - armLToShoulder;
-        newArmR.transform.position += torsoToShoulderR - armRToShoulder;
-        newLegs.transform.position += -(legsToHips + torsoToHips);
-        if (newLegs.GetComponent<LegIKRig>() != null) { newLegs.GetComponent<LegIKRig>().enabled = false; }
+            //move each part
+            newHead.transform.position += headToNeck - torsoToNeck;
+            newArmL.transform.position += torsoToShoulderL - armLToShoulder;
+            newArmR.transform.position += torsoToShoulderR - armRToShoulder;
+            newLegs.transform.position += -(legsToHips + torsoToHips);
+            if (newLegs.GetComponent<LegIKRig>() != null) { newLegs.GetComponent<LegIKRig>().enabled = false; }
 
-        //shift creature upwards
-        //float headHeight = GetPartHeight(newHead);
-        //float torsoHeight = GetPartHeight(newTorso); 
-        //float legsHeight = GetPartHeight(newLegs);
-        //creatureContainer.transform.position = new Vector3(0, (torsoHeight + headHeight + legsHeight)/2 + 1, 0);
-        heightShift = (legsToHips.y*2 + torsoToHips.y - torsoToNeck.y + headToNeck.y*2) / 2 + 1.5f; //+ creatureContainer.position.y
-        creaturePlayable.transform.localPosition = new Vector3(0, heightShift, 0);
-        //MakeChildrenPlayerLayer(creaturePlayable.transform);
-        //print("TOTAL HEIGHT: " + heightShift);
+            //shift creature upwards
+            //float headHeight = GetPartHeight(newHead);
+            //float torsoHeight = GetPartHeight(newTorso); 
+            //float legsHeight = GetPartHeight(newLegs);
+            //creatureContainer.transform.position = new Vector3(0, (torsoHeight + headHeight + legsHeight)/2 + 1, 0);
+            heightShift = (legsToHips.y * 2 + torsoToHips.y - torsoToNeck.y + headToNeck.y * 2) / 2 + 1.5f; //+ creatureContainer.position.y
+            creaturePlayable.transform.localPosition = new Vector3(0, heightShift, 0);
+            //MakeChildrenPlayerLayer(creaturePlayable.transform);
+            //print("TOTAL HEIGHT: " + heightShift);
 
-        onPartSwap?.Invoke();
+            onPartSwap?.Invoke();
+        }
+
     }
 
     public void clearCreature()
@@ -162,8 +166,9 @@ public class PartCombiner : MonoBehaviour
             GameObject body = newPlayer.transform.Find("Body").gameObject;
             RigidbodyController rbc = body.GetComponent<RigidbodyController>();
             PlayerController pc = body.GetComponent<PlayerController>();
+            Rigidbody rb = body.GetComponent<Rigidbody>();
 
-           
+
             GameObject creature = Instantiate(creaturePlayable, newPlayer.transform.position + new Vector3(0, 3, 0), Quaternion.identity, newPlayer.transform.GetChild(2));
 
             //rearrange part hierarchy
@@ -193,10 +198,14 @@ public class PartCombiner : MonoBehaviour
             pc.anchorRight.localPosition = new Vector3(0.7f, 0.2f, 1f); //new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y - 0.3f, -armRToShoulder.x * 0.5f); //needs fix
             pc.fistLeftRigidbody.mass *= stats.fistMassMultiplierR;
             pc.fistRightRigidbody.mass *= stats.fistMassMultiplierR;
-            pc.attackForce = stats.GetStrengthArmL(); //change this later to work for both arms in playercontroller
+            pc.attackForce = (stats.GetStrengthArmL() + stats.GetStrengthArmL() / 2);
             pc.playerSpeed = stats.GetMoveSpeed();
             pc.jumpHeight = stats.GetJumpHeight();
             pc.rotateSpeed = stats.GetRotateSpeed();
+            rb.mass = stats.GetMass();
+            rbc.m_floatSpringStrength = 30 * stats.GetMass();
+            pc.throwForce = stats.strengthThrow;
+                //throwforce in playercontroller 15f reg
 
             if (savedLegs.GetComponent<LegIKRig>() != null) { savedLegs.GetComponent<LegIKRig>().enabled = true; }
             if (savedLegs.GetComponent<Collider>() != null) { savedLegs.GetComponent<Collider>().enabled = false; }

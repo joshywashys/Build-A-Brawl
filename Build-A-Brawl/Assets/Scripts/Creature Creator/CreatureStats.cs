@@ -54,6 +54,7 @@ public class CreatureStats : MonoBehaviour
     [SerializeField] private float strengthArmL = 10;
     [SerializeField] private float strengthArmR = 10;
     [SerializeField] private float strengthArms = 20;
+    public float strengthThrow = 25;
     [SerializeField] private float springConstantArmL = 80;
     [SerializeField] private float springConstantArmR = 80;
     [SerializeField] private BodyPartData.animType attackTypeL = 0; //0 uses the default system, others would be robot sticks out arms, druid flails/spins around
@@ -66,6 +67,7 @@ public class CreatureStats : MonoBehaviour
     // Constants that we can edit to make our Scriptable Objects values nicer
     public const float HEALTH_BASE = 10;
     public const float ARM_STRENGTH_BASE = 120;
+    public const float THROW_STRENGTH_BASE = 25;
     public const float MOVE_SPEED_BASE = 80;
     public const float ROTATE_SPEED_BASE = 10;
     public const float JUMP_HEIGHT_BASE = 150;
@@ -74,11 +76,11 @@ public class CreatureStats : MonoBehaviour
     public const float LEG_DAMPER_BASE = 500;
 
     public const float MASS_HEAD_BASE = 1;
-    public const float MASS_TORSO_BASE = 3;
+    public const float MASS_TORSO_BASE = 2;
     public const float MASS_ARMS_BASE = 1;
     public const float MASS_LEGS_BASE = 1;
 
-    public const float FORCE_THRESHOLD = 0;
+    public const float FORCE_THRESHOLD = 0.2f;
 
     public GameObject audioStorages;
     public GameObject audioStorageFun;
@@ -145,6 +147,7 @@ public class CreatureStats : MonoBehaviour
         springDamperLegs = LEG_DAMPER_BASE * legsPart.getStrengthMultiplier() / mass;
 
         // Arm Stats
+        float avgArms = (armLPart.getStrengthMultiplier() + armRPart.getStrengthMultiplier()) / 2;
         strengthArmL = armLPart.getStrengthMultiplier() * ARM_STRENGTH_BASE;
         strengthArmR = armRPart.getStrengthMultiplier() * ARM_STRENGTH_BASE;
         strengthArms = strengthArmL + strengthArmR;
@@ -154,6 +157,7 @@ public class CreatureStats : MonoBehaviour
         attackTypeR = armRPart.getAttackTypeR();
         fistMassMultiplierL = armLPart.getMass();
         fistMassMultiplierR = armRPart.getMass();
+        strengthThrow = (avgArms + mass / 10) * THROW_STRENGTH_BASE;
 
 
         // Toggle Kinematics
@@ -239,13 +243,14 @@ public class CreatureStats : MonoBehaviour
 
     public void Kill()
     {
-        if (head != null) { detachHead(); }
-        if (torso != null) { detachTorso(); }
-        if (armL != null) { detachArmL(); }
-        if (armR != null) { detachArmR(); }
-        if (legs != null) { detachLegs(); }
+        alive = false;
+        detachHead();
+        detachTorso();
+        detachArmL();
+        detachArmR();
+        detachLegs();
 
-        Cleanup();
+        //Cleanup();
 
         onDamage?.Invoke(playerNum);
         onDeath?.Invoke(playerNum);
@@ -292,12 +297,6 @@ public class CreatureStats : MonoBehaviour
         //armR = torso.transform.Find("armR").gameObject;
         //legs = torso.transform.Find("legs").gameObject;
 
-        if (headPart == null) { headPart = head.GetComponent<BodyPart>(); }
-        if (torsoPart == null) { torsoPart = torso.GetComponent<BodyPart>(); }
-        if (armLPart == null) { armLPart = armL.GetComponent<BodyPart>(); }
-        if (armRPart == null) { armRPart = armR.GetComponent<BodyPart>(); }
-        if (legsPart == null) { legsPart = legs.GetComponent<BodyPart>(); }
-
         // Add sounds from ScriptableObjects
         audioStorages = new GameObject("Audio Storages");
         audioStorageFun = new GameObject("Storage - Fun Audio");
@@ -331,7 +330,19 @@ public class CreatureStats : MonoBehaviour
                 //print(hurtSounds);
             }
         }
-        
+
+        if (torso == null) { torso = transform.Find("torso").gameObject; }
+        if (head == null) { head = torso.transform.Find("head").gameObject; }
+        if (armL == null) { armL = torso.transform.Find("armL").gameObject; }
+        if (armR == null) { armR = torso.transform.Find("armR").gameObject; }
+        if (legs == null) { legs = torso.transform.Find("legs").gameObject; }
+
+        if (headPart == null) { headPart = head.GetComponent<BodyPart>(); }
+        if (torsoPart == null) { torsoPart = torso.GetComponent<BodyPart>(); }
+        if (armLPart == null) { armLPart = armL.GetComponent<BodyPart>(); }
+        if (armRPart == null) { armRPart = armR.GetComponent<BodyPart>(); }
+        if (legsPart == null) { legsPart = legs.GetComponent<BodyPart>(); }
+
     }
 
     void Awake()
@@ -357,7 +368,6 @@ public class CreatureStats : MonoBehaviour
             //if (torso != null) { detachTorso(); } //AFTER head becomes null. prevents infinite loops of head->torso->head->torso...
 
             //recalculate();
-            Kill();
         }
         if (alive)
         {

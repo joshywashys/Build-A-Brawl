@@ -10,8 +10,11 @@ public class RoundManager : MonoBehaviour
     public List<string> selectedMaps;
     public List<string> randomMapPool;
     public List<int> selectedMapIndexes;
-    public int numRounds = 5;
+    [SerializeField] private int minRounds;
+    [SerializeField] private int maxRounds;
+    public int numRounds { get; private set; } = 5;
     private int currRound = 0;
+    public UnityEvent<string> onRoundCountChange;
 
     public class playerStats
     {
@@ -304,6 +307,24 @@ public class RoundManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
         StopAllCoroutines();
+    }
+
+    public void RoundPlus()
+    {
+        if (numRounds < maxRounds)
+        {
+            numRounds += 1;
+        }
+        onRoundCountChange?.Invoke(numRounds.ToString());
+    }
+
+    public void RoundMinus()
+    {
+        if (numRounds > 0)
+        {
+            numRounds -= 1;
+        }
+        onRoundCountChange?.Invoke(numRounds.ToString());
     }
 
 }

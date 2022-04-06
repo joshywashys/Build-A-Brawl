@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 556241895580610730}
   - component: {fileID: 2936913541449536846}
   - component: {fileID: 8071832477946795669}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,8 +117,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987236500597835189}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.5550003, z: 0}
-  m_LocalScale: {x: 3, y: 5.11, z: 3}
+  m_LocalPosition: {x: 0, y: -1.7499999, z: 0}
+  m_LocalScale: {x: 1.5, y: 3.4999998, z: 1.5}
   m_Children: []
   m_Father: {fileID: 3804294177723920671}
   m_RootOrder: 0
@@ -561,13 +561,7 @@ MonoBehaviour:
   m_bodyCollider: {fileID: 4866000927752231823}
   m_rigs: []
   playerColour: {r: 1, g: 0.8441375, b: 0, a: 0}
-  m_meshRenderers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 8071832477946795669}
+  m_meshRenderers: []
   m_skinnedMeshRenderers: []
   playerSpeed: 12
   jumpHeight: 20
@@ -638,7 +632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3804294177723920671}
   - component: {fileID: 8795385716050557601}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +647,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6365239696861500406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 556241895580610730}
@@ -673,9 +667,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTransform: {fileID: 556241895580610730}
-  scale: 3
+  scale: 1.5
   maxDistance: 1000
-  bufferDistance: 5
+  bufferDistance: 0.5
 --- !u!1 &8871093476895808470
 GameObject:
   m_ObjectHideFlags: 0
