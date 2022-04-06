@@ -261,6 +261,7 @@ public class CreatureStats : MonoBehaviour
     {
         if (funSounds.Count > 0)
         {
+            Debug.Log("Noise made");
             funSounds[Random.Range(0, funSounds.Count)].Play();
         }
     }
