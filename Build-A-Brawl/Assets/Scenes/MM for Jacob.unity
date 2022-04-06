@@ -7272,7 +7272,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 971487753ca88094589a7997095b5cda, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cf2f6f7e646244840ac35a6f5d463f84, type: 2}
+      objectReference: {fileID: 2100000, guid: b62a6ecc9b94f0343a30b36f10664739, type: 2}
     - target: {fileID: 919132149155446097, guid: 971487753ca88094589a7997095b5cda, type: 3}
       propertyPath: m_Name
       value: pylon (7)
@@ -7501,7 +7501,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 971487753ca88094589a7997095b5cda, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cf2f6f7e646244840ac35a6f5d463f84, type: 2}
+      objectReference: {fileID: 2100000, guid: b62a6ecc9b94f0343a30b36f10664739, type: 2}
     - target: {fileID: 919132149155446097, guid: 971487753ca88094589a7997095b5cda, type: 3}
       propertyPath: m_Name
       value: pylon
@@ -30681,7 +30681,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 971487753ca88094589a7997095b5cda, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cf2f6f7e646244840ac35a6f5d463f84, type: 2}
+      objectReference: {fileID: 2100000, guid: b62a6ecc9b94f0343a30b36f10664739, type: 2}
     - target: {fileID: 919132149155446097, guid: 971487753ca88094589a7997095b5cda, type: 3}
       propertyPath: m_Name
       value: pylon (8)
@@ -36900,7 +36900,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 971487753ca88094589a7997095b5cda, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cf2f6f7e646244840ac35a6f5d463f84, type: 2}
+      objectReference: {fileID: 2100000, guid: b62a6ecc9b94f0343a30b36f10664739, type: 2}
     - target: {fileID: 919132149155446097, guid: 971487753ca88094589a7997095b5cda, type: 3}
       propertyPath: m_Name
       value: pylon (6)
@@ -45193,7 +45193,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 971487753ca88094589a7997095b5cda, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cf2f6f7e646244840ac35a6f5d463f84, type: 2}
+      objectReference: {fileID: 2100000, guid: b62a6ecc9b94f0343a30b36f10664739, type: 2}
     - target: {fileID: 919132149155446097, guid: 971487753ca88094589a7997095b5cda, type: 3}
       propertyPath: m_Name
       value: pylon (1)
@@ -50256,7 +50256,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 971487753ca88094589a7997095b5cda, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cf2f6f7e646244840ac35a6f5d463f84, type: 2}
+      objectReference: {fileID: 2100000, guid: b62a6ecc9b94f0343a30b36f10664739, type: 2}
     - target: {fileID: 919132149155446097, guid: 971487753ca88094589a7997095b5cda, type: 3}
       propertyPath: m_Name
       value: pylon (9)
