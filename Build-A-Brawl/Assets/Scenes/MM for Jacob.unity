@@ -2190,7 +2190,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 34cf4a8305064d646835f521c7ded9d8, type: 2}
+  - {fileID: 2100000, guid: bb7a5253a174a8d498a90e279a44d5cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3870,6 +3870,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e16b003f9fc8be147be2cf2b62929884, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9583a5902bb101b4d9f796633973d8f1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e16b003f9fc8be147be2cf2b62929884, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb7a5253a174a8d498a90e279a44d5cc, type: 2}
     - target: {fileID: 919132149155446097, guid: e16b003f9fc8be147be2cf2b62929884, type: 3}
       propertyPath: m_Name
       value: HorizontalWindowBuilding (2)
@@ -4325,6 +4333,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 63ff5e504b70ebc46a2512430ab3ab76, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8254ea4f48e5d4c4ca649c7dd6c2cddd, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 63ff5e504b70ebc46a2512430ab3ab76, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb7a5253a174a8d498a90e279a44d5cc, type: 2}
     - target: {fileID: 919132149155446097, guid: 63ff5e504b70ebc46a2512430ab3ab76, type: 3}
       propertyPath: m_Name
       value: BrickBuildingGreen (2)
@@ -7390,6 +7406,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e16b003f9fc8be147be2cf2b62929884, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05f4238cd0a7cfa4a9307519e1696ac4, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e16b003f9fc8be147be2cf2b62929884, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb7a5253a174a8d498a90e279a44d5cc, type: 2}
     - target: {fileID: 919132149155446097, guid: e16b003f9fc8be147be2cf2b62929884, type: 3}
       propertyPath: m_Name
       value: HorizontalWindowBuilding
@@ -24084,7 +24108,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 05f4238cd0a7cfa4a9307519e1696ac4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -26208,6 +26232,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 83498b40dd3dbb3488a4594c1f2a1818, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5751afc7a883f2548a497489d7e88aad, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 83498b40dd3dbb3488a4594c1f2a1818, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb7a5253a174a8d498a90e279a44d5cc, type: 2}
     - target: {fileID: 919132149155446097, guid: 83498b40dd3dbb3488a4594c1f2a1818, type: 3}
       propertyPath: m_Name
       value: VerticalWindowBuilding
@@ -31554,7 +31586,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 34cf4a8305064d646835f521c7ded9d8, type: 2}
+  - {fileID: 2100000, guid: bb7a5253a174a8d498a90e279a44d5cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31854,6 +31886,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d03c4e49e20fcad4cbdf1469fdfbef76, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb7a5253a174a8d498a90e279a44d5cc, type: 2}
     - target: {fileID: 919132149155446097, guid: d03c4e49e20fcad4cbdf1469fdfbef76, type: 3}
       propertyPath: m_Name
       value: BrickBuildingYellow (3)
@@ -32604,6 +32640,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2f0c27e9eaa9fc24388974ee0dc06076, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4845c65cd9dc649408b6022e2f6807ed, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 2f0c27e9eaa9fc24388974ee0dc06076, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb7a5253a174a8d498a90e279a44d5cc, type: 2}
     - target: {fileID: 919132149155446097, guid: 2f0c27e9eaa9fc24388974ee0dc06076, type: 3}
       propertyPath: m_Name
       value: BrickBuilding (3)
@@ -40995,7 +41039,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9a9954d62bec2594688ff6cd49d61faa, type: 2}
+  - {fileID: 2100000, guid: 5ba0dd07e1ad2324c8d68e1c0a96c8c5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -41749,6 +41793,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e16b003f9fc8be147be2cf2b62929884, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 278f218fad3dfe54eb22b494ffc1beab, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e16b003f9fc8be147be2cf2b62929884, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb7a5253a174a8d498a90e279a44d5cc, type: 2}
     - target: {fileID: 919132149155446097, guid: e16b003f9fc8be147be2cf2b62929884, type: 3}
       propertyPath: m_Name
       value: HorizontalWindowBuilding (1)
@@ -46581,6 +46633,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 83498b40dd3dbb3488a4594c1f2a1818, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05f4238cd0a7cfa4a9307519e1696ac4, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 83498b40dd3dbb3488a4594c1f2a1818, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb7a5253a174a8d498a90e279a44d5cc, type: 2}
     - target: {fileID: 919132149155446097, guid: 83498b40dd3dbb3488a4594c1f2a1818, type: 3}
       propertyPath: m_Name
       value: VerticalWindowBuilding (1)
@@ -48013,6 +48073,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 63ff5e504b70ebc46a2512430ab3ab76, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8254ea4f48e5d4c4ca649c7dd6c2cddd, type: 2}
     - target: {fileID: 919132149155446097, guid: 63ff5e504b70ebc46a2512430ab3ab76, type: 3}
       propertyPath: m_Name
       value: BrickBuildingGreen (1)
@@ -49483,6 +49547,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4a95f072255fd754888c51228d5e56db, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f76ea0d0c60657c4eac29fe2162d7390, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 4a95f072255fd754888c51228d5e56db, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7cba63c1f63f3f64499cb7dd4ba8dfbd, type: 2}
     - target: {fileID: 919132149155446097, guid: 4a95f072255fd754888c51228d5e56db, type: 3}
       propertyPath: m_Name
       value: ConcretePillarBuilding
@@ -51287,6 +51359,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d03c4e49e20fcad4cbdf1469fdfbef76, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5ba0dd07e1ad2324c8d68e1c0a96c8c5, type: 2}
+    - target: {fileID: -7511558181221131132, guid: d03c4e49e20fcad4cbdf1469fdfbef76, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb7a5253a174a8d498a90e279a44d5cc, type: 2}
     - target: {fileID: 919132149155446097, guid: d03c4e49e20fcad4cbdf1469fdfbef76, type: 3}
       propertyPath: m_Name
       value: BrickBuildingYellow (2)
