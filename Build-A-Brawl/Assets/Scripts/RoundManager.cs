@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RoundManager : MonoBehaviour
 {
@@ -182,6 +183,20 @@ public class RoundManager : MonoBehaviour
     }
     #endregion
 
+    #region UI
+
+    //round tracker
+    [Header("Gameflow UI")]
+    public GameObject roundTrackerPrefab; // instantiate on game start, destroy on game end
+    private GameObject roundTracker;
+    public GameObject scoreTrackerPrefab; // like the UImanager's
+    private List<GameObject> scoreTrackers; // for each player's score
+    //private UpdateText roundTracker; //if working
+
+
+
+    #endregion
+
     public void UpdateScore(int playerNum)
     {
         print("updating scores");
@@ -212,6 +227,11 @@ public class RoundManager : MonoBehaviour
         yield return new WaitForSeconds(onRoundEndWait);
         print("done waiting");
         NextRound();
+    }
+
+    public void OnGameEnd()
+    {
+        //clean all variables
     }
 
     public void OnRoundEnd()
