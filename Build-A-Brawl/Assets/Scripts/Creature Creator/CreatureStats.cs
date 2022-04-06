@@ -68,10 +68,10 @@ public class CreatureStats : MonoBehaviour
     // Constants that we can edit to make our Scriptable Objects values nicer
     public const float HEALTH_BASE = 10;
     public const float ARM_STRENGTH_BASE = 120;
-    public const float THROW_STRENGTH_BASE = 25;
+    public const float THROW_STRENGTH_BASE = 20;
     public const float MOVE_SPEED_BASE = 60;
     public const float ROTATE_SPEED_BASE = 10;
-    public const float JUMP_HEIGHT_BASE = 150;
+    public const float JUMP_HEIGHT_BASE = 100;
     public const float SPRING_CONSTANT_BASE = 80;
     public const float LEG_STRENGTH_BASE = 300;
     public const float LEG_DAMPER_BASE = 500;
@@ -97,6 +97,9 @@ public class CreatureStats : MonoBehaviour
     //call when a creature's stats need to be updated (when a limb is knocked off)
     private void recalculate()
     {
+        PlayerController pc = ctrlsPart.GetComponent<PlayerController>();
+        RigidbodyController rbc = ctrlsPart.GetComponent<RigidbodyController>();
+
         // Mass
         float headMassNew, torsoMassNew, armLMassNew, armRMassNew, legsMassNew;
         headMassNew = torsoMassNew = armLMassNew = armRMassNew = legsMassNew = 1;
@@ -113,6 +116,7 @@ public class CreatureStats : MonoBehaviour
         moveSpeed = legsPart.getStrengthMultiplier() * MOVE_SPEED_BASE / mass;
         rotateSpeed = legsPart.getStrengthMultiplier() * ROTATE_SPEED_BASE / mass;
 
+        
     }
 
     //get parts stats and load them onto this script
