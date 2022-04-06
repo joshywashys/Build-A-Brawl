@@ -350,6 +350,7 @@ GameObject:
   - component: {fileID: 4573234100079358482}
   - component: {fileID: 4573234100079358484}
   - component: {fileID: 4573234100079358485}
+  - component: {fileID: -1113443263485998496}
   m_Layer: 3
   m_Name: apeLegsBound
   m_TagString: Untagged
@@ -601,6 +602,19 @@ MonoBehaviour:
   - m_Rig: {fileID: 4573234100161869666}
     m_Active: 1
   m_Effectors: []
+--- !u!65 &-1113443263485998496
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3726181130528083790}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.056760505, y: 0.056011904, z: 0.03597938}
+  m_Center: {x: 0, y: 0.0020820247, z: -0.0103905555}
 --- !u!1 &4022191175892093293
 GameObject:
   m_ObjectHideFlags: 0
