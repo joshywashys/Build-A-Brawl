@@ -5,7 +5,7 @@ using UnityEngine;
 // Track which UI element is selected, drag one for each part
 public class HighlightLimb : MonoBehaviour
 {
-    enum Limbs
+    public enum Limbs
     {
         head,
         torso,
@@ -13,9 +13,9 @@ public class HighlightLimb : MonoBehaviour
         armR,
         legs
     }
-    Limbs limb;
+    public Limbs limb;
 
-    private PartCombiner partCombiner;
+    public PartCombiner partCombiner;
 
     //drag this onto all partcombiner OnPartSwap Events
     public void AddHighlight()
@@ -39,6 +39,30 @@ public class HighlightLimb : MonoBehaviour
         if (limb == Limbs.legs)
         {
             partCombiner.newLegs.AddComponent<PlayerOutline>();
+        }
+    }
+
+    public void RemoveHighlight()
+    {
+        if (limb == Limbs.head)
+        {
+            Destroy(partCombiner.newHead.GetComponent<PlayerOutline>());
+        }
+        if (limb == Limbs.torso)
+        {
+            Destroy(partCombiner.newTorso.GetComponent<PlayerOutline>());
+        }
+        if (limb == Limbs.armL)
+        {
+            Destroy(partCombiner.newArmL.GetComponent<PlayerOutline>());
+        }
+        if (limb == Limbs.armR)
+        {
+            Destroy(partCombiner.newArmR.GetComponent<PlayerOutline>());
+        }
+        if (limb == Limbs.legs)
+        {
+            Destroy(partCombiner.newLegs.GetComponent<PlayerOutline>());
         }
     }
 
