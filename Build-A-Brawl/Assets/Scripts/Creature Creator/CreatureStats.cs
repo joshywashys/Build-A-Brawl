@@ -413,7 +413,7 @@ public class CreatureStats : MonoBehaviour
             armLPart.GetComponent<Animator>().enabled = false;
             Transform skeletonBase = armL.GetComponent<BodyPart>().skeletonBase;
             if (skeletonBase.GetComponent<Rigidbody>() == null) { skeletonBase.gameObject.AddComponent<Rigidbody>(); }
-            skeletonBase.GetChild(0).GetComponent<ConfigurableJoint>().connectedBody = skeletonBase.GetComponent<Rigidbody>();
+            if (skeletonBase.GetChild(0).GetComponent<ConfigurableJoint>() != null) { skeletonBase.GetChild(0).GetComponent<ConfigurableJoint>().connectedBody = skeletonBase.GetComponent<Rigidbody>(); }
             armL.GetComponent<PhysicsIKRig>().currentState = PhysicsIKRig.State.Ragdoll;
             armL.GetComponent<BodyPart>().ToggleKinematics(armL.GetComponent<BodyPart>().skeletonBase, false);
 
@@ -436,7 +436,7 @@ public class CreatureStats : MonoBehaviour
             armRPart.GetComponent<Animator>().enabled = false;
             Transform skeletonBase = armR.GetComponent<BodyPart>().skeletonBase;
             if (skeletonBase.GetComponent<Rigidbody>() == null) { skeletonBase.gameObject.AddComponent<Rigidbody>(); }
-            skeletonBase.GetChild(0).GetComponent<ConfigurableJoint>().connectedBody = skeletonBase.GetComponent<Rigidbody>();
+            if (skeletonBase.GetChild(0).GetComponent<ConfigurableJoint>() != null) { skeletonBase.GetChild(0).GetComponent<ConfigurableJoint>().connectedBody = skeletonBase.GetComponent<Rigidbody>(); }
             armR.GetComponent<PhysicsIKRig>().currentState = PhysicsIKRig.State.Ragdoll;
             armR.GetComponent<BodyPart>().ToggleKinematics(armR.GetComponent<BodyPart>().skeletonBase, false);
 
@@ -458,7 +458,7 @@ public class CreatureStats : MonoBehaviour
             ctrlsPart.GetComponent<RigidbodyController>().useFloat = false;
             if (legs.GetComponent<Collider>() != null) { legs.GetComponent<Collider>().enabled = true; }
             legsPart.ToggleKinematics(legsPart.gameObject.transform, false);
-            legsPart.GetComponent<LegIKRig>().enabled = false;
+            if (legsPart.GetComponent<LegIKRig>() != null) { legsPart.GetComponent<LegIKRig>().enabled = false; }
             legs.transform.parent = null;
             legs = null;
             legsPart.creature = null;
