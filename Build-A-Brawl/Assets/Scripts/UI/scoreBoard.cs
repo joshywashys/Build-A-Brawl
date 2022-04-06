@@ -112,11 +112,11 @@ public class scoreBoard : MonoBehaviour
             else if (secondScoreVal > firstScoreVal){
                 firstName.text = secondNameVal;
                 firstScore.text = Mathf.Floor((float)secondScoreVal).ToString();
-                play2Spawn.transform.position = p2SpawnLoc.transform.position;
+                play2Spawn.transform.position = p1SpawnLoc.transform.position;
 
                 secondName.text = firstNameVal;
                 secondScore.text = Mathf.Floor((float)firstScoreVal).ToString();
-                play1Spawn.transform.position = p1SpawnLoc.transform.position;
+                play1Spawn.transform.position = p2SpawnLoc.transform.position;
             }
 
         }
@@ -137,11 +137,11 @@ public class scoreBoard : MonoBehaviour
                 else if (thirdScoreVal > secondScoreVal){
                     secondName.text = thirdNameVal;
                     secondScore.text = Mathf.Floor((float)thirdScoreVal).ToString();
-                    play3Spawn.transform.position = p3SpawnLoc.transform.position;
+                    play2Spawn.transform.position = p3SpawnLoc.transform.position;
                     
                     thirdName.text = secondNameVal;
                     thirdScore.text = Mathf.Floor((float)secondScoreVal).ToString();
-                    play2Spawn.transform.position = p2SpawnLoc.transform.position;
+                    play3Spawn.transform.position = p2SpawnLoc.transform.position;
                 }
                 
             }
@@ -161,11 +161,11 @@ public class scoreBoard : MonoBehaviour
                 else if (thirdScoreVal > firstScoreVal){
                     secondName.text = thirdNameVal;
                     secondScore.text = Mathf.Floor((float)thirdScoreVal).ToString();
-                    play3Spawn.transform.position = p3SpawnLoc.transform.position;
+                    play1Spawn.transform.position = p3SpawnLoc.transform.position;
                     
                     thirdName.text = firstNameVal;
                     thirdScore.text = Mathf.Floor((float)firstScoreVal).ToString();
-                    play1Spawn.transform.position = p1SpawnLoc.transform.position;
+                    play3Spawn.transform.position = p1SpawnLoc.transform.position;
                 }
             }
             else if (thirdScoreVal > firstScoreVal && thirdScoreVal > secondScoreVal){
@@ -184,11 +184,11 @@ public class scoreBoard : MonoBehaviour
                 else if (secondScoreVal > firstScoreVal){
                     secondName.text = secondNameVal;
                     secondScore.text = Mathf.Floor((float)secondScoreVal).ToString();
-                    play2Spawn.transform.position = p2SpawnLoc.transform.position;
+                    play1Spawn.transform.position = p2SpawnLoc.transform.position;
                     
                     thirdName.text = firstNameVal;
                     thirdScore.text = Mathf.Floor((float)firstScoreVal).ToString();
-                    play1Spawn.transform.position = p1SpawnLoc.transform.position;
+                    play2Spawn.transform.position = p1SpawnLoc.transform.position;
                 }
             }
         }
@@ -213,17 +213,17 @@ public class scoreBoard : MonoBehaviour
                     else if (fourthScoreVal > thirdScoreVal){
                         thirdName.text = fourthNameVal;
                         thirdScore.text = Mathf.Floor((float)fourthScoreVal).ToString();
-                        play4Spawn.transform.position = p4SpawnLoc.transform.position;
+                        play3Spawn.transform.position = p4SpawnLoc.transform.position;
 
                         fourthName.text = thirdNameVal;
                         fourthScore.text = Mathf.Floor((float)thirdScoreVal).ToString();
-                        play3Spawn.transform.position = p3SpawnLoc.transform.position;
+                        play4Spawn.transform.position = p3SpawnLoc.transform.position;
                     }
                 }
                 else if (thirdScoreVal>secondScoreVal && thirdScoreVal > fourthScoreVal){
                     secondName.text = thirdNameVal;
                     secondScore.text = Mathf.Floor((float)thirdScoreVal).ToString();
-                    play2Spawn.transform.position = p2SpawnLoc.transform.position;
+                    play3Spawn.transform.position = p3SpawnLoc.transform.position;
                     if (secondScoreVal > fourthScoreVal){
                         thirdName.text = secondNameVal;
                         thirdScore.text = Mathf.Floor((float)secondScoreVal).ToString();
@@ -236,11 +236,11 @@ public class scoreBoard : MonoBehaviour
                     else if (fourthScoreVal > secondScoreVal){
                         thirdName.text = fourthNameVal;
                         thirdScore.text = Mathf.Floor((float)fourthScoreVal).ToString();
-                        play4Spawn.transform.position = p4SpawnLoc.transform.position;
+                        play2Spawn.transform.position = p4SpawnLoc.transform.position;
 
                         fourthName.text = secondNameVal;
                         fourthScore.text = Mathf.Floor((float)secondScoreVal).ToString();
-                        play2Spawn.transform.position = p2SpawnLoc.transform.position;
+                        play4Spawn.transform.position = p2SpawnLoc.transform.position;
                     }
                 }
                 else if (fourthScoreVal>secondScoreVal && fourthScoreVal > thirdScoreVal){
@@ -259,11 +259,11 @@ public class scoreBoard : MonoBehaviour
                     else if (thirdScoreVal > secondScoreVal){
                         thirdName.text = thirdNameVal;
                         thirdScore.text = Mathf.Floor((float)thirdScoreVal).ToString();
-                        play3Spawn.transform.position = p3SpawnLoc.transform.position;
+                        play2Spawn.transform.position = p3SpawnLoc.transform.position;
 
                         fourthName.text = secondNameVal;
                         fourthScore.text = Mathf.Floor((float)secondScoreVal).ToString();
-                        play2Spawn.transform.position = p2SpawnLoc.transform.position;
+                        play3Spawn.transform.position = p2SpawnLoc.transform.position;
                     }
                 }
             }
@@ -287,11 +287,11 @@ public class scoreBoard : MonoBehaviour
                     else if (fourthScoreVal > thirdScoreVal){
                         thirdName.text = fourthNameVal;
                         thirdScore.text = Mathf.Floor((float)fourthScoreVal).ToString();
-                        play4Spawn.transform.position = p4SpawnLoc.transform.position;
+                        play2Spawn.transform.position = p4SpawnLoc.transform.position;
 
                         fourthName.text = thirdNameVal;
                         fourthScore.text = Mathf.Floor((float)thirdScoreVal).ToString();
-                        play3Spawn.transform.position = p3SpawnLoc.transform.position;
+                        play4Spawn.transform.position = p3SpawnLoc.transform.position;
                     }
                 }
                 else if (thirdScoreVal>firstScoreVal && thirdScoreVal > fourthScoreVal){
@@ -310,11 +310,11 @@ public class scoreBoard : MonoBehaviour
                     else if (fourthScoreVal > firstScoreVal){
                         thirdName.text = fourthNameVal;
                         thirdScore.text = Mathf.Floor((float)fourthScoreVal).ToString();
-                        play4Spawn.transform.position = p4SpawnLoc.transform.position;
+                        play1Spawn.transform.position = p4SpawnLoc.transform.position;
 
                         fourthName.text = firstNameVal;
                         fourthScore.text = Mathf.Floor((float)firstScoreVal).ToString();
-                        play1Spawn.transform.position = p1SpawnLoc.transform.position;
+                        play4Spawn.transform.position = p1SpawnLoc.transform.position;
                     }
                 }
                 else if (fourthScoreVal>firstScoreVal && fourthScoreVal > thirdScoreVal){
@@ -333,11 +333,11 @@ public class scoreBoard : MonoBehaviour
                     else if (thirdScoreVal > firstScoreVal){
                         thirdName.text = thirdNameVal;
                         thirdScore.text = Mathf.Floor((float)thirdScoreVal).ToString();
-                        play3Spawn.transform.position = p3SpawnLoc.transform.position;
+                        play1Spawn.transform.position = p3SpawnLoc.transform.position;
 
                         fourthName.text = firstNameVal;
                         fourthScore.text = Mathf.Floor((float)firstScoreVal).ToString();
-                        play1Spawn.transform.position = p1SpawnLoc.transform.position;
+                        play3Spawn.transform.position = p1SpawnLoc.transform.position;
                     }
                 }
             }
@@ -361,11 +361,11 @@ public class scoreBoard : MonoBehaviour
                     else if (fourthScoreVal > secondScoreVal){
                         thirdName.text = fourthNameVal;
                         thirdScore.text = Mathf.Floor((float)fourthScoreVal).ToString();
-                        play4Spawn.transform.position = p4SpawnLoc.transform.position;
+                        play2Spawn.transform.position = p4SpawnLoc.transform.position;
 
                         fourthName.text = secondNameVal;
                         fourthScore.text = Mathf.Floor((float)secondScoreVal).ToString();
-                        play2Spawn.transform.position = p2SpawnLoc.transform.position;
+                        play4Spawn.transform.position = p2SpawnLoc.transform.position;
                     }
                 }
                 else if (secondScoreVal>firstScoreVal && secondScoreVal > fourthScoreVal){
@@ -384,11 +384,11 @@ public class scoreBoard : MonoBehaviour
                     else if (fourthScoreVal > firstScoreVal){
                         thirdName.text = fourthNameVal;
                         thirdScore.text = Mathf.Floor((float)fourthScoreVal).ToString();
-                        play4Spawn.transform.position = p4SpawnLoc.transform.position;
+                        play1Spawn.transform.position = p4SpawnLoc.transform.position;
 
                         fourthName.text = firstNameVal;
                         fourthScore.text = Mathf.Floor((float)firstScoreVal).ToString();
-                        play1Spawn.transform.position = p1SpawnLoc.transform.position;
+                        play4Spawn.transform.position = p1SpawnLoc.transform.position;
                     }
                 }
                 else if (fourthScoreVal>firstScoreVal && fourthScoreVal > secondScoreVal){
@@ -407,11 +407,11 @@ public class scoreBoard : MonoBehaviour
                     else if (secondScoreVal > firstScoreVal){
                         thirdName.text = secondNameVal;
                         thirdScore.text = Mathf.Floor((float)secondScoreVal).ToString();
-                        play2Spawn.transform.position = p2SpawnLoc.transform.position;
+                        play1Spawn.transform.position = p2SpawnLoc.transform.position;
 
                         fourthName.text = firstNameVal;
                         fourthScore.text = Mathf.Floor((float)firstScoreVal).ToString();
-                        play1Spawn.transform.position = p1SpawnLoc.transform.position;
+                        play2Spawn.transform.position = p1SpawnLoc.transform.position;
                     }
                 }
             }
@@ -435,11 +435,11 @@ public class scoreBoard : MonoBehaviour
                     else if (thirdScoreVal > secondScoreVal){
                         thirdName.text = thirdNameVal;
                         thirdScore.text = Mathf.Floor((float)thirdScoreVal).ToString();
-                        play3Spawn.transform.position = p3SpawnLoc.transform.position;
+                        play2Spawn.transform.position = p3SpawnLoc.transform.position;
 
                         fourthName.text = secondNameVal;
                         fourthScore.text = Mathf.Floor((float)secondScoreVal).ToString();
-                        play2Spawn.transform.position = p2SpawnLoc.transform.position;
+                        play3Spawn.transform.position = p2SpawnLoc.transform.position;
                     }
                 }
                 else if (secondScoreVal>firstScoreVal && secondScoreVal > thirdScoreVal){
@@ -458,11 +458,11 @@ public class scoreBoard : MonoBehaviour
                     else if (thirdScoreVal > firstScoreVal){
                         thirdName.text = thirdNameVal;
                         thirdScore.text = Mathf.Floor((float)thirdScoreVal).ToString();
-                        play3Spawn.transform.position = p3SpawnLoc.transform.position;
+                        play1Spawn.transform.position = p3SpawnLoc.transform.position;
 
                         fourthName.text = firstNameVal;
                         fourthScore.text = Mathf.Floor((float)firstScoreVal).ToString();
-                        play1Spawn.transform.position = p1SpawnLoc.transform.position;
+                        play3Spawn.transform.position = p1SpawnLoc.transform.position;
                     }
                 }
                 else if (thirdScoreVal>firstScoreVal && thirdScoreVal > secondScoreVal){
@@ -481,11 +481,11 @@ public class scoreBoard : MonoBehaviour
                     else if (secondScoreVal > firstScoreVal){
                         thirdName.text = secondNameVal;
                         thirdScore.text = Mathf.Floor((float)secondScoreVal).ToString();
-                        play2Spawn.transform.position = p2SpawnLoc.transform.position;
+                        play1Spawn.transform.position = p2SpawnLoc.transform.position;
 
                         fourthName.text = firstNameVal;
                         fourthScore.text = Mathf.Floor((float)firstScoreVal).ToString();
-                        play1Spawn.transform.position = p1SpawnLoc.transform.position;
+                        play2Spawn.transform.position = p1SpawnLoc.transform.position;
                     }
                 }
             }
