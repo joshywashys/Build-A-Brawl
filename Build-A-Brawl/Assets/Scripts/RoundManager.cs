@@ -22,7 +22,7 @@ public class RoundManager : MonoBehaviour
         public bool isAlive;
     }
 
-    public int numPlayers;
+    private int numPlayers;
     public List<playerStats> stats;
     public List<CreatureStats> players;
 
@@ -90,6 +90,8 @@ public class RoundManager : MonoBehaviour
 
             selectedMaps = new List<string>();
             selectedMaps = BetaStageSelect.levels;
+
+            numPlayers = checkUsers.playerCount;
 
             /*
             foreach (string str in selectedMaps)
