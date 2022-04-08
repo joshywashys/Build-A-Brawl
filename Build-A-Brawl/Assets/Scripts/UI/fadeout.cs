@@ -18,7 +18,7 @@ public class fadeout : MonoBehaviour
     void Update()
     {
        if (fade > 1){
-          SceneManager.LoadScene("Main Menu", LoadSceneMode.Additive);
+          SceneManager.LoadScene("MM for Jacob", LoadSceneMode.Additive);
        }
     }
 
