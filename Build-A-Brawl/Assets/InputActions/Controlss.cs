@@ -598,6 +598,14 @@ public class @Controlss : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""9ba1d71b-5297-48aa-ad66-c6707d6eb2d4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -703,7 +711,7 @@ public class @Controlss : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""656c28b4-bdf9-4aa5-b1ae-df16943c86c3"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -802,11 +810,22 @@ public class @Controlss : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""57107638-e02c-414d-b3cf-b66bb26c01a5"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""MakeNoise"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0ca3fa31-e327-4c4d-b2e1-dd0595af9105"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -860,6 +879,7 @@ public class @Controlss : IInputActionCollection, IDisposable
         m_Player_Join = m_Player.FindAction("Join", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
         m_Player_MakeNoise = m_Player.FindAction("MakeNoise", throwIfNotFound: true);
+        m_Player_Back = m_Player.FindAction("Back", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1022,6 +1042,7 @@ public class @Controlss : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Join;
     private readonly InputAction m_Player_PauseMenu;
     private readonly InputAction m_Player_MakeNoise;
+    private readonly InputAction m_Player_Back;
     public struct PlayerActions
     {
         private @Controlss m_Wrapper;
@@ -1034,6 +1055,7 @@ public class @Controlss : IInputActionCollection, IDisposable
         public InputAction @Join => m_Wrapper.m_Player_Join;
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
         public InputAction @MakeNoise => m_Wrapper.m_Player_MakeNoise;
+        public InputAction @Back => m_Wrapper.m_Player_Back;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1067,6 +1089,9 @@ public class @Controlss : IInputActionCollection, IDisposable
                 @MakeNoise.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMakeNoise;
                 @MakeNoise.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMakeNoise;
                 @MakeNoise.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMakeNoise;
+                @Back.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
+                @Back.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
+                @Back.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1095,6 +1120,9 @@ public class @Controlss : IInputActionCollection, IDisposable
                 @MakeNoise.started += instance.OnMakeNoise;
                 @MakeNoise.performed += instance.OnMakeNoise;
                 @MakeNoise.canceled += instance.OnMakeNoise;
+                @Back.started += instance.OnBack;
+                @Back.performed += instance.OnBack;
+                @Back.canceled += instance.OnBack;
             }
         }
     }
@@ -1140,5 +1168,6 @@ public class @Controlss : IInputActionCollection, IDisposable
         void OnJoin(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
         void OnMakeNoise(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class ShadowProjector : MonoBehaviour
 {
 	public Transform shadowTransform;
+	public Material shadowDecalMaterial;
 
 	[Header("Shadow Settings")]
 	public float scale = 3.0f;
@@ -11,7 +12,16 @@ public class ShadowProjector : MonoBehaviour
 	[Header("Projection Settings")]
 	public float maxDistance = 1000.0f;
 	public float bufferDistance = 5.0f;
-	
+
+	private MeshRenderer shadowRenderer;
+
+    private void Start()
+    {
+		shadowRenderer = GetComponentInChildren<MeshRenderer>();
+		shadowRenderer.material = new Material(shadowDecalMaterial);
+		shadowTransform = shadowRenderer.transform;
+	}
+
     private void Update()
 	{
 		CastShadow();
@@ -35,4 +45,9 @@ public class ShadowProjector : MonoBehaviour
 		shadowTransform.position = shadowPoint;
 		shadowTransform.localScale = shadowScale;
 	}
+
+	public void SetColour(Color colour)
+    {
+		shadowRenderer.material.SetColor("_PlayerColour", colour);
+    }
 }

@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private CreatureStats statsRef;
 
+
 	[SerializeField] private PhysicMaterial m_slidePhysicMaterial;
 	[SerializeField] private Collider[] m_bodyColliders;
 
@@ -30,15 +31,35 @@ public class PlayerController : MonoBehaviour
 	public Color playerColour;
 	[SerializeField] private MeshRenderer[] m_meshRenderers;
 	[SerializeField] private SkinnedMeshRenderer[] m_skinnedMeshRenderers;
+	[SerializeField] private ShadowProjector m_shadowProjector;
 
+	private bool m_initializedMaterials = false;
 	public void SetPlayerColour(Color colour)
     {
 		playerColour = colour;
+
 		for (int i = 0; i < m_meshRenderers.Length; i++)
+		{
+			if (!m_initializedMaterials)
+			{
+				Material instancedMaterial = new Material(m_meshRenderers[i].material);
+				m_meshRenderers[i].material = instancedMaterial;
+			}
 			m_meshRenderers[i].material.SetColor("_PlayerColour", colour);
-		
+		}
+
 		for (int i = 0; i < m_skinnedMeshRenderers.Length; i++)
+		{
+			if (!m_initializedMaterials)
+			{
+				Material instancedMaterial = new Material(m_skinnedMeshRenderers[i].material);
+				m_skinnedMeshRenderers[i].material = instancedMaterial;
+			}
 			m_skinnedMeshRenderers[i].material.SetColor("_PlayerColour", colour);
+		}
+
+		m_shadowProjector.SetColour(colour);
+		m_initializedMaterials = true;
 	}
 
 	[Header("Player Movement Settings")]
@@ -101,6 +122,8 @@ public class PlayerController : MonoBehaviour
 	{
 		// This is for quick testing please remove this function call later
 		//SetPlayerColour(playerColour);
+		m_meshRenderers = GetComponentsInChildren<MeshRenderer>();
+		m_skinnedMeshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
 
 		// Initialize state
 		m_stateDictionary = new Dictionary<State, UnityAction>
@@ -116,7 +139,7 @@ public class PlayerController : MonoBehaviour
 
 		m_bodyColliders = GetComponents<Collider>();
 
-        statsRef = transform.parent.GetComponent<CreatureStats>();
+        statsRef = transform.GetComponentInChildren<CreatureStats>();
 
         forwardDir = transform.forward;
 
@@ -282,7 +305,7 @@ public class PlayerController : MonoBehaviour
 
 	public void OnNoise(InputAction.CallbackContext context)
 	{
-
+		statsRef.GetComponent<CreatureStats>().MakeNoise();
 	}
 
 	#endregion
