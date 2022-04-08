@@ -5,10 +5,12 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Rigidbody))]
 public class ThrowableObject : MonoBehaviour
 {
+
 	[HideInInspector]
 	public Transform holder;
 	[HideInInspector]
 	public new Rigidbody rigidbody;
+    public bool useStrengthReq = false;
 
 	public new Collider collider;
 	public Transform[] holdPoints;
@@ -25,9 +27,10 @@ public class ThrowableObject : MonoBehaviour
 		m_playerLayer = LayerMask.NameToLayer("Player");
 
 		rigidbody = GetComponent<Rigidbody>();
-		//holdPoints = new Transform[1];
-		//holdPoints[1] = gameObject.transform;
-	}
+        collider = GetComponent<Collider>();
+        //holdPoints = new Transform[1];
+        //holdPoints[1] = gameObject.transform;
+    }
 
 	public void SetGrabbed(bool pickedUp, Transform grabber = null)
 	{

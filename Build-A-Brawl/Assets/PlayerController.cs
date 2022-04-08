@@ -456,7 +456,7 @@ public class PlayerController : MonoBehaviour
 		float closestDistance = Mathf.Infinity;
 		foreach (Collider collider in colliders)
         {
-			if (collider.transform.root != transform.root && collider.TryGetComponent(out ThrowableObject throwable))
+			if (collider.transform.root != transform.root && collider.TryGetComponent(out ThrowableObject throwable) && collider.attachedRigidbody.mass <= statsRef.GetMass())
             {
 				float checkedDistance = Vector3.Distance(collider.transform.position, transform.position);
 				if (checkedDistance < closestDistance)
@@ -466,6 +466,8 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
+
 
 		if (m_heldObject == null || m_heldObject.gameObject == gameObject)
 			return;
