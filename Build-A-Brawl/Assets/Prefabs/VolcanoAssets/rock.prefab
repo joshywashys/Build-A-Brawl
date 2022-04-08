@@ -419,7 +419,7 @@ GameObject:
   - component: {fileID: 6395103278442455554}
   m_Layer: 0
   m_Name: rock
-  m_TagString: meteor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
