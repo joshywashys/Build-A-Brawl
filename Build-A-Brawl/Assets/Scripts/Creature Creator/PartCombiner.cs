@@ -19,6 +19,7 @@ public class PartCombiner : MonoBehaviour
     //Anna
 
     private PlayerConfiguration playerConfigs;
+    private Constants constants;
 
     // Locations/Prefabs for generation
     public Transform creatureContainer;
@@ -163,6 +164,8 @@ public class PartCombiner : MonoBehaviour
             // Create references
             newPlayer = Instantiate(playerPrefab, creatureContainer.transform.position, Quaternion.identity);
             newPlayer.name = "Creature";
+
+
             GameObject body = newPlayer.transform.Find("Body").gameObject;
             RigidbodyController rbc = body.GetComponent<RigidbodyController>();
             PlayerController pc = body.GetComponent<PlayerController>();
@@ -177,6 +180,8 @@ public class PartCombiner : MonoBehaviour
             GameObject savedArmL = creature.transform.GetChild(2).gameObject;
             GameObject savedArmR = creature.transform.GetChild(3).gameObject;
             GameObject savedLegs = creature.transform.GetChild(4).gameObject;
+
+            //newPlayer.transform.position + new Vector3(0, 3, 0)
 
             // Attach creature stats mothership script
             creature.AddComponent<CreatureStats>();
@@ -206,7 +211,15 @@ public class PartCombiner : MonoBehaviour
             rbc.m_floatSpringStrength = 30 * stats.GetMass();
             rbc.m_floatSpringDamper = 4 * stats.GetMass();
             pc.throwForce = stats.strengthThrow;
-                //throwforce in playercontroller 15f reg
+            pc.grabWeight = stats.strengthGrab;
+
+            pc.SetMeshRenderers();
+
+            print(constants.playerColors[0]);
+            if (playerNum == 1) { pc.SetPlayerColour(constants.playerColors[0]); }
+            if (playerNum == 2) { pc.SetPlayerColour(constants.playerColors[1]); }
+            if (playerNum == 3) { pc.SetPlayerColour(constants.playerColors[2]); }
+            if (playerNum == 4) { pc.SetPlayerColour(constants.playerColors[3]); }
 
             if (savedLegs.GetComponent<LegIKRig>() != null) { savedLegs.GetComponent<LegIKRig>().enabled = true; }
             if (savedLegs.GetComponent<Collider>() != null) { savedLegs.GetComponent<Collider>().enabled = false; }
@@ -336,9 +349,6 @@ public class PartCombiner : MonoBehaviour
 
     void Start()
     {
-        //creatureManager = GameObject.Find("CCManager");
-        //creatureManager = GameObject.Find("GameManager");
-
         headIndex = 0;
         torsoIndex = 0;
         armLIndex = 0;
@@ -347,6 +357,8 @@ public class PartCombiner : MonoBehaviour
         InitializeCreatureGeneration();
 
         posOffset = transform.position;
+        constants = FindObjectOfType<Constants>();
+        print(constants);
     }
 
     #endregion
