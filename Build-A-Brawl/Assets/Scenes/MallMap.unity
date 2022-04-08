@@ -2827,6 +2827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 137586986}
   holdPoints: []
   onGrab:
@@ -4739,6 +4740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 284096202}
   holdPoints: []
   onGrab:
@@ -5948,6 +5950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 360603287}
   holdPoints: []
   onGrab:
@@ -7094,6 +7097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 400821467}
   holdPoints: []
   onGrab:
@@ -19426,6 +19430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1010473451}
   holdPoints: []
   onGrab:
@@ -19934,6 +19939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1023204069}
   holdPoints: []
   onGrab:
@@ -26049,6 +26055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1379099834}
   holdPoints: []
   onGrab:
@@ -27696,6 +27703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1458759848}
   holdPoints: []
   onGrab:
@@ -28643,6 +28651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1555144557}
   holdPoints: []
   onGrab:
@@ -29539,6 +29548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1599694879}
   holdPoints: []
   onGrab:
@@ -29831,6 +29841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1604595053}
   holdPoints: []
   onGrab:
@@ -30861,6 +30872,26 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f29fad09f26a434498bae322bc82f657, type: 3}
   - {fileID: 8300000, guid: 034e11dc26185ff4f864d7d63d2b9202, type: 3}
   onDestroyClips: []
+--- !u!114 &1674704290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674704284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b49afed4de99a1e45be46942e7967910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holder: {fileID: 0}
+  rigidbody: {fileID: 0}
+  useStrengthReq: 1
+  collider: {fileID: 0}
+  holdPoints: []
+  onGrab:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1675167698
 GameObject:
   m_ObjectHideFlags: 0
@@ -31794,6 +31825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1760746232}
   holdPoints: []
   onGrab:
@@ -35782,6 +35814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1922617870}
   holdPoints: []
   onGrab:
@@ -38185,6 +38218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 2027017146}
   holdPoints: []
   onGrab:
@@ -39584,6 +39618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 2083082347}
   holdPoints: []
   onGrab:
@@ -40383,6 +40418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 2131074602}
   holdPoints: []
   onGrab:
