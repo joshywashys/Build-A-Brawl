@@ -15,7 +15,7 @@ public class ShadowProjector : MonoBehaviour
 
 	private MeshRenderer shadowRenderer;
 
-    private void Start()
+    private void Awake()
     {
 		shadowRenderer = GetComponentInChildren<MeshRenderer>();
 		shadowRenderer.material = new Material(shadowDecalMaterial);

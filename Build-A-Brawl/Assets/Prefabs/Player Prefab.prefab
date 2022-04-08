@@ -150,7 +150,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 05ec3178eaf4e1c4aabe5f480727f05a, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -474,6 +474,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0340ff7b-7fa4-4ae7-9a75-0cb055573204
     m_ActionName: Player/PauseMenu
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 48aeb5f9-f433-4f84-ab96-c18f3d0f2da5
+    m_ActionName: Player/MakeNoise[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9ba1d71b-5297-48aa-ad66-c6707d6eb2d4
+    m_ActionName: Player/Back
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -562,7 +570,7 @@ MonoBehaviour:
   playerColour: {r: 1, g: 0.8441375, b: 0, a: 0}
   m_meshRenderers: []
   m_skinnedMeshRenderers: []
-  m_shadowProjector: {fileID: 0}
+  m_shadowProjector: {fileID: 8795385716050557601}
   playerSpeed: 12
   jumpHeight: 20
   rotateSpeed: 1
@@ -577,6 +585,7 @@ MonoBehaviour:
   grabOrigin: {x: 0, y: -2, z: 1}
   grabSpringConstant: 160
   throwForce: 15
+  grabWeight: 10
 --- !u!54 &8228551700721319051
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -652,10 +661,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowTransform: {fileID: 556241895580610730}
+  shadowDecalMaterial: {fileID: 2100000, guid: 05ec3178eaf4e1c4aabe5f480727f05a, type: 2}
   scale: 1.5
   maxDistance: 1000
   bufferDistance: 0.5
-  shadowDecalMaterial: {fileID: 2100000, guid: 05ec3178eaf4e1c4aabe5f480727f05a, type: 2}
 --- !u!1 &8871093476895808470
 GameObject:
   m_ObjectHideFlags: 0

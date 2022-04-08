@@ -38,27 +38,33 @@ public class PlayerController : MonoBehaviour
 	private bool m_initializedMaterials = false;
 	public void SetPlayerColour(Color colour)
     {
-		playerColour = colour;
+        playerColour = colour;
 
 		for (int i = 0; i < m_meshRenderers.Length; i++)
-		{
-			if (!m_initializedMaterials)
-			{
-				Material instancedMaterial = new Material(m_meshRenderers[i].material);
-				m_meshRenderers[i].material = instancedMaterial;
-			}
-			m_meshRenderers[i].material.SetColor("_PlayerColour", colour);
-		}
+        {
+            for (int j = 0; j < m_meshRenderers[i].materials.Length; j++)
+            {
+                if (!m_initializedMaterials)
+                {
+                    Material instancedMaterial = new Material(m_meshRenderers[i].materials[j]);
+                    m_meshRenderers[i].materials[j] = instancedMaterial;
+                }
+                m_meshRenderers[i].materials[j].SetColor("_PlayerColour", colour);
+            }
+        }
 
 		for (int i = 0; i < m_skinnedMeshRenderers.Length; i++)
 		{
-			if (!m_initializedMaterials)
-			{
-				Material instancedMaterial = new Material(m_skinnedMeshRenderers[i].material);
-				m_skinnedMeshRenderers[i].material = instancedMaterial;
-			}
-			m_skinnedMeshRenderers[i].material.SetColor("_PlayerColour", colour);
-		}
+            for (int j = 0; j < m_skinnedMeshRenderers[i].materials.Length; j++)
+            {
+                if (!m_initializedMaterials)
+                {
+                    Material instancedMaterial = new Material(m_skinnedMeshRenderers[i].materials[j]);
+                    m_skinnedMeshRenderers[i].materials[j] = instancedMaterial;
+                }
+                m_skinnedMeshRenderers[i].materials[j].SetColor("_PlayerColour", colour);
+            }
+        }
 
 		m_shadowProjector.SetColour(colour);
 		m_initializedMaterials = true;
@@ -114,18 +120,22 @@ public class PlayerController : MonoBehaviour
 	
 	private void Awake()
 	{
-		//Anna start
-		theControls = new Controlss();
+        //Anna start
+        theControls = new Controlss();
 		//inMenu = select.GetComponent<startSelection>().inMenu;
 		//Anna end
 	}
+
+    public void SetMeshRenderers()
+    {
+        m_meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        m_skinnedMeshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+    }
 
 	private void Start()
 	{
 		// This is for quick testing please remove this function call later
 		//SetPlayerColour(playerColour);
-		m_meshRenderers = GetComponentsInChildren<MeshRenderer>();
-		m_skinnedMeshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
 
 		// Initialize state
 		m_stateDictionary = new Dictionary<State, UnityAction>
@@ -440,9 +450,11 @@ public class PlayerController : MonoBehaviour
 	public Vector3 grabBounds;
 	public Vector3 grabOrigin;
 	public float grabSpringConstant = 160.0f;
-	public float throwForce = 15.0f;
+	public float throwForce = 20.0f;
+    public float grabWeight = 10.0f;
 
-	private Coroutine isGrabbing = null;
+
+    private Coroutine isGrabbing = null;
 	private void HandleGrabbingAction()
 	{
 		// If the player is performing any action do not attempt to grab
@@ -458,7 +470,7 @@ public class PlayerController : MonoBehaviour
 		float closestDistance = Mathf.Infinity;
 		foreach (Collider collider in colliders)
         {
-			if (collider.transform.root != transform.root && collider.TryGetComponent(out ThrowableObject throwable))
+			if (collider.transform.root != transform.root && collider.TryGetComponent(out ThrowableObject throwable) && collider.attachedRigidbody.mass <= statsRef.strengthGrab)
             {
 				float checkedDistance = Vector3.Distance(collider.transform.position, transform.position);
 				if (checkedDistance < closestDistance)
@@ -468,6 +480,8 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
+
 
 		if (m_heldObject == null || m_heldObject.gameObject == gameObject)
 			return;
