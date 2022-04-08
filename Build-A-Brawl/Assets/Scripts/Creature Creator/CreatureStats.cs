@@ -72,7 +72,7 @@ public class CreatureStats : MonoBehaviour
     public const float THROW_STRENGTH_BASE = 20;
     public const float GRAB_STRENGTH_BASE = 10;
     public const float MOVE_SPEED_BASE = 60;
-    public const float ROTATE_SPEED_BASE = 10;
+    public const float ROTATE_SPEED_BASE = 8;
     public const float JUMP_HEIGHT_BASE = 100;
     public const float SPRING_CONSTANT_BASE = 80;
     public const float LEG_STRENGTH_BASE = 300;
