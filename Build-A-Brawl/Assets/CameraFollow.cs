@@ -42,7 +42,7 @@ public class CameraFollow : MonoBehaviour
 	float getDistance()
 	{
 		var bounds = new Bounds(players[0].transform.position, Vector3.zero);
-		for (int i = 0; i < players.Count; i++)
+		for (int i = 1; i < players.Count; i++)
 		{
 			//if (players[i].isAlive)
 				bounds.Encapsulate(players[i].transform.position);
@@ -59,7 +59,7 @@ public class CameraFollow : MonoBehaviour
 		}
 
 		var bounds = new Bounds(players[0].transform.position, Vector3.zero);
-		for (int i = 0; i < players.Count; i++)
+		for (int i = 1; i < players.Count; i++)
 		{
 			//if (players[i].isAlive)
 				bounds.Encapsulate(players[i].transform.position);

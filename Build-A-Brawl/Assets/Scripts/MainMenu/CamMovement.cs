@@ -58,26 +58,14 @@ using UnityEngine.Events;
         Debug.Log("This has been called");
             if (mainCamera.transform.position == location5.transform.position) {
 
-                float step = speed * Time.deltaTime;
-                float stepRot = Rotspeed * Time.deltaTime;
-            mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, location2.transform.position, step);
-            mainCamera.transform.rotation = Quaternion.Slerp(mainCamera.transform.rotation, location2.transform.rotation, stepRot);
-            Debug.Log("Trying to change locations");
+            cameraMovement(location2);
 
             } else if (mainCamera.transform.position == location4.transform.position) {
 
-                float step = speed * Time.deltaTime;
-                float stepRot = Rotspeed * Time.deltaTime;
-            mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, location3.transform.position, step);
-            mainCamera.transform.rotation = Quaternion.Slerp(mainCamera.transform.rotation, location3.transform.rotation, stepRot);
-            Debug.Log("Trying to change locations");
+            cameraMovement(location3);
         } else if (mainCamera.transform.position == location3.transform.position) {
 
-                float step = speed * Time.deltaTime;
-                float stepRot = Rotspeed * Time.deltaTime;
-            mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, location2.transform.position, step);
-            mainCamera.transform.rotation = Quaternion.Slerp(mainCamera.transform.rotation, location2.transform.rotation, stepRot);
-        Debug.Log("Trying to change locations");    
+            cameraMovement(location2);
         }
                 else 
             {
