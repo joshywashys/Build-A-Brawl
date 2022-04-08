@@ -286,6 +286,11 @@ public class RoundManager : MonoBehaviour
         currRound += 1;
     }
 
+    public void RestartGame()
+    {
+
+    }
+
     public void Start()
     {
         CreatureStats[] searchList = FindObjectsOfType<CreatureStats>();

@@ -215,7 +215,11 @@ public class PartCombiner : MonoBehaviour
             rbc.m_floatSpringDamper = 4 * stats.GetMass();
             pc.throwForce = stats.strengthThrow;
             pc.grabWeight = stats.strengthGrab;
-            ik.stride.speed = stats.GetMoveSpeed();
+            try
+            {
+                ik.stride.speed = stats.GetMoveSpeed();
+            }
+            catch { }
 
 
             pc.SetMeshRenderers();
