@@ -100,7 +100,7 @@ public class @Controlss : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Back"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""e2ea9384-2682-4a23-88d0-f2886b20f0a9"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -620,7 +620,7 @@ public class @Controlss : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Back"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""9ba1d71b-5297-48aa-ad66-c6707d6eb2d4"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
