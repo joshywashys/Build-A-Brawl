@@ -140,6 +140,8 @@ public class PlayerController : MonoBehaviour
 		m_rigidbody = GetComponent<Rigidbody>();
 
 		m_bodyColliders = GetComponents<Collider>();
+		for (int i = 0; i < m_bodyColliders.Length; i++)
+			m_bodyColliders[i].material = m_slidePhysicMaterial;
 
         statsRef = transform.GetComponentInChildren<CreatureStats>();
 
