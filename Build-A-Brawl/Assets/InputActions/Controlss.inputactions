@@ -585,6 +585,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Back",
+                    "type": "Button",
+                    "id": "9ba1d71b-5297-48aa-ad66-c6707d6eb2d4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -690,7 +698,7 @@
                 {
                     "name": "",
                     "id": "656c28b4-bdf9-4aa5-b1ae-df16943c86c3",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -794,6 +802,17 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "MakeNoise",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0ca3fa31-e327-4c4d-b2e1-dd0595af9105",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

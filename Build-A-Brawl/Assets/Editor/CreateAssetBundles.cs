@@ -6,7 +6,7 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEditorInternal;
 
-public class CreateAssetBundles : IPreprocessBuildWithReport
+public class CreateAssetBundles
 {
 	static Dictionary<string, string> assetBundleNicknames;
 	static List<string> assetBundleIgnoreListGUID;

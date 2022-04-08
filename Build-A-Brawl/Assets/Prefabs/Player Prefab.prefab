@@ -557,11 +557,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pause: {fileID: 0}
   m_slidePhysicMaterial: {fileID: 13400000, guid: 8d81d7e9b38f3cb4db59ad85608f5827, type: 2}
-  m_bodyCollider: {fileID: 0}
+  m_bodyColliders: []
   m_rigs: []
   playerColour: {r: 1, g: 0.8441375, b: 0, a: 0}
   m_meshRenderers: []
   m_skinnedMeshRenderers: []
+  m_shadowProjector: {fileID: 0}
   playerSpeed: 12
   jumpHeight: 20
   rotateSpeed: 1
@@ -576,7 +577,6 @@ MonoBehaviour:
   grabOrigin: {x: 0, y: -2, z: 1}
   grabSpringConstant: 160
   throwForce: 15
-  attackTag: heavyAttack
 --- !u!54 &8228551700721319051
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -655,6 +655,7 @@ MonoBehaviour:
   scale: 1.5
   maxDistance: 1000
   bufferDistance: 0.5
+  shadowDecalMaterial: {fileID: 2100000, guid: 05ec3178eaf4e1c4aabe5f480727f05a, type: 2}
 --- !u!1 &8871093476895808470
 GameObject:
   m_ObjectHideFlags: 0
