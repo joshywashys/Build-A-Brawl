@@ -802,7 +802,7 @@ public class @Controlss : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""57107638-e02c-414d-b3cf-b66bb26c01a5"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",

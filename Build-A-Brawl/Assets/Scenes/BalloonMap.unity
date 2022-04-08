@@ -83690,7 +83690,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 6000
+  far clip plane: 8000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -83772,7 +83772,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   mode: 0
-  offset: {x: 51.93, y: 9, z: 0}
+  offset: {x: 70, y: 13, z: 0}
   smoothTime: 0.5
   minZoom: 69.5
   maxZoom: 25.3
