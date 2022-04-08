@@ -17,8 +17,9 @@ public class fadeout : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (fade > 1){
+       if (fade == 1){
           SceneManager.LoadScene("MM for Jacob", LoadSceneMode.Additive);
+          fade++;
        }
     }
 
