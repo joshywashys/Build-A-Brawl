@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private CreatureStats statsRef;
 
+
 	[SerializeField] private PhysicMaterial m_slidePhysicMaterial;
 	[SerializeField] private Collider[] m_bodyColliders;
 
@@ -116,7 +117,7 @@ public class PlayerController : MonoBehaviour
 
 		m_bodyColliders = GetComponents<Collider>();
 
-        statsRef = transform.parent.GetComponent<CreatureStats>();
+        statsRef = transform.GetComponentInChildren<CreatureStats>();
 
         forwardDir = transform.forward;
 
@@ -282,7 +283,7 @@ public class PlayerController : MonoBehaviour
 
 	public void OnNoise(InputAction.CallbackContext context)
 	{
-
+		statsRef.GetComponent<CreatureStats>().MakeNoise();
 	}
 
 	#endregion
