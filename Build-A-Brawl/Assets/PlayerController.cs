@@ -278,6 +278,10 @@ public class PlayerController : MonoBehaviour
 			OnBack(context);
 		}
 
+		if(context.action.name == theControls.UI.Back.name)
+		{
+			OnBack(context);
+		}
 	}
 
 	//Anna end
@@ -332,16 +336,10 @@ public class PlayerController : MonoBehaviour
 
 	public void OnBack(InputAction.CallbackContext context)
 	{
-		if (inMenu)
-		{
-			Debug.Log("ON back");
-			theMainCamera.GetComponent<CamMovement>().backMove();
+		Debug.Log("Back");
+		theMainCamera.GetComponent<CamMovement>().backMove();
 			//need to also delete player configs in cam move if moving away
 
-		} else
-		{
-			return;
-		}
 	}
 
 	#endregion
