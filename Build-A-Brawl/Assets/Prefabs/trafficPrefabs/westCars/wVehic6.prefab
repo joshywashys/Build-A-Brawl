@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 7340118962381290257}
   m_Layer: 0
   m_Name: wVehic6
-  m_TagString: heavyAttack
+  m_TagString: knockback
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
