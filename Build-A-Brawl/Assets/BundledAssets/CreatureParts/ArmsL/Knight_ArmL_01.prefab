@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonBase: {fileID: 4803347074931302424}
-  partData: {fileID: 11400000, guid: 957315fa5a85615418661540eb8bee62, type: 2}
+  partData: {fileID: 11400000, guid: 01bc5657167149a42b651028b9ccde06, type: 2}
   creature: {fileID: 0}
 --- !u!95 &7000615055704417348
 Animator:

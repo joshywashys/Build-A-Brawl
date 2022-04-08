@@ -1043,6 +1043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 50425316}
   holdPoints: []
   onGrab:
@@ -1891,6 +1892,10 @@ PrefabInstance:
     - target: {fileID: 2413709546759492026, guid: 16243d4db81f20b4b9fc7e2fc80a4a44, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413709546759492027, guid: 16243d4db81f20b4b9fc7e2fc80a4a44, type: 3}
+      propertyPath: m_Mass
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16243d4db81f20b4b9fc7e2fc80a4a44, type: 3}
@@ -3612,6 +3617,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2413709546759492027, guid: 16243d4db81f20b4b9fc7e2fc80a4a44, type: 3}
+      propertyPath: m_Mass
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16243d4db81f20b4b9fc7e2fc80a4a44, type: 3}
 --- !u!65 &115086725 stripped
@@ -5149,15 +5158,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aae3e41dab7009489fd548155ffb8c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
-  - {fileID: 0}
-  - {fileID: 0}
+  players: []
   mode: 0
   offset: {x: 22, y: 28, z: 0}
   smoothTime: 0.5
   minZoom: 69.5
   maxZoom: 25.3
-  zoomLimit: 65
+  zoomLimit: 50
 --- !u!1 &195346282
 GameObject:
   m_ObjectHideFlags: 0
@@ -9232,8 +9239,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336762718}
   m_LocalRotation: {x: -0, y: 0.16139312, z: -0, w: 0.9868902}
-  m_LocalPosition: {x: -24.29, y: 98.58, z: -92.72}
-  m_LocalScale: {x: 0.24204788, y: 2.6836472, z: 0.24204788}
+  m_LocalPosition: {x: -24.368, y: 99.35, z: -92.697}
+  m_LocalScale: {x: 0.32434416, y: 3.5960872, z: 0.32434416}
   m_Children:
   - {fileID: 550636184}
   m_Father: {fileID: 0}
@@ -9253,6 +9260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 336762719}
   holdPoints: []
   onGrab:
@@ -9579,6 +9587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 354789295}
   holdPoints: []
   onGrab:
@@ -23919,6 +23928,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2413709546759492027, guid: 16243d4db81f20b4b9fc7e2fc80a4a44, type: 3}
+      propertyPath: m_Mass
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16243d4db81f20b4b9fc7e2fc80a4a44, type: 3}
 --- !u!65 &830558341 stripped
@@ -28783,6 +28796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1018982421}
   holdPoints: []
   onGrab:
@@ -64205,6 +64219,10 @@ PrefabInstance:
     - target: {fileID: 2413709546759492026, guid: 16243d4db81f20b4b9fc7e2fc80a4a44, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413709546759492027, guid: 16243d4db81f20b4b9fc7e2fc80a4a44, type: 3}
+      propertyPath: m_Mass
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16243d4db81f20b4b9fc7e2fc80a4a44, type: 3}

@@ -181,6 +181,8 @@ public class PartCombiner : MonoBehaviour
             GameObject savedArmR = creature.transform.GetChild(3).gameObject;
             GameObject savedLegs = creature.transform.GetChild(4).gameObject;
 
+            LegIKRig ik = savedLegs.GetComponent<LegIKRig>();
+
             //newPlayer.transform.position + new Vector3(0, 3, 0)
 
             // Attach creature stats mothership script
@@ -199,11 +201,12 @@ public class PartCombiner : MonoBehaviour
             rbc.floatHeight = legsToHips.y * 2 + torsoToHips.y;
             rbc.m_balanceSpringStrength = stats.GetSpringStrengthLegs();
             rbc.m_balanceSpringDamper = stats.GetSpringDamperLegs(); //newPlayer.transform.position + 
-            pc.anchorLeft.localPosition = new Vector3(-0.7f, 0.2f, 1f); //new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y - 0.3f, armLToShoulder.x * 0.5f); //needs fix
-            pc.anchorRight.localPosition = new Vector3(0.7f, 0.2f, 1f); //new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y - 0.3f, -armRToShoulder.x * 0.5f); //needs fix
+            pc.anchorLeft.localPosition = new Vector3(-0.7f, 0.3f, 0.8f); //new Vector3(torsoToShoulderL.x, savedArmL.transform.GetChild(0).transform.position.y - 0.3f, armLToShoulder.x * 0.5f); //needs fix
+            pc.anchorRight.localPosition = new Vector3(0.7f, 0.3f, 0.8f); //new Vector3(torsoToShoulderR.x, savedArmR.transform.GetChild(0).transform.position.y - 0.3f, -armRToShoulder.x * 0.5f); //needs fix
             pc.fistLeftRigidbody.mass *= stats.fistMassMultiplierR;
             pc.fistRightRigidbody.mass *= stats.fistMassMultiplierR;
             pc.attackForce = (stats.GetStrengthArmL() + stats.GetStrengthArmL() / 2);
+            pc.attackSpringConstant = (stats.GetSpringConstantArmL() + stats.GetSpringConstantArmR()) / 2;
             pc.playerSpeed = stats.GetMoveSpeed();
             pc.jumpHeight = stats.GetJumpHeight();
             pc.rotateSpeed = stats.GetRotateSpeed();
@@ -212,6 +215,8 @@ public class PartCombiner : MonoBehaviour
             rbc.m_floatSpringDamper = 4 * stats.GetMass();
             pc.throwForce = stats.strengthThrow;
             pc.grabWeight = stats.strengthGrab;
+            ik.stride.speed = stats.GetMoveSpeed();
+
 
             pc.SetMeshRenderers();
 
@@ -220,6 +225,8 @@ public class PartCombiner : MonoBehaviour
             if (playerNum == 2) { pc.SetPlayerColour(constants.playerColors[1]); }
             if (playerNum == 3) { pc.SetPlayerColour(constants.playerColors[2]); }
             if (playerNum == 4) { pc.SetPlayerColour(constants.playerColors[3]); }
+
+            //ApplyPlayerShadowColour();
 
             if (savedLegs.GetComponent<LegIKRig>() != null) { savedLegs.GetComponent<LegIKRig>().enabled = true; }
             if (savedLegs.GetComponent<Collider>() != null) { savedLegs.GetComponent<Collider>().enabled = false; }

@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour
 	public float smoothTime = 1f;
 	public float minZoom = 40f;
 	public float maxZoom = 10f;
-	public float zoomLimit = 0f;
+	public float zoomLimit = 50f;
 
 	private Vector3 velocity;
 	private Camera cam;
@@ -42,7 +42,7 @@ public class CameraFollow : MonoBehaviour
 	float getDistance()
 	{
 		var bounds = new Bounds(players[0].transform.position, Vector3.zero);
-		for (int i = 0; i < players.Count; i++)
+		for (int i = 1; i < players.Count; i++)
 		{
 			//if (players[i].isAlive)
 				bounds.Encapsulate(players[i].transform.position);
@@ -59,13 +59,13 @@ public class CameraFollow : MonoBehaviour
 		}
 
 		var bounds = new Bounds(players[0].transform.position, Vector3.zero);
-		for (int i = 0; i < players.Count; i++)
+		for (int i = 1; i < players.Count; i++)
 		{
 			//if (players[i].isAlive)
 				bounds.Encapsulate(players[i].transform.position);
 		}
         Vector3 centerPoint = bounds.center;
-        centerPoint.x = 0;
+        centerPoint.x = bounds.extents.x;
 		return centerPoint;
 	}
 

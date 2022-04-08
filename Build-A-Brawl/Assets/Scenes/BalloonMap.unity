@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657993, g: 0.4964143, b: 0.5748183, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657934, g: 0.49641317, b: 0.5748175, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12684,6 +12684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 214860626}
   holdPoints: []
   onGrab:
@@ -13404,6 +13405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 238012780}
   holdPoints: []
   onGrab:
@@ -15008,6 +15010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 357078868}
   holdPoints: []
   onGrab:
@@ -16633,6 +16636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 477829204}
   holdPoints: []
   onGrab:
@@ -42214,6 +42218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 999243032}
   holdPoints: []
   onGrab:
@@ -48043,6 +48048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1034928274}
   holdPoints: []
   onGrab:
@@ -54537,6 +54543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1156379583}
   holdPoints: []
   onGrab:
@@ -67024,6 +67031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1395189546}
   holdPoints: []
   onGrab:
@@ -83768,15 +83776,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aae3e41dab7009489fd548155ffb8c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
-  - {fileID: 0}
-  - {fileID: 0}
+  players: []
   mode: 0
   offset: {x: 70, y: 13, z: 0}
   smoothTime: 0.5
   minZoom: 69.5
   maxZoom: 25.3
-  zoomLimit: 65
+  zoomLimit: 50
 --- !u!82 &1540011758
 AudioSource:
   m_ObjectHideFlags: 0
@@ -97816,6 +97822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1775280683}
   holdPoints: []
   onGrab:
@@ -100040,6 +100047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1871787254}
   holdPoints: []
   onGrab:
@@ -107977,6 +107985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 2059416086}
   holdPoints: []
   onGrab:
@@ -108913,6 +108922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 2079230974}
   holdPoints: []
   onGrab:
