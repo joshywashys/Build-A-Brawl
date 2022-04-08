@@ -20,13 +20,13 @@ public class PlayerController : MonoBehaviour
 	//end of Anna 
 	
 
-    private CreatureStats statsRef;
+	private CreatureStats statsRef;
 
 
 	[SerializeField] private PhysicMaterial m_slidePhysicMaterial;
 	[SerializeField] private Collider[] m_bodyColliders;
 
-    [Header("Animators")]
+	[Header("Animators")]
 	[SerializeField] private PhysicsIKRig[] m_rigs;
 
 	[Header("Player Display Settings")]
@@ -37,46 +37,56 @@ public class PlayerController : MonoBehaviour
 
 	private bool m_initializedMaterials = false;
 	public void SetPlayerColour(Color colour)
-    {
-        playerColour = colour;
+	{
+		playerColour = colour;
 
 		for (int i = 0; i < m_meshRenderers.Length; i++)
-        {
-            for (int j = 0; j < m_meshRenderers[i].materials.Length; j++)
-            {
-                if (!m_initializedMaterials)
-                {
-                    Material instancedMaterial = new Material(m_meshRenderers[i].materials[j]);
-                    m_meshRenderers[i].materials[j] = instancedMaterial;
-                }
-                m_meshRenderers[i].materials[j].SetColor("_PlayerColour", colour);
-            }
-        }
+		{
+			for (int j = 0; j < m_meshRenderers[i].materials.Length; j++)
+			{
+				if (!m_initializedMaterials)
+				{
+					Material instancedMaterial = new Material(m_meshRenderers[i].materials[j]);
+					m_meshRenderers[i].materials[j] = instancedMaterial;
+				}
+				m_meshRenderers[i].materials[j].SetColor("_PlayerColour", colour);
+			}
+		}
 
 		for (int i = 0; i < m_skinnedMeshRenderers.Length; i++)
 		{
-            for (int j = 0; j < m_skinnedMeshRenderers[i].materials.Length; j++)
-            {
-                if (!m_initializedMaterials)
-                {
-                    Material instancedMaterial = new Material(m_skinnedMeshRenderers[i].materials[j]);
-                    m_skinnedMeshRenderers[i].materials[j] = instancedMaterial;
-                }
-                m_skinnedMeshRenderers[i].materials[j].SetColor("_PlayerColour", colour);
-            }
-        }
+			for (int j = 0; j < m_skinnedMeshRenderers[i].materials.Length; j++)
+			{
+				if (!m_initializedMaterials)
+				{
+					Material instancedMaterial = new Material(m_skinnedMeshRenderers[i].materials[j]);
+					m_skinnedMeshRenderers[i].materials[j] = instancedMaterial;
+				}
+				m_skinnedMeshRenderers[i].materials[j].SetColor("_PlayerColour", colour);
+			}
+		}
 
 		m_shadowProjector.SetColour(colour);
 		m_initializedMaterials = true;
 	}
 
+	public void ApplyPlayerShadowColour(Color colour)
+	{
+		m_shadowProjector.SetColour(colour);
+	}
+
+	public void ApplyPlayerShadowColour()
+    {
+		m_shadowProjector.SetColour(playerColour);
+	}
+
 	[Header("Player Movement Settings")]
 	public float playerSpeed = 5.0f;
 	public float jumpHeight = 1.0f;
-    public float rotateSpeed = 1.0f;
+	public float rotateSpeed = 1.0f;
 
-    // States
-    public enum State 
+	// States
+	public enum State 
 	{ 
 		Idle,						// Player is not performing any actions (moving excluded)
 		Attacking, Holding,			// Player is performing an attack action or a grapple action
@@ -120,17 +130,17 @@ public class PlayerController : MonoBehaviour
 	
 	private void Awake()
 	{
-        //Anna start
-        theControls = new Controlss();
+		//Anna start
+		theControls = new Controlss();
 		//inMenu = select.GetComponent<startSelection>().inMenu;
 		//Anna end
 	}
 
-    public void SetMeshRenderers()
-    {
-        m_meshRenderers = GetComponentsInChildren<MeshRenderer>();
-        m_skinnedMeshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
-    }
+	public void SetMeshRenderers()
+	{
+		m_meshRenderers = GetComponentsInChildren<MeshRenderer>();
+		m_skinnedMeshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+	}
 
 	private void Start()
 	{
@@ -153,9 +163,9 @@ public class PlayerController : MonoBehaviour
 		for (int i = 0; i < m_bodyColliders.Length; i++)
 			m_bodyColliders[i].material = m_slidePhysicMaterial;
 
-        statsRef = transform.GetComponentInChildren<CreatureStats>();
+		statsRef = transform.GetComponentInChildren<CreatureStats>();
 
-        forwardDir = transform.forward;
+		forwardDir = transform.forward;
 
 		m_controller.OnGrounded += () => m_controller.useFloat = true;
 
@@ -185,7 +195,7 @@ public class PlayerController : MonoBehaviour
 			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(forwardDir), 5 * rotateSpeed * Time.deltaTime);
 		}
 		else
-        {
+		{
 			// If PhysicsIKRig is in the animated state, activate ragdoll
 			foreach (PhysicsIKRig rig in m_rigs)
 			{
@@ -408,10 +418,10 @@ public class PlayerController : MonoBehaviour
 	}
 
 	private void UpdateRotation(Rigidbody rigidbody)
-    {
+	{
 		Quaternion rot = Quaternion.LookRotation(transform.forward, Vector3.up);
 		rigidbody.rotation = rot;
-    }
+	}
 
 	private IEnumerator Punch(Rigidbody rigidbody, int limb, float recoverTime, float activeTime = 0.0f, bool impulse = true)
 	{
@@ -451,10 +461,10 @@ public class PlayerController : MonoBehaviour
 	public Vector3 grabOrigin;
 	public float grabSpringConstant = 160.0f;
 	public float throwForce = 20.0f;
-    public float grabWeight = 10.0f;
+	public float grabWeight = 10.0f;
 
 
-    private Coroutine isGrabbing = null;
+	private Coroutine isGrabbing = null;
 	private void HandleGrabbingAction()
 	{
 		// If the player is performing any action do not attempt to grab
@@ -469,17 +479,17 @@ public class PlayerController : MonoBehaviour
 
 		float closestDistance = Mathf.Infinity;
 		foreach (Collider collider in colliders)
-        {
+		{
 			if (collider.transform.root != transform.root && collider.TryGetComponent(out ThrowableObject throwable) && collider.attachedRigidbody.mass <= statsRef.strengthGrab)
-            {
+			{
 				float checkedDistance = Vector3.Distance(collider.transform.position, transform.position);
 				if (checkedDistance < closestDistance)
-                {
+				{
 					m_heldObject = throwable;
 					closestDistance = checkedDistance;
-                }
-            }
-        }
+				}
+			}
+		}
 
 
 
@@ -506,8 +516,8 @@ public class PlayerController : MonoBehaviour
 			other.SetState(State.Held);
 			print($"{other.name} : {other.GetState()}");
 		}
-        m_heldObject.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-        m_heldObject.SetGrabbed(true, transform);
+		m_heldObject.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+		m_heldObject.SetGrabbed(true, transform);
 		SetState(State.Holding);
 	}
 
@@ -531,7 +541,7 @@ public class PlayerController : MonoBehaviour
 	}
 
 	private void HandleStunState()
-    {
+	{
 		m_controller.isStunned = true;
 		for (int i = 0; i < m_bodyColliders.Length; i++)
 			m_bodyColliders[i].material = null;
@@ -543,7 +553,7 @@ public class PlayerController : MonoBehaviour
 		float duration = 2.5f; // time in seconds
 		if (isRecoveringFromStun == null)
 			isRecoveringFromStun = StartCoroutine(RecoverFromStun(duration));
-    }
+	}
 
 	private void HandleIdleState()
 	{
@@ -560,22 +570,22 @@ public class PlayerController : MonoBehaviour
 
 	private Coroutine isRecoveringFromStun = null;
 	private IEnumerator RecoverFromStun(float duration)
-    {
+	{
 		yield return new WaitForSeconds(duration);
 		SetState(State.Idle);
 		isRecoveringFromStun = null;
-    }
+	}
 
 	#endregion
 
-    #endregion
+	#endregion
 
-    public void Stun(float duration)
-    {
-        //set state to stunned
-        //waitforsecs
-        //set state to idle
-    }
+	public void Stun(float duration)
+	{
+		//set state to stunned
+		//waitforsecs
+		//set state to idle
+	}
 
 #if UNITY_EDITOR
 	private void OnDrawGizmosSelected()
