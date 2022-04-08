@@ -24012,6 +24012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 963194227}
+  mainCamera: {fileID: 0}
   targetNext: {fileID: 0}
   speed: 30
   Rotspeed: 3
@@ -24035,6 +24036,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  location1: {fileID: 0}
+  location2: {fileID: 0}
+  location3: {fileID: 0}
+  location4: {fileID: 0}
+  location5: {fileID: 0}
+  location6: {fileID: 0}
   targetLocation: {fileID: 0}
 --- !u!114 &963194231
 MonoBehaviour:
@@ -25757,7 +25764,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 0c5d307cb52a89340863f9edf90d1c5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -36333,6 +36340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1449167684}
+  inMenu: 0
 --- !u!1 &1455233238
 GameObject:
   m_ObjectHideFlags: 0
