@@ -226,6 +226,8 @@ public class PartCombiner : MonoBehaviour
             if (playerNum == 3) { pc.SetPlayerColour(constants.playerColors[2]); }
             if (playerNum == 4) { pc.SetPlayerColour(constants.playerColors[3]); }
 
+            //ApplyPlayerShadowColour();
+
             if (savedLegs.GetComponent<LegIKRig>() != null) { savedLegs.GetComponent<LegIKRig>().enabled = true; }
             if (savedLegs.GetComponent<Collider>() != null) { savedLegs.GetComponent<Collider>().enabled = false; }
             //if (savedTorso.GetComponent<Collider>() != null) { savedTorso.GetComponent<Collider>().enabled = false; }

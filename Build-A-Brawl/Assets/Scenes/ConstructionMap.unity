@@ -1043,6 +1043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 50425316}
   holdPoints: []
   onGrab:
@@ -5149,15 +5150,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aae3e41dab7009489fd548155ffb8c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
-  - {fileID: 0}
-  - {fileID: 0}
+  players: []
   mode: 0
   offset: {x: 22, y: 28, z: 0}
   smoothTime: 0.5
   minZoom: 69.5
   maxZoom: 25.3
-  zoomLimit: 65
+  zoomLimit: 50
 --- !u!1 &195346282
 GameObject:
   m_ObjectHideFlags: 0
@@ -9253,6 +9252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 336762719}
   holdPoints: []
   onGrab:
@@ -9579,6 +9579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 354789295}
   holdPoints: []
   onGrab:
@@ -28783,6 +28784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 0}
   rigidbody: {fileID: 0}
+  useStrengthReq: 0
   collider: {fileID: 1018982421}
   holdPoints: []
   onGrab:

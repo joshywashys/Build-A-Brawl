@@ -10217,15 +10217,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aae3e41dab7009489fd548155ffb8c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
-  - {fileID: 0}
-  - {fileID: 0}
+  players: []
   mode: 0
   offset: {x: 51.93, y: 11, z: 0}
   smoothTime: 0.5
   minZoom: 69.5
   maxZoom: 25.3
-  zoomLimit: 65
+  zoomLimit: 50
 --- !u!82 &963194231
 AudioSource:
   m_ObjectHideFlags: 0
