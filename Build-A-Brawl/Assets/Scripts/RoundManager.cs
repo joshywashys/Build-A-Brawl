@@ -27,7 +27,7 @@ public class RoundManager : MonoBehaviour
     public List<playerStats> stats;
     public List<CreatureStats> players;
 
-    #region Main Menu
+    #region Main Menu + Blocks
     [Header("Main Menu")]
     public float waitTime;
     public float onRoundEndWait;
@@ -158,7 +158,16 @@ public class RoundManager : MonoBehaviour
                     int randNum = Random.Range(0, randomMapPool.Count);
                     string temp = randomMapPool[i];
                     randomMapPool[i] = randomMapPool[randNum];
-                    randomMapPool[randNum] = randomMapPool[i];
+                    randomMapPool[randNum] = temp;
+                }
+
+                //add more maps if theres extra
+                if (numRounds > randomMapPool.Count)
+                {
+                    for (int i = 0; i < numRounds - randomMapPool.Count; i++)
+                    {
+                        randomMapPool.Add(randomMapPool[i]);
+                    }
                 }
             }
             if (randomMapPool.Count == 0)

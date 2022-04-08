@@ -287,7 +287,7 @@ public class scoreBoard : MonoBehaviour
                     else if (fourthScoreVal > thirdScoreVal){
                         thirdName.text = fourthNameVal;
                         thirdScore.text = Mathf.Floor((float)fourthScoreVal).ToString();
-                        play2Spawn.transform.position = p4SpawnLoc.transform.position;
+                        play3Spawn.transform.position = p4SpawnLoc.transform.position;
 
                         fourthName.text = thirdNameVal;
                         fourthScore.text = Mathf.Floor((float)thirdScoreVal).ToString();
@@ -512,45 +512,55 @@ public class scoreBoard : MonoBehaviour
                 if (playerNum == rm.players[0].GetPlayerNum())
                 {
                     rbc.gameObject.transform.position = play1Spawn.transform.position;
+                    rbc.gameObject.transform.rotation = play1Spawn.transform.rotation;
                 }
             } else if (rm.stats.Count == 2){
                 if (playerNum == rm.players[0].GetPlayerNum())
                 {
                     rbc.gameObject.transform.position = play1Spawn.transform.position;
+                    rbc.gameObject.transform.rotation = play1Spawn.transform.rotation;
                 }
                 if (playerNum == rm.players[1].GetPlayerNum())
                 {
                     rbc.gameObject.transform.position = play2Spawn.transform.position;
+                    rbc.gameObject.transform.rotation = play2Spawn.transform.rotation;
                 }
             } else if (rm.stats.Count == 3){
                 if (playerNum == rm.players[0].GetPlayerNum())
                 {
                     rbc.gameObject.transform.position = play1Spawn.transform.position;
+                    rbc.gameObject.transform.rotation = play1Spawn.transform.rotation;
                 }
                 if (playerNum == rm.players[1].GetPlayerNum())
                 {
                     rbc.gameObject.transform.position = play2Spawn.transform.position;
+                    rbc.gameObject.transform.rotation = play2Spawn.transform.rotation;
                 }
                 if (playerNum == rm.players[2].GetPlayerNum())
                 {
                     rbc.gameObject.transform.position = play3Spawn.transform.position;
+                    rbc.gameObject.transform.rotation = play3Spawn.transform.rotation;
                 }
             } else if (rm.stats.Count == 4){
                 if (playerNum == rm.players[0].GetPlayerNum())
                 {
                     rbc.gameObject.transform.position = play1Spawn.transform.position;
+                    rbc.gameObject.transform.rotation = play1Spawn.transform.rotation;
                 }
                 if (playerNum == rm.players[1].GetPlayerNum())
                 {
                     rbc.gameObject.transform.position = play2Spawn.transform.position;
+                    rbc.gameObject.transform.rotation = play2Spawn.transform.rotation;
                 }
                 if (playerNum == rm.players[2].GetPlayerNum())
                 {
                     rbc.gameObject.transform.position = play3Spawn.transform.position;
+                    rbc.gameObject.transform.rotation = play3Spawn.transform.rotation;
                 }
                 if (playerNum == rm.players[3].GetPlayerNum())
                 {
                     rbc.gameObject.transform.position = play4Spawn.transform.position;
+                    rbc.gameObject.transform.rotation = play4Spawn.transform.rotation;
                 }
             }
             
