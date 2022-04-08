@@ -3,7 +3,7 @@ CRC: 4198526312
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0f0a90c6a69699a273defee46182253d
+    Hash: 1c77acf2ad75db53d59e641f82728738
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9f4488283832777aac6d71ff4c9b7f55
@@ -58,4 +58,4 @@ Assets:
 - Assets/BundledAssets/CreatureParts/ArmsL/Druid_v4_ArmL.prefab
 - Assets/BundledAssets/CreatureParts/ArmsL/Robot_Arm_v6_Rigged.prefab
 Dependencies:
-- C:/Users/Joshua/Documents/GitHub/Build-A-Brawl/Build-A-Brawl/Assets/StreamingAssets/creatureparts/armsr
+- C:/Users/Anna Scheidl/Documents/GitHub/Build-A-Brawl/Build-A-Brawl/Assets/StreamingAssets/creatureparts/armsr
