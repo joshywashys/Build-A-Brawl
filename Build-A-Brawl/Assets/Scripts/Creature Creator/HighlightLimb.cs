@@ -37,7 +37,7 @@ public class HighlightLimb : MonoBehaviour
 
     public void Update()
     {
-        if (partCombiner.creaturePlayable.transform.GetChild(0) != null)
+        try
         {
             if (limb == Limbs.head)
             {
@@ -68,6 +68,10 @@ public class HighlightLimb : MonoBehaviour
                 focusPos = partCombiner.creaturePlayable.transform.position + partCombiner.newLegs.transform.localPosition;
             }
             arrows.transform.position = focusPos;
+        }
+        catch
+        {
+
         }
     }
 

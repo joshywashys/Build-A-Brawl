@@ -40,6 +40,13 @@ public class BodyPart : MonoBehaviour
             }
         }
 
+        if (gameObject.name == "torso")
+        {
+            JointCollision jcBody = transform.parent.parent.gameObject.AddComponent<JointCollision>();
+            jcBody.bodyPart = gameObject.GetComponent<BodyPart>();
+        }
+        
+
         if (partData != null)
         {
             healthMultiplier = partData.stats.healthMultiplier;
