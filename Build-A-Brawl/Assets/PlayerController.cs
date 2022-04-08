@@ -14,7 +14,9 @@ public class PlayerController : MonoBehaviour
 	public PlayerConfiguration playerConfig;
 	public PauseMenu pause;
 	private Controlss theControls;
-
+	private startSelection select;
+	private bool inMenu;
+	private GameObject theMainCamera;
 	//end of Anna 
 	
 
@@ -114,7 +116,7 @@ public class PlayerController : MonoBehaviour
 	{
 		//Anna start
 		theControls = new Controlss();
-
+		//inMenu = select.GetComponent<startSelection>().inMenu;
 		//Anna end
 	}
 
@@ -144,6 +146,8 @@ public class PlayerController : MonoBehaviour
         forwardDir = transform.forward;
 
 		m_controller.OnGrounded += () => m_controller.useFloat = true;
+
+		theMainCamera = GameObject.Find("Main Camera");
 	}
 
 	void Update()
@@ -256,6 +260,12 @@ public class PlayerController : MonoBehaviour
 		{
 			OnNoise(context);
 		}
+
+		if(context.action.name == theControls.Player.Back.name)
+		{
+			OnBack(context);
+		}
+
 	}
 
 	//Anna end
@@ -306,6 +316,20 @@ public class PlayerController : MonoBehaviour
 	public void OnNoise(InputAction.CallbackContext context)
 	{
 		statsRef.GetComponent<CreatureStats>().MakeNoise();
+	}
+
+	public void OnBack(InputAction.CallbackContext context)
+	{
+		if (inMenu)
+		{
+			Debug.Log("ON back");
+			theMainCamera.GetComponent<CamMovement>().backMove();
+			//need to also delete player configs in cam move if moving away
+
+		} else
+		{
+			return;
+		}
 	}
 
 	#endregion

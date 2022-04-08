@@ -7,12 +7,13 @@ using UnityEngine.EventSystems;
 public class startSelection : MonoBehaviour
 {
     public Button button;
+    [SerializeField] public bool inMenu;
     
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(buttonSelect());
-       
+        inMenu = true;
     }
 
   IEnumerator buttonSelect()

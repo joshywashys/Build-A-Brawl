@@ -8,6 +8,7 @@ using UnityEngine.Events;
     public class CamMovement : MonoBehaviour
     {
         public Camera camera;
+        [SerializeField] public GameObject mainCamera;
         public GameObject targetNext;
         public float speed = 30.0f;
         public float Rotspeed = 3.0f;
@@ -19,7 +20,16 @@ using UnityEngine.Events;
 
         public UnityEvent CameraLocation;
 
-        [SerializeField] public GameObject targetLocation;
+        public GameObject location1;
+        public GameObject location2;
+        public GameObject location3;
+        public GameObject location4;
+        public GameObject location5;
+        public GameObject location6;
+
+
+
+    [SerializeField] public GameObject targetLocation;
 
         // Start is called before the first frame update
         void Start()
@@ -37,10 +47,45 @@ using UnityEngine.Events;
             targetLocation = location;
             nextLocation = true;
         }
-      
+      //main is 2
+      //maps is 3
+      //controls is 5
+      //cc is 4
 
+        public void backMove()
+        {
 
-        
+        Debug.Log("This has been called");
+            if (mainCamera.transform.position == location5.transform.position) {
+
+                float step = speed * Time.deltaTime;
+                float stepRot = Rotspeed * Time.deltaTime;
+            mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, location2.transform.position, step);
+            mainCamera.transform.rotation = Quaternion.Slerp(mainCamera.transform.rotation, location2.transform.rotation, stepRot);
+            Debug.Log("Trying to change locations");
+
+            } else if (mainCamera.transform.position == location4.transform.position) {
+
+                float step = speed * Time.deltaTime;
+                float stepRot = Rotspeed * Time.deltaTime;
+            mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, location3.transform.position, step);
+            mainCamera.transform.rotation = Quaternion.Slerp(mainCamera.transform.rotation, location3.transform.rotation, stepRot);
+            Debug.Log("Trying to change locations");
+        } else if (mainCamera.transform.position == location3.transform.position) {
+
+                float step = speed * Time.deltaTime;
+                float stepRot = Rotspeed * Time.deltaTime;
+            mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, location2.transform.position, step);
+            mainCamera.transform.rotation = Quaternion.Slerp(mainCamera.transform.rotation, location2.transform.rotation, stepRot);
+        Debug.Log("Trying to change locations");    
+        }
+                else 
+            {
+                return;
+            }
+
+    }
+
 
         // Update is called once per frame
         void Update()
