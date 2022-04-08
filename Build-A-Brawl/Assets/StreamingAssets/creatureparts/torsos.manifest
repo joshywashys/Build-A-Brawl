@@ -1,0 +1,50 @@
+ManifestFileVersion: 0
+CRC: 4026920008
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5d8287d9285aff52c8b44ec37625ddcc
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 82f14596f866d4f16995b6eebb79b77a
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 97703ef28157d9f44ac271d94b284f87, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 687eb51301ae97e40beeff04d383a8f1, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/BundledAssets/CreatureParts/Torsos/Druid Body.prefab
+- Assets/BundledAssets/CreatureParts/Torsos/Knight_Torso_02.prefab
+- Assets/BundledAssets/CreatureParts/Torsos/zombieBody.prefab
+- Assets/BundledAssets/CreatureParts/Torsos/clownBodyBound.prefab
+- Assets/BundledAssets/CreatureParts/Torsos/Robot Chest.prefab
+- Assets/BundledAssets/CreatureParts/Torsos/apeBodyBound.prefab
+Dependencies: []
